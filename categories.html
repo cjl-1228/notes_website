@@ -27,15 +27,35 @@
               duration: 1000
             }
           });
+
+          $( "#dialog2" ).dialog({
+            autoOpen: false,
+            show: {
+              effect: "blind",
+              duration: 1000
+            },
+            hide: {
+              effect: "explode",
+              duration: 1000
+            }
+          });
+          
        
           $( "#opener" ).on( "click", function() {
             $( "#dialog" ).dialog( "open" );
+          });
+
+          $( "#opener2" ).on( "click", function() {
+            $( "#dialog2" ).dialog( "open" );
           });
 
           $( "#sub_btn" ).on( "click", function() {
             $( "#dialog" ).dialog( "close" );
           });
 
+          $( "#sub_btn2" ).on( "click", function() {
+            $( "#dialog2" ).dialog( "close" );
+          });
         } );
         
           </script>
@@ -159,7 +179,23 @@
 
                        <td class="tdset2">
                         <ul> 
-                            <a class="liset" href="#"><div class="cat_icontext" style="background-image: url('img/project.png');"></div></a>
+                            <div id="dialog2" title="登入">
+                                <p>請輸入你的帳號及密碼</p>
+
+                                <p>
+                                <label for="username">帳號:</label>
+                                <input type="text" id="username2" name="username" onfocus="this.value=''" >
+                                </p>
+
+                                <p>
+                                <label for="username">密碼:</label>
+                                <input type="password" id="pass2" name="password" onfocus="this.value=''" >
+                                </p>
+
+                                <input id="sub_btn2" type="submit" value="登入" style="margin-left: 40%;" onclick="print2()" >
+                              </div>
+
+                            <a class="liset" id="opener2" href="javascript:Login(this);"><div class="cat_icontext" style="background-image: url('img/project.png');"></div></a>
                             <div style="padding-left:30px ; text-align: left ; width: 100%; ">專題</div>
                         </ul>
                    </td>
