@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何更新GitHub專案｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+    
+        
+        <div class="content">
+            
+            <div id="top" >&nbsp&nbsp</div>
+
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="GitHub.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp如何更新GitHub專案</h2></p>
+
+                
+            </div>
+            <br>
+            <div style=" width: 60%; text-align: left; margin-left: 23%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+                <p>
+                    
+                    <h2 id="1">Bash到你的專案</h2>
+                    如果不知道或忘記如何Bash到專案可參考這篇<a href="upload.html">文章</a><br><br>
+
+                    我在我的專案底下<span style="background-color: yellow;">新增test2.txt</span>以及<span style="background-color: yellow;">修改test.txt</span>的內容<br><br>
+                    <h2 id="2">更新專案</h2>
+                    利用<span style="background-color: yellow;">git status</span>查看出做了哪些變動<br><br>
+                    <img src="img/img12.PNG"><br><br>
+                    
+                    <span style="background-color: yellow;">git diff</span>可查看已有的文件修改了哪些內容<br><br>
+                    我在<span style="background-color: yellow;">test.txt新增了123的文字內容</span><br><br>
+                    <img src="img/img13.PNG"><br><br>
+
+                    再來利用<span style="background-color: yellow;">git add 檔案</span> 將修改或新增的文件add進去<br><br>
+                    如果想全部add進去利用 <span style="background-color: yellow;">git add .</span><br><br>
+                    <img src="img/img14.PNG"><br><br>
+                    
+                    提交文件 <span style="background-color: yellow;">git commit -m "文件說明"</span><br><br>
+                    <img src="img/img15.PNG"><br><br>
+
+                    最後就可以把檔案push上去了 <span style="background-color: yellow;">git push origin master</span><br><br>
+                    <img src="img/img16.PNG"><br><br>
+
+                    <div id ="5">上傳完成之後就可以去GitHub看看你的專案是否有更新了</div>
+                </p>
+
+            </div>     
+                
+        </div>
+        
+    
+</body>
+</html>

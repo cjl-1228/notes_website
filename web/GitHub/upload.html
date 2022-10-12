@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何上傳專案到GitHub｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+    
+        
+        <div class="content">
+            
+            <div id="top" >&nbsp&nbsp</div>
+
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="GitHub.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp如何上傳專案到GitHub</h2></p>
+
+               
+            </div>
+            <br>
+            <div style=" width: 60%; text-align: left; margin-left: 23%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+                <p>
+                    <h2 id="1">新建GitHub倉庫</h2>
+                    沒有註冊過的先去<a href="https://github.com/">官網</a>進行註冊，註冊後按照以下步驟來新建一個GitHub的倉庫。<br><br>
+                    <img  src="img/img1.PNG"><br><br>           
+                    先去到我的倉庫，點選New按鈕來新建一個倉庫<br><br>
+                    <img style="min-width: 400px; width: 100%" src="img/img2.PNG"><br><br>
+                    輸入倉庫名稱後點選創建倉庫<br><br>
+                    <img style="min-width: 400px; width: 100%" src="img/img3.PNG"><br><br>
+                    建立成功後進入到如下頁面，箭頭指的地址複製下來。<br><br>
+                    <img style="min-width: 400px; width: 100%" src="img/img4.PNG"><br><br>
+                </p>
+                <br>
+                <p>
+                    <h2 id="2">安裝Git</h2>
+                    如果沒有安裝過Git的點選連結安裝<a href="https://git-scm.com/downloads">Git</a>已安裝過的可以直接跳到下一步，安裝過程中沒有特殊需求的直接下一步就可以了。<br><br>
+
+                </p>
+                <br>
+                <p>
+                    <h2 id="3">上傳專案</h2>
+                    第一步：先到專案下，有兩種方法到專案下<br><br>
+                    1.直接點選工作列中的Git Bash<br><br>
+                    <img style="min-width: 400px; width: 60%" src="img/img5.png"><br><br>
+                    之後cd到自己專案下<br><br>
+                    2.直接找到專案然後右鍵<span style="background-color: yellow;">Git Bash Here</span><br><br>
+                    第二步：通過<span style="background-color: yellow;">git init</span>命令把這個專案變成一個Git可以管理的倉庫<br><br>
+                    <img style="min-width: 400px; width: 75%" src="img/img6.PNG"><br><br>
+                    之後我們可以發現專案下多了一個<span style="background-color: yellow;">.git</span>檔案目錄<br><br>(如果沒看到，可在檔案總管 -> 檢視 -> 隱藏的項目✔️)<br><br>這個目錄是Git來跟蹤管理版本庫的，沒事千萬不要手動修改這個目錄裡面的檔案，不然改亂了，就把Git倉庫給破壞了。
+                    <br><br>
+                    第三步：用<span style="background-color: yellow;">git add</span>命令告訴Git，把專案下的檔案新增到倉庫<br><br>
+                    <img style="min-width: 400px; width: 75%" src="img/img7.PNG"><br><br>
+                    沒有任何的反應，沒有任何反應才是成功的標誌。為什麼add後面是個.呢，.的意思是將專案下的所有檔案都新增到倉庫中，我們也可以單獨新增一個檔案，直接在add後面寫上單獨的檔名就可以了，當然我們也可以add多次。
+                    <br><br>
+                    第四步：用<span style="background-color: yellow;">git commit</span>命令告訴Git，把檔案提交到倉庫<br><br>
+                    <img style="min-width: 400px; width: 75%" src="img/img8.PNG"><br><br>
+                    <span style="background-color: yellow;">-m</span>後面輸入的是本次提交的說明，可以輸入任意內容，當然最好是有意義的，這樣你就能從歷史記錄裡方便地找到改動記錄。
+
+                    嫌麻煩不想輸入<span style="background-color: yellow;">-m "xxx"</span>行不行？確實這麼做可以這麼做，但是強烈不建議，因為輸入說明對自己對別人閱讀都很重要。
+                    
+                    <br><br><span style="background-color: yellow;">git commit</span>命令執行成功後會告訴你，<span style="background-color: yellow;">1 file changed</span>：1個檔案被改動（我們新新增的readme.txt檔案）；<span style="background-color: yellow;">1 insertions</span>：插入了1行內容（test.txt有兩行內容）。
+                    
+                    <br><br>如果出現以下內容則需要輸入自己的電子信箱和帳密，我已經不用輸入這些了，這張圖是我網路上找來的。<br><br>
+                    <img style="min-width: 400px; width: 75%" src="img/img9.png"><br><br>
+                    按照上面給的程式碼輸入<span style="background-color: yellow;">nane</span>和<span style="background-color: yellow;">email</span>後再次執行<span style="background-color: yellow;">git commit</span>命令。<br><br>
+
+                    第五步：輸入<span style="background-color: yellow;">git remote add origin 自己倉庫地址</span>將本地倉庫關聯到GitHub上<br><br>
+                    <img id="5" style="min-width: 400px; width: 75%" src="img/img10.PNG"><br><br>
+                    然後輸入<span style="background-color: yellow;">git push -u origin master</span>將程式碼上傳到GitHub上。<br><br>
+                    <img style="min-width: 400px; width: 75%" src="img/img11.PNG"><br><br>
+                    執行完後，如果沒有異常，會等待幾秒，然後跳出一個讓你輸入Username和Password 的視窗，你只要輸人github的登入帳號和密碼就行了<br><br>再看看你的GitHub專案有沒有傳上去吧。
+                </p>
+            </div>     
+                
+        </div>
+        
+    
+</body>
+</html>

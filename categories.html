@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分類｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/Login.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="js/login.js"></script>
+    <script>
+          
+        $( function() {
+          $( "#dialog" ).dialog({
+            autoOpen: false,
+            show: {
+              effect: "blind",
+              duration: 1000
+            },
+            hide: {
+              effect: "explode",
+              duration: 1000
+            }
+          });
+       
+          $( "#opener" ).on( "click", function() {
+            $( "#dialog" ).dialog( "open" );
+          });
+
+          $( "#sub_btn" ).on( "click", function() {
+            $( "#dialog" ).dialog( "close" );
+          });
+
+        } );
+        
+          </script>
+
+
+</head>
+<body>
+        <!-- The sidebar -->
+        <div class="sidebar">
+            <p><a href="index.html"><img class ="img" src ="img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+            <a  href="index.html"><img class ="img" src ="img/home.png">&nbsp&nbsp主頁</a>
+            <a   href="archives.html"><img class ="img" src ="img/categories.png">&nbsp&nbsp歸檔</a>
+            <a class="active"  href="categories.html"><img class ="img" src ="img/file.png">&nbsp&nbsp分類</a>
+            <a href="others.html"><img class ="img" src ="img/others.png">&nbsp&nbsp其他</a>
+            <a href="about.html"><img class ="img" src ="img/self.png">&nbsp&nbsp關於我</a>
+        </div>
+        
+        <!-- Page content -->
+        <div class="content">
+            <div style="min-width: 1000px;width: 100%; text-align: center; ">
+                <p><h2>分類</h2></p>
+            </div>
+            <div style="min-width: 650px;  width: 60%; text-align: left; margin-left: 21%;  padding-left: 10px;border-width:2px; " >
+                <table  style="width: 100%;">
+                    <tr >
+                        <td class="tdset2">
+                            <ul> 
+                                <a class="liset" href="web/TOICE/TOEIC.html"><div class="cat_icontext" style="background-image:url('img/eng.png') ;"></div></a>
+                                <div style="padding-left:25px ; text-align: left ; width: 100%; ">TOEIC</div>
+                            </ul>
+                       </td>
+                        <td class="tdset2">
+                            <ul>
+                                <a class="liset" href="web/Linux/Linux.html"><div class="cat_icontext" style="background-image: url('img/linux.png');"></div></a>
+                                <div style="padding-left:28px ; text-align: left ; width: 100%; ">Linux</div>
+                                
+
+                            </ul>
+                        </td>
+                        <td class="tdset2">
+                            <ul>
+                                <a   class="liset" href="web/System Design and Analysis/SDAA.html"><div class="cat_icontext" style=  " background-image:url('img/SystemDesign.png') ;"></div></a>
+                                <div style="padding-left:0px ; text-align: left ; width: 100%; ">系統分析與設計</div>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="tdset2">
+                            <ul> 
+                                <a class="liset" href="web/GitHub/GitHub.html"><div class="cat_icontext" style="background-image: url('img/github.png');"></div></a>
+                                <div style="padding-left:20px ; text-align: left ; width: 100%; ">GitHub</div>
+                            </ul>
+                       </td>
+                       <td class="tdset2">
+                        <ul> 
+                            <a class="liset" href="web/ImageProcess/ImageProcess.html"><div class="cat_icontext" style="background-image: url('img/ip.png');"></div></a>
+                            <div style="padding-left:16px ; text-align: left ; width: 100%; ">影像處理</div>
+                        </ul>
+                       </td>
+                       <td class="tdset2">
+                        <ul> 
+                            <a class="liset" href="web/Python/Python.html"><div class="cat_icontext" style="background-image: url('img/python.png');"></div></a>
+                            <div style="padding-left:22px ; text-align: left ; width: 100%; ">Python</div>
+
+                        </ul>
+                       </td>
+                    </tr>
+
+                    <tr>
+                        <td class="tdset2">
+                            <ul> 
+                                <a class="liset" href="web/Html_CSS_JS/Html_CSS_JS.html"><div class="cat_icontext" style="background-image: url('img/web.png');"></div></a>
+                                <div style="padding-left:0px ; text-align: left ; width: 100%; ">Html/CSS/JS</div>
+    
+                            </ul>
+                           </td>
+
+                        <td class="tdset2">
+                            <ul> 
+                                <div id="dialog" title="登入">
+                                    <p>請輸入你的帳號及密碼</p>
+
+                                    <p>
+                                    <label for="username">帳號:</label>
+                                    <input type="text" id="username" name="username" onfocus="this.value=''" >
+                                    </p>
+
+                                    <p>
+                                    <label for="username">密碼:</label>
+                                    <input type="password" id="pass" name="password" onfocus="this.value=''" >
+                                    </p>
+
+                                    <input id="sub_btn" type="submit" value="登入" style="margin-left: 40%;" onclick="print()" >
+                                  </div>
+
+                                <a class="liset" id="opener" href="javascript:Login(this);"><div class="cat_icontext" style="background-image: url('img/private.png');"></div></a>
+                                <div style="padding-left:22px ; text-align: left ; width: 100%; ">Private</div>
+                            </ul>
+                       </td>
+
+                        <td class="tdset2">
+                            <ul> 
+                                <a class="liset" href="web/Others/Otrhers.html"><div class="cat_icontext" style="background-image: url('img/Others2.png');"></div></a>
+                                <div style="padding-left:21px ; text-align: left ; width: 100%; ">Others</div>
+                            </ul>
+                       </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="tdset2">
+                            <ul> 
+                                <a class="liset" href="#"><div class="cat_icontext" style="background-image: url('img/leetcode.png');"></div></a>
+                                <div style="padding-left:10px ; text-align: left ; width: 100%; ">LeetCode</div>
+                            </ul>
+                       </td>
+
+                       </td>
+                    </tr>
+                </table>
+
+                  
+                   
+
+
+                    
+                
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Install Linux for Beginners｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+    
+        
+        <div class="content">
+            <div id="top" >&nbsp&nbsp</div>
+           
+
+            <div style="width: 100%; text-align: center; ">
+              <p><h2><a href="Linux.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbspHow to Install Linux for Beginners</h2></p>
+
+               
+            </div>
+
+            <div style=" width: 60%; text-align: left; margin-left: 22%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+                
+                  <ol>
+                    <a class="index_link" href="#1"><li >下載Linux的ISO檔案</li></a>
+                    <li>
+                      <a class="index_link" href="#2">製作USB開機隨身碟 & 下載虛擬機</a>
+                      <ul>
+                        <a class="index_link" href="#2-1"><li>製作USB開機隨身碟</li></a>
+                        <a class="index_link" href="#2-2"><li>下載 VirtualBox (免費)</li></a>
+                        <a class="index_link" href="#2-3"><li>下載 VMware (付費)</li></a>
+                      </ul>
+                    </li>
+                    <li>
+                      <a class="index_link" href="#3">安裝系統</a>
+                      <ul>
+                        <a class="index_link" href="#3-1"><li>電腦</li></a>
+                        <a class="index_link" href="#3-2"><li>虛擬機</li></a>
+                      </ul>
+                    </li>
+                    <a class="index_link" href="#4"><li >環境設置</li></a>
+                    <a class="index_link" href="#5"><li >心得</li></a>
+                  </ol>
+
+                  <br>
+
+                  <p>
+                    <h2 id="1">1.下載Linux的ISO檔案</h2>
+                    進入Ubuntu的<a target="_blank" href="https://ubuntu.com/download/desktop">官方網站</a>下載ISO檔案<br><br>選擇右下角Download<br><br>
+                    <img width="80%" src="img/linuxwebsite.PNG">
+                  </p>
+
+                  <br>
+
+                  <p>
+                    <h2 id="2">2.製作USB開機隨身碟&下載虛擬機</h2>
+                    <h3 id="2-1">製作USB開機隨身碟</h3>
+                    準備一隻 <span style="background-color: yellow;">4GB</span> 以上的隨身碟，透過 Rufus 軟體<br><br>
+                    前往 Rufus <a target="_blank" href="https://rufus.ie/zh_TW/">官方網站</a>，並下載 Rufus 軟體<br><br>
+                    <img width="80%" src="img/Rufuswebsite.PNG">
+                    <br><br>
+                    打開 Rufus 軟體，並接上 USB 隨身碟，確認 Rufus 介面上有讀取到你的隨身碟，就可以選擇剛剛所下載的 Ubuntu 安裝檔案，最後按下「執行」按鈕。
+                    <br><br>
+                    <span style="background-color: yellow;">USB 隨身碟上的資料都會清空並刪除(格式化)，如果隨身碟內有重要資料，請記得先備份喔！</span>
+                    <br><br>
+                    <img width="50%" src="img/Rufusui.png">
+                    <br><br>
+                    當 Rufus 製作完成後，確認 USB 隨身碟內有 Ubuntu 安裝的相關檔案。<br><br>
+                    <img width="100%" src="img/dir.PNG">
+                    <br><br>
+                    接著接上隨身碟並開機，開機的時候連續按各廠牌的「開機選單按鍵」，之後選擇相對應的 USB 隨身碟就可以進行隨身碟開機，選擇Ubuntu進入安裝介面
+                    <br><br>
+                    <h3 id="2-2">下載 VirtualBox</h3>
+                    進入VirtualBox<a target="_blank" href="https://www.virtualbox.org/wiki/Downloads">官方網站</a>
+                    <br><br>
+                    選擇對應的平台並下載<br><br>
+                    <img width="100%" src="img/VirtualBoxwebsite.PNG">
+                    <h3 id="2-3">下載 VMware</h3>
+                    進入VMware<a target="_blank" href="https://www.vmware.com/tw/products/workstation-pro/workstation-pro-evaluation.html">官方網站</a>
+                    <br><br>
+                    選擇對應的平台並下載<br><br>
+                    <img width="100%" src="img/VMwarewebsite.PNG">
+                  </p>
+
+                  <br>
+
+                  <p>
+                    <h2 id="3">3.安裝系統</h2>
+                    <h3 id="3-1" >電腦</h3>
+                    接著接上隨身碟並開機，開機的時候連續按各廠牌的「開機選單按鍵」，之後選擇相對應的 USB 隨身碟就可以進行隨身碟開機，選擇Ubuntu進入安裝介面
+                    <br><br>
+                    <h3 id="3-2">虛擬機</h3>
+                    這邊拿VMware做範例，內容大同小異<br><br>
+                    進入VMware -> File -> New Virtual Machine<br><br>
+                    <img width="50%" src="img/VMware1.PNG"><br><br>
+                    這邊選擇Typical (Custom可設置個人化的設定達到一些特別用途的虛擬機)<br><br>
+                    <img width="55%" src="img/VMware2.PNG"><br><br>
+                    下一步 -> 選擇你剛剛下載的ISO檔<br><br>
+                    <img width="55%" src="img/VMware3.PNG"><br><br>
+                    下一步 -> 填寫資料<br><br>
+                    <img width="55%" src="img/VMware4.PNG"><br><br>
+                    下一步 -> 填寫虛擬機名稱(上)與檔案位置(下) <br><br>
+                    <img width="55%" src="img/VMware5.PNG"><br><br>
+                    下一步 -> 配置虛擬機硬碟容量 -> Finish <br><br>
+                    <img width="55%" src="img/VMware6.PNG"><br><br>
+                    看到此畫面表示已經安裝成功了! <br><br>
+                    <img width="55%" src="img/VMware7.PNG"><br><br>
+
+
+                    <p >
+                      <h2 id="4">4.環境設置</h2>
+                      點選Continue<br><br>
+                      <img width="80%" src="img/VMware8.PNG"><br><br>
+                      點選Continue<br><br>
+                      <img width="80%" src="img/VMware9.PNG"><br><br>
+                      上面選項會清除硬碟所有資料並安裝Ubantu<br><br>
+                      下面可自行選擇<br><br>
+                      我這邊是虛擬機所以無資料可以直接選擇第一個選項<br><br>
+                      <img width="80%" src="img/VMware10.PNG"><br><br>
+                      
+                      選擇國家<br><br>
+                      <img width="80%" src="img/VMware11.PNG"><br><br>
+                      
+                      輸入用戶資料<br><br>
+                      <img width="80%" src="img/VMware12.PNG"><br><br>
+                      看到此通知表示系統已經安裝完成，只需重新啟動即可<br><br>
+                      <img width="80%" src="img/VMware13.PNG"><br><br>
+                      這樣就完成了Linux的安裝~!<br><br>
+                      
+                      <p>
+                        <h2 id="5">5.心得</h2>
+                        在大一的時候就有一門Linux的課，那時候也懵懵懂懂沒有仔細聽課，最近在學校上一些資安課的課程還有與姊夫聊到許多軟體開發的工程師都是使用Linux，引發我的好奇心就重溫了Linux，之後也會寫一篇有關為何許多軟體工程師都是選擇Linux。
+                      </p>
+                    </p>
+                  </p>
+            </div>        
+                
+        </div>
+        
+    
+</body>
+</html>

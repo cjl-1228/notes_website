@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>開啟攝影機擷取影像｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+    
+        
+        <div class="content" >
+            
+            <div id="top" >&nbsp&nbsp</div>
+
+ 
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="ImageProcess.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp開啟攝影機擷取影像</h2></p>
+
+                
+            </div>
+
+            <br>
+
+            <div style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+              <p>鏡頭拍攝，當按下ESC鍵時，結束錄影並擷取影像</p>
+              <div style="border-color:#aaaaee;border-width:1px;border-style:solid;padding:10px ; width:98%;  letter-spacing: 1px;background-color:#F5F5F5;">
+<pre>
+    import cv2
+    cap = cv2.VideoCapture(0)
+    
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    out = cv2.VideoWriter('output.avi', fourcc,20,(640,480))
+    
+    while(cap.isOpened()):
+        ret, frame = cap.read()
+        if ret == True:
+            out.write(frame)
+            cv2.imshow('frame', frame)
+            key = cv2.waitKey(1)
+            if key == 27:#ESC
+                break
+        else:
+            break
+    cap.release()
+    out.release()
+    cv2.destroyAllWindows()
+</pre>
+                
+              </div>
+           
+            </div>
+
+
+            
+                
+        </div>
+        
+    
+</body>
+</html>
