@@ -79,7 +79,13 @@
                 month = "9";
             }
             
-            document.myForm.myField.value = "現在時間："+week+" "+year+"/"+month+"/"+day+" "+hour+time;
+            var qq = "上午";
+
+            if (hour>12){
+                hour -=12;
+                qq = "下午";
+            }
+            document.myForm.myField.value = "現在時間："+week+" "+year+"/"+month+"/"+day+" "+qq+hour+time;
             
             setTimeout("showClock()",1000);
         }
@@ -115,7 +121,7 @@
             </p>
             <br>
             <form name="myForm">
-                <input type="text" name="myField" size="50" style="width: 360px; border: 0; outline: none; background-color: rgb(244, 234, 255); font-size: 20px;">
+                <input type="text" name="myField" size="50" style="width: 385px; border: 0; outline: none; background-color: rgb(244, 234, 255); font-size: 20px;">
             </form>
             <br>
             <iframe src="https://calendar.google.com/calendar/embed?src=nptu.cud%40gmail.com&ctz=Asia%2FTaipei" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>            
