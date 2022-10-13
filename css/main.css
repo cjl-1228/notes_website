@@ -156,8 +156,11 @@ body{
     padding-bottom: 5px;
   }
   .trset{
-    background-color: rgb(0, 0, 0,0);
+    background-color: rgb(241, 241, 241);
   }
-  .trset:hover{
+  .trset2{
+    background-color: rgb(0,0,0,0);
+  }
+  .trset2:hover{
     background-color: rgb(241, 241, 241);
  }
