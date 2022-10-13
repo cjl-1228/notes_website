@@ -149,7 +149,15 @@ body{
     width: 30px; 
     padding-bottom: 10px;
   }
+
+
   .tdset4{
     text-align: left; 
     padding-bottom: 5px;
   }
+  .trset{
+    background-color: rgb(0, 0, 0,0);
+  }
+  .trset:hover{
+    background-color: rgb(241, 241, 241);
+ }
