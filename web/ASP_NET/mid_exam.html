@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP.NET期中筆記｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../../css/sidebar.css">
+    <link rel="stylesheet" href="../../../css/main.css">
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../../index.html"><img class ="img" src ="../../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../../index.html"><img class ="img" src ="../../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../../archives.html"><img class ="img" src ="../../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../../others.html"><img class ="img" src ="../../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../../about.html"><img class ="img" src ="../../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+
+        
+        <div class="content">
+            
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="ASP_NET.html"><img style="vertical-align: bottom	;" src="../../../img/Previouspage.png"></a>&nbspASP.NET期中筆記</h2></p>
+            </div>
+            <br>
+            <div style="width: 60%; text-align: left; margin-left: 20%;  padding-left: 10px;border-width:2px;  " >
+             
+                <p>
+                    <ul>
+                        <li>runat="server" 前端與後端連接</li>
+                        <li> if (!IsPostBack) 頁面第一次載入的時候初始化頁面的預設設定</li>
+                        <li>AutoPostBack="TRUE|FALSE" 自動重新整理</li>
+                        <li>protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)<br>
+                            &nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspmybody.Attributes["bgcolor"] = ((DropDownList)sender).SelectedValue;<br>
+                                &nbsp&nbsp&nbsp}<br>
+                            DropDownList1選擇之後更換背景顏色
+                        </li>
+                        <li>void AddOne(ref int n)<br>
+                            &nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspn = n + 1;<br>
+                                &nbsp&nbsp}<br>
+                            引數加上ref為call by reference
+                        </li>
+                        <li>js:document.getElementById('mydiv').innerHTML = "Hello World!"<br>可覆蓋掉重複的字</li>
+                        <li>js:let img = document.createElement("img")<br>
+                            &nbsp&nbsp&nbspimg.src = "poker/" + p + s + ".gif"<br>
+                            &nbsp&nbsp&nbspdocument.body.appendChild(img)<br>
+                            建立圖片物件，給與指定路徑並加入到網頁
+                        </li>
+                        <li>DropDownList1.DataSource = new string[] { "s", "c", "d", "c" };<br>
+                            DropDownList1.DataBind();<br>
+                            RadioButtonList1.DataSource = new string[] { "s", "c", "d", "c" };<br>
+                            RadioButtonList1.DataBind();<br>
+                            利用if (!IsPostBack)來繫結資料並DataBind
+                        </li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+
+                    </ul>
+
+                </p>
+
+            </div>        
+                
+        </div>
+        
+    
+</body>
+</html>
