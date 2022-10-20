@@ -34,51 +34,145 @@
              
                 <p>
                     <ul>
-                        <li>runat="server" 前端與後端連接</li>
-                        <li> if (!IsPostBack) 頁面第一次載入的時候初始化頁面的預設設定</li>
-                        <li>AutoPostBack="TRUE|FALSE" 自動重新整理</li>
+                        <li>runat="server" <span style="background-color: yellow;">前端與後端連接</span></li>
+                        <li> if (!IsPostBack) <span style="background-color: yellow;">頁面第一次載入的時候初始化頁面的預設設定</span></li>
+                        <li>AutoPostBack="TRUE|FALSE" <span style="background-color: yellow;">自動重新整理</span></li>
                         <li>protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)<br>
                             &nbsp&nbsp{<br>
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspmybody.Attributes["bgcolor"] = ((DropDownList)sender).SelectedValue;<br>
                                 &nbsp&nbsp&nbsp}<br>
-                            DropDownList1選擇之後更換背景顏色
+                                <span style="background-color: yellow;">DropDownList1選擇之後更換背景顏色</span>
                         </li>
                         <li>void AddOne(ref int n)<br>
                             &nbsp&nbsp{<br>
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspn = n + 1;<br>
                                 &nbsp&nbsp}<br>
-                            引數加上ref為call by reference
+                                <span style="background-color: yellow;">引數加上ref為call by reference</span>
                         </li>
-                        <li>js:document.getElementById('mydiv').innerHTML = "Hello World!"<br>可覆蓋掉重複的字</li>
+                        <li>js:document.getElementById('mydiv').innerHTML = "Hello World!"<br><span style="background-color: yellow;">可覆蓋掉重複的字</span></li>
                         <li>js:let img = document.createElement("img")<br>
                             &nbsp&nbsp&nbspimg.src = "poker/" + p + s + ".gif"<br>
                             &nbsp&nbsp&nbspdocument.body.appendChild(img)<br>
-                            建立圖片物件，給與指定路徑並加入到網頁
+                            <span style="background-color: yellow;">建立圖片物件，給與指定路徑並加入到網頁</span>
                         </li>
                         <li>DropDownList1.DataSource = new string[] { "s", "c", "d", "c" };<br>
                             DropDownList1.DataBind();<br>
                             RadioButtonList1.DataSource = new string[] { "s", "c", "d", "c" };<br>
                             RadioButtonList1.DataBind();<br>
-                            利用if (!IsPostBack)來繫結資料並DataBind
+                            <span style="background-color: yellow;">繫結資料並DataBind</span>
                         </li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>defaultbutton="Button1"<br><span style="background-color: yellow;">進入頁面直接按Enter可執行Button1</span></li>
+                        <li>defaultfocus="TextBox1"<br><span style="background-color: yellow;">進入頁面可直接在TextBox1輸入</span></li>
+                        <li>onFocus="this.select()"<br><span style="background-color: yellow;">在textbox加入可自動選取文字</span></li>
+                        <li>coverprice = Convert.ToInt32(Regex.Match(cbEng_cover.Text, @"-?\d+").Value);<br>
+                            <span style="background-color: yellow;">可將一串文字裡的數字抓出來並轉換成整數</span><br>
+                        </li>
+                           
+                        <li>&#60asp:FileUpload ID="FileUpload1" runat="server" /><br>&#60asp:HyperLink ID="HyperLink1" runat="server" Visible="False">HyperLink&#60/asp:HyperLink>
+                            <br>
+                            protected void Button1_Click(object sender, EventArgs e)<br>
+                            {<br>
+                                &nbsp&nbspif (FileUpload1.HasFile)<br>
+                                &nbsp&nbsp{<br>
+                                    &nbsp&nbsp&nbsp&nbspFileUpload1.SaveAs(Server.MapPath("uploads/") + FileUpload1.FileName);<br>
+                                    &nbsp&nbsp&nbsp&nbspHyperLink1.Text = FileUpload1.FileName;<br>
+                                    &nbsp&nbsp&nbsp&nbspHyperLink1.NavigateUrl = "uploads/" + FileUpload1.FileName;<br>
+                                    &nbsp&nbsp&nbsp&nbspHyperLink1.Visible = true;<br>
+                                    &nbsp&nbsp }<br>
+                                }<br>
+                                <span style="background-color: yellow;">FileUpload與HyperLink元件實現上傳檔案及顯示檔案內容</span>
+                        </li>
+                        <li>DropDownList ddl = new DropDownList();<br>
+                            Button btn = new Button();<br>
+                            btn.Click += new System.EventHandler(this.ddl_SelectedIndexChanged);<br>
+                            div1.Controls.Add(ddl);<br>
+                            div1.Controls.Add(btn);<br>
+                            protected void ddl_SelectedIndexChanged(object sender, EventArgs e)<br>
+                            {<br>
+                                &nbsp&nbsp&nbsp&nbsp//DropDownList ddl = (DropDownList)sender;<br>
+                                &nbsp&nbsp&nbsp&nbspResponse.Output.Write("You choose {0}", ddl.SelectedValue);<br>
+                            }<br>
+                            <span style="background-color: yellow;">宣告DropDownList與Button物件並加入至div1，ddl_SelectedIndexChanged設置給btn.Click</span>
+
+                        </li>
+                        <li>if (!IsPostBack)<br>
+                            {<br>
+                                &nbsp&nbspstring[] eng = { "heady", "invariably", "illiterate", "lavish", "incessant", "lethal", "incumbent", "lucrative", "indignant", "ludicrous", "inherent", "malicious", "initial", "mock", "integral", "mundane", "intricate", "optional", "invalid", "perennial" };<br>
+                                &nbsp&nbspstring chiString = "飄飄然的, 必定地不變地, 不識字的, 鋪張的奢華的, 不停的, 致命的, 現職的, 可獲利的, 憤憤不平的, 可笑的滑稽的, 固有的, 懷惡意的, 首度的, 煞有其事的, 必須的不可或缺的, 世俗的, 複雜的, 可選擇的, 無效的作廢的, 長期間持續的";<br>
+                                &nbsp&nbspstring[] chi = chiString.Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);<br>
+                                &nbsp&nbspfor (int i = 0; i < eng.Length; i++)<br>
+                                &nbsp&nbsp{<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbspDropDownList1.Items.Add(new ListItem(eng[i], chi[i]));<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbspBulletedList1.Items.Add(new ListItem(eng[i], String.Format("https://tw.dictionary.search.yahoo.com/search?p={0}", eng[i])));<br>
+                    
+                                    &nbsp&nbsp}<br>
+                                    &nbsp&nbsp<span style="background-color: yellow;">DropDownList1.Items.Insert(0, new ListItem("請選擇單字", ""));</span><br>
+
+                            }<br>
+                            <span style="background-color: yellow;">將chiString利用,切割成陣列，再加入DropDownList1& BulletedList1</span><br>
+                            protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)<br>
+                            {<br>
+                                &nbsp&nbsp&nbsp&nbspResponse.Output.Write("{0}的中文{1}", DropDownList1.SelectedItem.Text, DropDownList1.SelectedValue);<br>
+                                &nbsp&nbsp&nbsp&nbspResponse.Redirect(String.Format("https://tw.dictionary.search.yahoo.com/search?p={0}", DropDownList1.SelectedItem.Text));<br>
+                            }<br>
+                            <span style="background-color: yellow;">帶出中文及英文，跳轉頁面</span>
+
+                        </li>
+                        <li><span style="background-color: yellow;">ListBox</span><br>
+                            lbFamiliar.Items[i].Selected<br>
+                            lbUnFamiliar.Items.Add(lbFamiliar.Items[i]);<br>
+                            lbFamiliar.Items.RemoveAt(i);<br>
+                        </li>
+                        <li>Calendar & <a href="https://jqueryui.com/datepicker/">jQuery Datepicker</a></li>
+                        <li>&#60input type="datetime-local" required id ="mydatetime1" runat="server" /><br/>
+                            <span style="background-color: yellow;">將input種類設定為calendar，required必須輸入</span>
+                        </li>
+                        <li>RequiredFieldValidator <span style="background-color: yellow;">確保使用者有輸入資料</span><br>
+                            ControlToValidate="TextBox1" <span style="background-color: yellow;">監控哪個物件</span><br>
+                            Display="Dynamic" <span style="background-color: yellow;">驗證失敗時，驗證訊息的空間會動態新增至頁面</span><br>
+                            ErrorMessage="姓名是必要欄位" <span style="background-color: yellow;">驗證失敗時的錯誤訊息</span><br>
+                            ValidationGroup="first <span style="background-color: yellow;">設定驗證群組</span><br>
+                        </li>
+                        <li>RangeValidator <span style="background-color: yellow;">確保使用者輸入資料在範圍內</span><br>
+                            MaximumValue="120" <span style="background-color: yellow;">最大值(包含)</span><br>
+                            MinimumValue="0" <span style="background-color: yellow;">最小值(包含)</span><br>
+                            Type="Integer" <span style="background-color: yellow;">資料型態</span><br>
+                        </li>
+                        
+                        <li>ValidationSummary <span style="background-color: yellow;">可顯示設定群組之錯誤訊息</span><br>
+                        </li>
+                        <li>RegularExpressionValidator <span style="background-color: yellow;">確保格式正確</span><br>
+                            ValidationExpression <span style="background-color: yellow;">此屬性可調整想對照的格式(e.g. email)</span><br>
+                        </li>
+                        <li>CompareValidator <span style="background-color: yellow;">比較與另外一個物件的值是否相同，例如確認密碼</span><br>
+                            ControlToCompare="TextBox4" <span style="background-color: yellow;">與TextBox4比較值</span><br>
+                        </li>
+                        <li>CustomValidator <span style="background-color: yellow;">使用使用者自己定義的驗證</span><br>
+                            ClientValidationFunction="checkintroduction" <span style="background-color: yellow;">指定自己定義的驗證</span><br>
+                            &#60script><br>
+                                function checkintroduction(sender, args) {<br>
+                                    &nbsp&nbsp&nbsp&nbspif (args.Value.length < 20)<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspargs.IsValid = false <span style="background-color: yellow;">//指出網頁驗證是否成功</span><br>
+                                        &nbsp&nbsp&nbsp&nbsp}<br>
+                                }<br>
+                                &#60/script><br>
+                        </li>
+                        <li>&#60form method="get" action="https://tw.dictionary.search.yahoo.com/search;" accept-charset="utf-8"><br>
+                            &nbsp&nbsp&nbsp&nbsp&#60input type="text" name="p"  required autofocus onclick="this.select()" /><br>
+                            &nbsp&nbsp&nbsp&nbsp&#60input type="submit" /><br>
+                            &#60/form><br>
+                            <span style="background-color: yellow;">html get 英語單字查詢</span>
+                        </li>
+                        <li>&#60asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True"><br>
+                            &nbsp&nbsp&nbsp&nbsp&#60asp:ListItem Value="https://tw.dictionary.search.yahoo.com/search?p=">Yahho&#60/asp:ListItem><br>
+                            &nbsp&nbsp&nbsp&nbsp&#60asp:ListItem Value="https://dictionary.cambridge.org/zht/詞典/英語-漢語-繁體/">Canbridge&#60/asp:ListItem><br>
+                            &#60/asp:DropDownList><br>
+                            protected void Button1_Click(object sender, EventArgs e)<br>
+                            {<br>
+                                &nbsp&nbsp&nbsp&nbspResponse.Redirect(string.Format("{0}{1}", DropDownList1.SelectedValue, TextBox1.Text));<br>
+                            }<br>
+                            <span style="background-color: yellow;">DropDownList可選擇Yahooc或cambridge在輸入單字可跳轉到查詢頁面</span>
+                        </li>
                         <li></li>
                         <li></li>
                         <li></li>
