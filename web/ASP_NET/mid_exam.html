@@ -173,26 +173,64 @@
                             }<br>
                             <span style="background-color: yellow;">DropDownList可選擇Yahooc或cambridge在輸入單字可跳轉到查詢頁面</span>
                         </li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>input autofocus <span style="background-color: yellow;">頁面載入時會自動在輸入框</span></li>
+                        <li>TextBox TextMode="Password" <span style="background-color: yellow;">輸入文字有密碼效果</span></li>
+                        <li><span style="background-color: yellow;">GET 與 POST 的差異</span><br>
+                            <img width="800px" src="img/1.jpg">
+                        </li>
+                        <li>
+                            &#60form id="form1" action="test2.aspx" method="post" runat="server"><br>
+                            &nbsp&nbsp&nbsp&nbsp&#60div><br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&#60asp:Panel ID="Panel1" runat="server"><br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&#60asp:TextBox ID="a" runat="server">&#60/asp:TextBox><br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&#60br /><br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&#60asp:TextBox ID="b" runat="server">&#60/asp:TextBox><br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&#60br /><br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&#60asp:Button ID="Button1" runat="server" Text="Button" /><br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&#60/asp:Panel><br>
+                            &nbsp&nbsp&nbsp&nbsp&#60/div><br>
+                            &#60/form><br>
+                            <span style="background-color: yellow;">利用post方法傳送資料到test2.aspx</span><br>
+                            public partial class test2 : System.Web.UI.Page<br>
+                            {<br>
+                                &nbsp&nbsp&nbsp&nbsp protected void Page_Load(object sender, EventArgs e)<br>
+                                &nbsp&nbsp&nbsp&nbsp {<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspResponse.Output.Write("{0}, {1}", Request["a"], Request["b"]);<br>
+                                    &nbsp&nbsp&nbsp&nbsp }<br>
+                            }<br>
+                            <span style="background-color: yellow;">在text2.aspx獲取值</span>
+                        </li>
+                        <li>HiddenField hf = new HiddenField();<br>
+                            hf.Value = 5.ToString();<br>
+                            hf.ID = "cnt2";<br>
+                            mydiv.Controls.Add(hf);<br>
+                            <span style="background-color: yellow;">HiddenField儲存需要在向伺服器的傳送間保持的值</span><br>
+                        </li>
+                        <li><a href="https://ithelp.ithome.com.tw/articles/10222885"><span style="background-color: yellow;">ASP.NET保存資訊 Application、Session、Cookie、Cache、ViewState的差異</span></a></li>
+                        <li>Session["text"] = text.Text;<br>
+                            Session["selected"] = selected;<br>
+                            <span style="background-color: yellow;">Session可以存放值或整個object</span><br>
+                        </li>
+                        <li>Session["text"]<br>
+                            DropDownList ddl = (DropDownList)Session["selected"];<br>
+                            string selected = ddl.SelectedValue;<br>
+                            <span style="background-color: yellow;">Session獲取值或object</span><br></li>
+                        <li>Response.Redirect("page1.aspx");<br>
+                            <span style="background-color: yellow;">導到page1.aspx頁面</span><br>
+                        </li>
+                        <li>Random r = new Random();<br>
+                            for (int i = cards.Length - 1; i >= 1; i--)<br>
+                            {<br>
+                                &nbsp&nbsp&nbsp&nbspint x = r.Next(i+1);<br>
+                                &nbsp&nbsp&nbsp&nbspif (x != i)<br>
+                                &nbsp&nbsp &nbsp&nbsp{<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbspint tmp = cards[x];<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbspcards[x] = cards[i];<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbspcards[i] = tmp;<br>
+                                    &nbsp&nbsp  &nbsp&nbsp}<br>
+                            }<br>
+                            <span style="background-color: yellow;">洗牌演算法</span><br>
+                        </li>
 
                     </ul>
 
