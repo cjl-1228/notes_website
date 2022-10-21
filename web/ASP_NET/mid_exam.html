@@ -231,6 +231,29 @@
                             }<br>
                             <span style="background-color: yellow;">洗牌演算法</span><br>
                         </li>
+                        <li>for (int i = 0; i < 5; i++)<br>
+                            {<br>
+                                &nbsp&nbsp&nbsp&nbspTextBox tb = new TextBox();<br>
+                                &nbsp&nbsp&nbsp&nbsptb.Width = Unit.Point(5 * 8);<br>
+                                &nbsp&nbsp&nbsp&nbsptb.ID = "user" + i;<br>
+                                &nbsp&nbsp&nbsp&nbspLabel lb1 = new Label();<br>
+                                &nbsp&nbsp&nbsp&nbsplb1.Text = "&#60/br>";<br>
+                                &nbsp&nbsp&nbsp&nbspmydiv.Controls.Add(tb);<br>
+                                &nbsp&nbsp&nbsp&nbspmydiv.Controls.Add(lb1);<br>
+                            }<br>
+                            Button btn = new Button();<br>
+                            btn.Text = "submit";<br>
+                            mydiv.Controls.Add(btn);<br>
+                            <span style="background-color: yellow;">動態產生TextBox與Button</span><br>
+                        </li>
+                        <li>int n2 = Convert.ToInt32(Request["cnt2"]);<br>
+                            int n = Int32.Parse(Literal2.Text);<br>
+                            <span style="background-color: yellow;">string轉int</span><br>
+                        </li>
+                        <li>Literal3.Text =bingo.ToString();<br>
+                            <span style="background-color: yellow;">int轉string</span><br>
+
+                        </li>
 
                     </ul>
 
