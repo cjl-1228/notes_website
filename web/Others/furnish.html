@@ -7,6 +7,23 @@
     <title>電腦硬體裝修丙級 學科｜CJL's Notes WebSite</title>
     <link rel="stylesheet" href="../../css/sidebar.css">
     <link rel="stylesheet" href="../../css/main.css">
+    <script>
+        function one() {
+        //Some code
+
+           document.getElementById("pdfcontrol").src ="file/furnish.pdf"
+        }
+        function two() {
+        //Some code
+
+           document.getElementById("pdfcontrol").src ="file/furnish2.pdf"
+        }
+        function three() {
+        //Some code
+
+           document.getElementById("pdfcontrol").src ="file/furnish3.pdf"
+        }
+    </script>
 </head>
 <body>
     <!-- The sidebar -->
@@ -31,9 +48,18 @@
             </div>
             <br>
             <div style="width: 70%; text-align: left; margin-left: 15%;  padding-left: 10px;border-width:2px;  " >
-                <div style="text-align: center;"><a target="_blank" href="http://onlinetest1-3.slhs.tp.edu.tw/bestcontent.asp?examid=t12000" style="text-align: center; width: 100%;">線上測驗</a></div>
+                <div style="text-align: center;">
+                    <a target="_blank" href="http://onlinetest1-3.slhs.tp.edu.tw/bestcontent.asp?examid=t12000" style="text-align: center; width: 100%;">線上測驗</a>
+                    &nbsp&nbsp
+                    <a href="#" onclick="one()">電腦硬體裝修</a>
+                    &nbsp&nbsp
+                    <a href="#" onclick="two()">資訊類共用科目</a>
+                    &nbsp&nbsp
+                    <a href="#" onclick="three()">共用科目</a>
+                </div>
+
                 <br>
-                <iframe src="file/furnish.pdf" height="1200" width="100%" ></iframe>
+                <iframe id="pdfcontrol" src="file/furnish.pdf" height="1200" width="100%" ></iframe>
 
             </div>           
                 
