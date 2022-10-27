@@ -36,7 +36,7 @@
                     <ul>
                         <li>runat="server" <span style="background-color: yellow;">前端與後端連接</span></li>
                         <li> if (!IsPostBack) <span style="background-color: yellow;">頁面第一次載入的時候初始化頁面的預設設定</span></li>
-                        <li>AutoPostBack="TRUE|FALSE" <span style="background-color: yellow;">自動重新整理</span></li>
+                        <li>AutoPostBack="TRUE|FALSE" <span style="background-color: yellow;">自動重新整理 (e.g. DropDownList選取時直接執行)</span></li>
                         <li>protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)<br>
                             &nbsp&nbsp{<br>
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspmybody.Attributes["bgcolor"] = ((DropDownList)sender).SelectedValue;<br>
