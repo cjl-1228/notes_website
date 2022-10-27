@@ -127,7 +127,11 @@
                         <li>&#60input type="datetime-local" required id ="mydatetime1" runat="server" /><br/>
                             <span style="background-color: yellow;">將input種類設定為calendar，required必須輸入</span>
                         </li>
-                        <li>RequiredFieldValidator <span style="background-color: yellow;">確保使用者有輸入資料</span><br>
+                        <li>&#60appSettings><br>
+                            &nbsp&nbsp&nbsp&#60add key="ValidationSettings:UnobtrusiveValidationMode" value="None" /><br>
+                            &#60/appSettings><br>
+                            <span style="background-color: yellow;">使用以下功能需在Web.config加入上述程式</span><br>
+                            RequiredFieldValidator <span style="background-color: yellow;">確保使用者有輸入資料</span><br>
                             ControlToValidate="TextBox1" <span style="background-color: yellow;">監控哪個物件</span><br>
                             Display="Dynamic" <span style="background-color: yellow;">驗證失敗時，驗證訊息的空間會動態新增至頁面</span><br>
                             ErrorMessage="姓名是必要欄位" <span style="background-color: yellow;">驗證失敗時的錯誤訊息</span><br>
