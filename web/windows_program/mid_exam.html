@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="../../css/sidebar.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+    <style>
+        #im {
+          background-color: yellow;
+        };
+    </style>
 </head>
 <body>
     <!-- The sidebar -->
@@ -34,9 +39,57 @@
             <div style="width: 60%; text-align: left; margin-left: 20%;  padding-left: 10px;border-width:2px;  " >
              
                 <p>
-                    
+                    <h2>資料表欄位的資料型別</h2>
+                    <li>bit：布林</li>
+                    <li>int：整數</li>
+                    <li>float：浮點數</li>
+                    <li>money：貨幣</li>
+                    <li>char(n)：固定長度字串，未填滿自動補上空白(英數字)</li>
+                    <li>varchar(n)：不固定長度字串，儲存多少就佔多少空間(英數字)</li>
+                    <li>nchar(n)：固定長度的Unicode字串，一個字2Bytes，未填滿自動補上空白(非英數以外的字元)</li>
+                    <li>nvarchar(n)：不固定長度的Unicode字串，一個字2Bytes，儲存多少就佔多少空間(非英數以外的字元)</li>
+                    <li>text：不固定長度的字串字串</li>
+                    <li>ntext：不固定長度的Unicode字串</li>
+                    <li>data：日期</li>
+                    <li>datatime：時間</li>
+                    <li>image：二進位資料，存圖片</li>
                 </p>
-
+                <br>
+                <p>
+                    <h2>SQL語法</h2>
+                    <ul>
+                        <li><span id="im">建立外來鍵</span><br>
+                            CONSTRAINT [FK_員工_ToTable] FOREIGN KEY ([部門編號]) REFERENCES [部門]([部門編號])
+                        </li>
+                        <li>找出全部資料<br>SELECT * FROM 員工</li>
+                        <li>特定資料<br>SELECT 員工編號, 電話 FROM 員工</li>
+                        <li>別名<br>SELECT 員工編號 AS 識別編號, 電話 AS 連絡電話 FROM 員工</li>
+                        <li>查詢紀錄筆數，後面加上WITH TIES為相同值也印出<br>SELECT TOP 2 * FROM 員工(前二筆)<br>SELECT TOP 50 PERCENT * FROM 員工(前50%)</li>
+                        <li>加總與平均<br>SELECT 姓名, (測驗1+測驗2) AS 總成績, (測驗1+測驗2)/2 AS 平均 FROM 員工</li>
+                        <li>條件<br>SELECT 姓名, (測驗1+測驗2) AS 總成績, (測驗1+測驗2)/2 AS 平均 FROM 員工 WHERE ((測驗1+測驗2)/2>70 AND 測驗1>90)</li>
+                        <li>如果欄位的值是字串，需加上N，否則會被認為是字串<br>e.g. WHERE 帳號 = N'aaa1123' AND 密碼 = N'bbb321'<br></li>
+                        <li>WHERE配合LIKE進行萬用字元查詢<br>SELECT * FROM 員工 WHERE (地址LIKEN'%北平東路%') </li>
+                        <li>IN找出符合項目的值<br>SELECT * FROM 員工 WHERE 姓名 IN (N'陳杰龍')</li>
+                        <li>ORDER BY排序，加上DESC為大到小，反之小到大<br>SELECT * FROM 員工 ORDER BY 測驗1<br>SELECT * FROM 員工 ORDER BY 測驗2 DESC
+                            <br>                       
+                        </li>
+                        <li><a href="https://vector.cool/mysql-%E5%9C%96%E8%A7%A3-left-join-inner-joinright-join-%E7%9A%84%E5%B7%AE%E7%95%B0%E5%8F%8A%E7%AF%84%E4%BE%8B/">JOIN差異</a><br>
+                            LEFT JOIN：SELECT * FROM 員工 LEFT JOIN 部門 ON 員工.部門編號 = 部門.部門編號
+                        </li>
+                        <li>聚合函數
+                        　　<ul>
+                             <li>SUM</li>
+                             <li>AVG</li>
+                             <li>MAX</li>
+                             <li>MIN</li>
+                             <li>COUNT：SELECT COUNT(*) AS 筆數 FROM 員工 </li>
+                           </ul>
+                        </li>
+                        <li><br></li>
+                        <li><br></li>
+                        <li><br></li>
+                    </ul>
+                </p>
             </div>        
                 
         </div>
