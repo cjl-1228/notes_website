@@ -104,12 +104,102 @@
                                 <li>物件
                                     <ul>
                                         <li>Connection：提供和資料來源的連接功能</li>
+                                        <li>Command：提供執行存取資料庫命令，並傳送資料或修改資料的功能</li>
+                                        <li>DataAdapter：擔任DataSet物件和資料來源的橋樑</li>
+                                        <li>DataReader：透過Command物件執行SQL查詢命令取得資料流</li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </p>
+                <br>
+                <p>
+                    <h2>ADO.NET存取</h2>
+                    using System.Data.SqlClient;<span id="im">引用命名空間</span><br>
+                    SqlConnection cn = new SqlConnection();<span id="im">宣告SqlConnection cn物件</span><br>
+                    cn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;" +<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"AttachDbFilename=|DataDirectory|MyDB.mdf;" +<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"Integrated Security = True";<span id="im">給予資料庫路徑</span><br>
+                    cn.Open(); <span id="im">資料庫開啟</span><br>
+                    cn.Close(); <span id="im">資料庫關閉</span><br>
+                    cn.State == ConnectionState.Closed <span id="im">資料庫狀態為關閉</span><br>
+                    cn.State == ConnectionState.Open    <span id="im">  資料庫狀態為開啟</span><br>
+                    <br><br>
+                    using(SqlConnection cn = new SqlConnection()){<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp...<br>
+                    }<span id="im">當離開using區塊，會自動釋放cn占用的資源</span><br>
+                    <span id="im">使用應用程式組態檔存取資料庫路徑</span><br>專案上右鍵 => 屬性 => 設定<br>
+                    <img width="800px" src="img/1.png"><br>
+                    在程式再加入Properties.Settings.Default.connString<br><br>
+                    <span id="im">建立DataReader物件</span><br> 
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM 員工", cn);<span id="im">先利用SqlCommand將要的資料抓出來</span><br>
+                    SqlDataReader dr = cmd.ExecuteReader();  <span id="im">特過dr物件所提供的方法及屬性即可進行資料的瀏覽</span><br>
+                    <span id="im"> DataReader常用成員</span>
+                    <ul>
+                        <li>FieldCount：有幾個欄位，從0開始</li>
+                        <li>Item[i]：取得第ｉ欄廖</li>
+                        <li>Item["欄位名稱"]：指定欄位名稱的欄位資料</li>
+                        <li>GetName(i)：取得第i欄的欄位名稱，從0開始</li>
+                    </ul>
+                    <br><br>
+                    <span id="im"> DataReader物件讀取資料表資料</span><br>
+                    for (int i = 0; i < dr.FieldCount; i++)<br>
+                    {<br>
+                        &nbsp&nbsp&nbsp&nbsptextBox1.Text += dr.GetName(i) + "\t";<br>
+                    }<br><br>
+                    while (dr.Read())<br>
+                    {<br>
+                        &nbsp&nbsp&nbsp&nbspfor (int i = 0; i < dr.FieldCount; i++){<br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptextBox1.Text += dr[i].ToString() + "\t";<br>
+                            &nbsp&nbsp&nbsp&nbsp}<br>
+                            &nbsp&nbsp&nbsp&nbsptextBox1.Text += "\r\n\r\n";<br>
+                    }<br>
+                    <span id="im">也可以用欄位名稱獲取資料</span><br>
+
+                    textBox1.Text += dr["姓名"].ToString();<br><br>
+                    string searchName = textBox2.Text;<br><br>
+            
+                    string selectCmd = $"SELECT * FROM 員工 WHERE 姓名=N'{searchName}'";<br>
+                    string selectCmd2 = $"SELECT* FROM 員工 WHERE 姓名 Like N'%{searchName}%'";<br><br>
+        
+                    SqlCommand cmd = new SqlCommand(selectCmd2, cn);<br>
+                    SqlDataReader dr = cmd.ExecuteReader();<br>
+                    <span id="im">利用輸入姓名查詢員工</span>
+                </p>
+                <p>
+                    <h2>DataSet物件</h2>
+                    應用程式向資料庫獲取資料時，資料庫會將所擷取的全部資料傳給到DataSet中，<br>此時可以與資料庫中斷連線，更新完再和資料庫連結並更新到資料庫<br>
+                    DataSet ds = new DataSet();<span id="im">建立DataSet物件</span><br><br>
+
+                    SqlDataAdapter daEmployee = new SqlDataAdapter("SELECT * FROM 員工", cn);<span id="im">建立SqlDataAdapter物件，並查詢出來</span><br>
+                    SqlDataAdapter daDeperment = new SqlDataAdapter("SELECT * FROM 部門", cn);<span id="im">建立SqlDataAdapter物件，並查詢出來</span><br><br>
+        
+                    daEmployee.Fill(ds, "員工");<span id="im">Fill方法將查詢結果放到DataSet裡面並命名為員工，產生一個DataTable</span><br>
+                    daDeperment.Fill(ds, "部門");<span id="im">Fill方法將查詢結果放到DataSet裡面並命名為員工，產生一個DataTable</span><br><br>
+        
+                    int n = ds.Tables.Count;<span id="im">獲取這個DataSet裡面有幾個DataTable</span><br><br>
+        
+                    string s = ds.Tables[0].TableName;<span id="im">獲取第一個DataTable的名稱</span><br>
+                    string s2 = ds.Tables[1].TableName;<span id="im">獲取第二個DataTable的名稱</span><br><br>
+        
+                    textBox1.Text = $"DataSet中的DataTable的總數：{n}\r\n\r\n取得第1個的DataTable的表格名稱：{s}\r\n\r\n取得第2個的DataTable的表格名稱：{s2}";<br><br>
+        
+                    dataGridView1.DataSource = ds.Tables["員工"];<span id="im">工具箱裡的DataGridView主要是以表格方式來顯示資料，把DataSet裡的員工DataTable帶給dataGridView1</span><br><br>
+                    
+                    <img src="img/2.png"><br>
+                    <span id="im">利用DataSet裡面的DataTable的Name帶給comboBox的Items</span><br>
+                    dataGridView1.DataSource = ds.Tables[comboBox1.Text];<span id="im">帶給dataGridView1</span><br><br>
+                    <span id="im">Command物件成員ExecuteScalar的用法</span><br>
+                    SqlCommand cmdSum = new SqlCommand("SELECT SUM(薪資) FROM 員工", cn);<br>
+                    lblSum.Text = $"員工資料表薪資加總共{cmdSum.ExecuteScalar().ToString()}";<br>
+                    <span id="im">新增資料</span><br>
+                    SqlCommand cmd = new SqlCommand("INSERT INTO 部門(部門編號, 部門名稱) VALUES (4, N'設計')",cn);<br>
+                    cmd.ExecuteNonQuery();<br>
+
+                </p>
+
+                
             </div>        
                 
         </div>
