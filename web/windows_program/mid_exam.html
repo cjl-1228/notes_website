@@ -85,9 +85,29 @@
                              <li>COUNT：SELECT COUNT(*) AS 筆數 FROM 員工 </li>
                            </ul>
                         </li>
-                        <li><br></li>
-                        <li><br></li>
-                        <li><br></li>
+                        <li>寫入資料<br>SET IDENTITY_INSERT 部門 ON<br>
+
+                            INSERT INTO 部門(部門編號, 部門名稱) VALUES (4, N'設計')</li>
+                        <li>刪除資料<br>DELETE FROM 部門 WHERE 部門編號 = 4</li>
+                        <li>更新資料<br>UPDATE 部門 SET 部門名稱=N'資料庫' WHERE 部門編號 = 6</li>
+                    </ul>
+                </p>
+                <br>
+                <p>
+                    <h2>ADO.NET</h2>
+                    <ul>
+                        <li>ADO.NET是應用程式和資料庫來源之間的溝通橋樑</li>
+                        <li>ADO.NET架構使得資料在處理的同時，不要一直和資料庫連線，而發生一直占用系統資源的現象</li>
+                        <li>ADO.NET架構分成.NET Framework Data Provider(資料來源提供者)和DataSet(資料處理的核心)</li>
+                        <li>.NET Framework Data Provider
+                            <ul>
+                                <li>物件
+                                    <ul>
+                                        <li>Connection：提供和資料來源的連接功能</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </p>
             </div>        
