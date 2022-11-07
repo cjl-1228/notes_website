@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Two Sum｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../../css/sidebar.css">
+    <link rel="stylesheet" href="../../../css/main.css">
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../../index.html"><img class ="img" src ="../../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../../index.html"><img class ="img" src ="../../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../../archives.html"><img class ="img" src ="../../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../../others.html"><img class ="img" src ="../../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../../about.html"><img class ="img" src ="../../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+
+        
+    <div class="content">
+
+            
+        <div style="width: 100%; text-align: center; ">
+            <p><h2><a href="easy.html"><img style="vertical-align: bottom	;" src="../../../img/Previouspage.png"></a>&nbsp1. Two Sum</h2></p>
+
+            
+        </div>
+        <br>
+        <div style="width: 60%; text-align: left; margin-left: 20%;  padding-left: 10px;border-width:2px; " >
+
+            <table    style="width: 100%;">
+
+                <font face="微軟正黑體">	
+                    <font color="#586e75"><h1>Problem<br></h1></font>
+                    <font size="4">
+                    
+                    Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.<br><br>
+                    
+                    You may assume that each input would have exactly one solution, and you may not use the same element twice.<br><br>
+                    
+                    You can return the answer in any order.<br><br>
+                    </font>
+                    </font>
+                    <font face="微軟正黑體">	
+                    <font color="#586e75"><h1>Example1:<br></h1></font></font>
+                    
+                    
+                    <div style=
+                    "border-color:#aaaaee;border-width:1px;border-style:solid;padding:10px ; width:98%;  letter-spacing: 1px;background-color:#F5F5F5;
+                    
+                    ">
+                    <font size="4">
+                    <pre>Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].</pre>
+                    </font></div>
+                    
+                    <font face="微軟正黑體">	<font color="#586e75"><h1>Example2:<br></h1></font></font>
+                    
+                    
+                    <div style=
+                    "border-color:#aaaaee;border-width:1px;border-style:solid;padding:10px ; width:98%;  letter-spacing: 1px;background-color:#F5F5F5;
+                    
+                    ">
+                    <font size="4">
+                    <pre>Input: nums = [3,2,4], target = 6
+Output: [1,2]</pre>
+                    </font></div>
+                    
+                    <font face="微軟正黑體">	<font color="#586e75"><h1>Example3:<br></h1></font></font>
+                    
+                    
+                    <div style=
+                    "border-color:#aaaaee;border-width:1px;border-style:solid;padding:10px ; width:98%;  letter-spacing: 1px;background-color:#F5F5F5;
+                    
+                    ">
+                    <font size="4">
+                    <pre>Input: nums = [3,3], target = 6
+Output: [0,1]</pre>
+                    </font></div>
+                    
+                    <font face="微軟正黑體">	<font color="#586e75"><h1>Code<br></h1></font> </font>
+                    
+                    <div style= "border-color:#aaaaee;border-width:1px;border-style:solid;padding:10px ; width:98%;  letter-spacing: 1px;background-color:#F5F5F5; "> <font size="4"> <pre><code>class Solution(object):                     
+   def twoSum(self, nums, target):                     
+        for i in range(len(nums)):          
+            for j in range(i+1,len(nums)):          
+                if nums[i]+nums[j]==target:          
+                    return i,j</pre></code> </font></div>
+                    
+                    &nbsp
+                    
+                    <div style= "border-color:#aaaaee;border-width:1px;border-style:solid;padding:10px ; width:98%;  letter-spacing: 1px;background-color:#F5F5F5; "> <font size="4"> <pre><code>class Solution(object):
+    def twoSum(self, nums, target):                    
+        h = {}            
+            for i in range(len(nums)):             
+                if target - nums[i] in h.keys():               
+                    return [h[target - nums[i]], i]          
+                else:                
+                    h[nums[i]] = i</pre></code> </font>
+
+
+
+
+
+
+
+
+
+            </table>
+
+
+        </div>        
+            
+    </div>
+        
+    
+</body>
+</html>
