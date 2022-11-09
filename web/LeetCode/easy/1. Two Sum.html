@@ -97,7 +97,7 @@ Output: [0,1]</pre>
                     
                     <div style= "min-width: 650px; border-color:#aaaaee;border-width:1px;border-style:solid;padding:10px ; width:98%;  letter-spacing: 1px;background-color:#F5F5F5; "> <font size="4"> <pre><code>class Solution(object):
     def twoSum(self, nums, target):                    
-        h = {}            
+            h = {}            
             for i in range(len(nums)):             
                 if target - nums[i] in h.keys():               
                     return [h[target - nums[i]], i]          
