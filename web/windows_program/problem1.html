@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>這個資料庫檔案與目前的SQL Server執行個體不相容｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+    <style>
+        #im {
+          background-color: yellow;
+        };
+    </style>
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+
+        
+        <div class="content">
+            
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="windows_program.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp這個資料庫檔案與目前的SQL Server執行個體不相容</h2></p>
+            </div>
+            <br>
+            <div style="width: 60%; text-align: left; margin-left: 20%;  padding-left: 10px;border-width:2px;  " >
+             
+                <p>
+                    當開啟DB或網路上的範例專案時時常會碰到下述的錯誤訊息<br><br>
+                    "這個資料庫檔案與目前的SQL Server執行個體不相容"<br><br>
+                    錯誤視窗為：<br><br>
+                    <img src="https://dotblogsfile.blob.core.windows.net/user/%E8%81%96%E6%97%8F/d9fd050e-f326-4347-b275-3f7a7ac38fa2/1476591856_67987.png"><br><br>
+                    發生這個問題的原因是<br><br>
+
+                    "使用SQL Server Express或的LocalDB的舊版本創建的數據庫文件"導致無法開啟
+
+                    可以參考來源（http://go.microsoft.com/fwlink/?LinkId=235986）
+
+                    如果是使用VS2015環境預設SQL 2016的SQL連接<br><br>
+
+                    如果是使用VS2013環境預設SQL 2014 的SQL連接<br><br>
+
+                    有幾個解決方式<br><br>
+
+                    第一種(會使該MDF無法在舊的LocalDB上開啟,請特別注意)：<br><br>
+
+                    1.伺服器總管->mdf上點右鍵->修改連接<br><br>
+                    <img src="https://dotblogsfile.blob.core.windows.net/user/%E8%81%96%E6%97%8F/d9fd050e-f326-4347-b275-3f7a7ac38fa2/1476592788_15425.PNG"><br><br>
+                    <img src="https://dotblogsfile.blob.core.windows.net/user/%E8%81%96%E6%97%8F/d9fd050e-f326-4347-b275-3f7a7ac38fa2/1476592788_34166.PNG"><br><br>
+                    2.->確定(同時會upgrade a database )<br><br>
+                    <img src="https://dotblogsfile.blob.core.windows.net/user/%E8%81%96%E6%97%8F/d9fd050e-f326-4347-b275-3f7a7ac38fa2/1476592788_48226.PNG"><br><br>
+                    3.出現下圖表示已經修改完成!<br><br>
+                    <img src="https://dotblogsfile.blob.core.windows.net/user/%E8%81%96%E6%97%8F/d9fd050e-f326-4347-b275-3f7a7ac38fa2/1476592982_94797.png"><br><br>
+                    第二種 在建立實體資料模型時選擇：<br><br>
+
+                    直接在實體資料模型建立時選擇新增連接<br><br>
+                    <img src="https://dotblogsfile.blob.core.windows.net/user/%E8%81%96%E6%97%8F/d9fd050e-f326-4347-b275-3f7a7ac38fa2/1476593334_79557.png"><br><br>
+                    即可進行後續EF MODEL的建置<br><br>
+
+ 
+
+                    再不行的話<br><br>
+                    
+                    第三種:手動附加SQL LOCAL端<br><br>
+                    
+                    C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA<br><br>
+                    <img src="https://dotblogsfile.blob.core.windows.net/user/%E8%81%96%E6%97%8F/d9fd050e-f326-4347-b275-3f7a7ac38fa2/1476594322_35484.png"><br><br>
+                    如果出現<br><br>
+
+                    SQL Server 錯誤 5120<br><br>
+                    
+                    表示資料夾權限不足->放到指定的路徑下即可<br><br>
+                    
+                     
+                    
+                    另外使用VS2015 及 AZURE SQL的人可能會遇到特別的情況<br><br>
+                    
+                    打開伺服器總管時,滑鼠會出現一直讀取中的循環圖<br><br>
+                    
+                    至於錯誤原因並沒有在微軟官方找到相關連結<br><br>
+                    
+                    目前推測原因為連結至AZURE SQL時被防火牆拒絕或讀取錯誤導致<br><br>
+                    
+                    斷開電腦的網路在重新整理(或重新開啟VS2015)就可以避免這樣的問題發生<br><br>
+                    
+                    這樣就可以從伺服器總管上點選修改連接<br><br>
+                </p>
+
+                
+            </div>        
+                
+        </div>
+        
+    
+</body>
+</html>
