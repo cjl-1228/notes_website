@@ -37,9 +37,10 @@
             </div>
             <br>
             <div style="width: 60%; text-align: left; margin-left: 20%;  padding-left: 10px;border-width:2px;  " >
-             
+                <img src="img/3.png"><br><br>
                 <p>
-                    <img src="img/3.png"><br><br>
+                    <h3>Insert</h3>
+                    
 
                     SqlConnection cn = new SqlConnection();<br>
                     DataSet ds = new DataSet();<br>
@@ -86,6 +87,12 @@
                         &nbsp&nbsp&nbsp&nbspdaEmployee.Fill(ds, "Product");<br>
                         &nbsp&nbsp&nbsp&nbspdataGridView1.DataSource = ds.Tables["Product"];<br>
                     }<br>
+                </p>
+                <p>
+                    <h3>Retrieve</h3>
+                    byte[] img = (byte[])dr["Photo"];<br>
+                    MemoryStream ms = new MemoryStream(img);<br>
+                    per_userpic.Image = Image.FromStream(ms);<br>
                 </p>
                 
             </div>        
