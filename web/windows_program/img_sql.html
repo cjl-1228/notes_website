@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert and Retrieve Image from SQL Server ｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+    <style>
+        #im {
+          background-color: yellow;
+        };
+    </style>
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+
+        
+        <div class="content">
+            
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="windows_program.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbspInsert and Retrieve Image from SQL Server </h2></p>
+            </div>
+            <br>
+            <div style="width: 60%; text-align: left; margin-left: 20%;  padding-left: 10px;border-width:2px;  " >
+             
+                <p>
+                    <img src="img/3.png"><br><br>
+
+                    SqlConnection cn = new SqlConnection();<br>
+                    DataSet ds = new DataSet();<br>
+                    string imageUrl = null;<br><br>
+
+                    private void Form1_Load(object sender, EventArgs e)<br>
+                    {<br>
+                        &nbsp&nbsp&nbsp&nbspcn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;" +<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp "AttachDbFilename=|DataDirectory|MyDB.mdf;" +<br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"Integrated Security = True";<br>
+                        &nbsp&nbsp&nbsp&nbspcn.Open();<br>
+                        &nbsp&nbsp&nbsp&nbspSqlDataAdapter daEmployee = new SqlDataAdapter("SELECT * FROM Product", cn);<br>
+                        &nbsp&nbsp&nbsp&nbspdaEmployee.Fill(ds, "Product");<br>
+                        &nbsp&nbsp&nbsp&nbspdataGridView1.DataSource = ds.Tables["Product"];<br>
+                    }<br><br>
+
+                    private void select_picture_btn_Click(object sender, EventArgs e)<br>
+                    {<br>
+                        &nbsp&nbsp&nbsp&nbspusing (OpenFileDialog ofd = new OpenFileDialog())<br>
+                        &nbsp&nbsp&nbsp&nbsp{<br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif (ofd.ShowDialog() == DialogResult.OK)<br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspimageUrl = ofd.FileName;<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsppictureBox1.Image = Image.FromFile(ofd.FileName);<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp}<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                    }<br><br>
+
+
+                    private void save_picture_Click(object sender, EventArgs e)<br>
+                    {<br>
+                        &nbsp&nbsp&nbsp&nbspImage img = pictureBox1.Image;<br>
+                        &nbsp&nbsp&nbsp&nbspbyte[] arr;<br>
+                        &nbsp&nbsp&nbsp&nbspImageConverter converter = new ImageConverter();<br>
+                        &nbsp&nbsp&nbsp&nbsparr = (byte[])converter.ConvertTo(img, typeof(byte[]));<br>
+                        &nbsp&nbsp&nbsp&nbspSqlCommand cmd = new SqlCommand("INSERT INTO Product (ProductName, Photo, PhotoUrl) VALUES  <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(@ProductName, @Photo, @PhotoUrl)", cn);<br>
+                        &nbsp&nbsp&nbsp&nbspcmd.Parameters.AddWithValue("@ProductName", textBox1.Text);<br>
+                        &nbsp&nbsp&nbsp&nbspcmd.Parameters.AddWithValue("@Photo", arr);<br>
+                        &nbsp&nbsp&nbsp&nbspcmd.Parameters.AddWithValue("@PhotoUrl", imageUrl);<br>
+                        &nbsp&nbsp&nbsp&nbspcmd.ExecuteNonQuery();<br>
+                        &nbsp&nbsp&nbsp&nbspMessageBox.Show("Product saved");<br>
+                        &nbsp&nbsp&nbsp&nbspDataSet ds = new DataSet();<br>
+                        &nbsp&nbsp&nbsp&nbspSqlDataAdapter daEmployee = new SqlDataAdapter("SELECT * FROM Product", cn);<br>
+                        &nbsp&nbsp&nbsp&nbspdaEmployee.Fill(ds, "Product");<br>
+                        &nbsp&nbsp&nbsp&nbspdataGridView1.DataSource = ds.Tables["Product"];<br>
+                    }<br>
+                </p>
+                
+            </div>        
+                
+        </div>
+        
+    
+</body>
+</html>
