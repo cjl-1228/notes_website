@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP.NET期末筆記｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+    <style>
+      span {
+        background-color: yellow;
+      }</style>
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+
+        
+        <div class="content">
+            
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="ASP_NET.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbspASP.NET期末筆記</h2></p>
+            </div>
+            <br>
+            <div style="width: 60%; text-align: left; margin-left: 20%;  padding-left: 10px;border-width:2px;  " >
+             
+                <p>
+                    <ul>
+                          
+                        <li><span>在asp.net建立資料庫</span><br>專案右鍵 -> 加入 -> 加入新項目 -> SQL Server資料庫</li>
+                        <li><span>Content SSMS</span><br>工具 -> 選項 -> 資料庫工具/資料連接 -> 複製 -> copy到SSMS</li>
+                        <li><span>匯入txt</span><br>SSMS -> 先建立表格 -> 複製貼上</li>
+                        <li><span>匯入csv</span><br>SSMS -> 資料庫名稱右鍵 -> 工作 -> 匯入資料 -> Data source:Flat File Source -> Browse you csv file -><br> next -> Destination: SQL Server Native Client -> next -> change Table name -> 編輯對應 -><br> 更改資料類型(中文: nvarchar) -> next -> finish</li>
+                        <li><span>直接拖拉資料表</span></li>
+                        <li><span>利用網址丟資料</span><br>設定資料來源 -> 下一步 -> 指定資料表或檢視的資料行 -> 可選擇欄位 -> WHERE條件 -><br> 資料行:通訊地址(欄位)  運算子:LIKE  來源:QueryString(從網址列丟資料)  Form(用表單丟資料)  Control(用控制項丟資料)，QueryString欄位:city -> 加入 -> 確定 -> 下一步 -> 測試查詢 -> 高雄市 -> 查詢 -> 完成 -> 網址列: ?city=台北</li>
+                        <li><span>如果看到目錄有app_offline.htm要<span style="background-color: rgb(235, 139, 139);">刪除</span></li>
+                        <li><span>利用DropDownList丟資料</span><br>加入DropDownList，啟用AutoPostBack -> 選擇資料來源 -> 新資料來源 -> SQL資料庫 -> 確定 -> 現有連接字串 -> 下一步 -> 指定自訂SQL陳述式或預存程序 - 下一步 -> SQL陳述式: SELECT DISTINCT LEFT([通訊地址],3) AS city FROM [addresses] -> 完成 -> 針對GridView設定資料來源 -> 更改參數來源: Control， Control ID:DropDownList1， DefaultValue:% -> 下一步 -> 完成</span><br></li>
+                        <li><span>利用RadioButtonList丟資料</span><br>加入RadioButtonList，啟用AutoPostBack -> 選擇資料來源 -> 新資料來源 -> SQL資料庫 -> 確定 -> 現有連接字串 -> 下一步 -> 指定資料表或檢視的資料行: 性別，傳回不重複的資料列(DISTINCT) - 下一步 ->  完成 -> 針對GridView設定資料來源 -> 更改SQL陳述式: AND [性別] = @性別 -> 下一步 -> 性別: 參數來源: Control， Control ID:RadioButtonList1， DefaultValue:% -> 完成</li>
+                        <li><span>匯入Excel File</span><br>SSMS -> 資料庫名稱右鍵 -> 工作 -> 匯入資料 -> Data source:Excel -> Browse you Excel file -> next -> Destination: SQL Server Native Client -> next -> change Table name -> 編輯對應 -><br> 更改資料類型(中文: nvarchar)， Edit SQL:可加入primary key、[id] int not null primary key identity 流水號-> next -> finish</li>
+                        <li><span>需加入主鍵，GridView才會有編輯與刪除</span></li>
+                        <li><span>編輯:在GridView增加UPDATE語法</span><br>update [addresses] set [性別]=@性別, [電話]=@電話, [手機]=@手機, [郵遞    區號]=@郵遞_區號, [通訊地址]=@通訊地址, [email]=@email, [緊急聯絡人        姓名]=@緊急聯絡人_姓名, [    緊急聯絡人                   手機] =@column1, [備註]=@備註 where [sno]=@sno</li>
+                        <li><span>新增:在GridView增加INSERT語法</span><br>insert into  [addresses] 
+                            values(@性別, @電話, @手機, @郵遞_區號, @通訊地址, @email, @緊急聯絡人_姓名, @column1, @備註) 
+                            where [sno]=@sno</li>
+                        <li><span>刪除:在GridView增加DELETE語法</span><br>delete from [addresses] where [sno]=@sno</li>
+                        <li><span>在GridView新增主鍵</span><br>在GridView的aspx裡輸入DateKeyName="sno"</li>
+                        <li><span>在資料繫結後的程序</span><br>RadioButtonList1.Items.Insert(0, new ListItem("All genders", "%"));<br>RadioButtonList1.SelectedIndex = 0;<br>DropDownList1.Items.Insert(0, new ListItem("All cites", "%"));/li>
+                        <li><span>性別需更改成LIKE</span></li>
+                        <li><span>GridView一頁有幾筆資料:PageSize</span></li>
+                        <li><span>加入總共有幾筆資料</span><br>DataView dv = (DataView)SqlDataSource1.Select(new DataSourceSelectArguments());<br>Literal1.Text = "符合上面條件的資料共有: " + dv.Count + " 筆.";</li>
+                        <li><span>TemplateField:可達到制式化、提示</span><br>aspx會有EditItemTemplate(編輯時呈現)、ItemTemplate(一般資料瀏覽呈現)、BoundField<br>在刪除物件底下加入OnClientClick="return confirm('Are you sure?')"</li>
+                        <li><span>GridView頁數位置</span><br>PagerStyle -> HorizontalAlign</li>
+                        <li><span>單字查詢</span><br>選取GridView -> 加入新資料行 -> 欄位類型:HyperLinkField，標題文字:look_up，指定文字:yahoo，從資料欄位取得URL:word，URL格式字串:https://tw.dictionary.search.yahoo.com/search?p={0}</li>
+                        <li><span>下一頁的時候讓網頁自動跑到現在的位置</span><br>aspx最上面加入:MaintainScrollPositionOnPostback ="true"</li>
+                        <li><span>撲克牌產生</span><br>protected void Button1_Click(object sender, EventArgs e)<br>
+                            {<br>
+                                &nbsp&nbsp&nbsp&nbspstring[] shapes = { "s", "h", "d", "c" };<br>
+                                &nbsp&nbsp&nbsp&nbspstring[] points = { "a", "2", "3", "4", "5", "6", "7", "8", "9", "t", "j", "q", "k" };<br>
+                                &nbsp&nbsp&nbsp&nbspstring sql = "insert into [playcards]([shape], [point]) values ";<br>
+                                &nbsp&nbsp&nbsp&nbspfor (int s = 0; s < shapes.Length; s++)<br>
+                                &nbsp&nbsp&nbsp&nbsp{<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp for (int p = 0; p < points.Length; p++)<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{<br>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  string rec;<br>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  if (s == shapes.Length - 1 && p == points.Length - 1)<br>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  {<br>
+                                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp      rec = string.Format($"('{shapes[s]}', '{points[p]}')");<br>
+                                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }<br>
+                                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp else<br>
+                                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  {<br>
+                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp     rec = string.Format($"('{shapes[s]}', '{points[p]}'), ");<br>
+                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp }<br>
+
+                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp sql += rec;<br>
+                                        
+                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp}<br>
+                                                &nbsp&nbsp&nbsp&nbsp }<br>
+                                                &nbsp&nbsp&nbsp&nbsptry<br>
+                                                &nbsp&nbsp&nbsp&nbsp{<br>
+                                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSqlDataSource1.InsertCommand = sql;<br>
+                                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSqlDataSource1.Insert();<br>
+                                                    &nbsp&nbsp&nbsp&nbsp}<br>
+                                                    &nbsp&nbsp&nbsp&nbsp catch(Exception ex)<br>
+                                                    &nbsp&nbsp&nbsp&nbsp {<br>
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp    Response.Output.Write($"Error:{ex.Message}{sql}"  );<br>
+                                                        &nbsp&nbsp&nbsp&nbsp}<br>
+                            }</li>   
+                            <li><span>加入撲克牌圖片</span><br>GridView -> 加入新資料行 -> 欄位類型:、BoundField，標題文字:picture，資料欄位:point，打勾唯讀 -> 編輯資料行 -> picture -> 轉成TemplateField -> 確定 -> 進入aspx -> ItemTemplate改成< asp:Image ID="Label1" runat="server" ImageUrl='<%# "~/poker/"+Eval("point")+Eval("shape")+".gif" %>'></asp:Image>
+                            </li>
+                   
+                   
+                    </ul>
+
+                </p>
+
+            </div>        
+                
+        </div>
+        
+    
+</body>
+</html>
