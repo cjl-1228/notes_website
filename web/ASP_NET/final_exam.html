@@ -100,9 +100,36 @@
                             }</li>   
                             <li><span>加入撲克牌圖片</span><br>GridView -> 加入新資料行 -> 欄位類型:、BoundField，標題文字:picture，資料欄位:point，打勾唯讀 -> 編輯資料行 -> picture -> 轉成TemplateField -> 確定 -> 進入aspx -> ItemTemplate改成< asp:Image ID="Label1" runat="server" ImageUrl='<%# "~/poker/"+Eval("point")+Eval("shape")+".gif" %>'></asp:Image>
                             </li>
-                   
-                   
-                    </ul>
+                            <li><span>更改圖片大小</span>GridView -> 編輯樣板 -> 點選圖片 -> 屬性 -> 修改Width</li>
+                            <li><span>新增刪除按鈕</span><br>使用者提示: OnClientClick: return confirm('This will delete all the data. Are you sure?')<br>SqlDataSource1.DeleteCommand = "DELETE FROM [playcards]";<br>SqlDataSource1.Delete();
+                            <li><span>修改欄位格式(四捨五入)</span>GridView -> 編輯資料行 -> 選取欄位 -> 屬性 -> DataFormatString:{0:F2} -> 兩位小數</li>
+                            </li>
+                            <li><span>建立中文英文資料表</span><br>CREATE TABLE [chinese]<br>(<br>[id] int not null primary key identity,<br>[chinese] nvarchar(500) not null,<br>[english] varchar(500) not null<br>)</li>
+                            <li><span>建立兩個輸入欄位及按鈕</span><br>< input type ="text" id="chinese" runat="server" required="required" /><br />
+                                < input type ="text" id="english" runat="server" required="required" /> < asp:Button ID ="Button1" runat="server" Text ="Insert" OnClick="Button1_Click" /></li>
+                            <li><span>利用兩個textBox跟button輸入資料到Table</span><br>
+                                string ch = chinese.Value;<br>
+                                string en = english.Value;<br>
+                                string sql = $"INSERT INTO [chinese] VALUES (N'{ch}', '{en}')";<br>
+                                try<br>
+                                {<br>
+                                    &nbsp&nbsp&nbsp&nbspSqlDataSource1.InsertCommand = sql;<br>
+                                    &nbsp&nbsp&nbsp&nbspSqlDataSource1.Insert();<br>
+                                }<br>
+                                catch (Exception ex)<br>
+                                {<br>
+                        
+                                    &nbsp&nbsp&nbsp&nbspResponse.Output.Write($"error:{ex.Message}, sql={sql}");<br>
+                                }<br>
+                                chinese.Value = "";<br>
+                                english.Value = "";<br>
+                                chinese.Focus();<br>
+                            </li>    
+                            <li><span>讓GridView編輯刪除不被擠壓</span><br> GridView -> 編輯資料行 -> TemplateField or CommandField -> ItemStyle -> Wrap: False</li>
+                            <li><span>DetailsView</span><br>選擇資料來源 -> SQL資料庫 -> 下一步 -> 對應資料表(keywords) -> 選擇欄位 -> 下一步 -> WHERE條件 -> id = Control，GridView2 -> 加入 -> 下一步 -> 完成<br><span>加入新增刪除</span>:設定資料來源 -> 下一步 -> 進階 -> 產生INSERT...勾選 -> 完成</li>
+                            <li><span>設定欄位寬度</span><br>FieldHeaderStyle -> Wrap:False，Width: 120px</li>
+                            <li><span>增加選取資料行</span><br>加入新資料行 -> CommandField，選取打勾</li>
+                        </ul>
 
                 </p>
 
