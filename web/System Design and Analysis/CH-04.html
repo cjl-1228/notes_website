@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系統分析與設計- 第四章 需求工程｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+    
+        
+        <div class="content">
+            
+            <div id="top" >&nbsp&nbsp</div>
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="SDAA.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp系統分析與設計- 第四章 需求工程</h2></p>
+
+                
+            </div>
+
+            <div style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+                <p>
+                    <h2 >筆記說明</h2>
+                    <div class="dir_page">
+                        此筆記用途在於國立屏東大學資訊管理系大三上系統分析與設計重點整理
+                        <br>並非所有人都適用<br><br>
+
+                        如果有侵犯到版權的問題在聯繫我，再聯絡我，我在移除
+                    </div>          
+                </p>
+                
+                <br>
+
+                <p>
+                    <h2 >系統需求</h2>
+                    <ul>
+                        <li>系統需求(system requirement)是指在一套資訊系統中必須包含的特性或功能，以滿足業務需求以及使用者的實際需要</li>
+                        <li>需求工程
+                            <ul>
+                                <li>蒐集需求：了解(understanding)問題</li>
+                                <li>表示需求：描述(describing)問題</li>
+                                <li>確認與驗證需求：同意(agreeing)問題</li>
+                            </ul>
+                        </li>
+                        <li>需求類型
+                            <ul>
+                                <li>根據不同特性分類，區分為功能性、非功能性</li>
+                            </ul>
+                        </li>
+                        <li>需求的挑戰，不夠精確、同意、拖延</li>
+                    
+                    </ul>     
+                </p>
+                <br>
+                <p><h2 >其他考量</h2>
+                    <ul>
+                         <li>可延展性(scalability)：系統處理未來業務與交易量增加的能力</li>
+                         <li>安全性</li>
+                         <li>總體擁有成本(total cost of ownership, TCO)：直接成本與間接成本</li>
+                    </ul>
+                </p>
+                <br>
+                <p>
+                    <h2 >團隊技巧</h2>
+                    <ul>
+                        <li>聯合應用開發(joint application development, JAD)，頗受歡迎，他將使用者視為實際參與、開發者，需要有一個良好人際關係組長，還有負責記錄討論與決議的組員</li>
+                        <li>JAD 優劣
+                            <ul>
+                                <li>缺點
+                                    <ul>
+                                        <li>與傳統方法相比，JAD 成本高</li>
+                                        <li>規模大，則會比較繁瑣</li>
+                                    </ul>
+                                </li>
+                                <li>優點
+                                    <ul>
+                                        <li>能夠有效參與</li>
+                                        <li>使用者有參與感，更喜歡</li>
+                                        <li>JAD 更容易產生正確系統，提高新系統的投入程度</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>JAD 示意圖<br><img width="800px" src="img/14.PNG"></li>
+                        <li>開會流程<br><img width="700px" src="img/15.PNG"></li>
+                        <li>快速應用開發(rapid application development, RAD)
+                            <ul>
+                                <li>類似於 JAD</li>
+                                <li>開發新的資訊系統</li>
+                                <li>開發方法
+                                    <ul>
+                                        <li>包括與傳統 SDLC(系統生命開發週期)</li>
+                                        <li>減少成本、開發時間</li>
+                                        <li>提升成功機率</li>
+                                        <li>依賴雛型化與使用者涉入</li>
+                                    </ul>
+                                </li>
+                                <li>RAD 示意圖<br><img width="700px" src="img/16.PNG"></li>
+                                <li>RAD 目標<br>
+                                    讓使用者參與系統開發的各個階段，以縮短開發時間與支出</li>
+                                <li>RAD 優劣
+                                    <ul>
+                                        <li>更快、成本更低</li>
+                                        <li>注重系統本身，可能會忽略公司要求</li>
+                                        <li>倉促行事，則會產生問題</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>                
+                    </ul>     
+                </p>
+                <br>
+                <p>
+                    <h2>團隊技巧</h2><h3>快捷法(agile method)，屬於團隊技巧，而非開發</h3>
+                    <ul>
+                        <li>累加方式建構雛形，並根據使用者需求調整</li>
+                        <li>不斷修改、刪除、合併雛形，而完成商品</li>
+                        <li>會隨著先前的雛型而進步</li>
+                        <li>另一種方法為 Scrum
+                            <ul>
+                                <li>心智上的合作</li>
+                                <li>每個團員都要扮演角色，達到有趣與加速生產、明確角色</li>
+                                <li>強調時間、互動、以及可產生交付軟體的團隊式活動</li>
+                            </ul>
+                        </li>
+                        <li>優點
+                            <ul>
+                                <li>彈性、效率快</li>
+                                <li>反覆確認，降低最終錯誤風險</li>
+                            </ul>
+                        </li>
+                        <li>缺點
+                            <ul>
+                                <li>團隊人員需要良好溝通技巧</li>
+                                <li>缺乏結構化與文件紀錄則容易導致風險</li>
+                                <li>專案範疇也可能因為使用者需求的變化而變動</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    <h2>蒐集需求</h2>
+                    <ul>
+                        <li>使用需求獲取(requirement elicitation)或實情調查(fact-finding)
+                            <ul>
+                                <li>需求獲取，獲得顆戶德需求</li>
+                                <li>實情調查，根據現實層面進行分析</li>
+                            </ul>
+                        </li>
+                        <li>示意圖<br><img width="700px" src="img/17.PNG"></li>
+                        <li>step1 決定訪談對象
+                            <ul>
+                                <li>選擇正確的人且問題扎實，考慮來自正式和非正式結構(informal structure)中的人員</li>
+                                <li>確認群組或個人訪談</li>
+                            </ul>
+                        </li>
+                        <li>step2 建立訪談目標
+                            <ul>
+                                <li>決定討論的問題範圍</li>
+                                <li>了解事項</li>
+                            </ul>
+                        </li>
+                        <li>step3 設計訪談問題
+                            <ul>
+                                <li>對訪談的問題進行標準化可以讓訪談有所依循，也避免節外生枝</li>
+                                <li>避免導引式問題(leading questions)，有意或無意暗示訪談者說出某個答案
+                                    <ul>
+                                        <li>開放式問題(open-ended questions)可以讓受訪者不拘形式的回答，沒有固定的標準答案</li>
+                                        <li>封閉式問題(closed-ended questions)會限制受訪者的回答，在需要特定資訊或查證事實時使用</li>
+                                        <li>範圍式問題(range-of-response questions)也是一種封閉式問題，它可讓受訪者從一組既定答案中或某個數值範圍選擇解答</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>step4 準備訪談
+                            <ul>
+                                <li>不能閒聊，非常重要</li>
+                                <li>一個小時內完成</li>
+                                <li>將主題提前送給受訪者</li>
+                            </ul>
+                        </li>
+                        <li>step5 執行訪談
+                            <ul>
+                                <li>會議擬訂計畫</li>
+                                <li>進行訪談時先自我介紹、描述專案內容</li>
+                                <li>專注傾聽(engaged listening)</li>
+                                <li>給對方思考</li>
+                                <li>彙整資料，並告訴對方我們為甚麼需要</li>
+                            </ul>
+                        </li>
+                        <li>step6 記錄訪談
+                            <ul>
+                                <li>可以發感謝卡，並做筆記</li>
+                            </ul>
+                        </li>
+                        <li>step7 評量訪談
+                            <ul>
+                                <li>檢討自己與對方</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <br>
+                <p>
+                    <h2>其他蒐集需求的方法</h2>
+                    <ul>
+                        <li>文件查閱(document review)，了解現有系統如何運作</li>
+                        <li>觀察(observation)
+                            <ul>
+                                <li>就是觀察你</li>
+                                <li>霍桑效應(Hawthorne Effect，別人看你，你會讓自己做的最好</li>
+                            </ul>
+                        </li>
+                        <li>問卷(questionnaire)和調查(survey)</li>
+                        <li>訪談針對個人做表達，但花時間</li>
+                        <li>問卷可以讓許多人表達意見，但不一定準確</li>
+                        <li>腦力激盪 (brainstorming)是指針對特定問題、機會與議題的小組討論
+                            <ul>
+                                <li>結構化腦力激盪 (structured brainstorming)，參加者輪流發言</li>
+                                <li>非結構化腦力激盪 (unstructured brainstorming)，立法院，隨便你發言</li>
+                            </ul>
+                        </li>
+                        <li>抽樣
+                            <ul>
+                                <li>系統抽樣(systematic sample)：每10人抽取1人</li>
+                                <li>階層抽樣(stratified sample) ：在所有四個郵遞區號中，每個抽取5人</li>
+                                <li>隨機抽樣(random sample) ：任意抽取20人</li>
+                                <li>管你怎麼抽，只要樣本能代表母體就可以</li>
+                            </ul>
+                        </li>
+                        <li>研究
+                            <ul>
+                                <li>讀書、開會</li>
+                                <li>實地參訪</li>
+                            </ul>
+                        </li>
+                        <li>快捷法專案中的需求蒐集
+                            <ul>
+                                <li>注重使用者案例、情境、故事</li>
+                                <li>蒐集需求是為了改進</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <br>
+                <p>
+                    <h2>需求的表示</h2>
+                    <ul>
+                        <li>分析師紀錄文件時需要注意
+                            <ul>
+                                <li>獲得資訊就紀錄</li>
+                                <li>簡單方式紀錄、好懂</li>
+                                <li>文件容易被檢索</li>
+                            </ul>
+                        </li>
+                        <li>自然語言</li>
+                        <li>圖表</li>
+                        <li>功能分解圖(functional decomposition diagram, FDD)<br><img width="700px" src="img/18.PNG"></li>
+                        <li>商業流程模型(BPM)
+                            <ul>
+                                <li>描述一個或多個商業流程</li>
+                                <li>商業流程塑模記法(business process modeling notation, BPMN)包含可用來表示事件、程序及流程的各種不同圖形和符號</li>
+                                <li>示意圖<br><img width="500px" src="img/19.PNG"></li>
+                                <li>資料流向圖(data flow diagram, DFD)
+                                    <ul>
+                                        <li>顯示系統如何儲存、運作、轉變資料</li>
+                                    </ul>
+                                </li>
+                                <li>模型
+                                    <ul>
+                                        <li>統一塑模語言(unified modeling language, UML)</li>
+                                        <li>使用案例圖(use case diagram)<br>
+                                            視覺化表示使用者與資訊系統的互動</li>
+                                        <li>循序圖(sequence diagram)<br>
+                                            表述各物件之間互動及其時間</li>
+                                        <li>示意圖 A<br><img width="500px" src="img/20.PNG"></li>
+                                        <li>示意圖 B<br><img width="500px" src="img/21.PNG"></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+                <br>
+                <p><h2>確認與驗證需求</h2>
+                    <ul>
+                        <li>需求的確認與驗證(validation and verification, V&V)
+                             <ul>
+                                <li>為了讓需求能夠定義出顧客真正需要的系統
+                                    <ul>
+                                        <li>確認：陳述的需求是否正確？</li>
+                                        <li>驗證：需求是否正確地陳述？</li>
+                                    </ul>
+                                </li>
+                                <li>並檢查是否有完整性、一致性、可理解性</li>
+                             </ul>
+                        </li>
+                    </ul>
+                </p>
+
+                
+                
+                 
+            </div>        
+                
+        </div>
+        
+    
+</body>
+</html>
