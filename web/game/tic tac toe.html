@@ -67,8 +67,15 @@
         }
         event.target.innerText = player;
         player = player === "X" ? "O" : "X";
+
         checkVictory();
+        
+        if (buttons.every((button) => button.innerText)) {
+          alert("It's a draw!");
+          location.reload();
+        }
       });
+
     });
 
     const checkVictory = () => {
@@ -81,6 +88,7 @@
       [0, 4, 8],
       [2, 4, 6],
       ];
+      
 
       for (let i = 0; i < winningCombinations.length; i++) {
         const [a, b, c] = winningCombinations[i];
@@ -114,11 +122,10 @@
           return;
         }
       }
+      
 
-      if (buttons.every((button) => button.innerText)) {
-        alert("It's a draw!");
-        location.reload();
-      }
+
+
     };
   </script>
 </body>
