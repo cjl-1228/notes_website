@@ -36,6 +36,9 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       transform: translateY(-2px);
     }
+    .winning-line {
+      box-shadow: 0 0 50px rgba(0, 255, 0, 0.5);
+    }
 
   </style>
 </head>
@@ -86,8 +89,11 @@
           buttons[a].innerText === buttons[b].innerText &&
           buttons[a].innerText === buttons[c].innerText
         ) {
+          buttons[a].classList.add("winning-line");
+          buttons[b].classList.add("winning-line");
+          buttons[c].classList.add("winning-line");
           alert(`Player ${buttons[a].innerText} wins!`);
-          location.reload();
+          //location.reload();
           return;
         }
       }
