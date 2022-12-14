@@ -40,6 +40,9 @@
 
     buttons.forEach((button) => {
       button.addEventListener("click", (event) => {
+        if (event.target.innerText) {
+          return;
+        }
         event.target.innerText = player;
         player = player === "X" ? "O" : "X";
         checkVictory();
