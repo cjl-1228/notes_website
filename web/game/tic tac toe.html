@@ -89,6 +89,23 @@
           buttons[a].innerText === buttons[b].innerText &&
           buttons[a].innerText === buttons[c].innerText
         ) {
+          const restartButton = document.createElement("button");
+          restartButton.innerText = "重新開始";
+          restartButton.style.position = "absolute";
+          restartButton.style.top = "36%";
+          restartButton.style.left = "48.1%";
+          restartButton.style.textAlign = "center";
+          restartButton.style.margin = "auto";
+          restartButton.style.fontSize = "18px";
+          restartButton.style.fontWeight = "bold";
+          restartButton.style.color = "white";
+          restartButton.style.border = "2px solid black";
+          restartButton.style.borderRadius = "10px";
+          restartButton.style.backgroundColor = "green";
+          restartButton.addEventListener("click", () => {
+            location.reload();
+          });
+          document.body.appendChild(restartButton);
           buttons[a].classList.add("winning-line");
           buttons[b].classList.add("winning-line");
           buttons[c].classList.add("winning-line");
