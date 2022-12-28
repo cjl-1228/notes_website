@@ -130,10 +130,60 @@
                             <li><span>設定欄位寬度</span><br>FieldHeaderStyle -> Wrap:False，Width: 120px</li>
                             <li><span>增加選取資料行</span><br>加入新資料行 -> CommandField，選取打勾</li>
                             <li><span>再刪除時新增確認按鈕</span></li>
-                            <li>week 13 <span>新增資料到資料表 How to update the values of a columun in a datatable?</span><li>
-                            <li>week 13 <span>Datagridview 用勾選方式選取單一及全部</span>   
-                            <li>week 13 <span>如果更改資料表欄位資料格式，在Datasource需更改資料型態</span> 
-                            <li>week 13 <span>如何利用選取功能選取全部或單一</span> 
+                            <li><span>在控制向最前面加入全部選項並設定選擇在哪個地方</span><br>
+                                RadioButtonList1.Items.Insert(0, new ListItem("All genders", "%"));<br>
+                                RadioButtonList1.SelectedIndex = 0;<br>
+                                DropDownList1.Items.Insert(0, new ListItem("All cites", "%"));<br>
+                            </li>
+                            <li><span>刪除資料表</span><br>       
+                                 SqlDataSource1.DeleteCommand = "DELETE FROM [playcards]";<br> 
+                                SqlDataSource1.Delete();</li>
+                            <li><span>Datagridview日期只顯示天</span><br>編輯資料行 -> 選擇該欄位 -> DataFormatString:{0:d}</li>
+                            <li><span>input date</span><br>< input id="date1" type="date" required="required" runat="server"/></li>
+                            <li><span>將input date 轉換為 DateTime</span><br>  
+                                DateTime d1 = Convert.ToDateTime(Request["date1"]);<br>  
+                                DateTime d2 = Convert.ToDateTime(Request["date2"]);<br>  
+                                Literal1.Text = string.Format($"介於< span style = 'color:blue'>{d1:yyyy/MM/dd}< /span>與< span style = 'color:blue'>{d2:yyyy/MM/dd}< /span>間報修的有:");
+                            </li>
+
+                            <li><span>MultiView切換畫面</span><br>
+                                < asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0" ><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp< asp:View ID="View1" runat="server">< /asp:View><br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp< asp:View ID="View2" runat="server">< /asp:View>
+                                <br>< /asp:MultiView></li>
+                            <li><span>建立控制項發生錯誤</span><br>原始碼date -> text</li>
+                            <li><span>寫入資料</span><br>
+                                protected void Button3_Click(object sender, EventArgs e)<br>
+                                {<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbspDataView dv = (DataView)SqlDataSource2.Select(new DataSourceSelectArguments());<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbspDateTime dateTime = DateTime.UtcNow.Date;<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbspstring today = dateTime.ToString("yyyy/M/d");<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbspstring updatesql = $"INSERT INTO itemfix (who, item, report_date) VALUES (N'{input_who.Value}', '{DropDownList1.SelectedValue}', '{today}');";<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsptry<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp{<br>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSqlDataSource2.UpdateCommand = updatesql;<br>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSqlDataSource2.Update();<br>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp}<br>
+                                        &nbsp&nbsp&nbsp&nbsp&nbspcatch (Exception ex)<br>
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp {<br>
+                                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspResponse.Output.Write($"error when updating scores: {ex.Message}");<br>
+                                            &nbsp&nbsp&nbsp&nbsp&nbsp  }<br>
+                                }</li>
+                            <li><span>在資料行中加入內建超連結</span><br>
+                                protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)<br>
+                                {<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbspif (e.Row.DataItem == null) return;<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbspLabel lbl = (Label)e.Row.FindControl("lblitem");<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbspif (lbl != null)<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsplbl.Text = "< a href='http://www.google.com.tw/search?q=" + lbl.Text + "'>" + lbl.Text + "< /a>";<br>
+                                }</li>
+
+
+
+                            <li>week 13 <span>新增資料到資料表 How to update the values of a columun in a datatable?</span></li>                            
+                            <li>week 13 <span>Datagridview 用勾選方式選取單一及全部</span></li>   
+                            <li>week 13 <span>如果更改資料表欄位資料格式，在Datasource需更改資料型態</span> </li>
+                            <li>week 13 <span>如何利用選取功能選取全部或單一</span> </li>
                             <li>week 14 日期篩選<span>Microsoft.ACE.OLEDB.12.0 提供者未登入於本機電腦上</span> </li>
                             <li>week 14 日期篩選<span>Datagridview 日期格式設定 只設定天數或月數加天數</span> </li>
                             <li>week 14 日期篩選<span>Datagridview 日期格式設定 在編輯欄位只顯示日期</span> </li>    
