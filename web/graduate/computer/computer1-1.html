@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算機概論-1.1　電腦系統介紹｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../../css/sidebar.css">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="icon" href="../../../img/notes2.png" type="image/x-icon" >
+    <style>
+        span{
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href=".././../index.html"><img class ="img" src ="../../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../../index.html"><img class ="img" src ="../../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../../archives.html"><img class ="img" src ="../../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../../categories.html"><img class ="img" src ="../../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../../others.html"><img class ="img" src ="../../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../../about.html"><img class ="img" src ="../../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+
+        
+    <div class="content">
+            
+
+
+        <div style="width: 100%; text-align: center; ">
+            <p><h2><a href="computer1.html"><img style="vertical-align: bottom	;" src="../../../img/Previouspage.png"></a>&nbsp1.1電腦系統介紹</h2></p>
+        </div>
+        <div style="min-width: 450px; width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); ">
+
+            <ul>
+                <li>電腦發展歷史
+                    <ul>
+                        <li>第一代電腦：由<span>真空管</span>組成、體積大、溫度高、主記憶體10K。代表產品UNIVAC。</li>
+                        <li>第二代電腦：由<span>電晶體</span>組成，相較真空管下具有體積小、速度快、成本低、耗電低等優點。</li>
+                        <li>第三代電腦：由<span>積體電路</span>組成、體積更小、速度更快、成本更低、耗電更低。代表：IBM System/360</li>
+                        <li>第四代電腦：為第三代電腦的延伸，由<span>超大積體電路</span>組成。</li>
+                        <li>第五代電腦：引入<span>人工智慧</span>技術。</li>
+                    </ul>
+                </li>
+                <br>
+                <li>電腦的種類
+                    <ul>
+                        <li>超級電腦(supercomputer)：<br>
+                            處理速度極快，利用於高複雜度運算，例IBM的 Blue Deep、Blue Gene。
+                        </li>
+                        <li>大型電腦(mainframe)：<br>
+                            又稱 largecomputer，通常 user 會利用終端機連線來操作 mainframe。
+                        </li>
+                        <li>迷你電腦(minicomputer)：<br>
+                            於 PC 能力快速提升下，迷你電腦已逐漸走入歷史。
+                        </li>
+                        <li>個人電腦(person computer : PC)：<br>
+                            Intel 的 Pentium 系列，AMD 的 K 系列。
+                        </li>
+                        <li>個人數位助理(personal digital computer ： PDA)：<br>
+                            又稱手持式電腦、掌上型電腦，例：Palm、Pocket PC 。
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li>電腦架構
+                    <ul>
+                        <li>常見的架構：<span>范紐曼架構(Von-Neumann)</span>
+                            <ul>
+                                <li>特色
+                                    <ul>
+                                        <li>採用<span>内儲程式(stored programming)</span>概念：
+                                            指欲<span>執行的程式 (program)跟資料 (data)必須先載入記憶體
+                                            (memory)中，再由 CPU 從memory 中抓取資料處理之</span>。</li>
+                                        <li>循序執行(Sequential Execution)：
+                                            指令會依序一一執行。</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li>五大單元結構
+                    <ul>
+                        <br>
+                        <img width="700px" src="https://mycomputernotes.com/wp-content/uploads/2019/01/components-of-computer.jpg">
+                        <li>Input(輸入單元）：接收外界的資料轉成系統可識別的資料。e.g. Keyboard、Mouse、SCANNER</li>
+                        <li>Output(輸出單元）：將系統資料轉成外界可識別的資料。</li>
+                        <li>Memory(記憶體單元）：在范紐曼架構下系統運算的過程中，欲執行的程式跟資料會先載入存放於記憶體中。</li>
+                        <li>Control Unit(控制單元）：<br>
+                            &nbsp&nbsp(1)控制各單元間的運作。<br>
+                            &nbsp&nbsp(2)對機器指令而言需做解碼(Decode)
+                        </li>
+                        <li>A.L.U.: Arithmetic & Logic Operation Unit (算術及邏輯運算單元）
+                            由(1)執行加、减、乘、除等算術運算的電子電路及(2)執行 AND、OR、NOT
+                            等邏輯運算的電子電路以及(3)儲存正要或將要執行的指命或資料的暫存器(Register)所構成。<br>
+                            註明：暫存器是 CPU 內部儲存指金或資料的儲存單位，儲存空間一般只
+                            有數個位元組(Bytes)。</li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>        
+            
+    </div>
+        
+    
+</body>
+</html>
