@@ -4,22 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>電腦硬體裝修丙級 學科｜CJL's Notes WebSite</title>
+    <title>台北宜蘭四日行程｜CJL's Notes WebSite</title>
     <link rel="stylesheet" href="../../css/sidebar.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-    $( function() {
-        $( "#datepicker" ).datepicker({
-            changeMonth: true,
-            changeYear: true
-        });
-    } );
-    </script>
+
+
     <style>
         .body {
             font-family: sans-serif;
@@ -53,42 +43,108 @@
 
 
             <div style="width: 100%; text-align: center; ">
-                <p><h2><a href="Otrhers.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp台北行程</h2></p>
+                <p><h2><a href="Otrhers.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp台北宜蘭四日行程</h2></p>
             </div>
             <br>
             <div style="width: 70%; text-align: left; margin-left: 15%;  padding-left: 10px;border-width:2px;  " >
-                <h1>My Trip Planner</h1>
-                <form id="trip-form">
-                  <div>
-                    <label for="destination">Destination:</label>
-                    <input type="text" id="destination" name="destination">
-                  </div>
-                  <div>
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date">
-                  </div>
-                  <button type="submit">Add Trip</button>
-                </form>
-                <h2>My Trips</h2>
-                <ul id="trip-list"></ul>
-                <script>
-                    const form = document.querySelector('#trip-form');
-                    const tripList = document.querySelector('#trip-list');
-            
-                    form.addEventListener('submit', event => {
-                    event.preventDefault();
-            
-                    const destination = form.destination.value;
-                    const date = form.date.value;
-            
-                    const trip = document.createElement('li');
-                    trip.textContent = `Trip to ${destination} on ${date}`;
-            
-                    tripList.appendChild(trip);
-            
-                    form.reset();
-                    });
-                </script>
+                <!DOCTYPE html>
+                <html>
+                <head>
+                  <style>
+                    .table-outbox {
+                    margin: 50px; /* 添加外距 */
+                    box-shadow: 0px 35px 50px rgba(27, 31, 49, 0.1); /* 添加表格陰影 */
+                    }
+
+                    /*  table
+                    ------------------------------------- */
+                    table {
+                    border-collapse: collapse; /* 表格邊框合併 */
+                    width: 100%; /* 寬度 100% */
+                    background-color: white; /* 背景白色 */
+                    }
+
+                    table thead th {
+                    color: #ffffff; /* 表頭文字白色 */
+                    background: #2f4961; /* 表頭背景白色 */
+                    }
+
+                    table td,
+                    table th {
+                    padding: 10px; /* 添加內距 */
+                    
+                    }
+                    table th{
+                        text-align: center;
+                    }
+                    table td{
+                        text-align: left;
+                        padding: 20px;
+                    }
+
+                    table td {
+                    border-right: 1px solid #f1f1f1; /* 表格 td 右邊框顏色 */
+                    }
+
+                    table tr:nth-child(even) {
+                    background: #f8f8f8; /* 表格偶數 tr 灰色背景 */
+                    }
+                  </style>
+                </head>
+                <body>
+                    <div class="table-outbox">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>天數</th>
+                              <th>地點</th>
+                              <th>活動內容</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td style="width: 250px;">2023/2/7(二)</td>
+                              <td style="width: 400px;">礁溪-清水地熱公園<br>
+                                蘇澳-南方澳漁港<br>
+                                羅東-羅東夜市<br>
+                                頭城-開蘭行旅<br>
+                            </td>
+                              <td>remark-1</td>
+                            </tr>
+                      
+                            <tr>
+                              <td>2023/2/8(三)</td>
+                              <td>瑞芳-九份老街<br>
+                                文山-臺北市立動物園<br>
+                                中正-WOW玩行旅<br>
+                                大安-油花迴轉燒肉<br>
+                                松山-饒河夜市<br>
+                                中正-WOW玩行旅<br>
+                            </td>
+                              <td>remark-2</td>
+                            </tr>
+                      
+                            <tr>
+                              <td>2023/2/9(四)</td>
+                              <td>萬華-西門町<br>
+                                中正-欣葉日本料理<br>
+                                士林-士林夜市<br>
+                                  
+                              </td>
+                              <td>remark-3</td>
+                            </tr>
+
+                            <tr>
+                                <td>2023/2/10(五)</td>
+                                <td>content-3</td>
+                                <td>remark-3</td>
+                              </tr>
+                      
+                          </tbody>
+                        </table>
+                      </div>
+                </body>
+                </html>
             </div>           
                 
         </div>
