@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電腦硬體裝修丙級 學科｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        $( "#datepicker" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+    </script>
+    <style>
+        .body {
+            font-family: sans-serif;
+        }
+
+        .form {
+            margin-bottom: 1em;
+        }
+
+        .label,input[type="submit"] {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+
+        
+        <div class="content">
+            
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="Otrhers.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp台北行程</h2></p>
+            </div>
+            <br>
+            <div style="width: 70%; text-align: left; margin-left: 15%;  padding-left: 10px;border-width:2px;  " >
+                <h1>My Trip Planner</h1>
+                <form id="trip-form">
+                  <div>
+                    <label for="destination">Destination:</label>
+                    <input type="text" id="destination" name="destination">
+                  </div>
+                  <div>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date">
+                  </div>
+                  <button type="submit">Add Trip</button>
+                </form>
+                <h2>My Trips</h2>
+                <ul id="trip-list"></ul>
+                <script>
+                    const form = document.querySelector('#trip-form');
+                    const tripList = document.querySelector('#trip-list');
+            
+                    form.addEventListener('submit', event => {
+                    event.preventDefault();
+            
+                    const destination = form.destination.value;
+                    const date = form.date.value;
+            
+                    const trip = document.createElement('li');
+                    trip.textContent = `Trip to ${destination} on ${date}`;
+            
+                    tripList.appendChild(trip);
+            
+                    form.reset();
+                    });
+                </script>
+            </div>           
+                
+        </div>
+        
+    
+</body>
+</html>
