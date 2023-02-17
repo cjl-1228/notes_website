@@ -49,7 +49,7 @@
             background-color: #e2d770;
             position: relative;
             border-radius: 50px;
-            margin-left: 47.5%;
+            margin-left: 50%;
         }
         button:hover {
             /* :hover 代表滑鼠移到元素上時的狀態 */ 
@@ -84,14 +84,18 @@
 
         function start_or_stop_speak(){
             var startbtn = document.getElementById('StartBtn');
-            var text = startbtn.innerHTML;            
+            var text = startbtn.innerHTML;       
             if(text==="Start"){
                 startbtn.textContent="Stop"
+                startbtn.style.backgroundColor='#911';
+                startbtn.style.color='white'
                 recognition.start();
             }
             else{
                 startbtn.textContent="Start"
                 recognition.stop();
+                startbtn.style.backgroundColor='#e2d770';
+                startbtn.style.color='black'
             }
 
         }
