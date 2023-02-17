@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Speech API Demo
+    </title>
+    <style>
+        body {
+            background: #90afa7;
+            font-family: 'helvetica neue';
+            font-weight: 200;
+            font-size: 20px;
+        }
+
+        .words {
+            max-width: 300px;
+            height: 100px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem 1rem 3rem;
+            background: -webkit-gradient(linear,
+                    0 0,
+                    0 100%,
+                    from(#d9eaf3),
+                    color-stop(4%, #fff)) 0 4px;
+            background-size: 100% 3rem;
+            position: relative;
+            line-height: 3rem;
+            min-height: 30rem;
+        }
+
+        .words:before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            top: 0;
+            left: 30px;
+            bottom: 0;
+            border: 1px solid;
+            border-color: transparent #efe4e4;
+        }
+
+        button {
+            background-color: #e2d770;
+            position: relative;
+            border-radius: 50px;
+            margin-left: 47.5%;
+        }
+        button:hover {
+            /* :hover 代表滑鼠移到元素上時的狀態 */ 
+            transform: scale(1.05);
+        }
+        button:active {
+            /* :active是滑鼠點擊元素的狀態 */
+            transform: scale(1);
+            box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, .2);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="StartBtn">Start</button>
+    <div id="show" class="words" contenteditable="true"></div>
+
+
+    <script>
+        var show = document.getElementById('show');
+        var recognition = new webkitSpeechRecognition();
+
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = "cmn-Hant-TW";
+
+        recognition.onresult = function (event) {
+            var i = event.resultIndex;
+            var j = event.results[i].length - 1;
+            show.innerHTML = event.results[i][j].transcript;
+        };
+
+        function start_or_stop_speak(){
+            var startbtn = document.getElementById('StartBtn');
+            var text = startbtn.innerHTML;            
+            if(text==="Start"){
+                startbtn.textContent="Stop"
+                recognition.start();
+            }
+            else{
+                startbtn.textContent="Start"
+                recognition.stop();
+            }
+
+        }
+
+        StartBtn.addEventListener("click",start_or_stop_speak)
+
+    </script>
+</body>
+
+</html>
