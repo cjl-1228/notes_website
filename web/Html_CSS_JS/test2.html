@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="w" autofocus>
+    <button id="ok" autofocus>OK</button>
+    <script>
+        function getData(){
+            var a = document.getElementById("w").value
+            var xhr = new XMLHttpRequest();
+            let s = "https://www.moedict.tw/raw/"+a
+
+            xhr.open("GET", s, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var outputDiv = document.createElement("div");
+                    outputDiv.innerText = "";
+                    outputDiv.innerText = JSON.stringify(data);
+                    document.body.appendChild(outputDiv);
+                }
+            };
+            xhr.send();
+        }
+        ok.addEventListener("click", getData);
+    </script>
+</body>
+
+</html>
