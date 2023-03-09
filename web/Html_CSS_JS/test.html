@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("width", "400");
+        svg.setAttribute("height", "400");
+
+        const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        rect.setAttribute("x", "0");
+        rect.setAttribute("y", "0");
+        rect.setAttribute("width", "400");
+        rect.setAttribute("height", "400");
+        rect.setAttribute("fill", "#ffffff");
+        rect.setAttribute("stroke", "#000000");
+
+        const text1 = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text1.setAttribute("x", "50");
+        text1.setAttribute("y", "100");
+        text1.setAttribute("font-size", "24");
+        text1.setAttribute("fill", "#000000");
+        text1.textContent = "1";
+
+        const text2 = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text2.setAttribute("x", "150");
+        text2.setAttribute("y", "200");
+        text2.setAttribute("font-size", "24");
+        text2.setAttribute("fill", "#000000");
+        text2.textContent = "2";
+
+        const text3 = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text3.setAttribute("x", "250");
+        text3.setAttribute("y", "300");
+        text3.setAttribute("font-size", "24");
+        text3.setAttribute("fill", "#000000");
+        text3.textContent = "3";
+
+        svg.appendChild(rect);
+        svg.appendChild(text1);
+        svg.appendChild(text2);
+        svg.appendChild(text3);
+        document.body.appendChild(svg);
+    </script>
+</body>
+</html>
