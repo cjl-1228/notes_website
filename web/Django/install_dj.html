@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Here's why software developers choose Linux over Windows for programming｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+    
+        
+        <div class="content" >
+            
+            <div id="top" >&nbsp&nbsp</div>
+
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="Django.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp使用VSCode開發Django</h2></p>
+
+                
+            </div>
+
+            <br>
+
+            <div style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+                <ol>
+                    <li>
+                        安裝
+                        <a target="_blank" href="https://code.visualstudio.com/download">VS Code</a>, <a  target="_blank" href="https://www.python.org/downloads/">Python3</a>, <a target="_blank" href="https://www.anaconda.com/products/distribution">Anaconda</a>
+                    </li>
+                    <li>
+                        建立資料夾(e.g. C:\Users\JL\Desktop\django_test)
+                    </li>
+                    <li>進入Anconda Prompt</li>
+                    <li>進入資料夾 => 輸入 cd Desktop/django_test</li>
+                    <li>輸入 conda init powershell</li>
+                    <li>進入VS code => 開啟剛剛建立的資料夾</li>
+                    <li>點擊Terminal(終端機) => 點擊 New Terminal(新增終端機)</li>
+                    <li>輸入 python 可看到相關版本環境</li>
+                    <li>左邊有個(base)表示屬於Anconda裡面的base虛擬環境底下</li>
+                    <li>輸入 conda env list 查看目前有哪些虛擬環境</li>
+                    <li>注意!! django的網站建議每次要做一個新的專案，都要為這個專案做一個新的虛擬環境</li>
+                    <li>建立虛擬環境 => conda create --name test python=3.8 => 輸入y 按下Enter</li>
+                    <li>輸入 conda env list 檢查是否有剛剛新建的環境</li>
+                    <li>進入環境 => conda activate test<br>離開環境 => conda deactivate</li>
+                    <li>左邊會從(base) 變成 (test)(你輸入的環境名稱)</li>
+                    <li>檢查模組 => pip list => 發現有基本模組</li>
+                    <li>安裝django => pip install django==3.1 (可選擇版本)</li>
+                    <li>再次檢查模組 => pip list => 發現有Django的模組及版本</li>
+                    <li>django-admin startproject dj_test => 左邊會出現dj_test資料夾 or 輸入 dir</li>
+                    <li>cd dj_test => dir => 有個manage.py</li>
+                    <li>python .\manage.py startapp mysite => 左邊會出現mysite資料夾</li>
+                    <li>mkdir templates => 建立模板資料夾<br>mkdir static => 建立靜態檔資料夾</li>
+                    <li>點擊左邊dj_test => 點擊setting.py</li>
+                    <li>更改ALLOWED_HOSTS = ['*']允許所有IP來源訪問網站<br>新增'mysite',到INSTALLED_APPS<br>TEMPLATES 'DIRS' 輸入[BASE_DIR / 'templates'], 套用模板<br> LANGUAGE_CODE 更改為 'zh-hant'<br> TIME_ZONE 更改為 'Asia/Taipei'</li>
+                    <li>啟動網站 => python .\manage.py runserver</li>
+                    <li>開啟瀏覽器 => 輸入127.0.0.1:8000 or localhost:8000 => 即可看到網站</li>
+                    <li>建立資料庫牽引 => python .\manage.py makemigrations => python .\manage.py migrate</li>
+                    <li>建立後台管理者 => python .\manage.py createsuperuser<br>輸入使用者名稱、電子信箱、Password</li>
+                    <li>再次啟動網站 => python .\manage.py runserver => 網址後面加上/admin => 即可登入後台</li>
+                </ol>
+            </div>
+
+
+
+            
+                
+        </div>
+        
+    
+</body>
+</html>
