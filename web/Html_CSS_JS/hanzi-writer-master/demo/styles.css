@@ -13,6 +13,9 @@ body {
 	box-sizing: border-box;
 }
 
+input.js-char {
+    width: 70px;
+}
 input, button {
 	outline: none;
 }
@@ -149,11 +152,11 @@ button:hover {
 
 
 .card, .card p {
-	font-size: 18px; }
+	font-size: 16px; }
 .card .card-header {
 	padding-top: 0;
 	padding-bottom: 0; }
 .card .card-title {
 	margin: 0;
-	line-height: 2;
-	font-size: 20px; }
+	line-height: 1.5;
+	font-size: 18px; }

@@ -2,7 +2,10 @@ var writer;
 var isCharVisible;
 var isOutlineVisible;
 //獲取繪畫筆順速度的值
-var Animationspeed = document.querySelector('[name="Animationspeed"]').value;
+
+var VarAnimationspeed = document.querySelector('[name="Animationspeed"]').value;
+var VarshowHintAfterMisses = document.querySelector('[name = HintAfterMisses]').value;
+var VardrawingWidth = document.querySelector('[name = drawingWidth]').value;
 
 console.log(Animationspeed);
 function updateScroll()
@@ -29,7 +32,12 @@ function updateCharacter() {
     onCorrectStroke: printStrokePoints,
     onMistake: printStrokePoints,
     showCharacter: false,
-    strokeAnimationSpeed: Animationspeed //繪製筆畫速度
+    strokeAnimationSpeed: VarAnimationspeed, //繪製筆畫速度
+    strokeHighlightSpeed: 0.5, //提示筆畫速度
+    highlightColor: '#ffa500', //提示顏色
+    showHintAfterMisses: VarshowHintAfterMisses, //錯誤幾次才提示
+    drawingWidth: VardrawingWidth, //繪製筆寬度
+    
     
   });
   isCharVisible = true;
@@ -65,37 +73,16 @@ window.onload = function () {
 
   //按下animate
   document.querySelector('.js-animate').addEventListener('click', function () {
-    Animationspeed = document.querySelector('[name="Animationspeed"]').value;
+    VarAnimationspeed = document.querySelector('[name="Animationspeed"]').value; //繪畫速度
     
     /* console.log(Animationspeed); */
     updateCharacter();
     writer.animateCharacter();
   });
-  /* //按下Quiz yourself
-  var opts = {
-    onMistake: function(strokeData) {
-      consoleLog('目前第'+  strokeData.strokeNum +'筆畫錯誤。');
-      consoleLog("你在這個筆劃上犯了 " + strokeData.mistakesOnStroke + " 個錯誤!");
-      consoleLog("目前總共錯誤 " + strokeData.totalMistakes + " 次。");
-      consoleLog("距離完成還有" + strokeData.strokesRemaining + "個筆畫。");
-      consoleLog("");
-    },
-    onCorrectStroke: function(strokeData) {
-      consoleLog('很好! 你畫的第' + strokeData.strokeNum + '筆畫是正確的!');
-      consoleLog("你在這個筆劃上犯了 " + strokeData.mistakesOnStroke + " 個錯誤!");
-      consoleLog("目前總共錯誤 " + strokeData.totalMistakes + " 次。");
-      consoleLog("距離完成還有" + strokeData.strokesRemaining + "個筆畫。");
-      consoleLog("");
-    },
-    onComplete: function(summaryData) {
-      consoleLog('Ya~你完成了! 這個' + summaryData.character +"漢字");
-      consoleLog("總共錯誤 " + strokeData.totalMistakes + " 次。");
-      consoleLog("");
-    }
-    
-  }; */
-  /* writer.quiz(opts); */
   document.querySelector('.js-quiz').addEventListener('click', function () {
+    VarshowHintAfterMisses = document.querySelector('[name="HintAfterMisses"]').value; //錯誤提示
+    VardrawingWidth = document.querySelector('[name="drawingWidth"]').value //筆畫粗細
+    updateCharacter();
     var opts = {
       onMistake: function(strokeData) {
         consoleLog('目前第'+  strokeData.strokeNum +'筆畫錯誤。');
@@ -220,28 +207,10 @@ window.onload = function () {
   }
     
   
- /*  character = document.querySelector('.js-char').value;
-  HanziWriter.loadCharacterData(character).then(function(charData) {
-    var target_hint = document.getElementById('target');
-    for (var i = 0; i < charData.strokes.length; i++) {
-      console.log("14")
-      var strokesPortion = charData.strokes.slice(0, i + 1);
-      renderFanningStrokes(target_hint, strokesPortion);
-    }
-  }); */
+
+
 };
 
-const synth = window.speechSynthesis;
-
-const speak = (msg) => {
-  let u = new SpeechSynthesisUtterance();
-  u.text = msg;
-
-  synth.speak(u);
-};
-
-/* speak("語音內容1");
-speak("語音內容2"); */
 
 
 //語音播報 漢字資訊
@@ -257,16 +226,8 @@ function populateVoices(){
   voices = this.getVoices();
   console.log(voices);
   msg.lang = "zh-TW"
-  /* voicesDropdown.innerHTML = voices
-  .map(voice => `<option value="Microsoft Hanhan - Chinese (Traditional, Taiwan)">Microsoft Hanhan - Chinese (Traditional, Taiwan) (zh-TW)</option>`)
-  .join(''); */
 }
- // 設置所切換之語音
-/* function setVoice(){
-  console.log('changing voice');
-  msg.voice = voices.find(voice => voice.name === this.value);
-  toggle();
-} */
+
 
 function toggle(startOver = true){
   speechSynthesis.cancel(); // stop speaking

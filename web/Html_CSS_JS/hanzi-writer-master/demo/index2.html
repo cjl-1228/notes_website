@@ -14,31 +14,24 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- <link rel="stylesheet" href="https://letswritetw.github.io/letswrite-speech_synthesis_utterance-api/dist/vendor/material-kit.min.css?v=2.0.6"> -->
-        <style>
-            input.js-char {
-                width: 70px;
-            }
-        </style>
+
         
 	</head>
 	<body>
         <!-- 輸入內容起始點 -->
-        <div id="container"  >
+        <div id="container" >
             <div class="row justify-content-center">
                 <div class="col">
-                    
-                    <form class="js-char-form char-form col-12 ">
+                    <form class="js-char-form char-form col-12">
                         <label>
-                            輸入你要練習的字：
-                            <input type="text" class="js-char char-input" size="1" maxlength="1" value="你" id="input-char"/>
+                            <span class="fs-5">輸入你要練習的字:</span>
+                            <input type="text" class="js-char char-input" size="10" maxlength="1" value="你" id="input-char"/>
                         </label>
                         <button type="submit" class="reload-submit-char btn btn-success" id="ok" >確定</button>
                     </form>
                 </div>
             </div>
         </div>
-
-
 
         <!-- 按鈕列 -->
         <div class="container">
@@ -120,7 +113,11 @@
                               </div>
                             </div>
                             <div class="card-body">
-                              <p>調整下列項目，即可改變動畫</p>
+                              <p>調整下列項目再按下按鈕，即可改變動畫</p>
+                              <!-- 繪畫速度 -->
+                              <div class="row">
+                                <p class="border">動畫播放按鈕</p>
+                              </div>
                               <div class="row">
                                     <div class="col-md-3">
                                         <p class="bg-secondary text-white" style="width:100%">繪畫速度</p>
@@ -129,7 +126,31 @@
                                         <input name="Animationspeed" id="Animationspeed" type="range" min="0.1" max="2" value="1" step="0.1" style="width:100%" onchange="document.getElementById('t2-option').innerHTML=value"><br> 
                                     </div>
                                     <div class="col-md-2" id="t2-option">
-
+                                    </div>
+                                </div>
+                                <!-- 錯誤次數 -->
+                                <div class="row">
+                                    <p class="border">測驗按鈕</p>
+                                  </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p class="bg-secondary text-white" style="width:100%">錯誤次數</p>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input name="HintAfterMisses" id="HintAfterMisses" type="range" min="1" max="3" value="2" step="1" style="width:100%" onchange="document.getElementById('t3-option').innerHTML=value"><br> 
+                                    </div>
+                                    <div class="col-md-2" id="t3-option">
+                                    </div>
+                                </div>
+                                <!-- 筆畫粗細 -->
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p class="bg-secondary text-white" style="width:100%">筆畫粗細</p>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input name="drawingWidth" id="drawingWidth" type="range" min="10" max="50" value="20" step="10" style="width:100%" onchange="document.getElementById('t4-option').innerHTML=value"><br> 
+                                    </div>
+                                    <div class="col-md-2" id="t4-option">
                                     </div>
                                 </div>
                             </div>
@@ -143,9 +164,6 @@
         
           
 		<script>
-
-
-            // 在 #rangeTxt 顯示 #myRange 的 bar 值
             //工具列on/off
             document.getElementById('tool-1').hidden = true;
             document.getElementById('tool-2').hidden = true;

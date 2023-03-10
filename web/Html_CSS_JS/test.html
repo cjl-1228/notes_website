@@ -9,6 +9,12 @@
 <body>
 
     <script>
+        
+
+        
+
+        
+
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("width", "400");
         svg.setAttribute("height", "400");
@@ -21,15 +27,12 @@
         rect.setAttribute("fill", "#ffffff");
         rect.setAttribute("stroke", "#000000");
 
-        const text1 = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        text1.setAttribute("x", "50");
-        text1.setAttribute("y", "100");
-        text1.setAttribute("font-size", "24");
-        text1.setAttribute("fill", "#000000");
-        text1.textContent = "1";
+
+
+
 
         const text2 = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        text2.setAttribute("x", "150");
+        text2.setAttribute("x", "184");
         text2.setAttribute("y", "200");
         text2.setAttribute("font-size", "24");
         text2.setAttribute("fill", "#000000");
@@ -43,7 +46,7 @@
         text3.textContent = "3";
 
         svg.appendChild(rect);
-        svg.appendChild(text1);
+
         svg.appendChild(text2);
         svg.appendChild(text3);
         document.body.appendChild(svg);
