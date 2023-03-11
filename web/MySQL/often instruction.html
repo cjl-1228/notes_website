@@ -76,12 +76,14 @@
                     UPDATE products SET descr = "東方不敗的絕世武功" WHERE name = "葵花寶典";
                 </li>
                 <li><span>刪除資料</span><br>
-                    DELETE FROM products WHERE name = "葵花寶典";
+                    SET SQL_SAFE_UPDATES=0;<br>
+                    DELETE FROM products WHERE name = "葵花寶典";<br>
+                    SET SQL_SAFE_UPDATES=1;<br>
                 </li>
                 <li><span>刪除資料表(for MySQL)</span><br>
-                    SET SQL_SAFE_UPDATES=0;<br>
-                    DELETE FROM products;<br>
-                    SET SQL_SAFE_UPDATES=1;<br>
+
+                    DROP TABLE products;<br>
+
                 </li>
                 <li><span>刪除資料庫</span><br>
                     DROP DATABASE MyDB;
