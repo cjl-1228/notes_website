@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL常用指令｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon">
+    <style>
+        span {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a href="../../index.html"><img class="img" src="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class="img" src="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a href="../../archives.html"><img class="img" src="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class="img" src="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class="img" src="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class="img" src="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+
+    <!-- Page content -->
+
+
+    <div class="content">
+
+
+
+        <div style="width: 100%; text-align: center; ">
+            <p>
+            <h2><a href="MySQL.html"><img style="vertical-align: bottom	;"
+                        src="../../img/Previouspage.png"></a>&nbspSQL常用指令</h2>
+            </p>
+        </div>
+        <br>
+        <div style="width: 60%; text-align: left; margin-left: 20%;  padding-left: 10px;border-width:2px;  ">
+
+            <ol>
+                <li><span>顯示資料庫</span><br>
+                    SHOW DATABASES;
+                </li>
+                <li><span>新增資料庫</span><br>
+                    CREATE DATABASE MyDB;
+                </li>
+                <li><span>使用資料庫</span><br>
+                    USE MyDB;
+                </li>
+                <li><span>新增資料表</span><br>
+                    CREATE TABLE products (  <br>
+                    &nbsp&nbsp&nbsp&nbsp    id INT NOT NULL AUTO_INCREMENT,  <br>
+                    &nbsp&nbsp&nbsp&nbsp    name varchar(50) NOT NULL,<br>
+                    &nbsp&nbsp&nbsp&nbsp    descr varchar(200),  <br>
+                    &nbsp&nbsp&nbsp&nbsp    price INT NOT NULL,  <br>
+                    &nbsp&nbsp&nbsp&nbsp    PRIMARY KEY(id)      <br>
+                    );
+                </li>
+
+                <li><span>新增資料</span><br>
+                    INSERT INTO products (name, descr, price)<br>
+                    &nbsp&nbsp&nbsp&nbspVALUES ("葵花寶典", "蓋世武功密集", 990);<br>
+                    INSERT INTO products (name, descr, price)<br>
+                    &nbsp&nbsp&nbsp&nbspVALUES ("獨孤九劍", "劍魔獨孤求敗所創劍法", 890);<br>
+                </li>
+                <li><span>顯示資料</span><br>
+                    SELECT * FROM products;
+                </li>
+                <li><span>修改資料</span><br>
+                    UPDATE products SET descr = "東方不敗的絕世武功" WHERE name = "葵花寶典";
+                </li>
+                <li><span>刪除資料</span><br>
+                    DELETE FROM products WHERE name = "葵花寶典";
+                </li>
+                <li><span>刪除資料表(for MySQL)</span><br>
+                    SET SQL_SAFE_UPDATES=0;<br>
+                    DELETE FROM products;<br>
+                    SET SQL_SAFE_UPDATES=1;<br>
+                </li>
+                <li><span>刪除資料庫</span><br>
+                    DROP DATABASE MyDB;
+                </li>
+            </ol>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
