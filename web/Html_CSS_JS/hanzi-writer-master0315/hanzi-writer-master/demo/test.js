@@ -7,7 +7,7 @@ var VarAnimationspeed = document.querySelector('[name="Animationspeed"]').value;
 var VarshowHintAfterMisses = document.querySelector('[name = HintAfterMisses]').value;
 var VardrawingWidth = document.querySelector('[name = drawingWidth]').value;
 
-console.log(Animationspeed);
+console.log(VarAnimationspeed);
 function updateScroll()
 {
   var element = document.getElementById("scroller")
@@ -33,12 +33,10 @@ function updateCharacter() {
     onMistake: printStrokePoints,
     showCharacter: false,
     strokeAnimationSpeed: VarAnimationspeed, //繪製筆畫速度
-    strokeHighlightSpeed: 0.5, //提示筆畫速度
+    strokeHighlightSpeed: 0.4, //提示筆畫速度
     highlightColor: '#ffa500', //提示顏色
     showHintAfterMisses: VarshowHintAfterMisses, //錯誤幾次才提示
-    drawingWidth: VardrawingWidth, //繪製筆寬度
-    
-    
+    drawingWidth: VardrawingWidth, //繪製筆寬度 
   });
   isCharVisible = true;
   isOutlineVisible = true;
@@ -49,7 +47,6 @@ window.onload = function () {
   var char = decodeURIComponent(window.location.hash.slice(1));
   if (char) {
     document.querySelector('.js-char').value = char;
-    
   }
   
   updateCharacter();
@@ -71,7 +68,7 @@ window.onload = function () {
     isOutlineVisible = !isOutlineVisible;
   });
 
-  //按下animate
+  //按下animate動畫播放
   document.querySelector('.js-animate').addEventListener('click', function () {
     VarAnimationspeed = document.querySelector('[name="Animationspeed"]').value; //繪畫速度
     
@@ -79,22 +76,25 @@ window.onload = function () {
     updateCharacter();
     writer.animateCharacter();
   });
+  //按下測驗按鈕
   document.querySelector('.js-quiz').addEventListener('click', function () {
     VarshowHintAfterMisses = document.querySelector('[name="HintAfterMisses"]').value; //錯誤提示
     VardrawingWidth = document.querySelector('[name="drawingWidth"]').value //筆畫粗細
     updateCharacter();
+    let i=1;
     var opts = {
+      
       onMistake: function(strokeData) {
-        consoleLog('目前第'+  strokeData.strokeNum +'筆畫錯誤。');
+        consoleLog('目前第'+  (strokeData.strokeNum+i) +'筆畫錯誤。');
         consoleLog("你在這個筆劃上犯了 " + strokeData.mistakesOnStroke + " 個錯誤!");
         consoleLog("目前總共錯誤 " + strokeData.totalMistakes + " 次。");
         consoleLog("距離完成還有" + strokeData.strokesRemaining + "個筆畫。");
         consoleLog("");
       },
       onCorrectStroke: function(strokeData) {
-        consoleLog('很好! 你畫的第' + strokeData.strokeNum + '筆畫是正確的!');
+        consoleLog('很好! 你畫的第' + (strokeData.strokeNum+i) + '筆畫是正確的!');
         consoleLog("你在這個筆劃上犯了 " + strokeData.mistakesOnStroke + " 個錯誤!");
-        consoleLog("目前總共錯誤 " + strokeData.totalMistakes + " 次。");
+        consoleLog("目前總共錯誤 " + strokeData.totalMistakes+ " 次。");
         consoleLog("距離完成還有" + strokeData.strokesRemaining + "個筆畫。");
         consoleLog("");
       },
@@ -107,7 +107,7 @@ window.onload = function () {
     writer.quiz(opts);
   });
 
-  //筆畫提示順序
+  //全筆畫提示順序
   function renderFanningStrokes(target, strokes) {
     /* var node=document.createElement("div"); */
     var docs_target_div = document.getElementById("docs-target-HintAllstroke");
@@ -116,7 +116,7 @@ window.onload = function () {
     svg.style.height = '50px';
     svg.style.border = '1px solid #EEE'
     svg.style.marginRight = '1px'
-    target.appendChild(svg);
+    target.appendChild(svg);//如果有需要再放置 因為我沒有要放入div target中
     var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   
     // set the transform property on the g element so the character renders at 75x75
@@ -134,8 +134,6 @@ window.onload = function () {
     
       docs_target_div.appendChild(svg);
       docs_target_div.appendChild(document.createElement("br"));
-
-    
     /* document.getElementById("docs-target-11").appendChild(node); */
   }
   
@@ -147,6 +145,7 @@ window.onload = function () {
     HanziWriter.loadCharacterData(testInput.value).then(function(charData) {
       console.log(testInput.value);
           var target_hint = document.getElementById('target');
+          /* console.log(target_hint+"11"); */
           if(document.getElementById("docs-target-HintAllstroke").innerHTML != '')
           {
             document.getElementById("docs-target-HintAllstroke").innerHTML = '';
@@ -155,6 +154,7 @@ window.onload = function () {
             for (var i = 0; i < charData.strokes.length; i++) {
               var strokesPortion = charData.strokes.slice(0, i + 1);
               renderFanningStrokes(target_hint, strokesPortion);
+              /* console.log(strokesPortion+i+"222222"); */
             }
           }
         });
@@ -173,7 +173,7 @@ window.onload = function () {
     //顯示所有練習的漢字(按下update)
     var character = document.querySelector('.js-char').value;
     HanziWriter.loadCharacterData(character).then(function(charData) {
-          var target = document.getElementById('tmp-svg');
+          var target = document.getElementById('tmp-svg');//存放按下確定後的所有漢字 div
           var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
           svg.style.width = '100px';
           svg.style.height = '100px';
@@ -228,7 +228,7 @@ function populateVoices(){
   msg.lang = "zh-TW"
 }
 
-
+//觸發播放
 function toggle(startOver = true){
   speechSynthesis.cancel(); // stop speaking
   if(startOver){
@@ -273,8 +273,7 @@ function getData()
 
           text2 += "<th bgcolor='#adb5bd'>" +"總筆畫"+"</th>";
           text2 += "<th>" + w_data[2] + "</th>";
-          /* text2 += "<th>" +"注音:"+"</th>";
-          text2 += "<th>" + w_data[3] + "</th>"; */
+
           text2 += "</tr></table>";
           document.getElementById("char-dictionary").innerHTML = text2;
       }
