@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django 連線到 MySQL 資料庫</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+    
+        
+        <div class="content" >
+            
+            <div id="top" >&nbsp&nbsp</div>
+
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="Django.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbspDjango 連線到 MySQL 資料庫</h2></p>
+
+                
+            </div>
+
+            <br>
+
+            <div style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+                <ol>
+                    <li>
+                        安裝MySQL
+                    </li>
+                    <li>
+                        下指令 => pip install mysqlclient
+                    </li>
+                    <li>打開 settings.py => 找到DATABASES => 修改 => <br>DATABASES = {<br>
+                        &emsp; &emsp;'default': {<br>
+                            &emsp;&emsp;&emsp; &emsp;'ENGINE': 'django.db.backends.mysql', <br>
+                            &emsp;&emsp;&emsp; &emsp;'NAME': 'your_database_name',<br>
+                            &emsp;&emsp;&emsp; &emsp;'USER': 'root',<br>
+                            &emsp;&emsp;&emsp; &emsp;'PASSWORD': 'your_password',<br>
+                            &emsp;&emsp;&emsp; &emsp;'HOST': 'localhost',<br>
+                            &emsp;&emsp;&emsp; &emsp;'PORT': '3306(your_port)',<br>
+                            &emsp;&emsp;&emsp; &emsp;}<br>
+                    }</li>
+                    <li>打開 models.py => 修改<br>from django.db import models<br><br>
+
+                        # Create your models here.<br><br>
+                        
+                        class student(models.Model):<br>
+                            cName = models.CharField(max_length=20, null=False)<br>
+                            cSex = models.CharField(max_length=2, default='M', null=False)<br>
+                            cBirthday = models.DateField(null=False)<br>
+                            cEmail = models.EmailField(max_length=100, blank=True, default='')<br>
+                            cPhone = models.CharField(max_length=50, blank=True, default='')<br>
+                            cAddr = models.CharField(max_length=255, blank=True, default='')<br>
+                            <br><br>
+                            def __str__(self):<br>
+                                return self.cName</li><br>
+                    <li>下指令 => python manage.py makemigrations<br><br>
+                        這個指令會根據你對 Model 的修改刪除建立一個新的 migration 檔案，讓 migrate 指令執行時，可以照著這份紀錄更新資料庫。<br><br>
+
+                        接著用以下的指令，讓 Django 根據上面的紀錄，把 models.py 中的欄位寫入資料庫：<br><br>
+
+                        下指令 => python manage.py migrate<br><br>
+
+
+                        migrate 指令會根據 INSTALLED_APPS 的設定，按照 app 順序建立或更新資料表，將你在 models.py 裡的更新跟資料庫同步。<br><br>
+
+                        <span style="background-color: yellow;">只要有更改到model.py檔後必須做這兩個指令</span>
+                    
+
+                    </li>
+                </ol>
+            </div>
+
+
+
+            
+                
+        </div>
+        
+    
+</body>
+</html>
