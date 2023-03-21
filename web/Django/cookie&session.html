@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie & Sessions</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+    
+        
+        <div class="content" >
+            
+            <div id="top" >&nbsp&nbsp</div>
+
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="Django.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbspCookie & Sessions</h2></p>
+
+                
+            </div>
+
+            <br>
+
+            <div style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+                <h4>Cookies</h4>
+                <ul>
+                    <li>Cookies are stored on the client side (in the visitor's browser).</li>
+                    <li>Cookies are not safe: it's quite easy to read and write cookie contents.</li>
+                    <li>When using cookies, you have to notify visitors according to european laws (GDPR).</li>
+                    <li>Expiration can be set, but user or browser can change it.</li>
+                    <li>Users (or browser) can (be set to) decline the use of cookies.</li>
+                </ul>
+                
+                <h4>Sessions</h4>
+                <ul>
+                    <li>Sessions are stored on the server side.</li>
+                    <li>Sessions use cookies (see below).</li>
+                    <li>Sessions are safer than cookies, but not invulnarable.</li>
+                    <li>Expiration is set in server configuration (php.ini for example).</li>
+                    <li>Default expiration time is 24 minutes or when the browser is closed.</li>
+                    <li>Expiration is reset when the user refreshes or loads a new page.</li>
+                    <li>Users (or browser) can (be set to) decline the use of cookies, therefore sessions.</li>
+                    <li>Legally, you also have to notify visitors for the cookie, but the lack of precedent is not clear yet.</li>
+                </ul>
+
+                <h4>Set Cookie</h4>
+                <div style="background-color: #eeeeee; width: 600px;">
+                    def set_session(request, key=None, value=None):<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbspresponse = HttpResponse('Session儲存完畢')<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsprequest.session[key] = value<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn response<br>
+                </div>
+
+                <h4>Get Cookie</h4>
+                <div style="background-color: #eeeeee; width: 600px;">
+                    def get_cookie(request, key=None):<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbspif key in request.COOKIES:<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn HttpResponse(f'{key} => {request.COOKIES[key]}')<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbspelse:<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbspreturn HttpResponse("Cookie不存在")<br>
+                </div>
+
+                <h4>Set Session</h4>
+                <div style="background-color: #eeeeee; width: 600px;">
+                    def set_session(request, key=None, value=None):<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspresponse = HttpResponse('Session儲存完畢')<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsprequest.session[key] = value<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn response<br>
+                </div>
+
+                <h4>Get Session</h4>
+                <div style="background-color: #eeeeee; width: 600px;">
+                    def get_session(request, key=None):<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbspif key in request.session:<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn HttpResponse(f'{key} => {request.session[key]}')<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbspelse:<br>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn HttpResponse("Session不存在")<br>
+                </div>
+            </div>
+
+
+
+            
+                
+        </div>
+        
+    
+</body>
+</html>
