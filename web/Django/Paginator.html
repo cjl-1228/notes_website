@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用 Paginator 實現分頁功能</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+    
+        
+        <div class="content" >
+            
+            <div id="top" >&nbsp&nbsp</div>
+
+
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="Django.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp使用 Paginator 實現分頁功能</h2></p>
+
+                
+            </div>
+
+            <br>
+
+            <div style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+                <h4>views.py</h4>
+                <div style="background-color: #eeeeee; width: 750px;">
+<pre>from mysite.models import student
+from django.core.paginator import Paginator
+from django.core.paginator import EmptyPage
+from django.core.paginator import PageNotAnInteger
+
+# Create your views here.
+def getdata(request):
+    limit = 5  # 每頁顯示的筆數
+    students = student.objects.all()
+    paginator = Paginator(students, limit)  
+
+    page = request.GET.get('page')  # 獲取頁碼
+    try:
+        students = paginator.page(page)  # 獲取該頁的資料
+    except PageNotAnInteger:  # 如果頁碼不是個整數
+        students = paginator.page(1)  # 取第一頁的資料
+    except EmptyPage:  # 如果頁碼過大，没有相對的資料
+        students = paginator.page(paginator.num_pages)  # 取最後一頁的資料
+
+    return render(request,'getdata.html', {'students': students})</pre>
+                </div>
+
+                <h4>getdata.html</h4>
+                <div style="background-color: #eeeeee; width: 1200px;">
+<pre>{% for s in students.object_list %}
+    &lt;tr&gt; 
+        &lt;th scope="row">{{s.id}}&lt;/th&gt; 
+        &lt;td&gt;{{s.cName}}&lt;/td&gt;
+        &lt;td&gt;{{s.cSex}}&lt;/td&gt;
+        &lt;td&gt;{{s.cBirthday}}&lt;/td&gt;
+        &lt;td&gt;{{s.cEmail}}&lt;/td&gt;
+        &lt;td&gt;{{s.cPhone}}&lt;/td&gt;
+        &lt;td&gt;{{s.cAddr}}&lt;/td&gt;
+    &lt;/tr&gt; 
+{% endfor %}</pre>
+                <br>
+                <pre>&lt;p&gt;
+    {# students.paginator.page_range 這個函式返回包含一個所有頁碼數的 range 對象 #}
+    {# 即 range(1, students.paginator.num_pages + 1) #}
+
+    &lt;ul class="pagination"&gt;
+        {% if students.has_previous %} {#如果有上一頁就創建#}
+            &lt;li class="page-item">&lt;a class="page-link" href="?page={{ students.previous_page_number }}">上一頁&lt;/a>&lt;/li>
+        {% endif %}
+
+        {% for page_number in students.paginator.page_range %}
+
+            {% ifequal page_number students.number %}
+                &lt;li class="page-item">&lt;a class="page-link active" href="">{{ page_number }}&lt;/a>&lt;/li>
+            {% else %}
+                &lt;li class="page-item">&lt;a class="page-link" href="?page={{ page_number }}">{{ page_number }}&lt;/a>&lt;/li>
+            {% endifequal %}
+
+        {% endfor %}
+
+        {% if students.has_next %} {#如果有下一頁就創建#}
+            &lt;li class="page-item">&lt;a class="page-link" href="?page={{ students.next_page_number }}">下一頁&lt;/a>&lt;/li>
+        {% endif %}
+    &lt;/ul>
+&lt;/p&gt; </pre>
+                </div>
+            </div>
+
+
+
+            
+                
+        </div>
+        
+    
+</body>
+</html>
