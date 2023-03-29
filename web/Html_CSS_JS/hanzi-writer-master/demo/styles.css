@@ -13,6 +13,9 @@ body {
 	box-sizing: border-box;
 }
 
+button{
+	cursor: text;
+}
 input.js-char {
     width: 70px;
 }
@@ -149,6 +152,31 @@ button:hover {
     background: white;
 } */
 
+ruby {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: flex-start;
+  }
+  rt {
+	margin-left: 0.25em;
+  }
+  rp {
+	display: none;
+  }
+
+
+  ruby rt {
+	display: block;
+	text-align: center;
+  }
+  
+  ruby rt.top {
+	margin-bottom: -0.5em;
+  }
+  
+  ruby rt.bottom {
+	margin-top: -0.5em;
+  }
 
 
 .card, .card p {
@@ -159,4 +187,13 @@ button:hover {
 .card .card-title {
 	margin: 0;
 	line-height: 1.5;
-	font-size: 18px; }
+	font-size: 18px; 
+}
+
+canvas {
+	cursor: url('img/pen-icon.png'), auto;
+  }
+  
+  canvas.eraser {
+	cursor: url('img/eraser.png'), auto;
+  }

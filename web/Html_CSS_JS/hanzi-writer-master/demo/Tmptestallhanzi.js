@@ -6,22 +6,8 @@ var isOutlineVisible;
 var VarAnimationspeed = document.querySelector('[name="Animationspeed"]').value;
 var VarshowHintAfterMisses = document.querySelector('[name = HintAfterMisses]').value;
 var VardrawingWidth = document.querySelector('[name = drawingWidth]').value;
-var CourseHanziArray = JSON.parse(sessionStorage.getItem('CourseHanziArray')); //如果直接開啟這網站會抓不到此網站資訊
-var AllHanzi = CourseHanziArray; //此課程生字
+var AllHanzi = ['舟','灑','載','愁','讓','嘆','忌','妒','語','訣']; //此課程生字
 var Hanzi_index = 0;//課程生字的在陣列位置
-
-
-
-
-//0327任務 1.注音欄位必須出來 2. 進階測驗 工具列調整
-
-//最後任務 實作橡皮擦功能 目前背景不是同一顏色會有只調整筆畫顏色不太行
-//還有 更改鼠標樣式
-if(!CourseHanziArray)
-{
-  alert("沒有抓到課程資料，請從SelectCourse.html登入。");
-  AllHanzi=['測','試'];
-}
 
 /* console.log(VarAnimationspeed); */
 function updateScroll()
@@ -36,14 +22,13 @@ function printStrokePoints(data) {
 }
 
 //使用箭頭來調整練習的漢字
-
-function Previoushanzi()//按下 上一個 的按鈕 <=
-{
-  //如果是在第一個漢字 按下 "上一個箭頭"漢字就會到最後一個漢字
+//console.log("目前是:"+Hanzi_index); 
+//按下 上一個 的按鈕 <=
+function Previoushanzi(){
+  
   if(Hanzi_index == 0)
   {
-    Hanzi_index= AllHanzi.length-1
-    /* console.log("到最後一個漢字"); */
+    Hanzi_index=9;
   }
   else if(Hanzi_index>0)
   {
@@ -54,47 +39,35 @@ function Previoushanzi()//按下 上一個 的按鈕 <=
   updateCharacter();
   getData();
   HiddenAllHintstroke();
-  HiddenCanvas();
 }
-
-function Nexthanzi()//按下 下一個 的按鈕 =>
+//按下 下一個 的按鈕 =>
+function Nexthanzi()
 {
-  //如果是在最後一個漢字 按下 "下一個箭頭"漢字就會到第一個漢字
-  if(Hanzi_index== AllHanzi.length-1){
-    Hanzi_index=0
+  if(Hanzi_index==9){
+    Hanzi_index=0;
   }
-  else if(Hanzi_index <AllHanzi.length)
+  else if(Hanzi_index <9)
   {
     Hanzi_index+=1;
   }
-  /* console.log("目前是:"+Hanzi_index+"next"); */
+  console.log("目前是:"+Hanzi_index+"next");
   
   updateCharacter();
   getData();
   HiddenAllHintstroke();
-  HiddenCanvas();
-}
-
-
-
-function HiddenCanvas()//左右箭頭 判斷繪畫區T F
-{
-  //隱藏繪畫Canvas區塊
-  document.getElementById("div-canvas").style.display="none";
-  showCanvas = true;//左右箭頭按下之後，在按下進階測驗才會顯示。
 }
 
 
 function updateCharacter() {
   document.querySelector('#target').innerHTML = '';
-  /* var character = document.querySelector('.js-char').value; */
+  var character = document.querySelector('.js-char').value;
 
-  /* window.location.hash = character; */
+  window.location.hash = character;
   writer = HanziWriter.create('target', AllHanzi[Hanzi_index], {
     width: 400,
     height: 400,
     renderer: 'svg',
-    radicalColor: '#166E16',//部首顏色
+    radicalColor: '#166E16',
     onCorrectStroke: printStrokePoints,
     onMistake: printStrokePoints,
     showCharacter: false,
@@ -114,24 +87,27 @@ function HiddenAllHintstroke(){
   document.getElementById("docs-target-HintAllstroke").innerHTML = '';
 }
 
+function ClearTmpSvg()
+{
+  document.getElementById("tmp-svg").innerHTML = '';
+}
 
 
 window.onload = function () {
   
-  
   var char = decodeURIComponent(window.location.hash.slice(1));
   if (char) {
-    /* document.querySelector('.js-char').value = char; */
+    document.querySelector('.js-char').value = char;
   }
-  CourseAllHanzi(); //此課程漢字
+  CourseAllHanzi2(); //此課程漢字
   HiddenCanvas(); //隱藏畫布 除非按下進階練習
   updateCharacter();//更新 如有變動工具列數值等等
   getData();
   //按下確定
-  /* document.querySelector('.js-char-form').addEventListener('submit', function (evt) {
+  document.querySelector('.js-char-form').addEventListener('submit', function (evt) {
     evt.preventDefault();
     updateCharacter();
-  }); */
+  });
 
 
   //案下 show/hide
@@ -196,15 +172,15 @@ window.onload = function () {
     /* var node=document.createElement("div"); */
     var docs_target_div = document.getElementById("docs-target-HintAllstroke");
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.style.width = '60px';
-    svg.style.height = '60px';
+    svg.style.width = '50px';
+    svg.style.height = '50px';
     svg.style.border = '1px solid #EEE'
     svg.style.marginRight = '1px'
     /* target.appendChild(svg); *///如果有需要再放置 因為我沒有要放入div target中
     var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   
     // set the transform property on the g element so the character renders at 75x75
-    var transformData = HanziWriter.getScalingTransform(60, 60);
+    var transformData = HanziWriter.getScalingTransform(50, 50);
     group.setAttributeNS(null, 'transform', transformData.transform);
     svg.appendChild(group);
     /* node.appendChild(svg); */
@@ -248,15 +224,15 @@ window.onload = function () {
         });
   }
   //目前按下update 全筆順提示要消失
- /*  function HiddenAllHintstroke(){
+  function HiddenAllHintstroke(){
     if(document.getElementById("docs-target-HintAllstroke").innerHTML != '')
     {
       console.log("清除");
       document.getElementById("docs-target-HintAllstroke").innerHTML = '';
     }
     
-  } */
-  /* ok.addEventListener("click", HiddenAllHintstroke); */
+  }
+  ok.addEventListener("click", HiddenAllHintstroke);
 
 
 
@@ -332,14 +308,52 @@ function setOption(){
  
 }
 //取得此課程的所有漢字
+var  statAllHanzi = ['舟','灑','載','愁','讓','嘆','忌','妒','語','訣'];
+function CourseAllHanzi(){
+    /* var character = document.querySelector('.js-char').value; */
+    
+     //此課程生字
+    var target = document.getElementById('tmp-svg');//存放按下確定後的所有漢字 div
+    
+    for (var i = 0; i < statAllHanzi.length; i++) {
+        
+        HanziWriter.loadCharacterData(statAllHanzi[i]).then(function(charData) {
+            var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.style.width = '100px';
+            svg.style.height = '100px';
+            svg.style.border='1px solid black';
+            target.appendChild(svg);
 
-
-//取得此課程的所有漢字 此方法async/await 僅適用於現代瀏覽器 舊瀏覽器須注意 HanziWriter.loadCharacterData() 是非同步的函數
-async function CourseAllHanzi() {
-  var target = document.getElementById('tmp-svg'); //存放按下確定後的所有漢字 div
+            var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          
+            // set the transform property on the g element so the character renders at 150x150
+            var transformData = HanziWriter.getScalingTransform(100, 100);
+            group.setAttributeNS(null, 'transform', transformData.transform);
+            svg.appendChild(group);
+            
+            target.appendChild(document.createElement("br"));
+            /* target.appendChild(document.createElement("br")); */
+          
+            charData.strokes.forEach(function(strokePath) {
+              var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+              path.setAttributeNS(null, 'd', strokePath);
+              // style the character paths
+              path.style.fill = '#555';
+              group.appendChild(path);
+            });
+            target.appendChild(svg);
+            
+          }); 
+    } 
+}
+//此方法async/await 僅適用於現代瀏覽器 舊瀏覽器須注意
+//HanziWriter.loadCharacterData() 是非同步的函數
+//取得此課程的所有漢字
+async function CourseAllHanzi2() {
+  var target = document.getElementById('tmp-svg');
   
-  for (var i = 0; i < AllHanzi.length; i++) {
-    var charData = await HanziWriter.loadCharacterData(AllHanzi[i]);
+  for (var i = 0; i < statAllHanzi.length; i++) {
+    var charData = await HanziWriter.loadCharacterData(statAllHanzi[i]);
     
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.style.width = '100px';
@@ -348,23 +362,21 @@ async function CourseAllHanzi() {
     target.appendChild(svg);
 
     var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    // set the transform property on the g element so the character renders at 150x150
+
     var transformData = HanziWriter.getScalingTransform(100, 100);
     group.setAttributeNS(null, 'transform', transformData.transform);
     svg.appendChild(group);
 
     target.appendChild(document.createElement("br"));
-    target.appendChild(document.createElement("br"));
 
     charData.strokes.forEach(function(strokePath) {
       var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttributeNS(null, 'd', strokePath);
-      // style the character paths
       path.style.fill = '#555';
       group.appendChild(path);
     });
 
-    
+    target.appendChild(svg);
   }
 }
 
@@ -385,41 +397,15 @@ function getData()
           var w_data = [data["title"], data["radical"], data["stroke_count"], data["heteronyms"][0]["bopomofo"]];
           var s = w_data[0] + ", " + w_data[1] + "部, " + "共" + w_data[2] + "畫, " + w_data[3]
           msg.text = s;
-          if(w_data[1] == '{[8f54]}')//足部
-          {
-            const unicodeRadical = "8FB5"; // 該字的 Unicode 部首編碼
-            const radicalChar = String.fromCodePoint(parseInt(unicodeRadical, 16));
-            w_data[1]=radicalChar;
-            console.log(radicalChar); // 顯示
-          }
-          else if(w_data[1] == '{[8ef3]}')
-          {
-            const unicodeRadical = "5E7F"; // 該字的 Unicode 部首編碼
-            const radicalChar = String.fromCodePoint(parseInt(unicodeRadical, 16));
-            w_data[1]=radicalChar;
-            console.log(radicalChar); // 顯示
-          }
-          else if(w_data[1] == '{[fbfd]}')
-          {
-            const unicodeRadical = "5B80"; // 該字的 Unicode 部首編碼
-            const radicalChar = String.fromCodePoint(parseInt(unicodeRadical, 16));
-            w_data[1]=radicalChar;
-            console.log(radicalChar); // 顯示
-          }
           /* document.querySelector('[name="text"]').innerHTML=s */
-          /* console.log(w_data[3]); */
 
           text2 = "<table> <tr>";
 
-          text2 += "<th bgcolor='#adb5bd' colspan='2'>" +"部首"+"</th>";
-          text2 += "<th bgcolor='#adb5bd' colspan='2'>" +"注音"+"</th>";
-          text2 += "<th bgcolor='#adb5bd' colspan='2'>" +"總筆畫"+"</th>";
+          text2 += "<th bgcolor='#adb5bd'>" +"部首"+"</th>";
+          text2 += "<th >" + w_data[1] + "</th>";
 
-          text2 += "</tr><tr>";
-          text2 += "<th colspan='2'>" + w_data[1] + "</th>";
-          text2 += "<th colspan='2'>" + "<rt>" +  w_data[3] + "</rt>" + "</th>";
-          text2 += "<th colspan='2'>" + w_data[2] + "</th>";
-          
+          text2 += "<th bgcolor='#adb5bd'>" +"總筆畫"+"</th>";
+          text2 += "<th>" + w_data[2] + "</th>";
 
           text2 += "</tr></table>";
           document.getElementById("char-dictionary").innerHTML = text2;
@@ -427,7 +413,7 @@ function getData()
   };
   xhr.send();
 }
-/* ok.addEventListener("click", getData); */
+ok.addEventListener("click", getData);
 speechSynthesis.addEventListener('voiceschanged',populateVoices);
 /* voicesDropdown.addEventListener('change', setVoice); */
 
@@ -436,28 +422,24 @@ speakButton.addEventListener('click',toggle);
 
 
 
+//隱藏繪畫區
+function HiddenCanvas()
+{
+  //隱藏繪畫區塊
+  document.getElementById("div-canvas").style.display="none";
+}
 
-
-let showCanvas = true;//控制進階練習顯示區塊
 //按下進階測驗
 document.querySelector('.js-hardquiz').addEventListener('click', function () {
-
-  if (showCanvas) {
-    document.getElementById("div-canvas").style.display="";//顯示
-
-  } else {
-    document.getElementById("div-canvas").style.display="none";//關閉
-  }
-  showCanvas = !showCanvas;
-  CanvasHanziBg(AllHanzi[Hanzi_index]);
+  document.getElementById("div-canvas").style.display="";//顯示繪畫區塊
     //canvas
-    // Canvas DOM 元素
-
+    // Canvas DOM 元素 
     const canvas = document.getElementById('canvas')
     const ctx = canvas.getContext('2d')
-    
+    var clear = document.getElementById("clear-canvas");
+    var select_color = document.querySelector('[name=color]:checked')
 
-    ctx.strokeStyle = 'black'
+    ctx.strokeStyle = select_color.value;
     
     //起始點座標
     let x1= 0
@@ -476,146 +458,55 @@ document.querySelector('.js-hardquiz').addEventListener('click', function () {
     const upEvent = hasTouchEvent ? 'touchend' : 'mouseup'
 
     // 宣告 isMouseActive 為滑鼠點擊的狀態，因為我們需要滑鼠在 mousedown 的狀態時，才會監聽 mousemove 的狀態
-    
-    const btns = document.querySelectorAll('.btn-check');
-    ctx.lineWidth = 10; //預設筆畫大小
-    //根據選擇的筆順大小 來調整
-    btns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (btn.id === 'btnradio1') {
-          ctx.lineWidth = 10;
-        } else if (btn.id === 'btnradio2') {
-          ctx.lineWidth = 15;
-        } else if (btn.id === 'btnradio3') {
-          ctx.lineWidth = 20;
-        }
-      });
-    });
+    let isMouseActive = false
 
+    canvas.addEventListener(downEvent, function(e){
+      isMouseActive = true
+    })
 
+    canvas.addEventListener(downEvent, function(e){
+      isMouseActive = true  
+      x1 = e.offsetX
+      y1 = e.offsetY
+      
+      ctx.lineWidth = 5
+      ctx.lineCap = 'round'
+      ctx.lineJoin = 'round'
+    })
 
-    var isMouseActive = false;
-    canvas.addEventListener("mousedown", function(e) {
-      isMouseActive = true;
-      x1 = e.offsetX;
-      y1 = e.offsetY;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-    });
+    canvas.addEventListener(moveEvent, function(e){
+          if(!isMouseActive){
+            return
+          }
+          // 取得終點座標
+          x2 = e.offsetX
+          y2 = e.offsetY
+          
+          // 開始繪圖
+          ctx.beginPath()
+          ctx.moveTo(x1, y1)
+          ctx.lineTo(x2, y2)
+          ctx.stroke()
+          
+          // 更新起始點座標
+          x1 = x2
+          y1 = y2
+    })
 
-
-    
-    canvas.addEventListener("mousemove", function (e) {
-      var eraser = document.getElementById("eraser");//橡皮擦按鈕
-      if (eraser.checked && e.buttons === 1) { // 判斷左鍵是否按下
-        
-        isMouseActive = false;
-        console.log("擦");
-        var w = 20;
-        var h = 20;
-        var x = e.pageX - canvas.offsetLeft - w / 2;
-        var y = e.pageY - canvas.offsetTop - h / 2;
-        ctx.clearRect(x, y, w, h);
-      } else {
-        
-        if (!isMouseActive) {
-          return;
-        }
-        x2 = e.offsetX;
-        y2 = e.offsetY;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.stroke()
-        // 更新起始點座標
-        x1 = x2
-        y1 = y2
-      }
-    });
-    
-
-
-
-canvas.addEventListener(upEvent, function(e){
-  isMouseActive = false
-})
-
-    clear.onclick= function(){
-      ClearCanvas();
-      ctx.lineWidth = 10;//不加這行會導致 筆畫沒抓到值
-    }
-});
-
-
-//清除畫布按鈕
-var clear = document.getElementById("clear-canvas");
-function ClearCanvas(){
+    canvas.addEventListener(upEvent, function(e){
+      isMouseActive = false
+    })
+    //清除畫布按鈕
+clear.onclick= function(){
+  console.log("111");
   canvas.width = canvas.width;
   canvas.height = canvas.height;
 }
-const eraserCheckbox = document.getElementById('eraser');
-eraserCheckbox.addEventListener('change',function(){
-  if (this.checked) {
-    canvas.classList.add('eraser');
-  } else {
-    canvas.classList.remove('eraser');
-  }
 });
-
-
-//進階測驗的漢字形狀畫布背景 非常重要
-function CanvasHanziBg(char){
-  HanziWriter.loadCharacterData(char).then(function(charData) {
-    // create a new canvas element
-    var canvas = document.createElement('canvas');
-    canvas.width = 380;
-    canvas.height = 380;
-  
-    // get the 2d context of the canvas
-    var ctx = canvas.getContext('2d');
-  
-    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.style.width = '380px';
-    svg.style.height = '380px';
-    var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-  
-    // set the transform property on the g element so the character renders at 150x150
-    var transformData = HanziWriter.getScalingTransform(380, 380);
-    group.setAttributeNS(null, 'transform', transformData.transform);
-    svg.appendChild(group);
-  
-    charData.strokes.forEach(function(strokePath) {
-      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      path.setAttributeNS(null, 'd', strokePath);
-      // style the character paths
-      path.style.fill = '#e4e4e4';//path中間填滿
-      /* path.style.stroke = '#555'; *///path 邊框
-      
-      group.appendChild(path);
-    });
-  
-    // draw the SVG onto the canvas
-    var svgData = new XMLSerializer().serializeToString(svg);
-    var img = new Image();
-    img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
-    img.onload = function() {
-      ctx.drawImage(img, 0, 0);
-      // set the canvas as the background of the target canvas element
-      var target = document.getElementById('canvas');
-      target.style.backgroundImage = 'url(' + canvas.toDataURL() + ')';
-    };
-    
-  });
-}
-
-
-
-
 
 
 //下載所繪製的圖片
 function download(selector) {
-  HiddenCanvas();
   const canvas = document.querySelector(selector);
   const ctx = canvas.getContext('2d');
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -632,53 +523,28 @@ function download(selector) {
   // 绘制白色背景和所有绘制内容
   ctx.putImageData(imageData, 0, 0);
   // 将画布转换为数据 URL 并创建图像元素
-  const dataURL = canvas.toDataURL('img/123.svg');
+  const dataURL = canvas.toDataURL('image/png');
   const img = new Image();
   img.src =  dataURL;
   
   // 创建链接并下载
   const link = document.createElement('a');
-  link.download = '學號_'+AllHanzi[Hanzi_index];
+  link.download = '文件名称';
   link.href =  dataURL;
   link.click();
   clear.onclick();
-  /* CanvasHanziBg(AllHanzi[Hanzi_index]);
-  ctx.putImageData(0, 0, 0); */
 }
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
+const lis = document.querySelectorAll('li');
+lis.forEach(li => {
+  li.addEventListener('click', () => {
     const ctx = canvas.getContext('2d')
-    const color = button.dataset.color;
+    var select_color = document.querySelector('[name=color]:checked')
 
-    ctx.strokeStyle = color;
+    ctx.strokeStyle = select_color.value;
   });
 });
 
-
-//按下的按鈕是藍色背景 讓被點選按鈕更醒目。 
-var lastButton = null;
-function pressBtnColor(id) {
-  var button = document.getElementById(id);
-  /* console.log(button); */
-  if (lastButton != null) {
-    console.log('1');
-    lastButton.classList.remove("btn-primary");
-    lastButton.classList.add("btn-outline-primary");
-  }
-  if (!button.classList.contains("btn-primary")) { //沒有btn-primary 就執行這
-    console.log('2');
-    button.classList.remove("btn-outline-primary");
-    button.classList.add("btn-primary");
-    lastButton = button;
-  } else {//有btn-primary
-    console.log('3');
-    button.classList.remove("btn-primary");
-    button.classList.add("btn-outline-primary");
-    lastButton = null;
-  }
-}
 
 //class 功能
 function hasClass(el, className) {
@@ -705,4 +571,27 @@ function removeClass(el, className) {
   }
 }
 
+//按下按鈕 更改顏色 讓被點選按鈕更醒目。 
+var lastButton = null;
+function pressBtnColor(id) {
+  var button = document.getElementById(id);
+  /* console.log(button); */
+  if (lastButton != null) {
+    console.log('1');
+    lastButton.classList.remove("btn-primary");
+    lastButton.classList.add("btn-outline-primary");
+  }
+  if (!button.classList.contains("btn-primary")) { //沒有btn-primary 就執行這
+    console.log('2');
+    button.classList.remove("btn-outline-primary");
+    button.classList.add("btn-primary");
+    lastButton = button;
+  } else {//有btn-primary
+    console.log('3');
+    button.classList.remove("btn-primary");
+    button.classList.add("btn-outline-primary");
+    lastButton = null;
+  }
 
+  
+}
