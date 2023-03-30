@@ -1,0 +1,205 @@
+body, html {
+	background: #f4f0ea;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	font-size: 14px;
+}
+body {
+	padding-bottom: 80px;
+}
+* {
+	box-sizing: border-box;
+}
+
+button{
+	cursor: text;
+}
+input.js-char {
+    width: 70px;
+}
+input, button {
+	outline: none;
+}
+button, #target, .title {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+}
+
+button, #target {
+	text-shadow: 0 1px 1px white;
+}
+
+.title {
+	color: white;
+	background: linear-gradient(to bottom, #333, #222);
+	padding: 15px 0;
+	margin: 0 0 30px;
+	text-shadow: 0 0 15px #4B89DB;
+}
+
+#target {
+	background: white;
+	clear: both;
+	border: 1px solid black;
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+}
+#grid-background-target{
+	background: white;
+	clear: both;
+	border: 1px solid black;
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+}
+
+.char-form {
+	margin: 0 0 20px;
+}
+
+.char-form button {
+	padding: 8px 5px;
+	line-height: 14px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.char-input {
+	font-size: 16px;
+	padding: 5px;
+	width: 33px;
+	text-align: center;
+}
+
+.actions {
+	width: 400px;
+	margin: 0 auto;
+}
+
+.actions button {
+	display: block;
+	width: 97px;
+	float: left;
+	margin-right: 4px;
+	margin-bottom: 4px;
+}
+.actions button:last-child {
+	margin-right: 0;
+}
+
+button {
+	background: none;
+	border: 1px solid #444;
+	color: #444;
+	cursor: pointer;
+	transition: all 300ms;
+}
+
+button:hover {
+	color: #1e6cd2;
+	border: 1px solid #1e6cd2;
+	box-shadow: none;
+}
+#scroller {
+	
+	overflow: scroll;
+	height: 200px;
+	width: 400px;
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+	
+  }
+#container{
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+	
+}
+#char-dictionary{
+	width: 400px;
+	margin: auto;
+}
+
+#scroller
+{
+	width: 400px;
+	margin: auto;
+}
+
+/* .slider-bar{
+    height: 20px;
+    width: 40px;
+    display: inline-block;
+    border-radius:10px;
+    background: #ccc;
+}
+
+.setting-btn{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #999;
+    border: 1px solid gray;
+    transition: 0.5s;
+} */
+
+/* input[type="checkbox"]:checked + .slider-bar .setting-btn{
+    margin-left: 20px;
+    background: white;
+} */
+
+ruby {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: flex-start;
+  }
+  rt {
+	margin-left: 0.25em;
+  }
+  rp {
+	display: none;
+  }
+
+
+  ruby rt {
+	display: block;
+	text-align: center;
+  }
+  
+  ruby rt.top {
+	margin-bottom: -0.5em;
+  }
+  
+  ruby rt.bottom {
+	margin-top: -0.5em;
+  }
+
+
+.card, .card p {
+	font-size: 16px; }
+.card .card-header {
+	padding-top: 0;
+	padding-bottom: 0; }
+.card .card-title {
+	margin: 0;
+	line-height: 1.5;
+	font-size: 18px; 
+}
+
+canvas {
+	cursor: url('img/pen-icon.png'), auto;
+  }
+  
+canvas.eraser {
+	cursor: url('img/eraser.png'), auto;
+  }
+#target{
+	cursor:pointer;
+}
+#target.pen-icon{
+	cursor: url('img/pen-icon.png'), auto;
+}
