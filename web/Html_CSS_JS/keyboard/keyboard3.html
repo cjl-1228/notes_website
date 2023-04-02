@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body class="">
+
+    <div class="container">
+        <div class="keyboard_wrapp">
+            <div class="keyboard_lights"></div>
+            <div class="keyboard_keys">
+                <div class="row">
+                    <div class="keys"></div>
+                    <div class="keys">ㄅ</div>
+                    <div class="keys">ㄉ</div>
+                    <div class="keys">ˇ</div>
+                    <div class="keys">ˋ</div>
+                    <div class="keys">ㄓ</div>
+                    <div class="keys">ˊ</div>
+                    <div class="keys">˙</div>
+                    <div class="keys">ㄚ</div>
+                    <div class="keys">ㄞ</div>
+                    <div class="keys">ㄢ</div>
+                    <div class="keys"></div>
+                    <div class="keys"></div>
+                    <div class="keys backspace_key">刪除</div>
+                </div>
+                <div class="row">
+                    <div class="keys tab_key"></div>
+                    <div class="keys">ㄆ</div>
+                    <div class="keys">ㄊ</div>
+                    <div class="keys">ㄍ</div>
+                    <div class="keys">ㄐ</div>
+                    <div class="keys">ㄔ</div>
+                    <div class="keys">ㄗ</div>
+                    <div class="keys">ㄧ</div>
+                    <div class="keys">ㄛ</div>
+                    <div class="keys">ㄟ</div>
+                    <div class="keys">ㄣ</div>
+                    <div class="keys"></div>
+                    <div class="keys"></div>
+                    <div class="keys slash_key"></div>
+                </div>
+                <div class="row">
+                    <div class="keys caps_lock_key"></div>
+                    <div class="keys">ㄇ</div>
+                    <div class="keys">ㄋ</div>
+                    <div class="keys">ㄎ</div>
+                    <div class="keys">ㄑ</div>
+                    <div class="keys">ㄕ</div>
+                    <div class="keys">ㄘ</div>
+                    <div class="keys">ㄨ</div>
+                    <div class="keys">ㄜ</div>
+                    <div class="keys">ㄠ</div>
+                    <div class="keys">ㄤ</div>
+                    <div class="keys"></div>
+                    <div class="keys enter_key"></div>
+                </div>
+                <div class="row">
+                    <div class="keys shift_key shift_left"></div>
+                    <div class="keys">ㄈ</div>
+                    <div class="keys">ㄌ</div>
+                    <div class="keys">ㄏ</div>
+                    <div class="keys">ㄒ</div>
+                    <div class="keys">ㄖ</div>
+                    <div class="keys">ㄙ</div>
+                    <div class="keys">ㄩ</div>
+                    <div class="keys">ㄝ</div>
+                    <div class="keys">ㄡ</div>
+                    <div class="keys">ㄥ</div>
+                    <div class="keys"></div>
+                    <div class="keys shift_key shift_right"></div>
+                </div>
+                <div class="row">
+                    <div class="keys ctrl_key ctrl_left"></div>
+                    <div class="keys win_key"></div>
+                    <div class="keys alt_key alt_left"></div>
+                    <div class="keys space_key"></div>
+                    <div class="keys alt_key alt_right"></div>
+                    <div class="keys"></div>
+                    <div class="keys ctrl_key ctrl_right"></div>
+                </div>
+            </div>
+        </div>
+        <div class="textContainer text">
+        </div>
+    </div>
+
+    <script>
+        let allKey = document.querySelectorAll(".keys");
+        let textContainer = document.querySelector(".textContainer");
+        let deleteKey = document.querySelector("backspace_key");
+
+
+
+        for (let key of allKey) {
+            key.addEventListener("click", function () {
+                if (key.classList.contains("backspace_key")) {
+                    return;
+                }
+                textContainer.innerText += key.innerText;
+            })
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
