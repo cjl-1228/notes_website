@@ -47,6 +47,25 @@ body {
     cursor: pointer;
     border:none;
     cursor: pointer;
+    font-size: 25px;
+
+}
+
+.keys_2 {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    transition: .2s;
+    z-index: 5;
+    cursor: pointer;
+    border:none;
+    cursor: pointer;
+    font-size: 25px;
+
 }
 
 .keys:hover {
