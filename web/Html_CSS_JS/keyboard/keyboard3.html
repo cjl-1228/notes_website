@@ -18,12 +18,12 @@
                 <div class="row">
                     <div class="keys"></div>
                     <div class="keys">ㄅ</div>
-                    <div class="keys">ㄆ</div>
-                    <div class="keys">ˇ</div>
-                    <div class="keys">ˋ</div>
+                    <div class="keys">ㄉ</div>
+                    <div class="keys" style="font-size: 80px; padding-top: 40px;">ˇ</div>
+                    <div class="keys" style="font-size: 80px; padding-top: 40px;">ˋ</div>
                     <div class="keys">ㄓ</div>
-                    <div class="keys">ˊ</div>
-                    <div class="keys">˙</div>
+                    <div class="keys" style="font-size: 80px; padding-top: 40px;">ˊ</div>
+                    <div class="keys" style="font-size: 80px; padding-top: 40px;">˙</div>
                     <div class="keys">ㄚ</div>
                     <div class="keys">ㄞ</div>
                     <div class="keys">ㄢ</div>
@@ -96,11 +96,11 @@
         let allKey = document.querySelectorAll(".keys");
         let textContainer = document.querySelector(".textContainer");
         let deleteKey = document.querySelector(".backspace_key");
-        let row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p']; 
-        let row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';']; 
+        let row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
+        let row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';'];
         let row3 = ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'];
 
-        deleteKey.addEventListener("click", function () {
+        function del_txt() {
             let textContainerContent = textContainer.innerText;
             if (textContainerContent.length == 0) {
                 return;
@@ -108,6 +108,10 @@
             console.log(textContainerContent);
             let newContent = textContainerContent.slice(0, textContainerContent.length - 1);
             textContainer.innerText = newContent;
+        }
+
+        deleteKey.addEventListener("click", function () {
+            del_txt();
         })
 
         for (let key of allKey) {
@@ -120,51 +124,81 @@
         }
 
         for (let i = 0; i < 10; i++) {
-            if (i == 0){
+            if (i == 0) {
                 allKey[10].setAttribute('keyname', 0);
                 allKey[11].setAttribute('keyname', '-');
                 allKey[13].setAttribute('keyname', 'Backspace');
                 allKey[40].setAttribute('keyname', 'Enter');
                 allKey[57].setAttribute('keyname', ' ');
             }
-            else{
+            else {
                 allKey[i].setAttribute('keyname', i);
             }
         }
 
         for (let i = 15; i < 25; i++) {
-            allKey[i].setAttribute('keyname', row1[i-15]);
+            allKey[i].setAttribute('keyname', row1[i - 15]);
         }
 
         for (let i = 29; i < 39; i++) {
-            allKey[i].setAttribute('keyname', row2[i-29]);
+            allKey[i].setAttribute('keyname', row2[i - 29]);
         }
 
         for (let i = 42; i < 52; i++) {
-            allKey[i].setAttribute('keyname', row3[i-42]);
+            allKey[i].setAttribute('keyname', row3[i - 42]);
         }
-        
-        
+
+
 
         window.addEventListener('keydown', function (e) {
-            //alert(e.key)
             for (let i = 0; i < allKey.length; i++) {
-                if (e.key == allKey[i].getAttribute('keyname')){
+                if (e.key == allKey[i].getAttribute('keyname')) {
+                    if (i == 13) {
+                        del_txt();
+                    }
                     allKey[i].classList.add('active')
                 }
             }
         })
-        
+
         window.addEventListener('keyup', function (e) {
+
             for (let i = 0; i < allKey.length; i++) {
                 if (e.key == allKey[i].getAttribute('keyname')) {
+                    if (i == 13) {
+                        del_txt();
+                    }
+                    else if (i == 40) {
+
+                    }
+                    else {
+                        textContainer.innerText += allKey[i].innerHTML;
+                    }
                     allKey[i].classList.remove('active')
                     allKey[i].classList.add('remove')
                 }
             }
         })
 
-        //alert(allKey[4].getAttribute('keyname'))
+        let intervalId;
+
+        document.addEventListener('mousedown', function (e) {
+            if (e.button === 0) { // 0 表示左鍵
+                for (let i = 0; i < allKey.length; i++) {
+                    if (e.target === allKey[i]) {
+                        if (i === 13) {
+                            intervalId = setInterval(del_txt, 100); // 每 100 毫秒執行一次 del_txt 函數
+                        }
+                    }
+                }
+            }
+        });
+
+        document.addEventListener('mouseup', function (e) {
+            if (e.button === 0) { // 0 表示左鍵
+                clearInterval(intervalId); // 停止重複執行 del_txt 函數
+            }
+        });
 
     </script>
 
