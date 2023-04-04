@@ -97,9 +97,18 @@
         let textContainer = document.querySelector(".textContainer");
         let deleteKey = document.querySelector(".backspace_key");
         let row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
+        let row1_c = row1.map(function(x) {
+            return x.toUpperCase();
+        });
         let row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';'];
+        let row2_c = row2.map(function(x) {
+            return x.toUpperCase();
+        });
         let row3 = ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'];
-
+        let row3_c = row3.map(function(x) {
+            return x.toUpperCase();
+        });
+        
         function del_txt() {
             let textContainerContent = textContainer.innerText;
             if (textContainerContent.length == 0) {
@@ -138,21 +147,24 @@
 
         for (let i = 15; i < 25; i++) {
             allKey[i].setAttribute('keyname', row1[i - 15]);
+            allKey[i].setAttribute('keyname_c', row1_c[i - 15]);
         }
 
         for (let i = 29; i < 39; i++) {
             allKey[i].setAttribute('keyname', row2[i - 29]);
+            allKey[i].setAttribute('keyname_c', row2_c[i - 29]);
         }
 
         for (let i = 42; i < 52; i++) {
             allKey[i].setAttribute('keyname', row3[i - 42]);
+            allKey[i].setAttribute('keyname_c', row3_c[i - 42]);
         }
 
 
 
         window.addEventListener('keydown', function (e) {
             for (let i = 0; i < allKey.length; i++) {
-                if (e.key == allKey[i].getAttribute('keyname')) {
+                if (e.key == allKey[i].getAttribute('keyname') || e.key == allKey[i].getAttribute('keyname_c')) {
                     if (i == 13) {
                         del_txt();
                     }
@@ -164,7 +176,7 @@
         window.addEventListener('keyup', function (e) {
 
             for (let i = 0; i < allKey.length; i++) {
-                if (e.key == allKey[i].getAttribute('keyname')) {
+                if (e.key == allKey[i].getAttribute('keyname') || e.key == allKey[i].getAttribute('keyname_c')) {
                     if (i == 13) {
                         del_txt();
                     }
