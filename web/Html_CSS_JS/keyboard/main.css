@@ -23,7 +23,7 @@ body {
 .keyboard_wrapp {
     max-width: 1008px;
     width: 100%;
-    background-color: #e7e7e7;
+    background-color: #d3d3d3;
     overflow: hidden;
     position: relative;
     overflow: hidden;
@@ -37,7 +37,8 @@ body {
 .keys {
     width: 60px;
     height: 60px;
-    background-color: #fff;
+    background-color: #555555;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,8 +70,8 @@ body {
 }
 
 .keys:hover {
-    background-color: #333;
-    color: #fff; 
+    background-color:#fff ;
+    color: #555555; 
 }
 
 .backspace_key {
@@ -125,8 +126,8 @@ body {
 }
 
 .keys.active {
-    background-color: #333;
-    color: #fff;
+    background-color:#fff ;
+    color: #555555; 
 }
 
 .keys.remove {
