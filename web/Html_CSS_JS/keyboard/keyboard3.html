@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+
 </head>
 
 <body class="">
@@ -88,8 +89,29 @@
                 </div>
             </div>
         </div>
+
+        <table >
+            <tr>
+                <td >杯</td>
+                <td >◠<br>◡</td>
+                <td >子</td>
+                <td >◠<br>◡</td>
+                <td style="padding-left: 50px;">
+                    <img width="100%" src="coffee-cup2.png" alt="">
+                    <br>
+                    <button style="margin-left: 30px; margin-top: -40px;" class="btn " id="speak">播放提示</button>
+                </td>
+            </tr>
+
+        </table>
+
+
+
+
         <div class="textContainer text">
         </div>
+
+
     </div>
 
     <script>
@@ -97,18 +119,18 @@
         let textContainer = document.querySelector(".textContainer");
         let deleteKey = document.querySelector(".backspace_key");
         let row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
-        let row1_c = row1.map(function(x) {
+        let row1_c = row1.map(function (x) {
             return x.toUpperCase();
         });
         let row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';'];
-        let row2_c = row2.map(function(x) {
+        let row2_c = row2.map(function (x) {
             return x.toUpperCase();
         });
         let row3 = ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'];
-        let row3_c = row3.map(function(x) {
+        let row3_c = row3.map(function (x) {
             return x.toUpperCase();
         });
-        
+
         function del_txt() {
             let textContainerContent = textContainer.innerText;
             if (textContainerContent.length == 0) {
