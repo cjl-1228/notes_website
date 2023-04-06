@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期中考統整｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+    <style>
+        span{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+    
+    <!-- Page content -->
+    
+        
+        <div class="content" >
+            
+            <div id="top" >&nbsp&nbsp</div>
+
+ 
+
+            <div style="width: 100%; text-align: center; ">
+                <p><h2><a href="Information security.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp期中考統整</h2></p>
+
+                
+            </div>
+
+            <br>
+
+            <div style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+              
+                <h4>生物特性驗證</h4>
+                <ul>
+                    <li>生理結構唯一性
+                        <ul>
+                            <li>指紋、手形、眼紋、臉形</li>
+                        </ul>
+                    </li>
+                    <li>行為差異性性
+                        <ul>
+                            <li>音頻、音律、音量 => 聲音<br>寫字力道、字型、字體 => 筆跡</li>
+                        </ul>
+                    </li>
+                    <li>如何挑選生物特徵來驗證使用者身分之設備，以下四項
+                        <ul>
+                            <li>錯誤接受率(False Accept Rate)：<span>不合法使用者</span>卻被此設備驗證為是<span>合法使用者</span>之錯誤比率</li>
+                            <li>錯誤拒絕率(False Reject Rate)：<span>真正合法使用者</span>卻被此設備驗證為是<span>不合法使用者</span>之比率</li>
+                            <li>活體驗證功能(Live & Die Verify)：此設備是否有能力辨識活的生理結構</li>
+                            <li>驗證時間(Verify Time)：使用者登入到系統驗證出結果的所需時間</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>通行密碼的安全威脅</h4>
+                <ul>
+                    <li>字典攻擊法
+                        <ul>
+                            <li>利用字典中的單字測試密碼，常見單字有兩萬個，一組單字需1毫秒，20秒內可破解密碼。</li>
+                        </ul>
+                    </li>
+                    <li>猜測攻擊法
+                        <ul>
+                            <li>利用使用者相關個人資料來猜測密碼，e.g. 生日、電話、紀念日、地址</li>
+                        </ul>
+                    </li>
+                    <li>窮舉攻擊法 or 暴力攻擊(Brute-Force Attack)
+                        <ul>
+                            <li>將所有可能的密碼都試過一次，若密碼過短，更容易猜出來，e.g. 一位字 => 26字母+10數字</li>
+                        </ul>
+                    </li>
+                    <li>重送攻擊法
+                        <ul>
+                            <li>攔截使用者傳送通行密碼的資訊(加密也一樣)，再重新送到Server，一樣會通過驗證</li>
+                        </ul>
+                    </li>
+                    <li>行騙法
+                        <ul>
+                            <li>偽造軟體，模擬主機登入系統</li>
+                        </ul>
+                    </li>
+                </ul>
+           
+                <h4>各種通行密碼技術(在Server存放密碼的方式)</h4>
+                <ul>
+                    <li>設計通行密碼系統之一般需求：
+                        <ol>
+                            <li>系統要訂定錯誤次數(如三次)</li>
+                            <li>同時有兩人似相同使用者身分登入時，須給予禁止或警告</li>
+                            <li>要強迫使用者定期更改密碼，並檢查密碼是否合格或合理</li>
+                            <li>使用者需輸入完所有資料才能驗證身分，否則駭客將知道是否有合法使用者，降低猜測難度</li>
+                        </ol>
+                    </li>
+                    <li>直接儲存法</li>
+                    <li>單向函數法</li>
+                    <li>通行密碼加密法</li>
+                    <li>通行密碼加鹽法</li>
+                    <li>時戳法</li>
+                    <li>亂數法</li>
+                </ul>
+
+            </div>
+
+
+            
+                
+        </div>
+        
+    
+</body>
+</html>

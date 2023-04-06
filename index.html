@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="陳杰龍, 陳杰龍的筆記網站,陳杰龍的個人筆記網站,筆記網站,陳杰龍筆記網站,cjl,cjl's notes, cjl's notes website,notes website,CJL,CJL's Notes, CJL's Notes WebSite,Notes WeBsite">
-    <meta name="description" content="陳杰龍的筆記網站，存放著各種大大小小的事情~"> 
+    <meta name="keywords"
+        content="陳杰龍, 陳杰龍的筆記網站,陳杰龍的個人筆記網站,筆記網站,陳杰龍筆記網站,cjl,cjl's notes, cjl's notes website,notes website,CJL,CJL's Notes, CJL's Notes WebSite,Notes WeBsite">
+    <meta name="description" content="陳杰龍的筆記網站，存放著各種大大小小的事情~">
     <title>主頁｜CJL's Notes WebSite</title>
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/main.css">
@@ -19,13 +21,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-        $( function() {
-            $( "#menu" ).menu();
-        } );
-        $( function() {
-            $( "#tabs" ).tabs();
-        } );
-        function showClock(){
+        $(function () {
+            $("#menu").menu();
+        });
+        $(function () {
+            $("#tabs").tabs();
+        });
+        function showClock() {
             var today = Date();
             var month = today.toString().slice(4, 7);
             var day = today.toString().slice(8, 10);
@@ -34,127 +36,144 @@
             var week = today.toString().slice(0, 3);
             var time = today.toString().slice(18, 24);
 
-            if (week == "Tue"){
+            if (week == "Tue") {
                 week = "星期二";
             }
-            else if(week == "Wed"){
+            else if (week == "Wed") {
                 week = "星期三";
             }
-            else if(week == "Thu"){
+            else if (week == "Thu") {
                 week = "星期四";
             }
-            else if(week == "Fri"){
+            else if (week == "Fri") {
                 week = "星期五";
             }
-            else if(week == "Sat"){
+            else if (week == "Sat") {
                 week = "星期六";
             }
-            else if(week == "Sun"){
+            else if (week == "Sun") {
                 week = "星期日";
             }
-            else if(week == "Mon"){
+            else if (week == "Mon") {
                 week = "星期一";
             }
 
-            if (month == "Oct"){
+            if (month == "Oct") {
                 month = "10"
             }
-            else if(month == "Nov"){
+            else if (month == "Nov") {
                 month = "11";
             }
-            else if(month == "Dec"){
+            else if (month == "Dec") {
                 month = "12";
             }
-            else if(month == "Jan"){
+            else if (month == "Jan") {
                 month = "1";
             }
-            else if(month == "Feb"){
+            else if (month == "Feb") {
                 month = "2";
             }
-            else if(month == "Mar"){
+            else if (month == "Mar") {
                 month = "3";
             }
-            else if(month == "Apr"){
+            else if (month == "Apr") {
                 month = "4";
             }
-            else if(month == "May"){
+            else if (month == "May") {
                 month = "5";
             }
-            else if(month == "Jun"){
+            else if (month == "Jun") {
                 month = "6";
             }
-            else if(month == "Jul"){
+            else if (month == "Jul") {
                 month = "7";
             }
-            else if(month == "Aug"){
+            else if (month == "Aug") {
                 month = "8";
             }
-            else if(month == "Sep"){
+            else if (month == "Sep") {
                 month = "9";
             }
-            
+
             var qq = "上午";
 
-            if (hour>12){
-                hour -=12;
+            if (hour > 12) {
+                hour -= 12;
                 qq = "下午";
             }
-            document.myForm.myField.value = "現在時間："+week+" "+year+"/"+month+"/"+day+" "+qq+hour+time;
-            
-            setTimeout("showClock()",1000);
+            document.myForm.myField.value = "現在時間：" + week + " " + year + "/" + month + "/" + day + " " + qq + hour + time;
+
+            setTimeout("showClock()", 1000);
         }
     </script>
-    <link rel="icon" href="img/notes2.png" type="image/x-icon" >
+    <link rel="icon" href="img/notes2.png" type="image/x-icon">
     <style>
-       .ui-menu { width: 250px; }
-    </style>
+        .ui-menu {
+            width: 250px;
+        }
 
     
+    </style>
+
+
 
 </head>
+
 <body onload="showClock()">
     <!-- The sidebar -->
     <div class="sidebar">
-        <p><a  href="index.html"><img class ="img" src ="img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
-        <a class="active"   href="index.html"><img class ="img" src ="img/home.png">&nbsp&nbsp主頁</a>
-        <a   href="archives.html"><img class ="img" src ="img/categories.png">&nbsp&nbsp歸檔</a>
-        <a  href="categories.html"><img class ="img" src ="img/file.png">&nbsp&nbsp分類</a>
-        <a href="others.html"><img class ="img" src ="img/others.png">&nbsp&nbsp其他</a>
-        <a href="about.html"><img class ="img" src ="img/self.png">&nbsp&nbsp關於我</a>
+        <p><a href="index.html"><img class="img" src="img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a class="active" href="index.html"><img class="img" src="img/home.png">&nbsp&nbsp主頁</a>
+        <a href="archives.html"><img class="img" src="img/categories.png">&nbsp&nbsp歸檔</a>
+        <a href="categories.html"><img class="img" src="img/file.png">&nbsp&nbsp分類</a>
+        <a href="others.html"><img class="img" src="img/others.png">&nbsp&nbsp其他</a>
+        <a href="about.html"><img class="img" src="img/self.png">&nbsp&nbsp關於我</a>
     </div>
-    
+
     <!-- Page content -->
     <div class="content">
-        
+
         <div style="min-width: 1000px; width: 100%; text-align: center; ">
-            <p><h2>主頁</h2></p>
+            <p>
+            <h2>主頁</h2>
+            </p>
         </div>
         <br>
 
-        <div style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
+        <div
+            style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); ">
+
             
+
             <p>
-                <span style="background-color: yellow; font-size: 25px;">此筆記網站用途在於學習之上，並無任何商業行為<br>如果有侵犯到版權的問題再聯繫我，我在移除</span>
+                <span
+                    style="background-color: yellow; font-size: 25px;">此筆記網站用途在於學習之上，並無任何商業行為<br>如果有侵犯到版權的問題再聯繫我，我在移除</span>
             </p>
             <br>
             <span style="font-size: 20px;"><b>目前線上人數:</b></span>
-            <script id="_waumk0">var _wau = _wau || []; _wau.push(["dynamic", "dj5ghm310m", "mk0", "3d85c6ffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
+            <script
+                id="_waumk0">var _wau = _wau || []; _wau.push(["dynamic", "dj5ghm310m", "mk0", "3d85c6ffffff", "small"]);</script>
+            <script async src="//waust.at/d.js"></script>
             <br><br>
 
-            
+
             <form name="myForm">
-                <input type="text" name="myField" size="50" style="width: 400px; border: 0; outline: none; background-color: rgb(244, 234, 255); font-size: 20px;">
+                <input type="text" name="myField" size="50"
+                    style="width: 400px; border: 0; outline: none; background-color: rgb(244, 234, 255); font-size: 20px;">
             </form>
             <br>
 
-            <iframe src="https://calendar.google.com/calendar/embed?src=zaq5891097%40gmail.com&ctz=Asia%2FTaipei" style="border: 0;width: 800px; height: 600px; "  width="800" height="600" frameborder="0" scrolling="no" ></iframe>   
-            
+            <iframe src="https://calendar.google.com/calendar/embed?src=zaq5891097%40gmail.com&ctz=Asia%2FTaipei"
+                style="border: 0;width: 800px; height: 600px; " width="800" height="600" frameborder="0"
+                scrolling="no"></iframe>
+
 
 
 
         </div>
     </div>
 
-        
+
 </body>
+
 </html>
