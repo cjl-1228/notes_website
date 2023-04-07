@@ -261,6 +261,124 @@
                     </li>
                 </ul>
                 <h4>密碼系統的安全性程度</h4>
+                <ul>
+                    <li>無條件安全
+                        <ul>
+                            <li>非法使用者不管攔截多少密文，用甚麼方法都無法導出明文</li>
+                            <li>一次性密碼系統(One-Time Pad)，用完一次就丟</li>
+                        </ul>
+                    </li>
+                    <li>計算安全
+                        <ul>
+                            <li>目前或未來預測之科技，在合理之資源設備下，破解需相當長的時間</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>古代密碼系統</h4>
+                <ul>
+                    <li>簡單替代法(Simple Substitution)<br>
+                        <img width=550px" src="img/8.PNG">
+                    </li>
+                    <li>編碼法(Code book)<br>
+                        <img width=550px" src="img/9.PNG">
+                    </li>
+                    <li>同音異字替代法(Homophonic)<br>
+                        <img width=550px" src="img/10.PNG">
+                    </li>
+                    <li>多字母替代法<br>
+                        <img width=550px" src="img/11.PNG"></li>
+                        <ul>
+                            <li>A=0 B=1 C=2 D=3 D=4...Z=25</li>
+                            <li>C(2)+L(11) =N(13)</li>
+                        </ul>
+                    <li>多圖替代法
+                        <ul>
+                            <li>同一列，往右一格</li>
+                            <li>同一行，往下一格</li>
+                            <li>不同列不同行，找到對應的邊角位置</li><br>
+                            <img width=550px" src="img/12.PNG"></li>
+                            
+                        </ul>
+                    </li>
+                    <li>古代密碼系統之破解法
+                        <ul>
+                            <li>窮舉法(Brute-Force Attack)
+                                <ul>
+                                    <li>將所有可能的情況都嘗試一遍，直到找出正確的解密方法</li>
+                                </ul>
+                            </li>
+                            <li>統計法(Statistics Attack)
+                                <ul>
+                                    <li>利用一些統計資料來協助破解密碼</li>
+                                    <li>e.g. [A、E、I、O、U]出現頻率比[Q、X、Z]的出現頻率高出許多</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>三重DES密碼系統</h4>
+                <br>
+                <img width=550px" src="img/13.PNG"></li>
+                <h4>AES的加密演算法 </h4>
+                <ol>
+                    <li>金鑰擴展：將加密金鑰擴展為一系列子金鑰，這些子金鑰會在後續的輪中使用</li>
+                    <li>初始輸入和金鑰加入：將明文（或稱為明文塊）與第一個子金鑰進行XOR運算，得到初始狀態</li>
+                    <li>輪運算：在這個步驟中，重複執行若干個輪。每個輪都包括四個步驟：SubBytes、ShiftRows、MixColumns和AddRoundKey。這些步驟通過不斷運用子金鑰對狀態進行轉換，來達到混淆和擾動的目的</li>
+                    <li>最後一輪：在最後一個輪中，SubBytes、ShiftRows和MixColumns仍然被執行，但是AddRoundKey步驟將被替換為與最後一個子金鑰進行XOR運算</li>
+                    <li>輸出：最後得到的狀態即為密文，將其輸出即可</li>
+                </ol>
+                <h4>秘密金鑰密碼系統的加密模式</h4>
+                <ul>
+                    <li>ECB Mode(Electronic Code Book Mode)<br>
+                        <img width=550px" src="img/14.PNG">
+                        <ul>
+                            <li>每個區段各自獨立加解密</li>
+                            <li>對方解密後可能會變更原意</li>
+                        </ul>
+                    </li>
+                    <li>CBC Mode(Cipher Block Chaining Mode)
+                        <br>
+                        <img width=550px" src="img/15.PNG">
+                        <img width=550px" src="img/17.PNG">
+                        <ul>
+                            <li>系統初始向量(Initial Vector,IV)</li>
+                            <li>有相同的明文，會產生不同的密文</li>
+                            <li>無法各自獨立加密，可以各自獨立解密</li>
+                        </ul>
+                    </li>
+                    <li>CFB Mode(Cipher Feedback Mode)
+                         <br>
+                        <img width=550px" src="img/16.PNG"><img width=550px" src="img/18.PNG">
+                        <ul>
+                            <li>相同明文不會產生相同密文</li>
+                            <li>加解密均不能各自執行</li>
+                            <li>加密區塊長度可變度(不受限64位元)</li>
+                        </ul>
+                    </li>
+                    <li>OFB Mode(Output Feedback Book Mode)<br>
+                        <img width=550px" src="img/19.PNG">
+                        <img width=550px" src="img/20.PNG">
+                        <ul>
+                            <li>密文不受前面明文之引響</li>
+                            <li>每一個密文都是獨立的</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>資料庫安全的威脅</h4>
+                <ul>
+                    <li>資料庫內機密資料被非法者所竊知</li>
+                    <li>資料庫內資料被非法者所篡改及偽造</li>
+                    <li>資料庫內資料被非法者所破壞,讓合法者不能存取</li>
+                    <li>資料庫推論(Database Inference)</li>
+                    <li>資料庫聚合(Database Aggregation)</li>
+                    <li>木馬藏兵(Trojan horse)</li>
+                    <li>秘道(Covert Channel)
+                        <ul>
+                            <li>以1次1個bit的方式慢洩漏資料</li>
+                        </ul>
+                    </li>
+                    
+                </ul>
             </div>
             
 
