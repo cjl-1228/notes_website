@@ -369,16 +369,61 @@
                     <li>資料庫內機密資料被非法者所竊知</li>
                     <li>資料庫內資料被非法者所篡改及偽造</li>
                     <li>資料庫內資料被非法者所破壞,讓合法者不能存取</li>
-                    <li>資料庫推論(Database Inference)</li>
-                    <li>資料庫聚合(Database Aggregation)</li>
+                    <li>資料庫推論(Database Inference)
+                        <ul>
+                            <li>已知黃品傑同學就讀資管系，而且該班只有她一位女生，若想得知黃品傑同學的英文成績<br>
+                                請問資管系英文成績總分 405<br>
+                                請問資管系男同學英文成績總分 312<br>
+                                非法者因此可推論黃品傑同學的英文成績為 405-312 = 93
+                            </li>
+                        </ul>
+                    </li>
+                    <li>資料庫聚合(Database Aggregation)<br>
+                        <img width=550px" src="img/21.PNG">
+                    </li>
                     <li>木馬藏兵(Trojan horse)</li>
                     <li>秘道(Covert Channel)
                         <ul>
                             <li>以1次1個bit的方式慢洩漏資料</li>
                         </ul>
                     </li>
-                    
                 </ul>
+                <h4>統計資料庫安全</h4>
+                <ul>
+                    <li>提供平均值(average)、綜合(sum)、異變數(variable)、總數(count)等統計資料之資料庫</li>
+                    <li>有些統計資料屬於機密性</li>
+                    <li>僅允許做統計查詢而禁止查詢某特定的個別機密資料</li>
+                    <li>查詢統計量威脅(Query Set Attacks)是常見的統計資料庫安全威脅</li>
+                </ul>
+                <h4>推理問題的解決方法</h4>
+                <ul>
+                    <li>解決統計資料庫的推理問題，可分為下列三個：
+                        <ul>
+                            <li>近似查詢法
+                                <ul>
+                                    <li>不回答正確的結果給查詢者，而將此結果做些微修改，以偽裝正確資料</li>
+                                    <li>合成法<br>
+                                        <img width=550px" src="img/22.PNG"></li>
+                                    <li>隨機取樣法<br>
+                                        <img width=550px" src="img/23.PNG"></li>
+                                    <li>隨機誤差法<br>
+                                        <img width=550px" src="img/24.PNG"></li>
+                                </ul>
+                            </li>
+                            <li>限制查詢法
+                                <ul>
+                                    <li>對於敏感資料的查詢及其統計量可能會危及資料庫安全時，則系統拒絕回答</li>
+                                </ul>
+                            </li>
+                            <li>追蹤法
+                                <ul>
+                                    <li>在回答查詢時，先分析此查詢是否會被用來推論統計資料庫之敏感資料，若是則拒絕回答</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
             </div>
             
 
