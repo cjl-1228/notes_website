@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期中考統整｜CJL's Notes WebSite</title>
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="icon" href="../../img/notes2.png" type="image/x-icon">
+    <style>
+        span {
+            background-color: yellow;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <p><a href="../../index.html"><img class="img" src="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
+        <a href="../../index.html"><img class="img" src="../../img/home.png">&nbsp&nbsp主頁</a>
+        <a href="../../archives.html"><img class="img" src="../../img/categories.png">&nbsp&nbsp歸檔</a>
+        <a class="active" href="../../categories.html"><img class="img" src="../../img/file.png">&nbsp&nbsp分類</a>
+        <a href="../../others.html"><img class="img" src="../../img/others.png">&nbsp&nbsp其他</a>
+        <a href="../../about.html"><img class="img" src="../../img/self.png">&nbsp&nbsp關於我</a>
+    </div>
+
+    <!-- Page content -->
+
+
+    <div class="content">
+
+        <div id="top">&nbsp&nbsp</div>
+
+
+
+        <div style="width: 100%; text-align: center; ">
+            <p>
+            <h2><a href="OS.html"><img style="vertical-align: bottom	;"
+                        src="../../img/Previouspage.png"></a>&nbsp期中考統整</h2>
+            </p>
+
+
+        </div>
+
+        <br>
+
+        <div
+            style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); ">
+
+            <h4>記憶體管理：簡易系統</h4>
+            <ul>
+                <li>整個電腦系統的效能和兩項因素直接相關
+                    <ul>
+                        <li>可用的記憶體空間</li>
+                        <li>系統在處理工作時，是否以最有效率的方式使用記憶體</li>
+                    </ul>
+                </li>
+                <li><span>四種記憶體配置法</span>
+                    <ul>
+                        <li><span>單一使用者連續式架構</span>(Single-User Contiguous Scheme)
+                            <ul>
+                                <li>記憶體管理器將待處理的程式「<span>整個</span>」載入記憶體，並安排「<span>連續</span>」的記憶體空間，以滿足該程式的記憶體需求
+                                </li>
+                                <li>如果程式對記憶體的需求超過系統能夠提供的範圍，該程式便無法執行</li>
+                                <img width="200px" src="img/1.PNG">
+                                <li>問題
+                                    <ul>
+                                        <li>只能處理一件事情，無法支援<span>多元程式</span>(Multiprogramming)</li>
+                                        <li>1940~1950 主要用於研究機構，<span>商界無法接受這種電腦--成本效益太差</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><span>固定分割</span>(Fixed Partition)
+                            <ul>
+                                <li>又稱<span>靜態分割</span>(Static Partition)</li>
+                                <li>主記憶體被分割成很多個<span>固定大小的分割區</span>，每一個<span>分割區配置給一個工作</span>(Job)，<span>不等於平均</span> </li>
+                                <li>每一個分割區的大小，在電腦開機時就已經固定</li>
+                                <li>想要更改分割區大小，需關機更改組態再開機</li>
+                                <li>記憶體內可以同時保存許多程式</li>
+                                <li>程式還是必須「<span>整個</span>」載入，配置「<span>連續</span>」的記憶體空間</li>
+                                <li><span>缺點</span>
+                                    <ul>
+                                        <li>大型工作不易獲得記憶體分割
+                                            <ul>
+                                                <li>如果目前可用記憶體分割區太小，而較大的分割區都已遭占用，大型工作就必須等待
+                                                </li>
+                                                <li>如果工作大於系統最大分割區的大小，該工作就完全沒有機會執行
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><span>內部碎塊</span>（Internal Fragmentation）
+                                            <ul>
+                                                <li>因固定分割而產生分割區內閒置空間的現象</li>
+                                                
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <img width="600px" src="img/2.PNG">
+
+                            </ul>
+                        </li>
+                        <li><span>動態分割</span>(Dynamic Partition)
+                            <ul>
+                                <li>每項工作可以配置到連續的記憶體區塊
+                                </li>
+                                <li>只會配置所要求的記憶體空間，不多也不少
+                                </li>
+                                <li><span>外部碎塊</span>（External Fragmentation）
+                                    <ul>
+                                        <li>記憶體分割區之間產生的間隙</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>可重新定址的動態分割(Relocatable Dynamic Partiton)</li>
+                        
+                    </ul>
+                    
+                </li>
+            </ul>
+            
+            
+        </div>
+
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
