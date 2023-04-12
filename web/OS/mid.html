@@ -116,6 +116,24 @@
                                         <li>記憶體分割區之間產生的間隙</li>
                                     </ul>
                                 </li>
+                                <img width="800px" src="img/3.PNG">
+                                <img width="800px" src="img/4.PNG">
+                            </ul>
+                        </li>
+                        <li><span>記憶體分割區配置策略</span>
+                            <ul>
+                                <li>先適記憶體配置（First-Fit Memory Allocation）
+                                    <ul>
+                                        <li>速度快、利用率低</li>
+                                    </ul>
+                                    <img width="800px" src="img/5.PNG">
+                                </li>
+                                <li>最適記憶體配置（Best-Fit Memory Allocation）
+                                    <ul>
+                                        <li>速度慢、利用率高</li>
+                                    </ul>
+                                    <img width="800px" src="img/6.PNG">
+                                </li>
                             </ul>
                         </li>
                         <li>可重新定址的動態分割(Relocatable Dynamic Partiton)</li>
@@ -124,7 +142,133 @@
                     
                 </li>
             </ul>
-            
+            <h4>處理器管理</h4>
+            <ul>
+                <li><span>工作（Job）/程式（Program）</span>
+                    <ul>
+                        <li>由使用者提出，要求系統處理的一個工作單元
+                        </li>
+                        <li>程式是一個被動的單元
+                        </li>
+                    </ul>
+                </li>
+                <li><span>行程（Process）/作業（Task）</span>
+                    <ul>
+                        <li>一個會向系統索取各種資源的主動項目</li>
+                        <li>正在執行中的程式稱為行程
+                        </li>
+                    </ul>
+                </li>
+                <li>執行緒（Thread）
+                    <ul>
+                        <li>一個行程是由多個執行緒所組成的</li>
+                        <li>可以獨立於其父行程
+                        </li>
+                    </ul>
+                </li>
+                <li><span>插斷(中斷)</span> Interrupt
+                    <ul>
+                        <li>CPU暫停目前的行程，轉換到另一件<span>優先順序(Priority)</span>較高的工作，叫做<span>環境切換</span>(Context Switch)</li>
+                    </ul>
+                </li>
+                <li>排程次級管理器
+                    <ul>
+                        <li>工作排程器（Job Scheduler）
+                            <ul>
+                                <li>高階排程器 (High-Level Scheduler)
+                                </li>
+                                <li>負責工作的排程
+                                </li>
+                            </ul>
+                        </li>
+                        <li>行程排程器（Process Scheduler）
+                            <ul>
+                                <li>低階排程器 (Low-Level Scheduler)
+                                </li>
+                                <li>負責行程的排程
+                                </li>
+                                <li>負責安排CPU的時間，為就緒佇列中 (Ready Queue) 的工作執行它們的行程</li>
+                                <li>行程排程器利用兩種常見的週期進行排程
+                                    <ul>
+                                        <li>CPU週期（CPU Cycle）
+                                            <ul>
+                                                <li>利用CPU執行計算工作
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>I/O週期（I/O Cycle）
+                                            <ul>
+                                                <li>利用I/O裝置進行輸出/輸入
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><span>I/O-Bound</span>
+                                    <ul>
+                                        <li>CPU週期比較短而I/O週期比較長</li>
+                                        <li>大部分的時間都在做I/O，很少用到CPU</li>
+
+                                    </ul>
+                                </li>
+                                <li><span>CPU-Bound</span>
+                                    <ul>
+                                        <li>CPU週期比較長而I/O週期比較短
+                                        </li>
+                                        <li>大部分的時間都在計算，很少進行 I/O
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <li><span>排程策略</span>(Scheduling Policy) <br>下列有一些點是<span>互相矛盾</span>的
+                        <ul>
+                            <li>產出率最大化 (Maximize Throughput)
+                            </li>
+                            <li>反應時間最小化 (Minimize Response Time)
+                            </li>
+                            <li>回轉時間最小化 (Minimize Turnaround Time)
+                            </li>
+                            <li>等待時間最小化 (Minimize Waiting Time)
+                            </li>
+                            <li>CPU 效率最大化 (Maximize CPU Efficiency)
+                            </li>
+                            <li>公平 (Fairness) 對待每一件工作
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span>強占式排程策略</span>(Preemptive Scheduling Policy)
+                        <ul>
+                            <li>插斷目前正在執行中的行程，將CPU收回並轉而配置給另一個行程
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span>非強占式排程策略</span>(Nonpreemptive Scheduling Policy)
+                        <ul>
+                            <li>不主動收回 CPU
+                            </li>
+                        </ul>
+                    </li>
+                </li>
+                <li><span>排程演算法</span>
+                    <ul>
+                        <li>先來先服務 (First-Come, First-Served; FCFS)</li>
+                        <li>短的工作優先［Shortest Job Next (SJN)；又名Shortest-Job First (SJF) ］
+                        </li>
+                        <li>優先順序排程 (Priority Scheduling)
+                        </li>
+                        <li>最短餘時優先 (Shortest Remaining Time, SRT)
+                        </li>
+                        <li>循環排程 (Round Robin, RR)
+                        </li>
+                        <li>多層次佇列 (Multiple-Level Queue)
+                        </li>
+                        <li>最近期限優先 (Earliest Deadline First, EDF) 
+                        </li>
+                    </ul>
+                </li>
+            </ul>
             
         </div>
 
