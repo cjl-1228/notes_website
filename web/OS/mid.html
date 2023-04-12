@@ -13,8 +13,41 @@
         span {
             background-color: yellow;
         }
+
+
+        table {
+            font-family: 'Oswald', sans-serif;
+            border-collapse: collapse;
+
+        }
+
+        th {
+            background-color: #009879;
+            color: #ffffff;
+            width: 20vw;
+            height: 75px;
+        }
+
+        td {
+            background-color: #ffffff;
+            width: 6vw;
+            height: 35px;
+            text-align: center;
+        }
+
+        tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        tr:nth-of-type(even) td {
+            background-color: #f3f3f3;
+        }
     </style>
-    
+
 </head>
 
 <body>
@@ -39,8 +72,8 @@
 
         <div style="width: 100%; text-align: center; ">
             <p>
-            <h2><a href="OS.html"><img style="vertical-align: bottom	;"
-                        src="../../img/Previouspage.png"></a>&nbsp期中考統整</h2>
+            <h2><a href="OS.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp期中考統整
+            </h2>
             </p>
 
 
@@ -78,7 +111,8 @@
                         <li><span>固定分割</span>(Fixed Partition)
                             <ul>
                                 <li>又稱<span>靜態分割</span>(Static Partition)</li>
-                                <li>主記憶體被分割成很多個<span>固定大小的分割區</span>，每一個<span>分割區配置給一個工作</span>(Job)，<span>不等於平均</span> </li>
+                                <li>主記憶體被分割成很多個<span>固定大小的分割區</span>，每一個<span>分割區配置給一個工作</span>(Job)，<span>不等於平均</span>
+                                </li>
                                 <li>每一個分割區的大小，在電腦開機時就已經固定</li>
                                 <li>想要更改分割區大小，需關機更改組態再開機</li>
                                 <li>記憶體內可以同時保存許多程式</li>
@@ -96,7 +130,7 @@
                                         <li><span>內部碎塊</span>（Internal Fragmentation）
                                             <ul>
                                                 <li>因固定分割而產生分割區內閒置空間的現象</li>
-                                                
+
                                             </ul>
                                         </li>
                                     </ul>
@@ -137,9 +171,9 @@
                             </ul>
                         </li>
                         <li>可重新定址的動態分割(Relocatable Dynamic Partiton)</li>
-                        
+
                     </ul>
-                    
+
                 </li>
             </ul>
             <h4>處理器管理</h4>
@@ -222,54 +256,216 @@
                             </ul>
                         </li>
                     </ul>
-                    <li><span>排程策略</span>(Scheduling Policy) <br>下列有一些點是<span>互相矛盾</span>的
-                        <ul>
-                            <li>產出率最大化 (Maximize Throughput)
-                            </li>
-                            <li>反應時間最小化 (Minimize Response Time)
-                            </li>
-                            <li>回轉時間最小化 (Minimize Turnaround Time)
-                            </li>
-                            <li>等待時間最小化 (Minimize Waiting Time)
-                            </li>
-                            <li>CPU 效率最大化 (Maximize CPU Efficiency)
-                            </li>
-                            <li>公平 (Fairness) 對待每一件工作
-                            </li>
-                        </ul>
-                    </li>
-                    <li><span>強占式排程策略</span>(Preemptive Scheduling Policy)
-                        <ul>
-                            <li>插斷目前正在執行中的行程，將CPU收回並轉而配置給另一個行程
-                            </li>
-                        </ul>
-                    </li>
-                    <li><span>非強占式排程策略</span>(Nonpreemptive Scheduling Policy)
-                        <ul>
-                            <li>不主動收回 CPU
-                            </li>
-                        </ul>
-                    </li>
+                <li><span>排程策略</span>(Scheduling Policy) <br>下列有一些點是<span>互相矛盾</span>的
+                    <ul>
+                        <li>產出率最大化 (Maximize Throughput)
+                        </li>
+                        <li>反應時間最小化 (Minimize Response Time)
+                        </li>
+                        <li>回轉時間最小化 (Minimize Turnaround Time)
+                        </li>
+                        <li>等待時間最小化 (Minimize Waiting Time)
+                        </li>
+                        <li>CPU 效率最大化 (Maximize CPU Efficiency)
+                        </li>
+                        <li>公平 (Fairness) 對待每一件工作
+                        </li>
+                    </ul>
                 </li>
+                <li><span>強占式排程策略</span>(Preemptive Scheduling Policy)
+                    <ul>
+                        <li>插斷目前正在執行中的行程，將CPU收回並轉而配置給另一個行程
+                        </li>
+                    </ul>
+                </li>
+                <li><span>非強占式排程策略</span>(Nonpreemptive Scheduling Policy)
+                    <ul>
+                        <li>不主動收回 CPU
+                        </li>
+                    </ul>
+                </li>
+                </li>
+                <li><span>ATT(Average Turnaround Time): ∑(finishTime−arrivalTime)/N</span></li>
+                <li><span>AWT(Average Waiting Time): ∑(startTime−arrivalTime)/N</span></li>
                 <li><span>排程演算法</span>
                     <ul>
-                        <li>先來先服務 (First-Come, First-Served; FCFS)</li>
-                        <li>短的工作優先［Shortest Job Next (SJN)；又名Shortest-Job First (SJF) ］
+                        <li>先來先服務 (First-Come, First-Served; <span>FCFS</span>)
+                            <ul>
+                                <li>依據工作抵達的時間進行排程，愈早到達的，排在愈前面
+                                </li>
+                                <li><span>非強占式排程演算法</span>
+                                </li>
+                                <li>採用先進先出 (FIFO) 佇列
+                                </li>
+                                <li><span>回轉時間(Turnaround Time) 無法預測</span>
+                                </li>
+                                <li>Job A => 15 ms<br>
+                                    Job B => 2 ms<br>
+                                    Job C => 1 ms
+                                </li>
+                                <img width="500px" src="img/7.PNG">
+                                <li>ATT：(15-0)+(17-0)+(18-0)/3 = 16.67<br>AWT：(0-0)+(15-0)+(17-0)/3 = 10.67</li>
+                                <img width="500px" src="img/8.PNG">
+                                <li>ATT：(1-0)+(3-0)+(18-0)/3 = 7.3<br>AWT：(0-0)+(1-0)+(3-0)/3 = 1.33</li>
+                            </ul>
                         </li>
-                        <li>優先順序排程 (Priority Scheduling)
+                        <li>短的工作優先［Shortest Job Next (<span>SJN</span>)；又名Shortest-Job First (<span>SJF</span>) ］
+                            <ul>
+                                <li>依據CPU週期的長度最短的先進行排程 </li>
+                                <li><span>非強占式排程演算法</span>
+                                </li>
+                                <li>不適合互動式系統
+                                </li>
+                                <li>批次系統在執行工作之前，會先對工作的CPU 週期長度<span>提出預估</span>
+                                </li>
+                                <li>arrivalTime : time 0<br>
+                                    Job A => 5<br>
+                                    Job B => 2<br>
+                                    Job C => 6<br>
+                                    Job D => 4
+                                </li>
+                                <img width="500px" src="img/9.PNG">
+                                <li>ATT：(2-0)+(6-0)+(11-0)+(17-0)/4 = 9.0<br>AWT：(0-0)+(2-0)+(6-0)+(11-0)/4 = 4.75</li>
+                            </ul>
                         </li>
-                        <li>最短餘時優先 (Shortest Remaining Time, SRT)
+                        <li>優先順序排程 (Priority Scheduling)/ 權限優先法
+                            <ul>
+                                <li>非強占式演算法</li>
+                                <li><span>優先順序排程優先處理優先權較高的工作</span></li>
+                                <li>優先順序排程也有強占式版本
+                                </li>
+                                <table border="1">
+                                    <tr>
+                                        <td>Process</td>
+                                        <td>Running time</td>
+                                        <td>Priority</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P1</td>
+                                        <td>6</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P2</td>
+                                        <td>12</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P3</td>
+                                        <td>1</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P4</td>
+                                        <td>3</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>P5</td>
+                                        <td>4</td>
+                                        <td>3</td>
+                                    </tr>
+                                </table>
+                                <img width="500px" src="img/10.PNG">
+                                <li>ATT：(3-0)+(9-0)+(13-0)+(25-0)+(26-0)/5 = 15.2<br>AWT：(0-0)+(3-0)+(9-0)+(13-0)+(25-0)/5 = 10.0</li>
+                            </ul>
+                        </li>   
+                        <li>最短餘時優先 (Shortest Remaining Time, <span>SRT</span>)
+                            <ul>
+                                <li><span>SJN 演算法的強占式版本</span></li>
+                                <li>將處理器配置給目前就緒佇列中最接近完成的工作</li>
+                                <li>一旦就緒佇列中出現了剩餘時間更短的工作，就立即將處理器從目前執行中的工作，轉而配置給新進的工作</li>
+                                <table border="1">
+                                    <tr>
+                                        <td>Process</td>
+                                        <td>Running time</td>
+                                        <td>Arrival Time</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job A</td>
+                                        <td>6</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job B</td>
+                                        <td>3</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job C</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job D</td>
+                                        <td>4</td>
+                                        <td>3</td>
+                                    </tr>
+                                    
+                                </table>
+                                <img width="600px" src="img/11.PNG">
+                                <li>ATT：(14-0)+(5-1)+(3-2)+(9-3)/4 = 6.25<br>AWT：(0-0)+(1-1)+(2-2)+(5-3)/4 = 0.5</li>
+                            </ul>
                         </li>
                         <li>循環排程 (Round Robin, RR)
+                            <ul>
+                                <li><span>強占式排程演算法</span>
+                                </li>
+                                <li>容易實施，而且具有良好的公平性
+                                </li>
+                                <li>排程時不考慮工作的特性
+                                </li>
+                                <li>每一件工作輪流使用CPU，每次以一個時間單位為期限，時間到了就換下一件工作
+                                </li>
+                                <li><span>時間配額 (Time Quantum)</span>
+                                </li>
+                                <li>適當的配額，有兩個通用的法則：
+                                    <ul>
+                                        <li>配額時間長度需滿足80%的CPU週期，在一個時間配額內執行完畢</li>
+                                        <li>時間配額長度應該比執行一次環境切換所需時間長100倍</li>
+                                    </ul>
+                                </li>
+                                <table border="1">
+                                    <tr>
+                                        <td>Process</td>
+                                        <td>Running time</td>
+                                        <td>Arrival Time</td>
+                                        <td >Time Quantum</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job A</td>
+                                        <td>8</td>
+                                        <td>0</td>
+                                        <td rowspan="4">4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job B</td>
+                                        <td>4</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job C</td>
+                                        <td>9</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job D</td>
+                                        <td>5</td>
+                                        <td>3</td>
+                                    </tr>     
+                                </table>
+                                <img width="600px" src="img/12.PNG">
+                                <li>ATT：(20-0)+(8-1)+(26-2)+(25-3)/4 = 18.25<br>AWT：(0-0)+(4-1)+(8-2)+(12-3)/4 = 4.5</li>
+                            </ul>
                         </li>
                         <li>多層次佇列 (Multiple-Level Queue)
                         </li>
-                        <li>最近期限優先 (Earliest Deadline First, EDF) 
+                        <li>最近期限優先 (Earliest Deadline First, EDF)
                         </li>
                     </ul>
                 </li>
             </ul>
-            
+
         </div>
 
 
