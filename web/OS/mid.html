@@ -404,7 +404,7 @@
                                     
                                 </table>
                                 <img width="600px" src="img/11.PNG">
-                                <li>ATT：(14-0)+(5-1)+(3-2)+(9-3)/4 = 6.25<br>AWT：(0-0)+(1-1)+(2-2)+(5-3)/4 = 0.5</li>
+                                <li>ATT：(14-0)+(5-1)+(3-2)+(9-3)/4 = 6.25<br>AWT：(0-0+9-1)+(1-1+3-2)+(2-2)+(5-3)/4 = 2.75</li>
                             </ul>
                         </li>
                         <li>循環排程 (Round Robin, RR)
@@ -455,12 +455,92 @@
                                     </tr>     
                                 </table>
                                 <img width="600px" src="img/12.PNG">
-                                <li>ATT：(20-0)+(8-1)+(26-2)+(25-3)/4 = 18.25<br>AWT：(0-0)+(4-1)+(8-2)+(12-3)/4 = 4.5</li>
+                                <li>ATT：(20-0)+(8-1)+(26-2)+(25-3)/4 = 18.25<br>AWT：(0-0+16-4)+(4-1)+(8-2+20-12+25-24)+(12-3+24-16)/4 = 11.75</li>
                             </ul>
                         </li>
                         <li>多層次佇列 (Multiple-Level Queue)
                         </li>
+                        <li>工作如何在不同佇列中移動
+                            <ul>
+                                <li>禁止工作在佇列間移動
+                                    <ul>
+                                        <li>最簡單的策略
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>允許工作在佇列間移動
+                                    <ul>
+                                        <li>必須制定一套調整工作優先順序的策略
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>每一層佇列的時間配額不同
+                                    <ul>
+                                        <li>允許工作在不同層級的佇列間移動，而且愈下層的佇列時間配額愈長
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>時間加級
+                                    <ul>
+                                        <li>允許工作在佇列間移動，下層佇列中等待超過一定時間的工作，將會被往上提升一個層級</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                         <li>最近期限優先 (Earliest Deadline First, EDF)
+                            <ul>
+                                <li>也稱為<span>動態優先權演算法</span></li>
+                                <li><span>強占式排程演算法</span></li>
+                                <li>主要目的是讓所有工作都能夠在各自的期限之前執行完畢
+                                </li>
+                                <table border="1">
+                                    <tr>
+                                        <td>Process</td>
+                                        <td>Running time</td>
+                                        <td>Arrival Time</td>
+                                        <td>execute time</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job A</td>
+                                        <td>3</td>
+                                        <td>0</td>
+                                        <td>6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job B</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job C</td>
+                                        <td>5</td>
+                                        <td>2</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job D</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>8</td>
+                                    </tr>     
+                                    <tr>
+                                        <td>Job E</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>8</td>
+                                    </tr> 
+                                    <tr>
+                                        <td>Job F</td>
+                                        <td>5</td>
+                                        <td>5</td>
+                                        <td>15</td>
+                                    </tr> 
+                                </table>
+                                <img width="600px" src="img/13.PNG">
+                            </ul>
                         </li>
                     </ul>
                 </li>
