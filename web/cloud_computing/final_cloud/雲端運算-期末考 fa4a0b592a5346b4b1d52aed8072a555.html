@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>雲端運算-期末考</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fa4a0b59-2a53-46b4-b1d5-2aed8072a555" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1577760258779-e787a1733016?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">☁️</span></div><h1 class="page-title">雲端運算-期末考</h1><p class="page-description"></p></header><div class="page-body"><nav id="9835a038-9e89-48bc-9f72-9952006d2b2a" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#76a81210-02e7-481c-a423-06cf5ff73af0">第七章</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f0d0869f-fcad-4245-808e-f949e16a7f32">第十一章</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f23209dc-42a3-4cca-a702-504f3b71b87c">第十二章</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2892f378-a662-4777-b5ad-75c297f6829f">第十三章</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#702df641-d6f8-4e6c-8083-74a09c6650b6">第十四章</a></div></nav><h2 id="76a81210-02e7-481c-a423-06cf5ff73af0" class="">第七章</h2><ul id="bc981fa4-6aeb-4d43-a185-63849b8ddd81" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>雲端作業系統與傳統作業系統間的本質差異 </strong></span></mark><ul id="898f3952-228f-4e43-82dd-ed181274e73d" class="bulleted-list"><li style="list-style-type:circle">傳統：管理電腦的軟體與硬體的資源</li></ul><ul id="b74f551e-6f77-4b08-8b68-078fd22c559e" class="bulleted-list"><li style="list-style-type:circle">雲端：控管雲端供應商所提供的伺服器、網路等資源</li></ul><ul id="be186b4d-9c7d-48f9-aa5b-ac0371652d80" class="bulleted-list"><li style="list-style-type:circle">企業使用<ul id="f3832b5b-d996-438d-9771-fc79678de7fd" class="bulleted-list"><li style="list-style-type:square">雲端比傳統擁有龐大的硬體後援，比自行架設伺服器具高延展性與穩定性</li></ul></li></ul><ul id="1e7aa7e5-d071-42a7-9faa-a3c6ab6cc416" class="bulleted-list"><li style="list-style-type:circle">主機成本負擔<ul id="26886796-cfc9-4926-a7cc-9a9454bebd00" class="bulleted-list"><li style="list-style-type:square">傳統OS運作於伺服器，雲端OS透過Internet進行資料傳輸與運算</li></ul><ul id="649986c3-33e8-4875-a5f6-78115326eb4f" class="bulleted-list"><li style="list-style-type:square">使用者透過雲端OS使用不同的終端設備及軟體資源</li></ul><ul id="3f2a9346-28b6-4f49-9d98-89c9759e5564" class="bulleted-list"><li style="list-style-type:square">降低個人與企業的主機架設/維護成本負擔</li></ul></li></ul><ul id="2a3206f9-770f-4a42-a286-07ade8c5a393" class="bulleted-list"><li style="list-style-type:circle">資料保存<ul id="df150fc0-013b-43b8-828d-632b58ff8f0a" class="bulleted-list"><li style="list-style-type:square">儲存於雲端平台提供的資料庫，透過雲端服務公司的日常維護工作異地備援的特性</li></ul></li></ul></li></ul><ul id="669ca521-99c3-4d42-879c-bb7a7b0b8132" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>OpenStack的優勢</strong></span></mark><ul id="ea15b9fc-454c-4505-9be4-bf43735cb73e" class="bulleted-list"><li style="list-style-type:circle">不受限於特定軟硬體廠商的綁定</li></ul><ul id="ddfb4e35-fa78-4c59-a957-003592e80e05" class="bulleted-list"><li style="list-style-type:circle">節省部署成本</li></ul><ul id="44b101a6-0710-4ae9-9d08-932bb2d59099" class="bulleted-list"><li style="list-style-type:circle">開源社群的技術支援</li></ul><ul id="4681049b-6610-4951-80bc-e4bd292b3e09" class="bulleted-list"><li style="list-style-type:circle">OpenStack被譽為繼Linux之後最成功的開源組織</li></ul></li></ul><ul id="b1ca7be9-241f-4843-bb1e-cb872f1f9841" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>OpenStack三項設計主要原則</strong></span></mark><ul id="db05c419-0867-4e18-b89e-86a896727252" class="bulleted-list"><li style="list-style-type:circle">所有服務皆有應用程式介面以供外界存取</li></ul><ul id="5fb24a65-9267-436c-ab07-d6a0ec17b8d6" class="bulleted-list"><li style="list-style-type:circle">以訊息導向的資料與控制碼傳遞</li></ul><ul id="edbc0857-bc41-4348-aa0b-275229a87f55" class="bulleted-list"><li style="list-style-type:circle">每個元件可以獨立運作</li></ul></li></ul><ul id="ba68da5c-cfba-497c-97b5-e25e8355da1c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>OpenStack九大功能套件，舉三個套件說明其功用</strong></span></mark><ul id="c8780f56-4329-4c81-a217-5df47653b4c8" class="bulleted-list"><li style="list-style-type:circle">身份識別套件 Keystone<ul id="6a0f1597-3ba5-4044-806c-fa28fa604582" class="bulleted-list"><li style="list-style-type:square">提供多種驗證方式，能查看哪位使用者可存取哪些服務</li></ul></li></ul><ul id="65d3b6f5-c63a-42c4-8200-e7844ce6d41b" class="bulleted-list"><li style="list-style-type:circle">儀表盤套件 Horizon<ul id="1fee96ac-52f8-4d1e-9620-2bdeb497a9f1" class="bulleted-list"><li style="list-style-type:square">圖形化的網頁介面，讓IT人員管理雲端的硬體資源</li></ul></li></ul><ul id="296f1970-f96f-4ccc-9568-6fa971d4f33d" class="bulleted-list"><li style="list-style-type:circle">資料監控套件 Ceilometer<ul id="deba59ef-2836-4e93-a4fb-439e557df871" class="bulleted-list"><li style="list-style-type:square">計算雲端服務所使用的資料量，作為日後收費參考依據</li></ul></li></ul></li></ul><p id="70bbba2c-8a34-4f1a-86d4-98ba1f81d51a" class="">
+</p><hr id="8a39c91c-8ee0-444c-ae68-07fefdb8ef6f"/><h2 id="f0d0869f-fcad-4245-808e-f949e16a7f32" class="">第十一章</h2><ul id="ae16ca1b-3a2b-4c6c-8d78-94f3f34ba1eb" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>雲端在科學研究的應用說明/特性</strong></span></mark><ul id="8f9b7db1-2aec-40d2-9ecf-439b430a3470" class="bulleted-list"><li style="list-style-type:circle">IaaS<ul id="7229d564-80b1-4f82-bef4-294fcc3ecbf9" class="bulleted-list"><li style="list-style-type:square">利用實驗模擬來進行運算並分析結果</li></ul><ul id="c187d5e2-8fc4-4266-8110-598a8156f4d5" class="bulleted-list"><li style="list-style-type:square">若是透過單一電腦來進行實驗的模擬運算<ul id="5eac345b-5add-4e3f-ae26-d9a621ebd378" class="bulleted-list"><li style="list-style-type:disc">提高實驗所需的時間成本</li></ul></li></ul><ul id="d5ff8cb7-88ea-487e-bdcf-af8f0ed87005" class="bulleted-list"><li style="list-style-type:square">若是添購大量高效能電腦來進行實驗的模擬運算<ul id="0dc05b09-7912-44b3-bf7c-cc5c053ebb27" class="bulleted-list"><li style="list-style-type:disc">硬體成本的大量增加</li></ul><ul id="92882c2b-ea6c-42ca-a235-a20f66c6a8c0" class="bulleted-list"><li style="list-style-type:disc">實驗過後造成大量電腦閒置浪費的問題</li></ul></li></ul><ul id="9229f452-16c4-4282-9470-0a6c2dcfd946" class="bulleted-list"><li style="list-style-type:square">透過IaaS，使用者可以向服務提供者租用所需的硬體設備<ul id="c857193f-e93c-42c9-ad9c-85fe0ea3f417" class="bulleted-list"><li style="list-style-type:disc">彈性地依據目前實驗需求動態調整租用電腦主機的數量及效能</li></ul></li></ul></li></ul><ul id="dfaf5337-532a-4dd4-a5f4-e5dcccbbb98d" class="bulleted-list"><li style="list-style-type:circle">PaaS<ul id="62005312-43bf-4a0d-8e77-e30f0e0e71e2" class="bulleted-list"><li style="list-style-type:square">使用者可依據自身欲開發之科學應用或服務功能，向提供PaaS廠商租賃平台</li></ul><ul id="a34a8eaa-2122-472a-b940-3c3c93d3bf7a" class="bulleted-list"><li style="list-style-type:square">透過該平台進行科學應用軟體開發或運行各種應用程式</li></ul><ul id="a95f43ff-5b9e-49a9-a187-189727839f7e" class="bulleted-list"><li style="list-style-type:square">透過平台即服務的好處是可減少維護管理系統底層的成本</li></ul><ul id="ba7cb8d8-6bc8-432a-b3b2-b9356f2af177" class="bulleted-list"><li style="list-style-type:square">相對自己管理的系統、機器和軟體</li></ul><ul id="55173b17-3efe-421e-9390-0dd38b02718a" class="bulleted-list"><li style="list-style-type:square">一個環節出錯即可能造成資料庫的帳號密碼等重要資訊全曝光，使得敏感資料暴露在危險當中</li></ul><ul id="30acf082-277c-4e5c-ae45-2cab9d5504af" class="bulleted-list"><li style="list-style-type:square">而租用雲端平台，便可由雲端公司代管，在維護或管理上相對更穩定</li></ul></li></ul><ul id="3ca8f33d-5e61-4d45-bd1f-21237bf0279e" class="bulleted-list"><li style="list-style-type:circle">SaaS<ul id="e2a20cac-b8d4-4485-99b9-487e887beac1" class="bulleted-list"><li style="list-style-type:square">科學研究的應用上，使用者可依照自身對科學應用服務之需求，向提供軟體即服務廠商租賃相關應用軟體來使用<ul id="2713f529-ed49-4e13-8588-48e4cc70260e" class="bulleted-list"><li style="list-style-type:disc">科學應用繪圖程式 (OriginPro, SigmaPlot, etc.)</li></ul><ul id="a4e0fc59-60d4-4334-b022-7589cf5712a6" class="bulleted-list"><li style="list-style-type:disc">科學數據分析程式 (SPSS)</li></ul><ul id="5716f3b3-06f7-4356-9733-c513c6bc7708" class="bulleted-list"><li style="list-style-type:disc">數學方程式運算程式 (Microsoft Math, ILP, SMT/OMT Solvers)</li></ul></li></ul><ul id="a9e72f7b-dafc-4c17-97d9-f8b6fa70bdc1" class="bulleted-list"><li style="list-style-type:square">使用者可藉由網際網路直接使用該應用程式，而不需掌控該軟體之架構</li></ul><ul id="69393865-ee27-4e73-bbbe-b780a21a26c5" class="bulleted-list"><li style="list-style-type:square">雲端在生物科學研究的應用依照不同廠商、研究單位之需求提供安全的使用環境、高速的運算機能、大量的儲存機能，以及寬頻優質的網路環境，同時可藉由雲端運算節省大量採購設備與維護的經費。</li></ul></li></ul></li></ul><ul id="eed7d92f-1f17-4619-a59e-6f822f582584" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>雲端在企業資訊發展的應用</strong></span></mark><ul id="27e9f7e2-1631-4a80-9c01-5f03cb031c04" class="bulleted-list"><li style="list-style-type:circle">IaaS<ul id="d04ccb81-9728-468e-a3c0-b48de1b29e28" class="bulleted-list"><li style="list-style-type:square">依照自身欲開發之企業資訊相關內容，向提供IaaS廠商租賃設備包含基礎伺服器、網路資料庫等設備及軟體整合</li></ul><ul id="fb0067a2-7975-4838-a446-b710b75c5037" class="bulleted-list"><li style="list-style-type:square">系統面，透過IaaS，企業可專注於營運相關的核心作業，不必再擔心系統相容性與擴充的問題<ul id="1d650d86-1dbc-4bb9-bc06-903fb8e5ffce" class="bulleted-list"><li style="list-style-type:disc">業務成長做彈性及快速的擴充，加快企業導入時程，滿足企業降低營運成本及彈性提升系統效能的雙向需求</li></ul></li></ul><ul id="52e38913-bc6d-4fc6-9329-151835ba412c" class="bulleted-list"><li style="list-style-type:square">成本面，企業無須採購昂貴的硬體設備，即可以月租的方式取得所需運算、儲存、作業系統等資源，有效降低企業持有成本與維運成本</li></ul></li></ul><ul id="74e0cb09-0de8-44dd-82bc-1d2059aff1f4" class="bulleted-list"><li style="list-style-type:circle">PaaS<ul id="65ad7e97-aaea-4325-a090-6ab9b2880809" class="bulleted-list"><li style="list-style-type:square">隨著雲端服務的發展，企業產生各種不同類型的雲端服務，因而需要進行企業內部的系統整合，PaaS逐漸擴展為提供各種服務整合中介的平台</li></ul><ul id="4747ed47-020b-43d2-aafe-0ae127a24512" class="bulleted-list"><li style="list-style-type:square">就企業資訊發展於PaaS而言，可提供使用者在應用程式開發、部署、整合與中介等平台服務</li></ul><ul id="cb27ee17-34b1-4402-a7dd-a91584c1a70f" class="bulleted-list"><li style="list-style-type:square">PaaS也支援自動化的備份機制和災後回復，使企業不必擔心系統錯誤的發生</li></ul></li></ul><ul id="4417fc9c-e399-4b93-a096-c942af150347" class="bulleted-list"><li style="list-style-type:circle">SaaS<ul id="688b2914-2cc2-4073-b1b5-69d1660878b1" class="bulleted-list"><li style="list-style-type:square">SaaS廠商開發了各種支援管理的資訊工具如搜尋引擎、企業入口網站、內部網路、資料探勘、文件管理系統程式等</li></ul><ul id="27cfcc8f-119d-45ca-9e76-f0174105f864" class="bulleted-list"><li style="list-style-type:square">企業可透過租賃該軟體，以處理大量企業內部資料，為企業提供更有效率的運作環境<ul id="ca6a26e9-d23a-486a-b683-56d2787dbd00" class="bulleted-list"><li style="list-style-type:disc">企業管理工具通常所費不貲，造成企業管理在IT工具應用上的困難</li></ul></li></ul><ul id="a39ac884-8769-4f8b-9abb-da88e9b2cfb7" class="bulleted-list"><li style="list-style-type:square">在實際的案例上，世大化成公司向中華電信流通雲租賃「金賺錢雲端POS服務」，透過中華電信的雲端科技，解決了內部缺乏MIS專業人員建置及維護雲端POS系統的困擾</li></ul><ul id="ff4cab18-f326-42c5-98da-8d1a43bf4299" class="bulleted-list"><li style="list-style-type:square">隨時掌握櫃點的銷售狀況及庫存量，所有商品價格及折扣透過系統控管，可有效降低門市人員負擔<ul id="5e569984-60a0-4bea-8a23-2f7cbfa96d66" class="bulleted-list"><li style="list-style-type:disc">若遇到缺貨情況，櫃點人員也可直接透過雲端POS系統直接調貨，不僅省時、省力，還省下電話費</li></ul></li></ul></li></ul></li></ul><hr id="da1825e9-4fd0-424b-8164-46b88ce8c1e1"/><h2 id="f23209dc-42a3-4cca-a702-504f3b71b87c" class="">第十二章</h2><ul id="387d46b7-8996-4588-8564-9bb6cb6fc83d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>雲端的安全風險</strong></span></mark><ul id="2671f12b-d029-44cf-b150-72653882a987" class="bulleted-list"><li style="list-style-type:circle">傳統的安全威脅 (從傳統到雲端的變化)、攻擊手法等<ul id="a355873d-925d-431c-a208-4e646a5eb7c3" class="bulleted-list"><li style="list-style-type:square">大量的雲端資源和使用者，使得傳統的安全威脅更加嚴重<ul id="696b6660-da76-47ce-856e-247b6748dccd" class="bulleted-list"><li style="list-style-type:disc">從小區域受害者 → 變成大量受害者</li></ul></li></ul><ul id="928732a6-0a4e-467e-8482-3b0ef3cc0f69" class="bulleted-list"><li style="list-style-type:square">使用者在連到雲端時，必須保護基礎建設，與雲端執行的應用程式互動 → 相當困難</li></ul><ul id="7fbff4f7-dc3e-4f92-a44f-fec9c518cf70" class="bulleted-list"><li style="list-style-type:square">認證程序威脅：每個人必須基於組織中的角色，而被設定不同的權限，無法將目前企業內部的資安策略直接運用到雲端上</li></ul><ul id="7ddc32df-2edc-4d21-8217-8b631648029f" class="bulleted-list"><li style="list-style-type:square">傳統攻擊包括<ul id="70afae52-9dc6-49ba-873e-32110a5d0d6a" class="bulleted-list"><li style="list-style-type:disc">分散式阻斷攻擊 (Distributed Denial of Service, DDoS)</li></ul><ul id="d03b07c9-743f-4019-a264-80e268f20d1e" class="bulleted-list"><li style="list-style-type:disc">釣魚程式 (Phishing) → 竊取個人隱私資訊</li></ul><ul id="01e7af64-ba47-4748-857d-d526107d226e" class="bulleted-list"><li style="list-style-type:disc">SQL的置入 (Injection) → 利用SQL語法漏洞以竊取資料庫權限</li></ul><ul id="be2afdba-7f31-447f-9179-094d3bd3b03b" class="bulleted-list"><li style="list-style-type:disc">跨網描述攻擊 (Cross-Site Scripting) → 騙使用者轉到一些惡意的網站 → 透過Script來獲得使用者隱私資訊</li></ul></li></ul></li></ul><ul id="f786bedb-21b3-4e10-b0f6-4d3e17fb891f" class="bulleted-list"><li style="list-style-type:circle">系統可用性的威脅 (數位鑑識)<ul id="e40af481-92a0-4327-98d6-1d5ab332c3aa" class="bulleted-list"><li style="list-style-type:square">在多使用者的環境下，虛擬機管理器的弱點，可能讓惡意的使用者有新的攻擊管道</li></ul><ul id="bf727536-213b-4b15-aa6b-cbb2f72367e4" class="bulleted-list"><li style="list-style-type:square">在雲端的環境下，要辨識攻擊者的途徑其實更加困難</li></ul><ul id="b13a703b-12e9-4a33-bc1f-368e9751d086" class="bulleted-list"><li style="list-style-type:square">傳統基於數位鑑識(Digital Forensics)的辨識方法無法直接運用在雲端上<ul id="52cf6391-3859-47b4-b851-15428ae69575" class="bulleted-list"><li style="list-style-type:disc">因雲端中的資源是由許多使用者共用，在各種儲存媒體上有大量的寫入運算 → 沒有個人的專屬硬體/軟體設備概念</li></ul></li></ul><ul id="91ee0c78-0e1b-4277-ba0e-f6cd742fda96" class="bulleted-list"><li style="list-style-type:square">當系統損壞、電力損壞或其他的災害發生，雲端的服務將會停止一段時間，此時企業將無法使用雲端服務</li></ul><ul id="50ed1a2a-950a-4dcf-bc40-040ef42204da" class="bulleted-list"><li style="list-style-type:square">另一個可用性的議題是使用者將應用程式放在雲端中執行<ul id="2e215ac2-42b6-479a-bc4f-c1667738ba00" class="bulleted-list"><li style="list-style-type:disc">無法確認是否回傳正確的結果 → 中途是否被竄改的可能?</li></ul></li></ul></li></ul><ul id="5f8f6f59-a857-49e8-a7b6-d0304d96347c" class="bulleted-list"><li style="list-style-type:circle">協力廠商資料控制的威脅<ul id="577101f0-c884-4180-aa86-679403faa59b" class="bulleted-list"><li style="list-style-type:square">協力廠商的控制由於缺乏透明性和限制使用者的控制產生許多的問題</li></ul><ul id="08147b1a-8e13-4b39-8e99-d826506df918" class="bulleted-list"><li style="list-style-type:square">雲端供應商的資源是來自於協力廠商，但是協力廠商的可信度是一大問題<ul id="3592c7f5-5b9e-455c-b879-378dfbba9dce" class="bulleted-list"><li style="list-style-type:disc">協力廠商間接與雲端供應商簽約，因而提供不良的儲存設備，以至於遺失了資料</li></ul></li></ul><ul id="57ec8870-0434-4fb9-b392-677f78370ee5" class="bulleted-list"><li style="list-style-type:square">另外一個困難，如何證明使用者刪掉的資料確實在雲端中被刪除<ul id="2216da20-376c-4d0f-b37f-d6500ced5e44" class="bulleted-list"><li style="list-style-type:disc">因缺乏透明性的緣故，故在雲端中稽核是一件非常困難的事<ul id="9ada9151-cbda-4c12-b12f-8e105ce59e0b" class="bulleted-list"><li style="list-style-type:circle">要實現稽核功能需大量的成本 (儲存空間與頻寬等問題)</li></ul></li></ul></li></ul></li></ul></li></ul><ul id="f0bb318f-0631-4c35-b8de-3c6002665090" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>使用者對欲採用的IT雲端公司架構需重點特別注意</strong></span></mark><ul id="afb384da-0c01-49b6-bbfe-3800fec1f4a8" class="bulleted-list"><li style="list-style-type:circle">安全政策<ul id="f95d7336-20b9-4336-8a89-8e3f26c5d5bb" class="bulleted-list"><li style="list-style-type:square">雲端公司表達對資訊安全管理系統的支持和承諾</li></ul></li></ul><ul id="2692d5bf-f5d9-48a3-b2ed-29e1ebf6f4aa" class="bulleted-list"><li style="list-style-type:circle">資訊安全組織<ul id="572104de-0e92-4ded-bb55-433befb64e39" class="bulleted-list"><li style="list-style-type:square">建立一個管理架構，用於公司內部資訊安全的管理和控制，以及執行現有的資訊安全規定</li></ul></li></ul><ul id="156e28fe-e276-4db9-ad9f-a9e407df9bcc" class="bulleted-list"><li style="list-style-type:circle">資產管理<ul id="58ac41dc-0354-411b-8a8b-d33e4e2f0d55" class="bulleted-list"><li style="list-style-type:square">針對組織各項資產(軟硬體與資訊等)的安全進行有效保護</li></ul></li></ul><ul id="7f0a2344-e051-4c5c-ac7a-2859098aa266" class="bulleted-list"><li style="list-style-type:circle">人力資源安全<ul id="b2fc0f19-c43a-48a6-bf88-20c4ed16fe56" class="bulleted-list"><li style="list-style-type:square">明訂所有人員在安全方面的職責和角色</li></ul></li></ul><ul id="8c089d2e-56c0-4223-be4c-6b1ede9e2504" class="bulleted-list"><li style="list-style-type:circle">實體和環境安全<ul id="67545765-337d-4b47-9b48-570502a0faaa" class="bulleted-list"><li style="list-style-type:square">對組織營運場所及人員提出簡單明確的安全要求</li></ul></li></ul><ul id="0b7744cb-0077-4271-ab09-c3caf17a7f3e" class="bulleted-list"><li style="list-style-type:circle">通訊與作業管理<ul id="98a74e2f-b4bb-4c47-b0dc-1ca4d281c686" class="bulleted-list"><li style="list-style-type:square">盡可能完善公司內外的溝通聯繫，以利於資訊安全管理系統的順利運行</li></ul></li></ul><ul id="0e774e1a-f044-4999-87d5-ad6ba73a7a22" class="bulleted-list"><li style="list-style-type:circle">存取控制<ul id="7e7dac7c-298f-409d-8e50-af3a8dc68774" class="bulleted-list"><li style="list-style-type:square">管理對資訊的存取行為</li></ul></li></ul></li></ul><ul id="cfb7ef2d-d698-4096-b58d-02ba2b38e2f5" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>雲端伺服器攻擊手法</strong></span></mark><ul id="83c36286-e511-43b7-803f-68c1e3461218" class="bulleted-list"><li style="list-style-type:circle">分散式阻斷服務攻擊（Distributed Denial of Service, DDoS）<ul id="95e405fe-cddc-49dc-be25-c2df5c945cd6" class="bulleted-list"><li style="list-style-type:square">駭客利用大量殭屍電腦同時攻擊，達到妨礙正常使用者使用服務的目的</li></ul></li></ul><ul id="f5bc2058-5074-458d-98be-7c38180b96f5" class="bulleted-list"><li style="list-style-type:circle">中間人攻擊（Man-in-the-Middle Attack）<ul id="b2d73d3f-03d3-42ff-b22a-120d6cf7d0f3" class="bulleted-list"><li style="list-style-type:square">駭客扮演中間人角色，假冒伺服器端接收到傳送的訊息，再假冒使用者端把訊息傳給真正的伺服器主機，藉此方式可在兩端連線不知情的情況下竊取或變更傳遞的訊息內容</li></ul></li></ul><ul id="65fbfc82-33f3-4624-8a39-c4b91b9d78dd" class="bulleted-list"><li style="list-style-type:circle">系統漏洞攻擊（System Vulnerability Attack）<ul id="21904523-3474-4832-8fc2-f64b3023816d" class="bulleted-list"><li style="list-style-type:square">利用已發現或未公開的系統弱點進行攻擊，取得或提升服務主機(Windows、Unix-like、SQL )管理權限</li></ul></li></ul></li></ul><ul id="8e837e86-2c9e-43d2-84f4-ffc02ad900c9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>SaaS提供身分辨識管理和登入服務</strong></span></mark><ul id="2eb67449-8af6-40ed-a133-884b78fac486" class="bulleted-list"><li style="list-style-type:circle">在傳統IT佈署在企業內的模式<ul id="af66330c-ea35-4494-aef9-60cd92116cb5" class="bulleted-list"><li style="list-style-type:square">企業的敏感資料因實體、邏輯、個人安全和存取的政策，階放在企業內部</li></ul></li></ul><ul id="6fd1a8cc-9a83-4395-9b9c-a8152be69818" class="bulleted-list"><li style="list-style-type:circle">在SaaS的模式中，企業的資料儲存在企業的外部，也就是SaaS的供應商</li></ul><ul id="11d2ef63-3285-46b8-aaf8-e176f6932902" class="bulleted-list"><li style="list-style-type:circle">對於應用程式安全的弱點或惡意的員工，SaaS的提供者必須採用額外的安全機制確保資料安全和避免被盜取<ul id="fa9195c0-c238-4d95-b7ff-ccd02156b8be" class="bulleted-list"><li style="list-style-type:square">資料的安全上使用較強的加密技術和較好的認證去控制存取資料</li></ul><ul id="bcaba796-5716-421d-bd11-308f6c293339" class="bulleted-list"><li style="list-style-type:square">如企業中如果需要EC2的管理者去使用主機，則需使用較強的加密方法SSH去存取</li></ul></li></ul><ul id="dbb88d3b-1b4b-46e9-9370-6cdefbb26086" class="bulleted-list"><li style="list-style-type:circle">儲存在S3的資料，預設是不加密的，使用者將他們的資料上傳前可先加密，其他未授權的人就無法存取</li></ul><ul id="982faeca-f574-453d-96ac-a0f012048bac" class="bulleted-list"><li style="list-style-type:circle">純粹的身份管理：只處理帳號的建立、管理和刪除而不處理存取的部分</li></ul><ul id="79f56381-955e-4cd6-8c8e-6f8321827dcc" class="bulleted-list"><li style="list-style-type:circle">使用者的登入管理：使用者可以使用帳號、晶片信用卡、指紋等當作登入的方式</li></ul><ul id="b156d13d-59b4-40e0-a0ae-8a74f580b962" class="bulleted-list"><li style="list-style-type:circle">服務管理：根據使用者登入的身份，提供相關的服務</li></ul></li></ul><ul id="aeccb046-440d-4c3f-aefd-464483fbdb5f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>CSA提出雲端運算七大安全威脅</strong></span></mark><ul id="a99a2f0a-1f1a-47e7-ba76-72f7ec38a553" class="bulleted-list"><li style="list-style-type:circle">濫用或利用雲端運算進行非法的行為<ul id="ee4edc66-86d4-4b7e-b931-ac8270d0a7ae" class="bulleted-list"><li style="list-style-type:square">通常並不會要求使用者必須經過嚴格的資料審查過程，就可直接使用雲端所提供的資源，有些服務供應商甚至提供免費使用的功能或試用期</li></ul><ul id="72ed2720-2767-4822-a907-1c987d29f80a" class="bulleted-list"><li style="list-style-type:square">容易成為有心分子利用的管道，已經有包含殭屍網路、木馬程式下載在內的惡意程式運行於雲端運算的系統內</li></ul></li></ul><ul id="06c644b0-d230-4538-a798-269bf5bb9a4f" class="bulleted-list"><li style="list-style-type:circle">不安全的介面與APIs<ul id="01adda09-70e4-40b6-9a62-d48c825c83b7" class="bulleted-list"><li style="list-style-type:square">介面與API是否安全直接影響到雲端運算服務本身的安全性</li></ul><ul id="0c2ce0e9-97ee-47b9-9521-9da6206a70cc" class="bulleted-list"><li style="list-style-type:square">像使用者介面的驗證與授權功能是否安全，API的相依性與安全性</li></ul><ul id="adaaeb4b-5211-46ae-a857-e05b3b3a4697" class="bulleted-list"><li style="list-style-type:square">如果有使用第三方的加值服務，這些服務的介面與API的安全性也必須一併加以考量</li></ul></li></ul><ul id="2c738b6c-72b2-4c94-ae30-67c0995c1ac5" class="bulleted-list"><li style="list-style-type:circle">惡意的內部人員(Malicious Insiders)<ul id="141c5478-b960-4ced-bbcd-d25bef2e5f87" class="bulleted-list"><li style="list-style-type:square">使用者無法得知雲端運算服務供應商如何規範與管理內部員工，甚至連招聘的條件與流程也屬於非公開的資訊</li></ul><ul id="73d4de9f-7c32-45fc-9fcc-fc4952c4c0a4" class="bulleted-list"><li style="list-style-type:square">以雲端運算的業務性質而言，絕對是有心分子眼中的肥羊，所以內部惡意員工的比例應當會比一般組織來的更高</li></ul></li></ul><ul id="8da0291f-a1c9-40e0-8ce9-323d3f42bc64" class="bulleted-list"><li style="list-style-type:circle">共享環境所造成的議題<ul id="5f58621a-239c-48c3-a63b-682e8949692d" class="bulleted-list"><li style="list-style-type:square">使用者好像擁有獨立的環境，但是這些環境都是從共享的實體環境中透過虛擬化的技術所產生出來的</li></ul><ul id="6b0ff2df-57d6-4ad7-8ebb-08a06d3fe5bb" class="bulleted-list"><li style="list-style-type:square">虛擬化的平台能否將不同的使用者進行有效地隔離，以避免彼此之間相互干擾其服務的正常運算，甚至是避免彼此之間可存取對方的資源</li></ul></li></ul><ul id="0a3656e1-6290-418e-843e-730f89ea6d2b" class="bulleted-list"><li style="list-style-type:circle">資料遺失或外洩<ul id="ee2cde1a-4136-4f69-a46c-502f1d883b05" class="bulleted-list"><li style="list-style-type:square">對於一個組織的影響不只在於實際上的金錢損失，更在於如企業形象之類的無形損失</li></ul><ul id="24bc5bb8-154e-4ddb-9424-fc715c768de5" class="bulleted-list"><li style="list-style-type:square">是否擁有足夠的AAA (驗證、授權、稽核)、是否採用適當且足夠的加密技術、資料持續性的需求、如何安全地刪除資料、災難復原、甚至是司法管轄的問題</li></ul></li></ul><ul id="8964e61a-ee89-4332-be8d-86d0112ec55d" class="bulleted-list"><li style="list-style-type:circle">帳號或服務被竊取<ul id="31c97bb6-d338-4282-906f-4db723c971b8" class="bulleted-list"><li style="list-style-type:square">雲端運算沒有實體的東西，因此一旦帳號或服務被竊取後，惡意分子可完全取代原先使用者的身分</li></ul><ul id="ec1f0633-648c-471d-8610-931ef547fb2b" class="bulleted-list"><li style="list-style-type:square">傳統的IT環境中，因為使用者至少還擁有硬體的控制權，所以即使發生帳號或服務的竊取行為，使用者還是可進行一些事後的補救措施，但這些補救措施在雲端運算的架構下可能無法執行</li></ul><ul id="920d9178-dd17-4a60-ba72-442568049370" class="bulleted-list"><li style="list-style-type:square">對於那些公開的雲端運算服務而言，直接暴露於網際網路上也讓這些竊取行為更加容易發生</li></ul></li></ul><ul id="93aa8976-1d78-4be0-9acc-3b9727a47340" class="bulleted-list"><li style="list-style-type:circle">未知的風險模型<ul id="6b2ec639-ecf8-4c2c-80e8-47eabd9fad5d" class="bulleted-list"><li style="list-style-type:square">以雲端運算來說，不管是IaaS、PaaS、SaaS都是將服務包裝成一個使用者不需了解也無法了解的系統，讓使用者專注於如何「使用」該系統</li></ul><ul id="91f0d81a-4b8d-4a21-9fb1-8d1e7ae17afd" class="bulleted-list"><li style="list-style-type:square">但是這樣的方便性，也讓使用者無法了解這些服務所使用的網路架構、安全架構、軟體版本等各式各樣的重要資訊，這些資訊對於評估安全狀態是很有幫助的</li></ul></li></ul></li></ul><hr id="5f56c0ca-2cff-4e7a-b9fd-1bbed1be0c06"/><h2 id="2892f378-a662-4777-b5ad-75c297f6829f" class="">第十三章</h2><ul id="5f9bbd7f-6932-4b39-b207-e6e29fc7e018" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal_background"><span style="border-bottom:0.05em solid"><strong>傳統資料中心的挑戰</strong></span></mark><ul id="2bb314c6-fc05-4947-a295-ed00572fe3a3" class="bulleted-list"><li style="list-style-type:circle">超頻額率帶來的問題說明<ul id="ec6bcf33-8c5a-4f30-8cd7-5842d5ebb0ab" class="bulleted-list"><li style="list-style-type:square">超額率 (oversubscription) 伺服器的頻寬對所有上傳頻寬的比例<ul id="20f0a92c-bb45-41e6-8074-1c31437295d7" class="bulleted-list"><li style="list-style-type:disc">在樹狀結構的任何一層都可計算超額率</li></ul></li></ul><ul id="d3fc2150-b23a-49f9-a127-d5500fe2c37b" class="bulleted-list"><li style="list-style-type:square">當網路流量從存取層移動到聚集層和核心層會造成<ul id="8534a4a5-13d6-4ff8-b14f-ed10c556d668" class="bulleted-list"><li style="list-style-type:disc">分享上傳頻寬的伺服器數量增加 → 導致超額率也增加並造成瓶頸</li></ul></li></ul><ul id="edc8abc9-3b3d-4307-9ba3-fc2481216383" class="bulleted-list"><li style="list-style-type:square">超額率限制了伺服器的容量，比例應該是1：1，如此主機才能使用他們全部的網路頻寬<ul id="8dd5cf80-0bcc-46a2-bba5-4e5b6bbd1cf0" class="bulleted-list"><li style="list-style-type:disc">傳統資料中心設計為1：2, 1：4</li></ul></li></ul><ul id="535a3a8a-47fb-45f4-acb8-c98382b0bbb8" class="bulleted-list"><li style="list-style-type:square">由於超額率壅塞也會導致交換器的緩衝儲存器超載，而開始丟棄封包<ul id="f6e9ca79-1b9b-457f-9525-23819a63c0c2" class="bulleted-list"><li style="list-style-type:disc">基於TCP保證資料送達的機制，未能成功傳送資料的伺服器，會重新做資料傳送的動作，此時系統的吞吐量會急速降低，造成效能崩潰的現象，此種問題稱之為 TCP Incast (如：MapReduce應用)</li></ul></li></ul><figure id="8cf07cb2-0432-4cff-8176-d1a23fbdfea4" class="image"><a href="%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97-%E6%9C%9F%E6%9C%AB%E8%80%83%20fa4a0b592a5346b4b1d52aed8072a555/%25E6%2588%25AA%25E5%259C%2596_2023-12-08_%25E6%2599%259A%25E4%25B8%258A11.00.25.png"><img style="width:639px" src="%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97-%E6%9C%9F%E6%9C%AB%E8%80%83%20fa4a0b592a5346b4b1d52aed8072a555/%25E6%2588%25AA%25E5%259C%2596_2023-12-08_%25E6%2599%259A%25E4%25B8%258A11.00.25.png"/></a></figure></li></ul><ul id="91d17141-dae7-493d-92d0-186b025952be" class="bulleted-list"><li style="list-style-type:circle">STP與路由分配不平均問題<ul id="90703411-3205-493c-a853-4d1cb269dea7" class="bulleted-list"><li style="list-style-type:square">一般資料中心網路的問題是缺乏容錯性<ul id="6f4b35b0-76c7-4a34-b06c-6112eeba67f8" class="bulleted-list"><li style="list-style-type:disc">特別是在樹的上層，較少實體的網路連接線 → 在核心層或聚集層的硬體損壞會導致網路整體的效能快速下降</li></ul></li></ul><ul id="a4581949-f306-4d34-8d81-13b5e1f63770" class="bulleted-list"><li style="list-style-type:square">在網路第二層STP (Spanning Tree Protocol) 協定的機制，即使有多的路徑存在也只使用一條路徑，導致資源利用率非常低<ul id="5c9d25f4-c8cc-46b6-a55d-e75c738c9b35" class="bulleted-list"><li style="list-style-type:disc">避免造成迴圈 → 避免廣播風暴 → 取消某些可使用的連結 → 網路連結使用率下降</li></ul></li></ul><ul id="97433ad7-4c51-46f4-89ce-d97bac06b44f" class="bulleted-list"><li style="list-style-type:square">在核心層和聚集層由於流量不能平均分配到路徑上，所以也會產生負載平衡的問題<ul id="d09b1bf5-70c4-408d-be72-12a4d6898295" class="bulleted-list"><li style="list-style-type:disc">一般資料中心的使用率非常低只有30%</li></ul></li></ul><ul id="479c162e-10ea-47fe-88a8-2f473b529202" class="bulleted-list"><li style="list-style-type:square">在資料中心執行的伺服器，動態分配資源是最佳的解決方式，將大部分的工作分配在30%的伺服器上執行，而其他未使用的伺服器可關機節省能源<figure id="eca67713-bb2a-4f34-ab73-7d03a7d8be7b" class="image"><a href="%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97-%E6%9C%9F%E6%9C%AB%E8%80%83%20fa4a0b592a5346b4b1d52aed8072a555/%25E6%2588%25AA%25E5%259C%2596_2023-12-08_%25E6%2599%259A%25E4%25B8%258A11.00.52.png"><img style="width:624px" src="%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97-%E6%9C%9F%E6%9C%AB%E8%80%83%20fa4a0b592a5346b4b1d52aed8072a555/%25E6%2588%25AA%25E5%259C%2596_2023-12-08_%25E6%2599%259A%25E4%25B8%258A11.00.52.png"/></a></figure></li></ul></li></ul></li></ul><ul id="8d022c75-b869-481d-b854-5e2e4b7e9ebe" class="bulleted-list"><li style="list-style-type:disc">交換器為主的資料中心架構特性<ul id="f052c84e-7152-4293-96ec-42018ada4796" class="bulleted-list"><li style="list-style-type:circle">Fat-tree 架構特性與可解決的傳統挑戰<ul id="a8272a10-c85d-468c-9836-513407ed9c96" class="bulleted-list"><li style="list-style-type:square"> 交換器為主的資料中心架構主要是使用交換器來互相連接和資料的繞徑。著名的方法包括<ul id="bed37e9d-9fb1-4d38-ad9e-ed44b4d0d595" class="bulleted-list"><li style="list-style-type:disc">Fat-Tree、portland、VL2等</li></ul></li></ul><ul id="93a1ca2b-7a9e-4b93-8ce4-67556f65b9e9" class="bulleted-list"><li style="list-style-type:square">Fat-Tree的拓樸結構包括了<em>k</em>群(pod)，每群包含<em>k</em>/2個邊際交換器(Edge Switch)和<em>k</em>/2個聚集交換器</li></ul><ul id="f7ecc9fd-2635-41b4-83d7-7f38aba22d0b" class="bulleted-list"><li style="list-style-type:square">邊際交換器和聚集交換器連接成clos拓樸，在每群中形成完整二分圖(Completed Bipartite)，每一個群連接到所有的核心交換器，形成另一個二分圖</li></ul><ul id="95144407-3592-4daa-bee1-ff97907b107c" class="bulleted-list"><li style="list-style-type:square">Fat-Tree是每層由<em>k</em>-port相同的交換器所建構而成，每個交換器可以支援(<em>k</em>3/4)主機。Fat-Tree的IP定址為10:pod:subnet:hosted</li></ul><ul id="35f16d05-2bd6-4a2b-bfe1-b5450ff0744a" class="bulleted-list"><li style="list-style-type:square">Fat-Tree架構主要是解決超額率(oversubscribe)、高成本的聚集和核心交換器、容錯、可規模化的問題<figure id="33f128f6-a26b-4ae8-98cd-8711cd7f2faa" class="image"><a href="%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97-%E6%9C%9F%E6%9C%AB%E8%80%83%20fa4a0b592a5346b4b1d52aed8072a555/%25E6%2588%25AA%25E5%259C%2596_2023-12-08_%25E6%2599%259A%25E4%25B8%258A11.01.08.png"><img style="width:667px" src="%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97-%E6%9C%9F%E6%9C%AB%E8%80%83%20fa4a0b592a5346b4b1d52aed8072a555/%25E6%2588%25AA%25E5%259C%2596_2023-12-08_%25E6%2599%259A%25E4%25B8%258A11.01.08.png"/></a></figure></li></ul></li></ul></li></ul><ul id="f6f64acc-a9a3-4d38-9607-ff1539c63346" class="bulleted-list"><li style="list-style-type:disc">伺服器為主的資料中心架構特性<ul id="92afbddc-2cd8-480e-94ef-3c09fd8db988" class="bulleted-list"><li style="list-style-type:circle">DCell 架構特性與可解決的傳統挑戰<ul id="6d6fff13-7a92-40b2-b578-988efbd44032" class="bulleted-list"><li style="list-style-type:square">使用低成本的迷你交換器取代高成本的核心和聚集交換器<ul id="1e3bbdf4-0ab8-4846-a348-63f12413d55d" class="bulleted-list"><li style="list-style-type:disc">增加的成本是網路線的數量和傳輸路徑的長度</li></ul></li></ul><ul id="ae38de16-ae51-46c1-b9f3-ae4e2721cb35" class="bulleted-list"><li style="list-style-type:square">DCell0是由<em>n</em>個伺服器連接到一個低成本較少port的迷你交換器所組成<ul id="a02287ba-1c69-44f4-b148-3cdbf233736a" class="bulleted-list"><li style="list-style-type:disc">DCell1包含(<em>n</em>+1)個DCell0，每一個DCell0使用完全網線(Full mesh)的方式連接到其他每一個DCell0</li></ul></li></ul><ul id="ec17f54a-72c5-413a-8a5d-fce433df7c00" class="bulleted-list"><li style="list-style-type:square">在一般DCell拓樸中的每個伺服器有兩個網路介面 (即兩張網卡)<ul id="b90a2dcf-261d-4849-b013-a7337a5598c1" class="bulleted-list"><li style="list-style-type:disc">(1) 一個連接至迷你交換器 (2) 一個連接到鄰居DCell0的伺服器</li></ul></li></ul><ul id="e5c3a624-6459-41a7-b3e3-1e7f063ad10d" class="bulleted-list"><li style="list-style-type:square">任意兩個伺服器具有[<em>i</em>, <em>j</em>-1]和[<em>j</em>, <em>i</em>]變數值，而且滿足每個<em>i</em>和<em>j&gt;i</em>，都有一條連線連接</li></ul><ul id="5922f241-2249-4dfc-8480-621949ff4907" class="bulleted-list"><li style="list-style-type:square">使用分散式容錯繞徑演算法的設計，所以在各種型態的錯誤下(例如：連線、伺服器、積架)，它有結構或拓樸的高容錯特性可避免</li></ul></li></ul></li></ul><ul id="3bc570aa-a7e6-44b6-9cb5-5c66b9578182" class="bulleted-list"><li style="list-style-type:disc">冷卻系統定義<ul id="0e14e100-1c35-40de-b9cf-0bfa3c520c01" class="bulleted-list"><li style="list-style-type:circle">空氣流動、冷卻輸送到伺服器、移除伺服器的熱空氣</li></ul><ul id="cb73f5d0-c26e-4d50-9559-c8c67d3b8de4" class="bulleted-list"><li style="list-style-type:circle">三種空氣流動策略<ul id="f0a42113-7e49-478c-99af-31a9e24f0b40" class="bulleted-list"><li style="list-style-type:square">開放，也就是沒有佈置任何空氣流動的管理</li></ul><ul id="7b8c62e0-207a-4a82-8bdb-cc9a5ee28748" class="bulleted-list"><li style="list-style-type:square">部分圍護，採用空氣流動管理的技術，但是沒有完全隔離冷熱空氣之間的流動（使用冷熱過道）</li></ul><ul id="ca6efce5-f06b-4b89-a0b5-61bce2498a2f" class="bulleted-list"><li style="list-style-type:square">圍護，其中的熱空氣和冷空氣流動是完全隔離的</li></ul></li></ul></li></ul><ul id="195c3b02-c0ca-4fd4-9c3d-765c86b33df6" class="bulleted-list"><li style="list-style-type:disc">虛擬化的威脅<ul id="ec896d98-fd36-4b8b-bed2-68f9196b099f" class="bulleted-list"><li style="list-style-type:circle">網路服務在虛擬化環境中必須從實體機層延伸到較低的虛擬層</li></ul><ul id="f7bf35a6-6593-42f8-b6ca-473b77305755" class="bulleted-list"><li style="list-style-type:circle">虛擬交換器和虛擬拓撲，對於資料中心網路拓撲帶來更多的複雜性</li></ul><ul id="04b6a846-fe96-4355-be9f-24423ad0aa90" class="bulleted-list"><li style="list-style-type:circle">傳統的Three Tier拓撲結構，例如可成長到四或五層，在各種雲端環境中這可能是次優也是不切實際 → 效能下降</li></ul><ul id="856cc4f1-0e3d-44d7-bb1f-cb06c028220b" class="bulleted-list"><li style="list-style-type:circle">MAC位址管理和虛擬機的擴展性是一個主要關注的議題，目的是避免網路設備中MAC表超載</li></ul></li></ul><hr id="bb7ee9ef-1092-4414-bc79-3cba07f41f7f"/><h2 id="702df641-d6f8-4e6c-8083-74a09c6650b6" class="">第十四章</h2><ul id="86d9a33d-bbdf-481c-b9f4-c413f608a7e9" class="bulleted-list"><li style="list-style-type:disc">傳統網路架構與SDN網路架構之差異<ul id="f0c8b48a-8ef4-455c-89a7-e6ca5ac9c6cf" class="bulleted-list"><li style="list-style-type:circle">傳統網路架構與SDN網路架構的主要差異在於控制層與資料層的分離</li></ul><ul id="42c404ca-13b6-488b-a329-8b6a0fd83d1b" class="bulleted-list"><li style="list-style-type:circle">在傳統網路架構中，這兩層是緊密結合在一起的，這意味著網路設備，如交換機和路由器，同時負責資料轉發和路由決策。</li></ul><ul id="f1ede551-a42b-44b7-8972-ea6ec599b677" class="bulleted-list"><li style="list-style-type:circle">SDN架構中，控制層被抽象出來並集中化，使網路控制更加靈活和集中。這樣的設計允許更容易地實現網路的動態配置和管理，並可以透過軟體應用程序來快速適應不同的網路需求和條件。這對於網路管理和優化來說是一個顯著的改進。</li></ul></li></ul><figure id="a825239d-cca8-4729-84cf-e04e562cce94" class="image"><a href="%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97-%E6%9C%9F%E6%9C%AB%E8%80%83%20fa4a0b592a5346b4b1d52aed8072a555/Untitled.png"><img style="width:576px" src="%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97-%E6%9C%9F%E6%9C%AB%E8%80%83%20fa4a0b592a5346b4b1d52aed8072a555/Untitled.png"/></a></figure><ul id="b74f30bb-5898-4a90-8277-16df154f6a76" class="bulleted-list"><li style="list-style-type:disc">傳統的網路面臨的挑戰<ul id="a9197184-f30c-452a-af72-597f00e0864d" class="bulleted-list"><li style="list-style-type:circle">成本及效能<ul id="0b2954de-aff8-4836-9b11-42d2d76d7855" class="bulleted-list"><li style="list-style-type:square">網路設備運算需求及硬體成本提高，而繁複的運算亦導致網路傳輸效能低落</li></ul></li></ul><ul id="2fe8858b-f3c5-4bf7-a7e5-11d054472df5" class="bulleted-list"><li style="list-style-type:circle">更新作業<ul id="31f1f12f-4295-4c23-a15a-90fd0e537ccb" class="bulleted-list"><li style="list-style-type:square">單一交換器，無法即時根據需求彈性調整</li></ul></li></ul><ul id="af2d983c-1801-40c3-ab51-d7d5d4b91d63" class="bulleted-list"><li style="list-style-type:circle">網路管理者所需的彈性<ul id="6388e0d0-2e55-4a0b-a5c4-bf971ad7c053" class="bulleted-list"><li style="list-style-type:square">管理者難以依照需求自由管理網路封包傳遞路徑</li></ul><ul id="6ae2b162-6b12-4e8b-9abb-5b7d769fc556" class="bulleted-list"><li style="list-style-type:square">此網路架構難以滿足雲端運算對硬體及網路進行虛擬化的基本需求</li></ul></li></ul></li></ul><ul id="178fe1dd-fb53-41d8-a128-b8a59c400b42" class="bulleted-list"><li style="list-style-type:disc">傳統網路瓶頸<ul id="6808f610-e3a0-4ff7-bdfa-2086a6713741" class="bulleted-list"><li style="list-style-type:circle">繁複的封包處理程序，降低網路效率</li></ul><ul id="188f3663-9f9f-479a-86f9-ee5231988cc2" class="bulleted-list"><li style="list-style-type:circle">不同廠牌間的設備可能不相容</li></ul><ul id="9f6521e5-2340-43a2-b3fa-adcde1657f0a" class="bulleted-list"><li style="list-style-type:circle">新開發之網路技術難以快速運作於現有設備中<ul id="41e968ae-ad73-4b74-b4f2-3964a714eaaa" class="bulleted-list"><li style="list-style-type:square">由供應商驅動</li></ul><ul id="535dd391-3c82-420a-9e59-c577716d2d3b" class="bulleted-list"><li style="list-style-type:square">交換器和路由器都是封閉的</li></ul><ul id="6cbe8f35-1332-4eb9-9902-e850a723a39d" class="bulleted-list"><li style="list-style-type:square">網路創新非常困難</li></ul></li></ul><ul id="2f14c339-adae-448c-b952-d32ddb566733" class="bulleted-list"><li style="list-style-type:circle">研究者如何在網路上做實驗</li></ul></li></ul><ul id="63de0c6e-8853-4c02-8d18-69927a307755" class="bulleted-list"><li style="list-style-type:disc">SDN網路概念與架構</li></ul><p id="58f0052e-5b2f-4313-afcd-15d61fa30ef1" class=""><div class="indented"><figure id="95df5fed-192e-44f0-bd8a-ac2de0bc2bee" class="image"><a href="%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97-%E6%9C%9F%E6%9C%AB%E8%80%83%20fa4a0b592a5346b4b1d52aed8072a555/%25E6%2588%25AA%25E5%259C%2596_2023-12-09_%25E4%25B8%258A%25E5%258D%258810.56.22.png"><img style="width:384px" src="%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97-%E6%9C%9F%E6%9C%AB%E8%80%83%20fa4a0b592a5346b4b1d52aed8072a555/%25E6%2588%25AA%25E5%259C%2596_2023-12-09_%25E4%25B8%258A%25E5%258D%258810.56.22.png"/></a></figure><ul id="1fe64772-fac5-4346-9374-ae415ae8d8b9" class="bulleted-list"><li style="list-style-type:disc">基礎建設層(Infrastructure Layer)<ul id="0a5416ca-4925-4273-8fd5-14ad400c4b3e" class="bulleted-list"><li style="list-style-type:circle">交換器(Switch)等硬體設施</li></ul></li></ul><ul id="2a96fe56-17ad-4a3d-94b4-c38340685f2f" class="bulleted-list"><li style="list-style-type:disc">控制層(Control Layer)<ul id="04c5a7a4-16e6-4494-ae5d-e8f501b26234" class="bulleted-list"><li style="list-style-type:circle">負責所有網路的管理權限</li></ul></li></ul><ul id="deb05a3f-f2bb-406f-bde8-1578393f33eb" class="bulleted-list"><li style="list-style-type:disc">應用層(Application Layer)<ul id="8efd89a8-c3e1-4019-9429-05974c18edf7" class="bulleted-list"><li style="list-style-type:circle">各應用程式的溝通介面</li></ul></li></ul></div></p><ul id="44f3b6b0-e462-4a4f-aa38-7b6f7df2f2a1" class="bulleted-list"><li style="list-style-type:disc">OpenFlow網路架構<ul id="d40b253d-b7a8-4703-8ae3-bb3c19adda92" class="bulleted-list"><li style="list-style-type:circle">旨在透過開放式網路架構提高網路效能，滿足彈性的使用需求，並提供更精確的網路管理能力。這種架構將網路控制與硬體基礎設施分離，使網路設計和管理更加靈活和高效。</li></ul><ol type="1" id="c6b7bd47-0168-436b-a652-c15ee170140c" class="numbered-list" start="1"><li><strong>流表（Flow Table）管理</strong>：在OpenFlow網路中，交換器（Switches）不需要通過不斷學習來尋找封包傳送路徑。相反，它們根據由中央控制器設定的流表來轉發數據。這些流表指定了如何處理網路流量，例如“如果頭部（header）等於x，則發送到端口2”，或者“如果頭部等於y，則用z覆蓋頭部並發送到端口5和6”。</li></ol><ol type="1" id="0ea39705-984d-4b24-86d1-dc9a5573cf2e" class="numbered-list" start="2"><li><strong>協定特性</strong>：OpenFlow協定允許網路的程式化，支持諸如負載平衡、頻寬管理、服務質量（QoS）保證、網路分離等功能。在這種架構中，數據轉發功能仍然留在交換器中，但決策功能則轉移到OpenFlow控制器。為了保證安全性，控制器與OpenFlow交換器之間需要建立一個秘密頻道（通常使用SSL加密技術），確保信息傳輸的安全性。</li></ol></li></ul><ul id="76a30426-38d9-4790-a315-8ca0c8a9a48a" class="bulleted-list"><li style="list-style-type:disc">Flow Table運作流程<ul id="b530b284-9cff-4cca-97ee-eaff1d158c1c" class="bulleted-list"><li style="list-style-type:circle">控制器建立的封包的處理邏輯，會建立成Flow Table並更新至OpenFlow交換器</li></ul><ul id="bdfa0302-0e1e-4de7-8c2e-20746d15c86f" class="bulleted-list"><li style="list-style-type:circle">交換器依據資深的FlowTable即可快速將各類封包依據FlowTable決定其該採取的動作<ul id="f41ef6b5-09b6-474b-8ca3-96c7f6f0d02a" class="bulleted-list"><li style="list-style-type:square">發送到特定通訊埠 (Port)</li></ul><ul id="31c01aa7-e5a7-42ba-9126-28636585e9e9" class="bulleted-list"><li style="list-style-type:square">丟棄</li></ul><ul id="573d14dd-3a0f-47db-aa98-abaedd8683c8" class="bulleted-list"><li style="list-style-type:square">修改部分內容 (Header field, tagging, etc.)</li></ul><ul id="b7716f0a-a8e5-4fc0-ac82-f3b16f272d41" class="bulleted-list"><li style="list-style-type:square">遇到未知封包時，交換器將其壓縮後轉送至控制器進一步處理</li></ul></li></ul></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
