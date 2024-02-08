@@ -4,13 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>分類｜CJL's Notes WebSite</title>
+    <title>How to Install Linux for Beginners｜CJL's Notes WebSite</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="icon" href="img/folder2.svg" type="image/svg+xml">
+    <link rel="icon" href="img/book-half.svg" type="image/svg+xml">
     <style>
         .dropdown-toggle::after {
             display: none;
+        }
+
+        .round-image {
+            border-radius: 50%;
+            /* 確保圖片是正方形 */
+            width: 100px;
+            /* 或您想要的尺寸 */
+            height: 100px;
+            /* 與寬度相同以保持圖片的正方形 */
         }
     </style>
 
@@ -19,9 +28,13 @@
 
 <body>
 
-    <button type="button" class="btn btn-secondary d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"></path>
+    <button type="button" class="btn btn-secondary d-md-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#sidebar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5">
+            </path>
         </svg>
     </button>
 
@@ -123,194 +136,152 @@
             <!-- Main content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-                <div class="text-center mb-4">
-                    <img src="img/index_bg.jpg" class="img-fluid" alt="Descriptive Alt Text"
-                        style="width: 100%; height: 150px; object-fit: cover;">
-                </div>
                 <!-- Further main content here -->
-                <div class="container text-center">
+                <div class="container ">
                     <div class="row">
                         <div class="col">
-                            <p>
-                            <h2>分類</h2>
-                            </p>
-                            
+                            <div class="p-5 text-center bg-body-tertiary rounded-3 mt-4">
+                                <h1 class="text-body-emphasis">How to Install Linux for Beginners</h1>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <a class="btn btn-outline-info" href="../../categories.html" role="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5">
+                                    </path>
+                                    </svg>
+                                    返回
+                                </a>
+
+                            </div>
+
+                            <div class="mt-5 p-5  bg-body-tertiary rounded-3">
+                                <ol>
+                                    <a class="index_link" href="#1"><li >下載Linux的ISO檔案</li></a>
+                                    <li>
+                                      <a class="index_link" href="#2">製作USB開機隨身碟 & 下載虛擬機</a>
+                                      <ul>
+                                        <a class="index_link" href="#2-1"><li>製作USB開機隨身碟</li></a>
+                                        <a class="index_link" href="#2-2"><li>下載 VirtualBox (免費)</li></a>
+                                        <a class="index_link" href="#2-3"><li>下載 VMware (付費)</li></a>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <a class="index_link" href="#3">安裝系統</a>
+                                      <ul>
+                                        <a class="index_link" href="#3-1"><li>電腦</li></a>
+                                        <a class="index_link" href="#3-2"><li>虛擬機</li></a>
+                                      </ul>
+                                    </li>
+                                    <a class="index_link" href="#4"><li >環境設置</li></a>
+                                    <a class="index_link" href="#5"><li >心得</li></a>
+                                  </ol>
+                
+                                  <br>
+                
+                                  <p>
+                                    <h2 id="1">1.下載Linux的ISO檔案</h2>
+                                    進入Ubuntu的<a target="_blank" href="https://ubuntu.com/download/desktop">官方網站</a>下載ISO檔案<br><br>選擇右下角Download<br><br>
+                                    <img width="80%" src="img/linuxwebsite.PNG">
+                                  </p>
+                
+                                  <br>
+                
+                                  <p>
+                                    <h2 id="2">2.製作USB開機隨身碟&下載虛擬機</h2>
+                                    <h3 id="2-1">製作USB開機隨身碟</h3>
+                                    準備一隻 <span style="background-color: yellow;">4GB</span> 以上的隨身碟，透過 Rufus 軟體<br><br>
+                                    前往 Rufus <a target="_blank" href="https://rufus.ie/zh_TW/">官方網站</a>，並下載 Rufus 軟體<br><br>
+                                    <img width="80%" src="img/Rufuswebsite.PNG">
+                                    <br><br>
+                                    打開 Rufus 軟體，並接上 USB 隨身碟，確認 Rufus 介面上有讀取到你的隨身碟，就可以選擇剛剛所下載的 Ubuntu 安裝檔案，最後按下「執行」按鈕。
+                                    <br><br>
+                                    <span style="background-color: yellow;">USB 隨身碟上的資料都會清空並刪除(格式化)，如果隨身碟內有重要資料，請記得先備份喔！</span>
+                                    <br><br>
+                                    <img width="50%" src="img/Rufusui.png">
+                                    <br><br>
+                                    當 Rufus 製作完成後，確認 USB 隨身碟內有 Ubuntu 安裝的相關檔案。<br><br>
+                                    <img width="100%" src="img/dir.PNG">
+                                    <br><br>
+                                    接著接上隨身碟並開機，開機的時候連續按各廠牌的「開機選單按鍵」，之後選擇相對應的 USB 隨身碟就可以進行隨身碟開機，選擇Ubuntu進入安裝介面
+                                    <br><br>
+                                    <h3 id="2-2">下載 VirtualBox</h3>
+                                    進入VirtualBox<a target="_blank" href="https://www.virtualbox.org/wiki/Downloads">官方網站</a>
+                                    <br><br>
+                                    選擇對應的平台並下載<br><br>
+                                    <img width="100%" src="img/VirtualBoxwebsite.PNG">
+                                    <h3 id="2-3">下載 VMware</h3>
+                                    進入VMware<a target="_blank" href="https://www.vmware.com/tw/products/workstation-pro/workstation-pro-evaluation.html">官方網站</a>
+                                    <br><br>
+                                    選擇對應的平台並下載<br><br>
+                                    <img width="100%" src="img/VMwarewebsite.PNG">
+                                  </p>
+                
+                                  <br>
+                
+                                  <p>
+                                    <h2 id="3">3.安裝系統</h2>
+                                    <h3 id="3-1" >電腦</h3>
+                                    接著接上隨身碟並開機，開機的時候連續按各廠牌的「開機選單按鍵」，之後選擇相對應的 USB 隨身碟就可以進行隨身碟開機，選擇Ubuntu進入安裝介面
+                                    <br><br>
+                                    <h3 id="3-2">虛擬機</h3>
+                                    這邊拿VMware做範例，內容大同小異<br><br>
+                                    進入VMware -> File -> New Virtual Machine<br><br>
+                                    <img width="50%" src="img/VMware1.PNG"><br><br>
+                                    這邊選擇Typical (Custom可設置個人化的設定達到一些特別用途的虛擬機)<br><br>
+                                    <img width="55%" src="img/VMware2.PNG"><br><br>
+                                    下一步 -> 選擇你剛剛下載的ISO檔<br><br>
+                                    <img width="55%" src="img/VMware3.PNG"><br><br>
+                                    下一步 -> 填寫資料<br><br>
+                                    <img width="55%" src="img/VMware4.PNG"><br><br>
+                                    下一步 -> 填寫虛擬機名稱(上)與檔案位置(下) <br><br>
+                                    <img width="55%" src="img/VMware5.PNG"><br><br>
+                                    下一步 -> 配置虛擬機硬碟容量 -> Finish <br><br>
+                                    <img width="55%" src="img/VMware6.PNG"><br><br>
+                                    看到此畫面表示已經安裝成功了! <br><br>
+                                    <img width="55%" src="img/VMware7.PNG"><br><br>
+                
+                
+                                    <p >
+                                      <h2 id="4">4.環境設置</h2>
+                                      點選Continue<br><br>
+                                      <img width="80%" src="img/VMware8.PNG"><br><br>
+                                      點選Continue<br><br>
+                                      <img width="80%" src="img/VMware9.PNG"><br><br>
+                                      上面選項會清除硬碟所有資料並安裝Ubantu<br><br>
+                                      下面可自行選擇<br><br>
+                                      我這邊是虛擬機所以無資料可以直接選擇第一個選項<br><br>
+                                      <img width="80%" src="img/VMware10.PNG"><br><br>
+                                      
+                                      選擇國家<br><br>
+                                      <img width="80%" src="img/VMware11.PNG"><br><br>
+                                      
+                                      輸入用戶資料<br><br>
+                                      <img width="80%" src="img/VMware12.PNG"><br><br>
+                                      看到此通知表示系統已經安裝完成，只需重新啟動即可<br><br>
+                                      <img width="80%" src="img/VMware13.PNG"><br><br>
+                                      這樣就完成了Linux的安裝~!<br><br>
+                                      
+                                      <p>
+                                        <h2 id="5">5.心得</h2>
+                                        在大一的時候就有一門Linux的課，那時候也懵懵懂懂沒有仔細聽課，最近在學校上一些資安課的課程還有與姊夫聊到許多軟體開發的工程師都是使用Linux，引發我的好奇心就重溫了Linux，之後也會寫一篇有關為何許多軟體工程師都是選擇Linux。
+                                      </p>
+                            </div>
+
+
+
+
                         </div>
                     </div>
                 </div>
                 <br>
                 <div class="container text-center ">
                     <div class="row">
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/TOICE/TOEIC.html" >
-                                <img src="img/eng.png" >
-                            </a>
-                            <div class="mt-3">English</div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/Linux/Linux.html" >
-                                <img src="img/linux.png" >
-                            </a>
-                            <div class="mt-3">Linux</div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/System Design and Analysis/SDAA.html" >
-                                <img src="img/SystemDesign.png" >
-                            </a>
-                            <div class="mt-3">系統分析與設計</div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/GitHub/GitHub.html" >
-                                <img src="img/github.png" >
-                            </a>
-                            <div class="mt-3">GitHub</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/ImageProcess/ImageProcess.html" >
-                                <img src="img/ip.png" >
-                            </a>
-                            <div class="mt-3">影像處理</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/Python/Python.html" >
-                                <img src="img/python.png" >
-                            </a>
-                            <div class="mt-3">Python</div>
-                        </div>
-
-                        
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/Html_CSS_JS/Html_CSS_JS.html" >
-                                <img src="img/web.png" >
-                            </a>
-                            <div class="mt-3">Html/CSS/JS</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/Others/Otrhers.html" >
-                                <img src="img/Others2.png" >
-                            </a>
-                            <div class="mt-3">Others</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/windows_program/windows_program.html" >
-                                <img src="img/windows.png" >
-                            </a>
-                            <div class="mt-3">Windows Forms</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/Project/Project.html" >
-                                <img src="img/project.png" >
-                            </a>
-                            <div class="mt-3">專題</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/ASP_NET/ASP_NET.html" w>
-                                <img src='img/aspnet2.png' >
-                            </a>
-                            <div class="mt-3">ASP.NET</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/economy/economy.html" w>
-                                <img src='img/coin.png' >
-                            </a>
-                            <div class="mt-3">經濟學</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/LeetCode/leetcode.html" w>
-                                <img class="round-image" src='img/leetcode.png' >
-                            </a>
-                            <div class="mt-3">LeetCode</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/marketing/marketing.html" w>
-                                <img class="round-image" src='img/marketing.png' >
-                            </a>
-                            <div class="mt-3">行銷管理</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/chinese/chinese.html" w>
-                                <img class="round-image" src='img/chinese.png' >
-                            </a>
-                            <div class="mt-3">中國文學</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/graduate/graduate.html" w>
-                                <img class="round-image" src='img/graduation.png' >
-                            </a>
-                            <div class="mt-3">研究所</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/WebAPI/WebAPI.html" w>
-                                <img class="round-image" src='img/webapi.png' >
-                            </a>
-                            <div class="mt-3">Web API</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/Django/Django.html" w>
-                                <img class="round-image" src='img/django.png' >
-                            </a>
-                            <div class="mt-3">Django</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/MySQL/MySQL.html" w>
-                                <img class="round-image" src='img/mysql.png' >
-                            </a>
-                            <div class="mt-3">MySQL</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/Information security/Information security.html" w>
-                                <img class="round-image" src='img/Information security.png' >
-                            </a>
-                            <div class="mt-3">資訊與網路安全概論</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/OS/OS.html" w>
-                                <img class="round-image" src='img/os.png' >
-                            </a>
-                            <div class="mt-3">作業系統</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/information ethics/information ethics.html" w>
-                                <img class="round-image" src='img/ethics.png' >
-                            </a>
-                            <div class="mt-3">資訊倫理</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/Adaptive learning/Adaptive learning.html" w>
-                                <img class="round-image" src='img/Adaptive learning.png' >
-                            </a>
-                            <div class="mt-3">Adaptive Learning</div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-5">
-                            <a href="web/cloud_computing/cloud_computing.html" w>
-                                <img class="round-image" src='img/cloud.png' >
-                            </a>
-                            <div class="mt-3">雲端運算</div>
-                        </div>
 
 
                     </div>
-
-                    
                 </div>
                 <br>
 
