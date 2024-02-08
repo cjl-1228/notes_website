@@ -1,1036 +1,998 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歸檔｜CJL's Notes WebSite</title>
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/archives.css">
-    <link rel="icon" href="img/notes2.png" type="image/x-icon" >
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-    $( function() {
-      $( "#datepicker" ).datepicker();
-    } );
-    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>時間戳記｜CJL's Notes WebSite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="img/alarm.svg" type="image/svg+xml">
+    <style>
+        .dropdown-toggle::after {
+            display: none;
+        }
+    </style>
+
+
 </head>
+
 <body>
-        <!-- The sidebar -->
-        <div class="sidebar">
-            <p><a href="index.html"><img class ="img" src ="img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
-            <a  href="index.html"><img class ="img" src ="img/home.png">&nbsp&nbsp主頁</a>
-            <a  class="active"  href="archives.html"><img class ="img" src ="img/categories.png">&nbsp&nbsp歸檔</a>
-            <a href="categories.html"><img class ="img" src ="img/file.png">&nbsp&nbsp分類</a>
-            <a href="others.html"><img class ="img" src ="img/others.png">&nbsp&nbsp其他</a>
-            <a href="about.html"><img class ="img" src ="img/self.png">&nbsp&nbsp關於我</a>
-        </div>
-        
-        <!-- Page content -->
-        <div class="content">
-            <div style="width: 100%; text-align: center; ">
-                <p><h2>時間戳記</h2></p>
-            </div>
-            <div class="timeline-small">
-                
-                <div class="timeline-small-body">
 
-                    <ul>  
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-12-12<br><h3><a target="_blank" class="arch_tag" href="web/cloud_computing/cloud_computing.html">雲端運算</a></h3></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/cloud_computing/final_cloud/雲端運算-期末考 fa4a0b592a5346b4b1d52aed8072a555.html">	雲端運算-期末考
-                                </a></h3>
-                                <h4>	
-                                    期末考筆記
-                                </h4>
-                            </div>
-                        </li>  
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-10-19<br><h3><a target="_blank" class="arch_tag" href="web/cloud_computing/cloud_computing.html">雲端運算</a></h3></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/cloud_computing/mid_cloud/雲端運算-期中考 89f77a4850eb4a82a3785424d42faf39.html">	雲端運算-期中考
-                                </a></h3>
-                                <h4>	
-                                    期中考筆記
-                                </h4>
-                            </div>
-                        </li>  
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-08-28<br><h3><a target="_blank" class="arch_tag" href="web/Adaptive learning/Adaptive learning.html">Adaptive learning</a></h3></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="https://www.everylearnereverywhere.org/blog/what-is-adaptive-learning-and-how-does-it-work-to-promote-equity-in-higher-education/">	What is adaptive learning and how does it work to promote equity in higher education?
-                                </a></h3>
-                                <h4>	
-                                    introduction
-                                </h4>
-                            </div>
-                        </li>  
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-06-07<br><h3><a target="_blank" class="arch_tag" href="web/Information security/Information security.html">資訊與網路安全概論</a></h3></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Information security/final.html">期末考統整
-                                </a></h3>
-                                <h4>	
-                                    實作統整
-                                </h4>
-                            </div>
-                        </li>  
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-05-08<br><h3><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h3></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/Tutorial.html">Python Django Course for Beginners
-                                </a></h3>
-                                <h4>	
-                                    django教學
-                                </h4>
-                            </div>
-                        </li>  
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-05-07<br><h3><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h3></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/Deploy.html">部屬django到pythonanywhere
-                                </a></h3>
-                                <h4>	
-                                    部屬教學
-                                </h4>
-                            </div>
-                        </li>  
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-05-07<br><h4><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/install_dj(mac).html">使用VSCode開發Django(Mac)
-                                </a></h3>
-                                <h4>	
-                                    Mac安裝python、django
-                                </h4>
-                            </div>
-                        </li>  
+    <button type="button" class="btn btn-secondary d-md-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#sidebar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5">
+            </path>
+        </svg>
+    </button>
 
 
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-04-14<br><h4><a target="_blank" class="arch_tag" href="web/OS/OS.html">作業系統</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/OS/Home Work 1-Scheduling.html">Home Work 1-Scheduling
-                                </a></h3>
-                                <h4>	
-                                    回家作業
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-04-13<br><h4><a target="_blank" class="arch_tag" href="web/OS/OS.html">作業系統</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/OS/mid.html">期中考統整
-                                </a></h3>
-                                <h4>	
-                                    上過的課堂與計算整理
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-04-08<br><h4><a target="_blank" class="arch_tag" href="web/Information security/Information security.html">資訊與網路安全概論</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Information security/mid.html">期中考統整
-                                </a></h3>
-                                <h4>	
-                                    上過的課堂理論及實作整理
-                                </h4>
-                            </div>
-                        </li>  
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-03-29<br><h4><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/Paginator.html">使用 Paginator 實現分頁功能
-                                </a></h3>
-                                <h4>	
-                                    利用Paginator來實現分頁、上一頁與下一頁的功能
-                                </h4>
-                            </div>
-                        </li>    
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-03-22<br><h4><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/login&logout.html">Login & Logout
-                                </a></h3>
-                                <h4>		Login & Logout相關程式碼
 
-                                </h4>
-                            </div>
-                        </li>    
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-03-22<br><h4><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/dj_mysql_add_edit_del.html">	對MySQL進行新增、修改及刪除
-                                </a></h3>
-                                <h4>	在django框架下對MySQL進行新增、修改及刪除相關應用
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="custom-padding col-md-3 col-lg-2 d-md-block  sidebar collapse" id="sidebar">
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-white bg-body-tertiary vh-100 position-fixed"
+                    style="width: 220px;">
+                    <a href="index.html"
+                        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none me-2" width="40" height="32"
+                            fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
+                            <path
+                                d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+                        </svg>
 
-                                </h4>
-                            </div>
-                        </li>     
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-03-21<br><h4><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/cookie&session.html">Cookie & Sessions
-                                </a></h3>
-                                <h4>Cookie & Sessions 設定及存取
+                        <span class="fs-4">CJL's Notes</span>
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item ">
 
-                                </h4>
-                            </div>
-                        </li>                    
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-03-17<br><h4><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/MySQL_admin.html">admin後台管理與ModelAdmin類別
-                                </a></h3>
-                                <h4>admin後台管理與ModelAdmin類別相關內容
+                            <a href="index.html" class="nav-link link-body-emphasis">
 
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-03-17<br><h4><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/MySQL_contect.html">Django 連線到 MySQL 資料庫</a></h3>
-                                <h4>Django 連線到 MySQL 資料庫相關設定
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-03-13<br><h4><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/Structure.html">Django Structure</a></h3>
-                                <h4>Django原理與框架
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-03-12<br><h4><a target="_blank" class="arch_tag" href="web/MySQL/MySQL.html">MySQL</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/MySQL/often instruction.html">	SQL常用指令</a></h3>
-                                <h4>SQL常用相關指令指令，以便相關開發。
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-03-09<br><h4><a target="_blank" class="arch_tag" href="web/Django/Django.html">Django</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Django/install_dj.html">	使用VSCode開發Django</a></h3>
-                                <h4>使用Visual Studio Code開發Django專案的初始化流程示範
-                                </h4>
-                            </div>
-                        </li>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z">
+                                    </path>
+                                </svg>
 
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-03-07<br><h4><a target="_blank" class="arch_tag" href="web/Others/Otrhers.html">Others</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Others/The_Science_of_Living.html">The Science of Living　阿德勒心理學講義</a></h3>
-                                <h4>P.34<br>It is not what one has inheritedthat is important, but what one does with his inheritance in the early years.
-          
-                                </h4>
-                            </div>
+                                首頁
+                            </a>
                         </li>
+                        <li>
+                            <a href="archives.html" class="nav-link link-body-emphasis active">
 
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-02-28<br><h4><a target="_blank" class="arch_tag" href="web/Html_CSS_JS/Html_CSS_JS.html">Html_CSS_JS</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Html_CSS_JS/TTS.html">搜尋萌典json</a></h3>
-                                <h4>分析萌典json並使用語音合成播放
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-02-17<br><h4><a target="_blank" class="arch_tag" href="web/Html_CSS_JS/Html_CSS_JS.html">Html_CSS_JS</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Html_CSS_JS/STT.html">語音辨識</a></h3>
-                                <h4>Web Speech API Demo
-          
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-02-14<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/news/20230214Australian boy, 8, dies.html">Australian boy, 8, dies of suspected electrocution at Fiji resort
-                                </a></h3>
-                                <h4>watch BBC News<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-02-13<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/news/20230213Turkey earthquake.html">Turkey earthquake: 113 arrest warrants connected to building construction
-                                </a></h3>
-                                <h4>watch BBC News<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-31<br><h4><a target="_blank" class="arch_tag" href="web/graduate/graduate.html">研究所</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="http://www.tsnien.idv.tw/Network_WebBook/Network.html">網路
-                                </a></h3>
-                                <h4>研究所考試<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-30<br><h4><a target="_blank" class="arch_tag" href="web/graduate/graduate.html">研究所</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/graduate/computer/computer1-1.html">1.1電腦系統介紹
-                                </a></h3>
-                                <h4>研究所考試<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-25<br><h4><a target="_blank" class="arch_tag" href="web/WebAPI/WebAPI.html">Web API</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/WebAPI/WebAPI_code.html">Web API introduce
-                                </a></h3>
-                                <h4>Web API introduce and some basic code<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-25<br><h4><a target="_blank" class="arch_tag" href="web/Python/Python.html">Python</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="https://pythonviz.com/colab-jupyter/google-colab-notebook-save-to-github-gist/">Google Colab 動態嵌入網站？不用 iframe，只需嵌入 javascript！
-                                </a></h3>
-                                <h4>Google Colab動態嵌入網站教學<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-24<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/news/20300124North Korea issues.html">North Korea issues 'extreme cold' weather alert
-                                </a></h3>
-                                <h4>watch BBC News<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-22<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/news/20300122Peru protests.html">Peru protests: Machu Picchu closed indefinitely and tourists stranded
-                                </a></h3>
-                                <h4>watch BBC News<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-21<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/news/20300121LAPD sued for $50m.html">LAPD sued for $50m over school teacher's death during arrest</a></h3>
-                                <h4>watch BBC News<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-20<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/news/20300120Japan inflation jumps.html">Cost of living: Japan inflation jumps to new 41-year high</a></h3>
-                                <h4>watch BBC News<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-17<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/news/20300117Man arrested.html">Man arrested on US TV after 4-year-old filmed waving gun</a></h3>
-                                <h4>watch BBC News<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-16<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/news/20300116Australian woman.html">Australian woman's record-breaking run from continent's 'tip to toe'</a></h3>
-                                <h4>watch BBC News<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2023-01-15<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/news/20230115chip war.html">US-China chip war: America is winning</a></h3>
-                                <h4>watch BBC News<br>
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-12-29<br><h4><a target="_blank" class="arch_tag" href="web/chinese/chinese.html">中國文學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/chinese/idiom.html">成語</a></h3>
-                                <h4>成語語意及用法紀錄
-        
-                                </h4>
-                            </div>
-                        </li>  
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-12-28<br><h4><a target="_blank" class="arch_tag" href="web/windows_program/windows_program.html">資料庫應用程式設計</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/windows_program/windows_form_finalreport.zip">final report</a></h3>
-                                <h4>期末專案報告及檔案
-        
-                                </h4>
-                            </div>
-                        </li>  
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-12-28<br><h4><a target="_blank" class="arch_tag" href="web/GitHub/GitHub.html">GitHub</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/GitHub/update_error.html">怎麼有時候推不上去…</a></h3>
-                                <h4>偶爾在執行 Push 指令的時候會出現這個錯誤訊息，兩種解決方法<br>
-          
-                                </h4>
-                            </div>
-                        </li> 
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-12-18<br><h4><a target="_blank" class="arch_tag" href="web/marketing/marketing.html">行銷管理</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/marketing/final.html">行銷管理 - 期末筆記</a></h3>
-                                <h4>期末考重點筆記<br>
-          
-                                </h4>
-                            </div>
-                        </li> 
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-12-18<br><h4><a target="_blank" class="arch_tag" href="web/System Design and Analysis/SDAA.html">系統分析與設計</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/System Design and Analysis/final_exam.html">	系統分析與設計- 期末筆記</a></h3>
-                                <h4>期末考重點筆記<br>
-          
-                                </h4>
-                            </div>
-                        </li> 
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-12-14<br><h4><a target="_blank" class="arch_tag" href="web/economy/economy.html">經濟學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/economy/CH-10.html">10.產出與成本</a></h3>
-                                <h4>經濟學第十章重點整理<br>
-          
-                                </h4>
-                            </div>
-                        </li> 
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-12-06<br><h4><a target="_blank" class="arch_tag" href="web/marketing/marketing.html">行銷管理</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/marketing/data/行銷管理報告.pptx">SOP報告</a></h3>
-                                <h4>行銷管理學期SOP報告<br>
-          
-                                </h4>
-                            </div>
-                        </li> 
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-11-28<br><h4><a target="_blank" class="arch_tag" href="web/System Design and Analysis/SDAA.html">系統分析與設計</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/System Design and Analysis/CH-04.html">	系統分析與設計- 第四章 需求工程</a></h3>
-                                <h4>重點筆記<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-11-24<br><h4><a target="_blank" class="arch_tag" href="web/ASP_NET/ASP_NET.html">ASP.NET</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/ASP_NET/final_exam.html">ASP.NET期末考筆記</a></h3>
-                                <h4>國立屏東大學資管網頁與資料庫課程專用<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-11-13<br><h4><a target="_blank" class="arch_tag" href="web/windows_program/windows_program.html">資料庫應用程式設計</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/windows_program/img_sql.html">Insert and Retrieve Image from SQL Server</a></h3>
-                                <h4>解決了圖片與SQL存放及讀取問題
-        
-                                </h4>
-                            </div>
-                        </li>  
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-11-10<br><h4><a target="_blank" class="arch_tag" href="web/windows_program/windows_program.html">資料庫應用程式設計</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/windows_program/problem1.html">這個資料庫檔案與目前的SQL Server執行個體不相容</a></h3>
-                                <h4>連接資料庫問題處理方式
-        
-                                </h4>
-                            </div>
-                        </li>     
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-11-08<br><h4><a target="_blank" class="arch_tag" href="web/LeetCode/leetcode.html">LeetCode</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/LeetCode/easy/1. Two Sum.html">1. Two Sum</a></h3>
-                                <h4>LeetCode Easy刷題解析
-        
-                                </h4>
-                            </div>
-                        </li>          
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-31<br><h4><a target="_blank" class="arch_tag" href="web/System Design and Analysis/SDAA.html">系統分析與設計</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/System Design and Analysis/mid_exam.html">期中筆記</a></h3>
-                                <h4>國立屏東大學資管系統分析與設計課程專用
-        
-                                </h4>
-                            </div>
-                        </li>                   
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-31<br><h4><a target="_blank" class="arch_tag" href="web/windows_program/windows_program.html">資料庫應用程式設計</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/windows_program/mid_exam.html">期中筆記</a></h3>
-                                <h4>國立屏東大學資管資料庫應用程式設計課程專用
-        
-                                </h4>
-                            </div>
-                        </li>            
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-28<br><h4><a target="_blank" class="arch_tag" href="web/economy/economy.html">經濟學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/economy/CH-09.html">9.消費可能、偏好與需求</a></h3>
-                                <h4>經濟學第九章重點整理
-        
-                                </h4>
-                            </div>
-                        </li>               
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-28<br><h4><a target="_blank" class="arch_tag" href="web/economy/economy.html">經濟學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/economy/CH-08.html">8.效用與需求</a></h3>
-                                <h4>經濟學第八章重點整理
-        
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-27<br><h4><a target="_blank" class="arch_tag" href="web/economy/economy.html">經濟學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/economy/CH-07.html">7.國際貿易</a></h3>
-                                <h4>經濟學第七章重點整理
-          
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-27<br><h4><a target="_blank" class="arch_tag" href="web/economy/economy.html">經濟學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/economy/CH-06.html">6.政府政策對市場的影響</a></h3>
-                                <h4>經濟學第六章重點整理
-          
-                                </h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-27<br><h4><a target="_blank" class="arch_tag" href="web/economy/economy.html">經濟學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/economy/CH-05.html">5.效率與公平</a></h3>
-                                <h4>經濟學第五章重點整理
-          
-                                </h4>
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-26<br><h4><a target="_blank" class="arch_tag" href="web/economy/economy.html">經濟學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/economy/CH-04.html">4.彈性</a></h3>
-                                <h4>經濟學第四章重點整理
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-25<br><h4><a target="_blank" class="arch_tag" href="web/economy/economy.html">經濟學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/economy/CH-03.html">	3.需求與供給</a></h3>
-                                <h4>經濟學第三章重點整理
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-25<br><h4><a target="_blank" class="arch_tag" href="web/economy/economy.html">經濟學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/economy/CH-02.html">2.經濟問題</a></h3>
-                                <h4>經濟學第二章重點整理
-          
-                                </h4>
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-25<br><h4><a target="_blank" class="arch_tag" href="web/economy/economy.html">經濟學</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/economy/CH-01.html">1.甚麼是經濟學</a></h3>
-                                <h4>經濟學第一章重點整理
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-22<br><h4><a target="_blank" class="arch_tag" href="web/Html_CSS_JS/Html_CSS_JS.html">Html_CSS_JS</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="http://counter.i2yes.com/">嶔入網頁總瀏覽量工具</a></h3>
-                                <h4>利用這個工具實現網頁總瀏覽量
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-22<br><h4><a target="_blank" class="arch_tag" href="web/Html_CSS_JS/Html_CSS_JS.html">Html_CSS_JS</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="https://whos.amung.us/getstarted/">嶔入網頁線上人數工具</a></h3>
-                                <h4>利用這個工具實現網頁線上人數
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-22<br><h4><a target="_blank" class="arch_tag" href="web/Others/Otrhers.html">Others</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Others/furnish.html">電腦硬體裝修丙級 學科</a></h3>
-                                <h4>電腦硬體裝修丙級 學科題目及線上測驗<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-21<br><h4><a target="_blank" class="arch_tag" href="web/ASP_NET/ASP_NET.html">ASP.NET</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/ASP_NET/mid_exam.html">ASP.NET期中考筆記</a></h3>
-                                <h4>國立屏東大學資管網頁與資料庫課程專用<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-19<br><h4><a target="_blank" class="arch_tag" href="web/Others/Otrhers.html">Others</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">Fisher–Yates shuffle</a></h3>
-                                <h4>洗牌演算法<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-19<br><h4><a target="_blank" class="arch_tag" href="web/Others/Otrhers.html">Others</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="https://en.wikipedia.org/wiki/Monty_Hall_problem">Monty Hall problem</a></h3>
-                                <h4>蒙特霍問題、山羊問題或三門問題，是一個源自賽局理論的數學遊戲問題<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-17<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/movie.html">看電影學英文</a></h3>
-                                <h4>生活常用片語<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-16<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/sound.html">多益聽力常考單字</a></h3>
-                                <h4>聽力常考單字，需多複習<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-15<br><h4><a target="_blank" class="arch_tag" href="web/System Design and Analysis/SDAA.html">系統分析與設計</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/System Design and Analysis/CH-02.html">系統分析與設計- 第二章 分析企業個案</a></h3>
-                                <h4>系統分析與設計第二章重點整理
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-15<br><h4><a target="_blank" class="arch_tag" href="web/ImageProcess/ImageProcess.html">影像處理</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="https://colab.research.google.com/drive/1pwbUhXst5OR1wn4CqrEmjSKs1cINC77b?usp=sharing">平均濾波(模糊)、影像梯度運算子(強化邊緣資訊)</a></h3>
-                                <h4>影像處理之相關應用<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-12<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/DAY07.html">DAY07 銷售策略</a></h3>
-                                <h4>TOEIC常考單字，DAY07<br>
-          
-                                </h4>
-                            </div>
-                        </li>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z" />
+                                    <path
+                                        d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1" />
+                                </svg>
 
 
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-11<br><h4><a target="_blank" class="arch_tag" href="web/Html_CSS_JS/Html_CSS_JS.html">Html_CSS_JS</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Html_CSS_JS/jQ_login.html">利用 jQuery Dialog 實現表單系統</a></h3>
-                                <h4>利用 jQuery Dialog 實現登入系統UI
-          
-                                </h4>
-                            </div>
+                                時間戳記
+                            </a>
                         </li>
+                        <li>
+                            <a href="categories.html" class="nav-link link-body-emphasis">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5zM2.5 3a.5.5 0 0 0-.5.5V6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3zM14 7H2v5.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5z" />
+                                </svg>
+                                分類
+                            </a>
+                        </li>
+                        <li>
+                            <a href="others.html" class="nav-link link-body-emphasis">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z" />
 
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-06<br><h4><a target="_blank" class="arch_tag" href="web/System Design and Analysis/SDAA.html">系統分析與設計</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/System Design and Analysis/CH-01.html">系統分析與設計- 第一章 簡介</a></h3>
-                                <h4>系統分析與設計第一章重點整理
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-06<br><h4><a target="_blank" class="arch_tag" href="web/Python/Python.html">Python</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="https://colab.research.google.com/drive/1NF0d5hjhov8bnsnLXgW1jOnC8mIHpg0h?usp=sharing">	Python 讀寫 Google Sheets</a></h3>
-                                <h4>利用 Python 串接 Google sheets api 讀寫資料
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-05<br><h4><a target="_blank" class="arch_tag" href="web/ImageProcess/ImageProcess.html">影像處理</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="https://colab.research.google.com/drive/1pwbUhXst5OR1wn4CqrEmjSKs1cINC77b?usp=sharing">負片、Gamma矯正(曝光)、Beta矯正(對比)與直方圖處理及等化</a></h3>
-                                <h4>影像處理之相關應用
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-05<br><h4><a target="_blank" class="arch_tag" href="web/ImageProcess/ImageProcess.html">影像處理</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="https://colab.research.google.com/drive/1wx75F0kMMWJz-WlJNLolkxq8khcaR8pY?usp=sharing">	打光函數與重新取樣</a></h3>
-                                <h4>影像處理之相關應用
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-05<br><h4><a target="_blank" class="arch_tag" href="web/ImageProcess/ImageProcess.html">影像處理</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/ImageProcess/monitor.html">開啟攝影機擷取影像</a></h3>
-                                <h4>利用電腦攝影機以及Python達到監視器效果
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-05<br><h4><a target="_blank" class="arch_tag" href="web/Linux/Linux.html">Linux</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Linux/choose.html">為甚麼許多軟體工程師寫程式都選擇<br>Linux大於Windows的原因</a></h3>
-                                <h4>I was often use Windows programming,
-                                    I don't think I can use Linux before I see this article
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-04<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/DAY06.html">DAY06 假日休息</a></h3>
-                                <h4>TOEIC常考單字，DAY06<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-04<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/DAY05.html">DAY05 秘密武器</a></h3>
-                                <h4>TOEIC常考單字，DAY05<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-04<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/DAY04.html">DAY04 業務秘訣</a></h3>
-                                <h4>TOEIC常考單字，DAY04<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-04<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/DAY03.html">DAY03 工作的達人</a></h3>
-                                <h4>TOEIC常考單字，DAY03<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-03<br><h4><a target="_blank" class="arch_tag" href="web/GitHub/GitHub.html">GitHub</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/GitHub/update.html">如何更新GitHub專案</a></h3>
-                                <h4>學會了上傳專案就要學會更新專案<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-03<br><h4><a target="_blank" class="arch_tag" href="web/GitHub/GitHub.html">GitHub</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/GitHub/upload.html">如何上傳專案到GitHub</a></h3>
-                                <h4>從新建倉庫，安裝Git到上傳專案手把手教學<br>
-          
-                                </h4>
-                            </div>
-                        </li>
-                        <!--
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-02<br><h4><a target="_blank" class="arch_tag" href="web/Others/Otrhers.html">Others</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Others/deer.html">奇萊山神獸</a></h3>
-                                <h4>關於奇萊山神獸自帶山嵐的仙氣<br>
-                                    襯托群山連綿，宛如仙境
-                                    </h4>
-                            </div>
-                        </li>
-                        -->
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-02<br><h4><a target="_blank" class="arch_tag" href="web/Linux/Linux.html">Linux</a></h4></div>
-                            
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/Linux/Install.html">如何安裝Linux</a></h3>
-                                <h4>如何安裝Linux在電腦或虛擬機
-                                    以及相關環境設定</h4>
-                            </div>
+                                </svg>
+                                其他
+                            </a>
                         </li>
                         <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-10-01<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/DAY02.html">DAY02 服裝規定</a></h3>
-                                <h4>TOEIC常考單字，DAY02</h4>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="bullet orange"></div>
-                            <div class="date">2022-09-30<br><h4><a target="_blank" class="arch_tag" href="web/TOICE/TOEIC.html">English</a></h4></div>
-                            <div class="desc">
-                                <h3><a target="_blank" class="index_link" href="web/TOICE/DAY01.html">DAY01 辦公達人</a></h3>
-                                <h4>TOEIC常考單字，DAY01</h4>
-                            </div>
+                            <a href="about.html" class="nav-link link-body-emphasis  " aria-current="page">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                    <path fill-rule="evenodd"
+                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                                </svg>
+                                關於我
+                            </a>
                         </li>
                     </ul>
+                    <hr>
+                    <div class="dropdown">
+                        <a href="#"
+                            class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="img/self.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+                            <strong>Jie-Long Chen</strong>
+                        </a>
+
+                    </div>
                 </div>
             </div>
-        </div>  
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                <div class="text-center mb-4">
+                    <img src="img/index_bg.jpg" class="img-fluid" alt="Descriptive Alt Text"
+                        style="width: 100%; height: 150px; object-fit: cover;">
+                </div>
+                <!-- Further main content here -->
+                <div class="container text-center ">
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                            <h2>時間戳記</h2>
+                            <br>
+                            <a  class="btn btn-outline-secondary" href="#2022">2022</a>
+                            <a  class="btn btn-outline-secondary" href="#2023">2023</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container ">
+
+                    <div class="row">
+                        
+                        <div class="col">
+                            <div class="my-3 p-3 bg-body rounded shadow-sm">
+                                <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+
+                                <div class="d-flex text-body-secondary pt-3 ">
+                                    <img src="img/renewable-energy.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded ">
+                                        <strong class="d-block text-gray-dark mb-2">2024-02-08</strong>
+                                        <strong class="d-block text-gray-dark mb-2">網站重大更新</strong>
+                                        前端改版以及導入RWD應用
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3" id="2023">
+                                    <img src="img/cloud.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded ">
+                                        <strong class="d-block text-gray-dark mb-2">2023-12-12</strong>
+                                        <strong class="d-block text-gray-dark mb-2">雲端運算-期末考</strong>
+                                        期末考筆記
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/cloud.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-10-19</strong>
+                                        <strong class="d-block text-gray-dark mb-2">雲端運算-期中考</strong>
+                                        期中考筆記
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/Adaptive learning.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-08-28</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Adaptive learning</strong>
+                                        What is adaptive learning and how does it work to promote equity in higher education?
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/Information security.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-06-07</strong>
+                                        <strong class="d-block text-gray-dark mb-2">資訊與網路安全概論</strong>
+                                        期末考統整 實作統整
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-05-08</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        Python Django Course for Beginners django教學
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-05-07</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        部屬django到pythonanywhere 部屬教學
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-05-07</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        使用VSCode開發Django(Mac) Mac安裝python、django
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/os.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-04-14</strong>
+                                        <strong class="d-block text-gray-dark mb-2">作業系統</strong>
+                                        Home Work 1-Scheduling  回家作業
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/os.png" class="bd-placeholder-img flex-shrink0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-04-13</strong>
+                                        <strong class="d-block text-gray-dark mb-2">作業系統</strong>
+                                        期中考統整 上過的課堂與計算整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/Information security.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-04-08</strong>
+                                        <strong class="d-block text-gray-dark mb-2">資訊與網路安全概論</strong>
+                                        期中考統整 上過的課堂理論及實作整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-03-29</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        使用 Paginator 實現分頁功能 利用Paginator來實現分頁、上一頁與下一頁的功能
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-03-22</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        Login & Logout  Login & Logout相關程式碼
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-03-22</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        對MySQL進行新增、修改及刪除，在django框架下對MySQL進行新增、修改及刪除相關應用
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-03-21</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        Cookie & Sessions 設定及存取
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-03-17</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        admin後台管理與ModelAdmin類別相關內容
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-03-17</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        Django 連線到 MySQL 資料庫相關設定
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-03-13</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        Django原理與框架
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/mysql.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-03-12</strong>
+                                        <strong class="d-block text-gray-dark mb-2">MySQL</strong>
+                                        SQL常用相關指令指令，以便相關開發。
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/django.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-03-09</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Django</strong>
+                                        使用Visual Studio Code開發Django專案的初始化流程示範
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/others.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-03-07</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Others</strong>
+                                        The Science of Living　阿德勒心理學講義 P.34，It is not what one has inherited that is important, but what one does with his inheritance in the early years.
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/web.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-02-28</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Html_CSS_JS</strong>
+                                        搜尋萌典json，分析萌典json並使用語音合成播放
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/web.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-02-17</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Html_CSS_JS</strong>
+                                        語音辨識，Web Speech API Demo
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-02-14</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        Australian boy, 8, dies of suspected electrocution at Fiji resort，watch BBC News
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-02-13</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        Turkey earthquake: 113 arrest warrants connected to building construction，watch BBC News
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/graduation.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-31</strong>
+                                        <strong class="d-block text-gray-dark mb-2">研究所</strong>
+                                        網路，研究所考試
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/graduation.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-30</strong>
+                                        <strong class="d-block text-gray-dark mb-2">研究所</strong>
+                                        1.1電腦系統介紹，研究所考試
+                                    </p>
+                                </div>
+                                
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/webapi.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-25</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Web API</strong>
+                                        Web API introduce and some basic code, Web API introduce
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/python.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-25</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Python</strong>
+                                        Google Colab 動態嵌入網站？不用 iframe，只需嵌入 javascript！，Google Colab動態嵌入網站教學
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-24</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        North Korea issues 'extreme cold' weather alert，watch BBC News
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-22</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        Peru protests: Machu Picchu closed indefinitely and tourists stranded，watch BBC News
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-21</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        LAPD sued for $50m over school teacher's death during arrest，watch BBC News
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-20</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        Cost of living: Japan inflation jumps to new 41-year high，watch BBC News
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-17</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        Man arrested on US TV after 4-year-old filmed waving gun，watch BBC News
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-16</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        Australian woman's record-breaking run from continent's 'tip to toe'，watch BBC News
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2023-01-15</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        US-China chip war: America is winning，watch BBC News
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3" id="2022">
+                                    <img src="img/chinese.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-12-29</strong>
+                                        <strong class="d-block text-gray-dark mb-2">中國文學</strong>
+                                        成語，成語語意及用法紀錄
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/windows.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-12-28</strong>
+                                        <strong class="d-block text-gray-dark mb-2">資料庫應用程式設計</strong>
+                                        final report，期末專案報告及檔案
+                                    </p>
+                                </div>
+
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/github.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-12-28</strong>
+                                        <strong class="d-block text-gray-dark mb-2">GitHub</strong>
+                                        怎麼有時候推不上去…，偶爾在執行 Push 指令的時候會出現這個錯誤訊息，兩種解決方法
+                                    </p>
+                                </div>
+
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/marketing.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-12-18</strong>
+                                        <strong class="d-block text-gray-dark mb-2">行銷管理</strong>
+                                        期末筆記，期末考重點筆記
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/SystemDesign.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-12-18</strong>
+                                        <strong class="d-block text-gray-dark mb-2">系統分析與設計</strong>
+                                        期末筆記，期末考重點筆記
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/coin.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-12-14</strong>
+                                        <strong class="d-block text-gray-dark mb-2">經濟學</strong>
+                                        10.產出與成本，經濟學第十章重點整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/marketing.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-12-14</strong>
+                                        <strong class="d-block text-gray-dark mb-2">行銷管理</strong>
+                                        SOP報告，行銷管理學期SOP報告
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/SystemDesign.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-11-28</strong>
+                                        <strong class="d-block text-gray-dark mb-2">系統分析與設計</strong>
+                                        第四章 需求工程重點筆記
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/aspnet.jpg" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-11-24</strong>
+                                        <strong class="d-block text-gray-dark mb-2">ASP.NET</strong>
+                                        期末考筆記，
+                                        國立屏東大學資管網頁與資料庫課程專用
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/windows.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-11-13</strong>
+                                        <strong class="d-block text-gray-dark mb-2">資料庫應用程式設計</strong>
+                                        Insert and Retrieve Image from SQL Server，解決了圖片與SQL存放及讀取問題
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/windows.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-11-10</strong>
+                                        <strong class="d-block text-gray-dark mb-2">資料庫應用程式設計</strong>
+                                        這個資料庫檔案與目前的SQL Server執行個體不相容，連接資料庫問題處理方式
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/leetcode.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-11-08</strong>
+                                        <strong class="d-block text-gray-dark mb-2">LeetCode</strong>
+                                        1. Two Sum，LeetCode Easy刷題解析
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/SystemDesign.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-31</strong>
+                                        <strong class="d-block text-gray-dark mb-2">系統分析與設計</strong>
+                                        期中筆記，國立屏東大學資管系統分析與設計課程專用
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/windows.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-31</strong>
+                                        <strong class="d-block text-gray-dark mb-2">資料庫應用程式設計</strong>
+                                        期中筆記，國立屏東大學資管資料庫應用程式設計課程專用
+                                    </p>
+                                </div>
+                                
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/coin.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-28</strong>
+                                        <strong class="d-block text-gray-dark mb-2">經濟學</strong>
+                                        9.消費可能、偏好與需求，經濟學第九章重點整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/coin.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-28</strong>
+                                        <strong class="d-block text-gray-dark mb-2">經濟學</strong>
+                                        8.效用與需求，經濟學第八章重點整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/coin.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-27</strong>
+                                        <strong class="d-block text-gray-dark mb-2">經濟學</strong>
+                                        7.國際貿易，
+                                        經濟學第七章重點整理
+                                    </p>
+                                </div>
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/coin.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-27</strong>
+                                        <strong class="d-block text-gray-dark mb-2">經濟學</strong>
+                                        6.政府政策對市場的影響，
+                                        經濟學第六章重點整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/coin.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-27</strong>
+                                        <strong class="d-block text-gray-dark mb-2">經濟學</strong>
+                                        5.效率與公平，
+                                        經濟學第五章重點整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/coin.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-26</strong>
+                                        <strong class="d-block text-gray-dark mb-2">經濟學</strong>
+                                        4.彈性，
+                                        經濟學第四章重點整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/coin.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-25</strong>
+                                        <strong class="d-block text-gray-dark mb-2">經濟學</strong>
+                                        3.需求與供給，
+                                        經濟學第三章重點整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/coin.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-25</strong>
+                                        <strong class="d-block text-gray-dark mb-2">經濟學</strong>
+                                        2.經濟問題，
+                                        經濟學第二章重點整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/coin.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-25</strong>
+                                        <strong class="d-block text-gray-dark mb-2">經濟學</strong>
+                                        1.甚麼是經濟學，
+                                        經濟學第一章重點整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/web.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-22</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Html_CSS_JS</strong>
+                                        嶔入網頁總瀏覽量工具，
+                                        利用這個工具實現網頁總瀏覽量
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/web.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-22</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Html_CSS_JS</strong>
+                                        嶔入網頁線上人數工具，
+                                        利用這個工具實現網頁線上人數
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/others.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-22</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Others</strong>
+                                        電腦硬體裝修丙級 學科，
+                                        電腦硬體裝修丙級 學科題目及線上測驗
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/aspnet.jpg" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-21</strong>
+                                        <strong class="d-block text-gray-dark mb-2">ASP.NET</strong>
+                                        ASP.NET期中考筆記，
+                                        國立屏東大學資管網頁與資料庫課程專用
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/others.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-19</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Others</strong>
+                                        Fisher–Yates shuffle
+                                        洗牌演算法
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/others.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-19</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Others</strong>
+                                        Monty Hall problem
+                                        蒙特霍問題、山羊問題或三門問題，是一個源自賽局理論的數學遊戲問題
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-17</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        看電影學英文
+                                        生活常用片語
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-16</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        多益聽力常考單字
+                                        聽力常考單字，需多複習
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/SystemDesign.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-15</strong>
+                                        <strong class="d-block text-gray-dark mb-2">系統分析與設計</strong>
+                                        系統分析與設計- 第二章 分析企業個案
+                                        系統分析與設計第二章重點整理
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/ip.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-15</strong>
+                                        <strong class="d-block text-gray-dark mb-2">影像處理</strong>
+                                        平均濾波(模糊)、影像梯度運算子(強化邊緣資訊)
+                                        影像處理之相關應用
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-12</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        DAY07 銷售策略
+                                        TOEIC常考單字，DAY07
+                                    </p>
+                                </div>
+                                
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/web.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-11</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Html_CSS_JS</strong>
+                                        利用 jQuery Dialog 實現表單系統
+                                        利用 jQuery Dialog 實現登入系統UI
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/SystemDesign.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-06</strong>
+                                        <strong class="d-block text-gray-dark mb-2">系統分析與設計</strong>
+                                        系統分析與設計- 第一章 簡介
+                                        系統分析與設計第一章重點整理
+                                    </p>
+                                </div>
+
+                                
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/python.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-06</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Python</strong>
+                                        Python 讀寫 Google Sheets
+                                        利用 Python 串接 Google sheets api 讀寫資料
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/ip.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-05</strong>
+                                        <strong class="d-block text-gray-dark mb-2">影像處理</strong>
+                                        負片、Gamma矯正(曝光)、Beta矯正(對比)與直方圖處理及等化
+                                        影像處理之相關應用
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/ip.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-05</strong>
+                                        <strong class="d-block text-gray-dark mb-2">影像處理</strong>
+                                        打光函數與重新取樣
+                                        影像處理之相關應用
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/ip.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-05</strong>
+                                        <strong class="d-block text-gray-dark mb-2">影像處理</strong>
+                                        開啟攝影機擷取影像
+                                        利用電腦攝影機以及Python達到監視器效果
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/linux.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-05</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Linux</strong>
+                                        為甚麼許多軟體工程師寫程式都選擇
+                                        Linux大於Windows的原因
+                                        I was often use Windows programming, I don't think I can use Linux before I see this article
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-04</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        DAY06 假日休息
+                                        TOEIC常考單字，DAY06
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-04</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        DAY05 秘密武器
+                                        TOEIC常考單字，DAY05
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-04</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        DAY04 業務秘訣
+                                        TOEIC常考單字，DAY04
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-04</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        DAY03 工作的達人
+                                        TOEIC常考單字，DAY03
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/github.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-03</strong>
+                                        <strong class="d-block text-gray-dark mb-2">GitHub</strong>
+                                        如何更新GitHub專案
+                                        學會了上傳專案就要學會更新專案
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/github.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-03</strong>
+                                        <strong class="d-block text-gray-dark mb-2">GitHub</strong>
+                                        如何上傳專案到GitHub
+                                        從新建倉庫，安裝Git到上傳專案手把手教學
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/linux.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-02</strong>
+                                        <strong class="d-block text-gray-dark mb-2">Linux</strong>
+                                        如何安裝Linux
+                                        如何安裝Linux在電腦或虛擬機 以及相關環境設定
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-10-01</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        DAY02 服裝規定
+                                        TOEIC常考單字，DAY02
+                                    </p>
+                                </div>
+
+                                <div class="d-flex text-body-secondary pt-3">
+                                    <img src="img/eng.png" class="bd-placeholder-img flex-shrink-0 me-2 rounded mt-3" width="32" height="32" role="img" aria-label="Placeholder: 32x32" style="object-fit: cover;">
+                                    <p class="pb-3 mb-0 small lh-sm border-bottom bg-body-tertiary p-3 rounded">
+                                        <strong class="d-block text-gray-dark mb-2">2022-09-30</strong>
+                                        <strong class="d-block text-gray-dark mb-2">English</strong>
+                                        DAY01 辦公達人
+                                        TOEIC常考單字，DAY01
+                                    </p>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
