@@ -1,300 +1,133 @@
-<!doctype html>
-<html lang="en" data-bs-theme="dark">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How to Install Linux for Beginners｜CJL's Notes WebSite</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="icon" href="img/book-half.svg" type="image/svg+xml">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音频下拉列表选择（无缝衔接）</title>
     <style>
-        .dropdown-toggle::after {
-            display: none;
-        }
-
-        .round-image {
-            border-radius: 50%;
-            /* 確保圖片是正方形 */
-            width: 100px;
-            /* 或您想要的尺寸 */
-            height: 100px;
-            /* 與寬度相同以保持圖片的正方形 */
+        #select {
+            width: 200px;
+            height: 250px;
         }
     </style>
-
-
 </head>
 
 <body>
-
-    <button type="button" class="btn btn-secondary d-md-none" type="button" data-bs-toggle="collapse"
-        data-bs-target="#sidebar">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
-            viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5">
-            </path>
-        </svg>
-    </button>
-
-
-
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="custom-padding col-md-3 col-lg-2 d-md-block  sidebar collapse" id="sidebar">
-                <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-white bg-body-tertiary vh-100 position-fixed"
-                    style="width: 220px;">
-                    <a href="index.html"
-                        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none me-2" width="40" height="32"
-                            fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
-                            <path
-                                d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
-                        </svg>
-
-                        <span class="fs-4">CJL's Notes</span>
-                    </a>
-                    <hr>
-                    <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item">
-
-                            <a href="index.html" class="nav-link link-body-emphasis">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
-                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z">
-                                    </path>
-                                </svg>
-
-                                首頁
-                            </a>
-                        </li>
-                        <li>
-                            <a href="archives.html" class="nav-link link-body-emphasis">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
-                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z" />
-                                    <path
-                                        d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1" />
-                                </svg>
+    <p>正在播放 <span id="text">周杰伦 - 青花瓷</span>歌曲</p>
+    <audio src="./MP3/周杰伦 - 青花瓷.mp3" controls id="audio" autoplay data-num="0"></audio>
+    <br>
+    <input type="button" value="上一首" id="topSings">
+    <input type="button" value="下一首" id="downSings">
+    <br>
+    <select name="" id="select" multiple>
+        <option value="0" selected>周杰伦 - 青花瓷</option>
+        <option value="1">周杰伦 - 半岛铁盒</option>
+        <option value="2">周杰伦 - 简单爱</option>
+        <option value="3">周杰伦 - 东风破</option>
+        <option value="4">周杰伦 - 红尘客栈</option>
+        <option value="5">周杰伦 - 菊花台</option>
+        <option value="6">周杰伦 - 夜的第七章</option>
+        <option value="7">周杰伦 - 给我一首歌的时间</option>
+        <option value="8">周杰伦 - 晴天的铃声</option>
+    </select>
 
 
-                                時間戳記
-                            </a>
-                        </li>
-                        <li>
-                            <a href="categories.html" class="nav-link link-body-emphasis active">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
-                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-                                    <path
-                                        d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5zM2.5 3a.5.5 0 0 0-.5.5V6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3zM14 7H2v5.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5z" />
-                                </svg>
-                                分類
-                            </a>
-                        </li>
-                        <li>
-                            <a href="others.html" class="nav-link link-body-emphasis">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
-                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-                                    <path
-                                        d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z" />
+    <script>
+        let text = document.getElementById("text");
+        let audio = document.getElementById("audio");
+        let select = document.getElementById("select");
+        let topSings = document.getElementById("topSings");
+        let downSings = document.getElementById("downSings");
+        let options = document.querySelectorAll("#select option");
+    
+        console.log(options);
+    
+        let sings = [
+            { src: "web/English/audio/file/A1/12 曲目 12.mp3" },
+            { src: "./MP3/周杰伦 - 半岛铁盒.mp3" },
+            { src: "./MP3/周杰伦 - 简单爱.mp3" },
+            { src: "./MP3/周杰伦 - 东风破.mp3" },
+            { src: "./MP3/周杰伦 - 红尘客栈.mp3" },
+            { src: "./MP3/周杰伦 - 菊花台.mp3" },
+            { src: "./MP3/周杰伦 - 夜的第七章.mp3" },
+            { src: "./MP3/周杰伦 - 给我一首歌的时间.mp3" },
+            { src: "./MP3/周杰伦 - 晴天的铃声.mp3" }
+        ];
+    
+        //选择options后自动selected反馈选择
+        function selected() {
+            for (let j = 0; j < options.length; j++) {
+                if (audio.dataset.num == options[j].value) {
+                    options[j].selected = true;
+                    text.innerHTML = options[j].innerText;
+                } else {
+                    options[j].selected = false;
+                }
+            }
+        }
 
-                                </svg>
-                                其他
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about.html" class="nav-link link-body-emphasis  " aria-current="page">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
-                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                                    <path fill-rule="evenodd"
-                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                                </svg>
-                                關於我
-                            </a>
-                        </li>
-                    </ul>
-                    <hr>
-                    <div class="dropdown">
-                        <a href="#"
-                            class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="img/self.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-                            <strong>Jie-Long Chen</strong>
-                        </a>
+                //播放完成后自动播放下一首歌曲
+        audio.onended = function () {
+            for (let i = 0; i < sings.length; i++) {
+                if (audio.dataset.num == i && i != sings.length - 1) {
+                    audio.src = sings[i + 1].src;
+                    audio.dataset.num = i + 1;
+                    selected();
+                    break;
+                } else if (audio.dataset.num == sings.length - 1) {
+                    audio.src = sings[i].src;
+                    audio.dataset.num = i;
+                    selected();
+                    break;
+                }
+            }
+        }
 
-                    </div>
-                </div>
-            </div>
+        //点击上一首
+        topSings.onclick = function () {
+            for (let i = 0; i < sings.length; i++) {
+                if (audio.dataset.num == 0) {
+                    audio.src = sings[sings.length - 1].src;
+                    audio.dataset.num = sings.length - 1;
+                    selected();
+                    break;
+                } else if (parseInt(audio.dataset.num) == i && i != 0) {
+                    audio.src = sings[i - 1].src;
+                    audio.dataset.num = i - 1;
+                    selected();
+                    break;
+                }
+            }
+        }
+        //点击下一首
+        downSings.onclick = function () {
+            // console.log(audio.dataset.num);
+            for (let i = 0; i < sings.length; i++) {
+                if (parseInt(audio.dataset.num) == i) {
+                    audio.src = sings[i + 1].src;
+                    audio.dataset.num = i + 1;
+                    selected();
+                    break;
+                } else if (audio.dataset.num == sings.length - 1) {
+                    audio.src = sings[i].src;
+                    audio.dataset.num = i;
+                    selected();
+                    break;
+                }
+            }
+        }
 
-            <!-- Main content -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        //点击下拉列表里面的歌曲
+        select.onchange = function () {
+            for (let i = 0; i < sings.length; i++) {
+                if (this.value == i) {
+                    audio.src = sings[i].src;
+                    audio.dataset.num = this.value;
+                }
+            }
+        }
 
-                <!-- Further main content here -->
-                <div class="container ">
-                    <div class="row">
-                        <div class="col">
-                            <div class="p-5 text-center bg-body-tertiary rounded-3 mt-4">
-                                <h1 class="text-body-emphasis">How to Install Linux for Beginners</h1>
-                            </div>
-
-                            <div class="text-center mt-4">
-                                <a class="btn btn-outline-info" href="../../categories.html" role="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5">
-                                    </path>
-                                    </svg>
-                                    返回
-                                </a>
-
-                            </div>
-
-                            <div class="mt-5 p-5  bg-body-tertiary rounded-3">
-                                <ol>
-                                    <a class="index_link" href="#1"><li >下載Linux的ISO檔案</li></a>
-                                    <li>
-                                      <a class="index_link" href="#2">製作USB開機隨身碟 & 下載虛擬機</a>
-                                      <ul>
-                                        <a class="index_link" href="#2-1"><li>製作USB開機隨身碟</li></a>
-                                        <a class="index_link" href="#2-2"><li>下載 VirtualBox (免費)</li></a>
-                                        <a class="index_link" href="#2-3"><li>下載 VMware (付費)</li></a>
-                                      </ul>
-                                    </li>
-                                    <li>
-                                      <a class="index_link" href="#3">安裝系統</a>
-                                      <ul>
-                                        <a class="index_link" href="#3-1"><li>電腦</li></a>
-                                        <a class="index_link" href="#3-2"><li>虛擬機</li></a>
-                                      </ul>
-                                    </li>
-                                    <a class="index_link" href="#4"><li >環境設置</li></a>
-                                    <a class="index_link" href="#5"><li >心得</li></a>
-                                  </ol>
-                
-                                  <br>
-                
-                                  <p>
-                                    <h2 id="1">1.下載Linux的ISO檔案</h2>
-                                    進入Ubuntu的<a target="_blank" href="https://ubuntu.com/download/desktop">官方網站</a>下載ISO檔案<br><br>選擇右下角Download<br><br>
-                                    <img width="80%" src="img/linuxwebsite.PNG">
-                                  </p>
-                
-                                  <br>
-                
-                                  <p>
-                                    <h2 id="2">2.製作USB開機隨身碟&下載虛擬機</h2>
-                                    <h3 id="2-1">製作USB開機隨身碟</h3>
-                                    準備一隻 <span style="background-color: yellow;">4GB</span> 以上的隨身碟，透過 Rufus 軟體<br><br>
-                                    前往 Rufus <a target="_blank" href="https://rufus.ie/zh_TW/">官方網站</a>，並下載 Rufus 軟體<br><br>
-                                    <img width="80%" src="img/Rufuswebsite.PNG">
-                                    <br><br>
-                                    打開 Rufus 軟體，並接上 USB 隨身碟，確認 Rufus 介面上有讀取到你的隨身碟，就可以選擇剛剛所下載的 Ubuntu 安裝檔案，最後按下「執行」按鈕。
-                                    <br><br>
-                                    <span style="background-color: yellow;">USB 隨身碟上的資料都會清空並刪除(格式化)，如果隨身碟內有重要資料，請記得先備份喔！</span>
-                                    <br><br>
-                                    <img width="50%" src="img/Rufusui.png">
-                                    <br><br>
-                                    當 Rufus 製作完成後，確認 USB 隨身碟內有 Ubuntu 安裝的相關檔案。<br><br>
-                                    <img width="100%" src="img/dir.PNG">
-                                    <br><br>
-                                    接著接上隨身碟並開機，開機的時候連續按各廠牌的「開機選單按鍵」，之後選擇相對應的 USB 隨身碟就可以進行隨身碟開機，選擇Ubuntu進入安裝介面
-                                    <br><br>
-                                    <h3 id="2-2">下載 VirtualBox</h3>
-                                    進入VirtualBox<a target="_blank" href="https://www.virtualbox.org/wiki/Downloads">官方網站</a>
-                                    <br><br>
-                                    選擇對應的平台並下載<br><br>
-                                    <img width="100%" src="img/VirtualBoxwebsite.PNG">
-                                    <h3 id="2-3">下載 VMware</h3>
-                                    進入VMware<a target="_blank" href="https://www.vmware.com/tw/products/workstation-pro/workstation-pro-evaluation.html">官方網站</a>
-                                    <br><br>
-                                    選擇對應的平台並下載<br><br>
-                                    <img width="100%" src="img/VMwarewebsite.PNG">
-                                  </p>
-                
-                                  <br>
-                
-                                  <p>
-                                    <h2 id="3">3.安裝系統</h2>
-                                    <h3 id="3-1" >電腦</h3>
-                                    接著接上隨身碟並開機，開機的時候連續按各廠牌的「開機選單按鍵」，之後選擇相對應的 USB 隨身碟就可以進行隨身碟開機，選擇Ubuntu進入安裝介面
-                                    <br><br>
-                                    <h3 id="3-2">虛擬機</h3>
-                                    這邊拿VMware做範例，內容大同小異<br><br>
-                                    進入VMware -> File -> New Virtual Machine<br><br>
-                                    <img width="50%" src="img/VMware1.PNG"><br><br>
-                                    這邊選擇Typical (Custom可設置個人化的設定達到一些特別用途的虛擬機)<br><br>
-                                    <img width="55%" src="img/VMware2.PNG"><br><br>
-                                    下一步 -> 選擇你剛剛下載的ISO檔<br><br>
-                                    <img width="55%" src="img/VMware3.PNG"><br><br>
-                                    下一步 -> 填寫資料<br><br>
-                                    <img width="55%" src="img/VMware4.PNG"><br><br>
-                                    下一步 -> 填寫虛擬機名稱(上)與檔案位置(下) <br><br>
-                                    <img width="55%" src="img/VMware5.PNG"><br><br>
-                                    下一步 -> 配置虛擬機硬碟容量 -> Finish <br><br>
-                                    <img width="55%" src="img/VMware6.PNG"><br><br>
-                                    看到此畫面表示已經安裝成功了! <br><br>
-                                    <img width="55%" src="img/VMware7.PNG"><br><br>
-                
-                
-                                    <p >
-                                      <h2 id="4">4.環境設置</h2>
-                                      點選Continue<br><br>
-                                      <img width="80%" src="img/VMware8.PNG"><br><br>
-                                      點選Continue<br><br>
-                                      <img width="80%" src="img/VMware9.PNG"><br><br>
-                                      上面選項會清除硬碟所有資料並安裝Ubantu<br><br>
-                                      下面可自行選擇<br><br>
-                                      我這邊是虛擬機所以無資料可以直接選擇第一個選項<br><br>
-                                      <img width="80%" src="img/VMware10.PNG"><br><br>
-                                      
-                                      選擇國家<br><br>
-                                      <img width="80%" src="img/VMware11.PNG"><br><br>
-                                      
-                                      輸入用戶資料<br><br>
-                                      <img width="80%" src="img/VMware12.PNG"><br><br>
-                                      看到此通知表示系統已經安裝完成，只需重新啟動即可<br><br>
-                                      <img width="80%" src="img/VMware13.PNG"><br><br>
-                                      這樣就完成了Linux的安裝~!<br><br>
-                                      
-                                      <p>
-                                        <h2 id="5">5.心得</h2>
-                                        在大一的時候就有一門Linux的課，那時候也懵懵懂懂沒有仔細聽課，最近在學校上一些資安課的課程還有與姊夫聊到許多軟體開發的工程師都是使用Linux，引發我的好奇心就重溫了Linux，之後也會寫一篇有關為何許多軟體工程師都是選擇Linux。
-                                      </p>
-                            </div>
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="container text-center ">
-                    <div class="row">
-
-
-                    </div>
-                </div>
-                <br>
-
-            </main>
-        </div>
-    </div>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+    </script>
+    
