@@ -1,575 +1,738 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>系統分析與設計 期中筆記｜CJL's Notes WebSite</title>
-    <link rel="stylesheet" href="../../css/sidebar.css">
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="icon" href="../../img/notes2.png" type="image/x-icon" >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>期中筆記｜CJL's Notes WebSite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="img/book-half.svg" type="image/svg+xml">
+    <style>
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .round-image {
+            border-radius: 50%;
+            /* 確保圖片是正方形 */
+            width: 100px;
+            /* 或您想要的尺寸 */
+            height: 100px;
+            /* 與寬度相同以保持圖片的正方形 */
+        }
+    </style>
+
 
 </head>
+
 <body>
-    <!-- The sidebar -->
-    <div class="sidebar">
-        <p><a  href="../../index.html"><img class ="img" src ="../../img/notes.png">&nbsp&nbsp陳杰龍的筆記網站</a></p>
-        <a href="../../index.html"><img class ="img" src ="../../img/home.png">&nbsp&nbsp主頁</a>
-        <a  href="../../archives.html"><img class ="img" src ="../../img/categories.png">&nbsp&nbsp歸檔</a>
-        <a class="active" href="../../categories.html"><img class ="img" src ="../../img/file.png">&nbsp&nbsp分類</a>
-        <a href="../../others.html"><img class ="img" src ="../../img/others.png">&nbsp&nbsp其他</a>
-        <a href="../../about.html"><img class ="img" src ="../../img/self.png">&nbsp&nbsp關於我</a>
-    </div>
-    
-    <!-- Page content -->
-    
-        
-        <div class="content">
-            
-            <div id="top" >&nbsp&nbsp</div>
+
+    <button type="button" class="btn btn-secondary d-md-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#sidebar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5">
+            </path>
+        </svg>
+    </button>
 
 
-            <div style="width: 100%; text-align: center; ">
-                <p><h2><a href="SDAA.html"><img style="vertical-align: bottom	;" src="../../img/Previouspage.png"></a>&nbsp系統分析與設計&nbsp期中筆記</h2></p>
 
-                
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="custom-padding col-md-3 col-lg-2 d-md-block  sidebar collapse" id="sidebar">
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-white bg-body-tertiary vh-100 position-fixed"
+                    style="width: 220px;">
+                    <a href="../../index.html"
+                        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none me-2" width="40" height="32"
+                            fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
+                            <path
+                                d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+                        </svg>
+
+                        <span class="fs-4">CJL's Notes</span>
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+
+                            <a href="../../index.html" class="nav-link link-body-emphasis">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z">
+                                    </path>
+                                </svg>
+
+                                首頁
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../archives.html" class="nav-link link-body-emphasis">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z" />
+                                    <path
+                                        d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1" />
+                                </svg>
+
+
+                                時間戳記
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../categories.html" class="nav-link link-body-emphasis active">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5zM2.5 3a.5.5 0 0 0-.5.5V6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3zM14 7H2v5.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5z" />
+                                </svg>
+                                分類
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../others.html" class="nav-link link-body-emphasis">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z" />
+
+                                </svg>
+                                其他
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../about.html" class="nav-link link-body-emphasis  " aria-current="page">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                    <path fill-rule="evenodd"
+                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                                </svg>
+                                關於我
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="dropdown">
+                        <a href="#"
+                            class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../img/self.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+                            <strong>Jie-Long Chen</strong>
+                        </a>
+
+                    </div>
+                </div>
             </div>
 
-            <div style=" width: 60%; text-align: left; margin-left: 20%; border-left-style: solid; padding-left: 30px;border-width:2px; border-color: rgb(192, 6, 167,0.5); " >
-                <p>
-                    <h2 >第一章</h2>
-                    <ul>
-                        <li>何謂系統分析與設計
-                            <ul>
-                                <li>系統分析與設計是發展高品質資訊系統的逐步過程</li>
-                            </ul>
-                        </li>
-                        <li>何謂關鍵任務系統? 並舉例說明
-                            <ul>
-                                <li>對公司營運有非常重大影響的系統</li>
-                                <li>e.g. 訂單處理系統、會計/財務系統、飛機的導航系統</li>
-                            </ul>
-                        </li>
-                        <li>資訊系統的五大元件? 並說明每個元件功能
-                            <ul>
-                                <li>硬體：資訊系統內所有具體事物 e.g. 伺服器、工作站，網路，通訊設備等</li>
-                                <li>軟體：可控制硬體以及產生所需資訊與結果的程式
-                                    <ul>
-                                        <li>系統軟體，用來管理軟體</li>
-                                        <li>應用軟體，支援日常商業功能
-                                            <ul>
-                                                <li>水平系統，適合不同種類的公司使用</li>
-                                                <li>垂直系統，針對特定需求的公司使用</li>
-                                                <li>老舊系統，之前的舊系統，要考慮其相容性</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>資料：資訊系統裡面的原料</li>
-                                <li>流程：使用者、經理、IT人員為達成特定結果所經歷的任務與需要執行的業務功能</li>
-                                <li>人員：與資訊系統相關的利害關係人</li>
-                            </ul>
-                        </li>
-                        <li>企業資訊系統
-                            <ul>
-                                <li>TP, BSS, 知識管理, 使用者生產力, 數位助理等系統
-                                    <ul>
-                                        <li>企業資源規劃(enterprise resource planning, ERP)系統，提供高效率全方位管理</li>
-                                        <li>交易處理系統(transaction processing (TP) systems)，處理日常業務運作產生的資料，如：顧客訂單處理、應收帳款等</li>
-                                        <li>商務支援系統(business support systems, BSS)，提供和工作有關的資訊，以支援公司內各階層的使用者，如
-                                            <ul>
-                                                <li>管理資訊系統(management information systems, MIS)</li>
-                                                <li>無線射頻辨識 (radio frequency identification, RFID)</li>
-                                            </ul>
-                                        </li>
-                                        <li>知識管理系統(Knowledge management system)：是收集、處理、分享一個組織的全部知識的資訊系統<br>，輸入關鍵字或一般英文的疑問句來尋找所需的資訊<br>使用知識庫以及推理法則
-                                           <ul>
-                                              <li>知識庫 (knowledge base)是由一個大型資料庫所組成</li>
-                                              <li>推理法則 (inference rule)則是識別資料型態與關係的邏輯法則</li>
-                                            </ul>
-                                        </li>
-                                        <li>使用者生產力系統：可提供生產力的科技 e.g. 電子郵件、視訊會議等</li>
-                                        <li>數位助理：結合知識管理系統及使用者生產力系統，使用者可用說話方式問問題</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>系統開發三種方法定義
-                            <ul>
-                                <li>結構化分析
-                                    <ul>
-                                        <li>使用系統開發生命週期(SDLC)，對資訊系統進行規劃、分析、設計、建置以及支援等</li>
-                                        <li>結構化分析使用一連串的流程模型，以圖形來描述一套系統</li>
-                                    </ul>
-                                </li>
-                                <li>物件導向分析，將資料與處理資料的流程合而為一，類似於 OOP</li>
-                                <li>快捷法
-                                    <ul>
-                                        <li>以累進方式來開發系統，建立一連串雛形，並不斷地根據使用者的需求做調整</li>
-                                        <li>雛形(prototype)是資訊系統完成之前的早期工作版本<br>缺點：如果業務或IT沒有徹底了解問題時，有些決策下定後，可能還需要修改，導致大量重來。</li>
-                                        <li>建立一連串雛形，並根據使用者需求進行調整</li>
-                                        <li>開發人員也不斷地修正、擴充並合併先前的雛型，進而產生最終產品</li>
-                                        <li>強調不斷反覆開發，每一次開發都會更新上次的缺點</li>
-                                        <li>螺旋式模型 (spiral model)，表示一連串根據使用者回饋而進行的反覆、修正動作</li>
-                                    </ul>
-                                </li>
-                            </ul>
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-                        </li>
-                        
-                    </ul>  
-                    <li>SDLC(系統開發生命週期)五個階段定義與交付項目
-                        <ul>
-                            <li>系統規畫階段
-                                <ul>
-                                    <li>對IT部門的請求開始，稱為系統請求(systems request)</li>
-                                    <li>初步調查(preliminary investigation)，其中重點為可行性評估(feasibility study)</li>
-                                </ul>
-                            </li>
-                            <li>系統分析階段(systems analysis phase)
-                                <ul>
-                                    <li>建立新系統的邏輯模型(logical model)</li>
-                                    <li>建立商業、資料、流程及物件等模型</li>
-                                    <li>產生系統需求文件(system requirements document)</li>
-                                </ul>
-                            </li>
-                            <li>系統設計階段(systems design phase)
-                                <ul>
-                                    <li>目的是創造一個滿足所有需求的具體模型(physical model)</li>
-                                    <li>設計使用介面，識別出必要的輸出、輸入與流程</li>
-                                    <li>可交付成果是系統設計規格(system design specification) </li>
-                                    <li>使用者與管理者不能對系統設計產生誤解</li>
-                                </ul>
-                            </li>
-                            <li>系統建置階段(systems implementation phase)
-                                <ul>
-                                    <li>建置新的系統</li>
-                                    <li>撰寫程式、測試、撰寫文件(documented)及系統導入(installed)</li>
-                                    <li>系統必須功能完整、運作正常、文件完整</li>
-                                </ul>
-                            </li>
-                            <li>系統支援與安全階段(systems support and security phase)
-                                <ul>
-                                    <li>系統必須具備安全、可靠、可維護及可延展等特性</li>
-                                    <li>系統在運作幾年後，大都需要重大更新或汰舊換</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>      
-                </p>
-                <br>
-                <p>
-                    <h2 >第二章</h2>
-                    <ul>
-                        <li>SWOT可用於哪些分析?
-                            <ul>
-                                <li>對公司的科技、人力及財務等資源進行檢查</li>
-                                <li>SWOT分析只適合用於擬定長期策略，每次分析都需要不少時間(e.g. SDLC)</li>
-                                <li>短期變化頻繁的狀況就不適合，使用規劃與行動的時間差：計畫趕不上變化，可能計畫擬定好馬上情況就改變 (e.g. 快捷法)</li>
-                            </ul>
+                <!-- Further main content here -->
+                <div class="container ">
+                    <div class="row">
+                        <div class="col">
+                            <div class="p-5 text-center bg-body-tertiary rounded-3 mt-4">
+                                <h1 class="text-body-emphasis">期中筆記</h1>
+                            </div>
 
-                        </li>
-                        <li>系統請求主要原因
-                            <ul>
-                                <li>更強的控制</li>
-                                <li>降低成本</li>
-                                <li>更多的資訊</li>
-                                <li>提升績效</li>
-                                <li>提升服務</li>
-                                <li>支援新產品與服務</li>
-                            </ul>
-                        </li>
-                        <li>影響資訊專案的因素
-                            <ul>
-                                <li>內部因素與外部因素
-                                    <ul>
-                                        <li>內部
-                                            <ul>
-                                                <li>策略計畫</li>
-                                                <li>高階主管</li>
-                                                <li>使用者需求</li>
-                                                <li>IT部門</li>
-                                                <li>現行系統與資料</li>
-                                                <li>公司財務</li>
-                                            </ul>
-                                        </li>
-                                        <li>外部
-                                             <ul>
-                                                <li>科技</li>
-                                                <li>供應商</li>
-                                                <li>顧客</li>
-                                                <li>競爭者</li>
-                                                <li>經濟</li>
-                                                <li>政府</li>
-                                             </ul>
-                                        </li>
-                                        
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>系統審查委員會? 其優缺點?
-                            <ul>
-                                <li>系統審查委員會進行系統評估請求</li>
-                                <li>優點
-                                    <ul>
-                                        <li>可綜合各種不同的知識與經驗</li>
-                                        <li>可以讓決策不受到個人偏見</li>
-                                    </ul>
-                                </li>
-                                <li>缺點
-                                    <ul>
-                                        <li>委員會可能會有派系</li>
-                                        <li>必須等委員會開會完才能有對應的行動</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>評估請求的可行性 (四個定義)
-                            <ul>
-                                <li>操作可行性
-                                    <ul>
-                                        <li>人們是否支持該專案</li>
-                                        <li>新系統可以對人力要求降低嗎</li>
-                                        <li>新系統是否要重新訓練使用者</li>
-                                        <li>使用者是否在新系統規劃時要加入他們的意見</li>
-                                        <li>會對人們產生什麼樣的負擔</li>
-                                        <li>公司商譽、形象會有甚麼風險</li>
-                                        <li>法律問題、道德問題</li>
-                                        <li>是否會與公司其他事情發生衝突</li>
-                                    </ul>
-                                </li>
-                                <li>經濟可行性
-                                    <ul>
-                                        <li>專案效益是否會大於成本，包括人力、財力、物力</li>
-                                        <li>有形成本(tangible costs) 通常可以用金錢衡量</li>
-                                        <li>無形成本(intangible costs)肯定會影響公司績效</li>
-                                        <li>有形利益 (tangible benefits)可以是來自花費的減少，或收益的增加</li>
-                                        <li>無形利益 (intangible benefits)難以透過金錢衡量，卻對公司十分重要</li>
-                                    </ul>
-                                </li>
-                                <li>技術可行性
-                                    <ul>
-                                        <li>開發、採購、安裝、操作用到的技術資源
-                                            <ul>
-                                                <li>硬體是否足夠</li>
-                                                <li>新舊系統整合</li>
-                                            </ul>
-                                        </li>
-                                        <li>公司需要新增什麼樣的資源嗎</li>
-                                        <li>需要增加技術專家嗎</li>
-                                        <li>是否要用到雛形(prototype)</li>
- 
-                                    </ul>
-                                </li>
-                                <li>時程可行性
-                                    <ul>
-                                        <li>是否可在允許時間內完成</li>
-                                        <li>如果加速開發會有甚麼風險</li>
-                                        <li>專案時程表</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li>初步調查之五個步驟的簡易說明
-                            <ul>
-                                <li>step1: 了解問題或機會
-                                    <ul>
-                                        <li>描述問題或機會</li>
-                                        <li>如果改進會有甚麼好處</li>
-                                        <li>牽涉到那些部門</li>
-                                        <li>有些潛在問題沒辦法被發現</li>
-                                        <li>使用魚骨圖或石川圖表達</li>
-                                    </ul>
-                                </li>
-                                <li>step2: 定義專案範圍與限制
-                                    <ul>
-                                        <li>專案範疇 (project scope)是指定義出具體的專案邊界或範圍</li>
-                                        <li>建立清單並分成必須做、應該做、可以做、不要做</li>
-                                        <li>避免形成專案蔓延(project creep)的情況，專案範疇應該盡可能定義清楚</li>
-                                        <li>識別出限制 (constraint)</li>
-                                        <img style="width:700px ;" src="img/9.PNG">
-                                    </ul>
-                                </li>
-                                <li>step3: 進行實情調查
-                                    <ul>
-                                        <li>蒐集專案可用性、成本、利益以及時程的資料</li>
-                                        <li>分析組織圖</li>
-                                        <li>訪談題目券任</li>
-                                        <li>紀錄並回顧文件、使用者問卷調查</li>
-                                        <li>分析資料，帕列圖(Pareto chart)、散布圖(scatter diagram)</li>
-                                    </ul>
-                                </li>
-                                <li>step4: 分析專案可用性、成本、利益和時程資料
-                                    <ul>
-                                        <li>取得那些資訊、如何蒐集、分析</li>
-                                        <li>如何訪談，訪談對象為誰</li>
-                                    </ul>
-                                </li>
-                                <li>step5: 評估可行性
-                                    <ul>
-                                        <li>操作可行性、經濟可行性、技術可行性、時程可行性</li>
-                                    </ul>
-                                </li>
+                            <div class="text-center mt-4">
+                                <a class="btn btn-outline-info" href="SDAA.html" role="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5">
+                                        </path>
+                                    </svg>
+                                    返回
+                                </a>
 
-                            </ul>
-                        </li>
-                        
-                    </ul>        
-                </p>
-                <br>
-                <p>
-                    <h2 >第三章</h2>
-                    <ul>
-                        <li>何謂專案管理與其三角關係
-                            <ul>
-                                <li>專案管理(project management)是指開發一套資訊系統時所進行的規劃、排程、監督與控制，以及回報等流程
-                                </li>
-                                <li>專案三角包刮成本、範疇與時程，關鍵在於如何從這三項因素之中找到最佳平衡點，會隨著哪邊比較重大而改變</li>
-                            </ul>
-                        </li>
-                        <li>工作分解結構? 甘特圖 vs. PERT
-                            <ul>
-                                <li>工作分解結構(work breakdown structure, WBS)是將一個專案拆解成一系列較小的任務</li>
-                                <LI>甘特圖
-                                    <uL>
-                                        <li>一種水平的直條圖，可以用來表示一連串的任務 </li>
-                                        <li>優點：表意明確，閱讀難度也相對較低，適合項目複雜度不高，子任務之間關係比較簡單的項目管理</li>
-                                        <li>缺點
-                                            <ul>
-                                                <li>不能清晰地描繪任務之間的依賴關係</li>
-                                                <li>甘特圖進度計劃的關鍵部分和潛力部分不明確，難於判定哪些部分應當是主攻任務/活動容易導致主次不明，潛力任務的不確定也容易造成潛力的浪費</li>
-                                            </ul> 
-                                        </li>
-                                    </uL>
-                                </LI>
-                                <li>PERT
-                                    <ul>
-                                        <li>由下而上的技巧，將一個大而複雜的專案分析工作當成一系列的單獨任務</li>
-                                        <li>優點：可以讓項目負責人更明確工作重點，聚焦於可能需要採取糾正措施的關鍵問題上，使控制工作更加有效</li>
-                                        <li>缺點：需要事前對項目的工作（包括每個獨立的活動）進行較準確的描述和預估（所需時間、資源等）</li>
-                                    </ul>
-                                </li>
-                                <li>同時使用甘特圖、PERT 圖並不衝突</li>
-                            </ul>
-                        </li>
-                        <li>估計任務需時公式
-                            <ul>
-                                <li>使用最佳情況估計(best-case estimate, B)、可能情況估計(probable-caseestimate, P)、最差情況估計(worst-case estimate, W)，通常會用此公式預估 (B+4P+W)/6</li>
-                                <li>e.g. B=1、P=4、W=1<br>最少可能需要20天，最多可能需要34天，最有可能需要24天<br>估計任務時間：(20+(4*24)+34)/(1+4+1) = 25</li>
-                            </ul>
-                        </li>
-                        <li>關鍵路徑
-                            <Ul>
-                                <li>關鍵路徑(critical path)是指一連串的任務，假如這些任務延誤了，將會影響整個專案的最終完成日期 必須先決定每項任務的開始與結束日期，才能決定專案的關鍵路徑</li>
-                            </Ul>
-                        </li>
-                        <li>影響專案開發所需時間的因素 (四個因素)
-                            <ul>
-                                <li>專案大小：事情多不多、任務時間</li>
-                                <li>人力資源：大家忙不忙、會不會有辭職問題</li>
-                                <li>相似專案的經驗：PM會參考之前類似的專案所花費的時間來預估</li>
-                                <li>限制：金錢、時間、人力</li>
-                            </ul>
-                        </li>
-                        <li>專案監督與控制技術
-                            <ul>
-                                <li>結構化審查定義與其他等審查
-                                    <ul>
-                                        <li>結構化逐步審查(structured walk-through)是一種將專案團隊成員的工作交由團隊中其他成員進行審查的方式
-                                        </li>
-                                        <li>結構化審查在 SDLC(系統發展生命週期) 中會不斷出現
-                                        </li>
-                                        <li>設計審查(designreviews)
-                                        </li>
-                                        <li>程式碼審查(code reviews)
-                                        </li>
-                                        <li>測試審查(testing reviews)
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>專案發生問題的三個狀況 (業務, 預算, 時程)
-                            <ul>
-                                <li>舉例2種造成專案發生問題的因素</li>
-                                  <ul>
-                                      <li>業務問題
-                                         <ul>
-                                            <li>容易產生歧見及爭執狀況</li>
-                                            <li>無法有效來溝通及協調專案各種議題</li>
-                                            <Li>專案蔓延(project creep)，專案不斷擴大、變化，到無法控制的地步
-                                            </Li>
-                                         </ul>
-                                      </li>
-                                      <li>預算問題
+                            </div>
+
+
+
+                            <div class="mt-5 p-5  bg-body-tertiary rounded-3">
+
+
+
+                                <p>
+                                <h2>第一章</h2>
+                                <ul>
+                                    <li>何謂系統分析與設計
                                         <ul>
-                                            <li>成本超支</li>
-                                            <li>員工要求加薪或發放獎金</li>
+                                            <li>系統分析與設計是發展高品質資訊系統的逐步過程</li>
                                         </ul>
-                                      </li>
-                                      <LI>時程問題
-                                        <UL>
-                                            <LI>未發覺任務依存性</LI>
-                                            <li>員工離職</li>
-                                        </UL>
-                                      </LI>
-                                      
-                                      
-                                  </ul>
-                            </ul>
-                        </li>
-                    </ul>        
-                </p>
-                <br>
-                <p>
-                    <h2 >第四章</h2>
-                    <ul>
-                        <li>系統需求與需求類型
-                            <ul>
-                                <li>系統需求(system requirement)是指在一套資訊系統中必須包含的特性或功能，以滿足業務需求以及使用者的實際需要</li>
-                                <li>需求類型：根據不同特性分類，區分為功能性(e.g. 系統需每週自動備份)、非功能性(e.g. 系統需永遠運行)</li>
-                            </ul>
-                        </li>
-                        <li>傳統開發方式 vs. JAD
-                            <ul>
-                                <li>聯合應用開發(joint application development, JAD)，頗受歡迎，他將使用者視為實際參與、開發者，需要有一個良好人際關係組長，還有負責記錄討論與決議的組員</li>
-                                <li>JAD
-                                    <ul>
-                                        <li>缺點
-                                            <ul>
-                                                <li>與傳統方法相比，JAD 成本高</li>
-                                                <li>規模大，則會比較繁瑣</li>
-                                            </ul>
-                                        </li>
-                                        <li>優點
-                                            <ul>
-                                                <li>能夠有效參與</li>
-                                                <li>使用者有參與感，更喜歡</li>
-                                                <li>JAD 更容易產生正確系統，提高新系統的投入程度</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>RAD與JAD兩者之差別/關係
-                            <ul>
-                                <li>JAD的最終產品是一個需求模型</li>
-                                <li>RAD則是一套新的資訊系統</li>
-                                <li>JAD是一種用來發掘企業需求，並藉能利用短時間快速確定企業的資訊系統需求的方法。透過此法可以在
-                                    幾天內將企業與資訊系統相關之作業人員、主管、企業高層、技術人員...等聚集在一起，透過討論共同決
-                                    定企業的資訊系統需求。然而為了讓與會人員可以清楚的凝聚需求與確認需求，便常需要利用雛型方法，
-                                    快速建立雛型讓與會人能測試雛型以驗證需求。RAD是一種可以快速利用已存在的程式開發元件，減少程
-                                    式撰寫時間、快速建立雛型的開發工具，可以在JAD的過程中用來協助建立雛型，協助JAD快速凝聚企業資
-                                    訊系統需求。</li>
-                            </ul>
-                        </li>
-                        <li>RAD優點與缺點
-                            <ul>
-                                <li>更快、成本更低</li>
-                                <li>注重系統本身，可能會忽略公司要求</li>
-                                <li>倉促行事，則會產生問題</li>
-                            </ul>
-                        </li>
-                        
-                        <li>RAD之四階段
-                            <ul>
-                                <li>Step1.需求規劃：使用者、管理者及IT人員對商業需求、專案範疇、限制級系統需求等達成協議，並取得上層同意</li>
-                                <li>Step2.使用者設計：使用者與系統分析師溝通，將使用者的需求轉化為工作模型，與使用者保持互動</li>
-                                <li>Step3.建構：注重程式開發，讓使用者持續參與，並取提供意見</li>
-                                <li>Step4.切換：資料轉換、測試、適應新系統與使用者訓練</li>
-                            </ul>
-                        </li>
-                        <li>快捷法與其優劣
-                            <li>優
-                                <ul>
-                                    <li>彈性、效率快</li>
-                                    <li>反覆確認，降低最終錯誤風險</li>
-                                </ul>
-                            </li>
-                            <li>劣
-                                <ul>
-                                    <li>團隊人員需要良好溝通技巧</li>
-                                    <li>缺乏結構化與文件紀錄則容易導致風險</li>
-                                    <li>專案範疇也可能因為使用者需求的變化而變動</li>
-                                </ul>
-                            </li>
-                        </li>
-                        <li>訪談問題如何設計? 應避免哪類型問題?
-                            <ul>
-                                <li>對訪談的問題進行標準化可以讓訪談有所依循，也避免節外生枝</li>
-                                <li>避免導引式問題(leading questions)，有意或無意暗示訪談者說出某個答案</li>
-                                <li>適合方式
-                                    <ul>
-                                        <li>開放式問題(open-ended questions)可以讓受訪者不拘形式的回答，沒有固定的標準答案</li>
-                                        <li>封閉式問題(closed-ended questions)會限制受訪者的回答，在需要特定資訊或查證事實時使用</li>
-                                        <li>範圍式問題(range-of-response questions)也是一種封閉式問題，它可讓受訪者從一組既定答案中或某個數值範圍選擇解答</li>
-                                    </ul>
-                                </li>                            
-                            </ul>
-                        </li>
-                        <li>其他蒐集需求的方法
-                            <ul>
-                                <li>抽樣、文件查閱、問卷等
-                                    <ul>
-                                        <li>文件查閱(document review)，了解現有系統如何運作</li>
-                                        <li>觀察(observation)
-                                            <ul>
-                                                <li>就是觀察你</li>
-                                                <li>霍桑效應(Hawthorne Effect，別人看你，你會讓自己做的最好</li>
-                                                <li>問卷(questionnaire)和調查(survey)</li>
-                                                
-                                                
+                                    </li>
+                                    <li>何謂關鍵任務系統? 並舉例說明
+                                        <ul>
+                                            <li>對公司營運有非常重大影響的系統</li>
+                                            <li>e.g. 訂單處理系統、會計/財務系統、飛機的導航系統</li>
+                                        </ul>
+                                    </li>
+                                    <li>資訊系統的五大元件? 並說明每個元件功能
+                                        <ul>
+                                            <li>硬體：資訊系統內所有具體事物 e.g. 伺服器、工作站，網路，通訊設備等</li>
+                                            <li>軟體：可控制硬體以及產生所需資訊與結果的程式
+                                                <ul>
+                                                    <li>系統軟體，用來管理軟體</li>
+                                                    <li>應用軟體，支援日常商業功能
+                                                        <ul>
+                                                            <li>水平系統，適合不同種類的公司使用</li>
+                                                            <li>垂直系統，針對特定需求的公司使用</li>
+                                                            <li>老舊系統，之前的舊系統，要考慮其相容性</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>資料：資訊系統裡面的原料</li>
+                                            <li>流程：使用者、經理、IT人員為達成特定結果所經歷的任務與需要執行的業務功能</li>
+                                            <li>人員：與資訊系統相關的利害關係人</li>
+                                        </ul>
+                                    </li>
+                                    <li>企業資訊系統
+                                        <ul>
+                                            <li>TP, BSS, 知識管理, 使用者生產力, 數位助理等系統
+                                                <ul>
+                                                    <li>企業資源規劃(enterprise resource planning, ERP)系統，提供高效率全方位管理</li>
+                                                    <li>交易處理系統(transaction processing (TP)
+                                                        systems)，處理日常業務運作產生的資料，如：顧客訂單處理、應收帳款等</li>
+                                                    <li>商務支援系統(business support systems, BSS)，提供和工作有關的資訊，以支援公司內各階層的使用者，如
+                                                        <ul>
+                                                            <li>管理資訊系統(management information systems, MIS)</li>
+                                                            <li>無線射頻辨識 (radio frequency identification, RFID)</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>知識管理系統(Knowledge management
+                                                        system)：是收集、處理、分享一個組織的全部知識的資訊系統<br>，輸入關鍵字或一般英文的疑問句來尋找所需的資訊<br>使用知識庫以及推理法則
+                                                        <ul>
+                                                            <li>知識庫 (knowledge base)是由一個大型資料庫所組成</li>
+                                                            <li>推理法則 (inference rule)則是識別資料型態與關係的邏輯法則</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>使用者生產力系統：可提供生產力的科技 e.g. 電子郵件、視訊會議等</li>
+                                                    <li>數位助理：結合知識管理系統及使用者生產力系統，使用者可用說話方式問問題</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>系統開發三種方法定義
+                                        <ul>
+                                            <li>結構化分析
+                                                <ul>
+                                                    <li>使用系統開發生命週期(SDLC)，對資訊系統進行規劃、分析、設計、建置以及支援等</li>
+                                                    <li>結構化分析使用一連串的流程模型，以圖形來描述一套系統</li>
+                                                </ul>
+                                            </li>
+                                            <li>物件導向分析，將資料與處理資料的流程合而為一，類似於 OOP</li>
+                                            <li>快捷法
+                                                <ul>
+                                                    <li>以累進方式來開發系統，建立一連串雛形，並不斷地根據使用者的需求做調整</li>
+                                                    <li>雛形(prototype)是資訊系統完成之前的早期工作版本<br>缺點：如果業務或IT沒有徹底了解問題時，有些決策下定後，可能還需要修改，導致大量重來。
+                                                    </li>
+                                                    <li>建立一連串雛形，並根據使用者需求進行調整</li>
+                                                    <li>開發人員也不斷地修正、擴充並合併先前的雛型，進而產生最終產品</li>
+                                                    <li>強調不斷反覆開發，每一次開發都會更新上次的缺點</li>
+                                                    <li>螺旋式模型 (spiral model)，表示一連串根據使用者回饋而進行的反覆、修正動作</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
 
-                                             </ul>
-                                        </li>
-                                        <li>腦力激盪 (brainstorming)是指針對特定問題、機會與議題的小組討論
-                                            <ul>
-                                               <li>結構化腦力激盪 (structured brainstorming)，參加者輪流發言</li>
-                                                <li>非結構化腦力激盪 (unstructured brainstorming)，<span style="text-decoration: line-through;">立法院</span>，隨便你發言</li> 
-                                           </ul>
-                                       </li>
-                                       <li>抽樣
-                                           <ul>
-                                               <li>系統抽樣(systematic sample)：每10人抽取1人</li>
-                                               <li>階層抽樣(stratified sample) ：在所有四個郵遞區號中，每個抽取5人</li>
-                                               <li>隨機抽樣(random sample) ：任意抽取20人</li>
-                                               <li>管你怎麼抽，只要樣本能代表母體就可以</li>
-                                           </ul>
-                                       </li>
-                                       <li>研究
-                                           <ul>
-                                               <li>讀書、開會</li>
-                                               <li>實地參訪</li>
-                                               <li>研討會、論壇</li>
-                                           </ul>
-                                       </li>
-                                    </ul>
-                                </li>
-                                <li>訪談 vs. 問卷
+                                    </li>
+
+                                </ul>
+                                <li>SDLC(系統開發生命週期)五個階段定義與交付項目
                                     <ul>
-                                        <li>訪談是深度，問卷是廣度</li>
-                                        <li>訪談針對個人做表達，但花時間</li>
-                                        <li>問卷可以讓許多人表達意見，但不一定準確</li>
-                                        <li>越抽象的需求，越適合訪談，越具體的需求，越適合問卷</li>
-                                        <li>訪談適合開放式問題，問卷適合封閉式與範圍式問題</li>
+                                        <li>系統規畫階段
+                                            <ul>
+                                                <li>對IT部門的請求開始，稱為系統請求(systems request)</li>
+                                                <li>初步調查(preliminary investigation)，其中重點為可行性評估(feasibility study)</li>
+                                            </ul>
+                                        </li>
+                                        <li>系統分析階段(systems analysis phase)
+                                            <ul>
+                                                <li>建立新系統的邏輯模型(logical model)</li>
+                                                <li>建立商業、資料、流程及物件等模型</li>
+                                                <li>產生系統需求文件(system requirements document)</li>
+                                            </ul>
+                                        </li>
+                                        <li>系統設計階段(systems design phase)
+                                            <ul>
+                                                <li>目的是創造一個滿足所有需求的具體模型(physical model)</li>
+                                                <li>設計使用介面，識別出必要的輸出、輸入與流程</li>
+                                                <li>可交付成果是系統設計規格(system design specification) </li>
+                                                <li>使用者與管理者不能對系統設計產生誤解</li>
+                                            </ul>
+                                        </li>
+                                        <li>系統建置階段(systems implementation phase)
+                                            <ul>
+                                                <li>建置新的系統</li>
+                                                <li>撰寫程式、測試、撰寫文件(documented)及系統導入(installed)</li>
+                                                <li>系統必須功能完整、運作正常、文件完整</li>
+                                            </ul>
+                                        </li>
+                                        <li>系統支援與安全階段(systems support and security phase)
+                                            <ul>
+                                                <li>系統必須具備安全、可靠、可維護及可延展等特性</li>
+                                                <li>系統在運作幾年後，大都需要重大更新或汰舊換</li>
+                                            </ul>
+                                        </li>
                                     </ul>
-                                    
                                 </li>
-                            </ul>
-                        </li>
-                    </ul>        
-                </p>
-                
-                
-                 
-            </div>        
-                
+                                </p>
+                                <br>
+                                <p>
+                                <h2>第二章</h2>
+                                <ul>
+                                    <li>SWOT可用於哪些分析?
+                                        <ul>
+                                            <li>對公司的科技、人力及財務等資源進行檢查</li>
+                                            <li>SWOT分析只適合用於擬定長期策略，每次分析都需要不少時間(e.g. SDLC)</li>
+                                            <li>短期變化頻繁的狀況就不適合，使用規劃與行動的時間差：計畫趕不上變化，可能計畫擬定好馬上情況就改變 (e.g. 快捷法)</li>
+                                        </ul>
+
+                                    </li>
+                                    <li>系統請求主要原因
+                                        <ul>
+                                            <li>更強的控制</li>
+                                            <li>降低成本</li>
+                                            <li>更多的資訊</li>
+                                            <li>提升績效</li>
+                                            <li>提升服務</li>
+                                            <li>支援新產品與服務</li>
+                                        </ul>
+                                    </li>
+                                    <li>影響資訊專案的因素
+                                        <ul>
+                                            <li>內部因素與外部因素
+                                                <ul>
+                                                    <li>內部
+                                                        <ul>
+                                                            <li>策略計畫</li>
+                                                            <li>高階主管</li>
+                                                            <li>使用者需求</li>
+                                                            <li>IT部門</li>
+                                                            <li>現行系統與資料</li>
+                                                            <li>公司財務</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>外部
+                                                        <ul>
+                                                            <li>科技</li>
+                                                            <li>供應商</li>
+                                                            <li>顧客</li>
+                                                            <li>競爭者</li>
+                                                            <li>經濟</li>
+                                                            <li>政府</li>
+                                                        </ul>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>系統審查委員會? 其優缺點?
+                                        <ul>
+                                            <li>系統審查委員會進行系統評估請求</li>
+                                            <li>優點
+                                                <ul>
+                                                    <li>可綜合各種不同的知識與經驗</li>
+                                                    <li>可以讓決策不受到個人偏見</li>
+                                                </ul>
+                                            </li>
+                                            <li>缺點
+                                                <ul>
+                                                    <li>委員會可能會有派系</li>
+                                                    <li>必須等委員會開會完才能有對應的行動</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>評估請求的可行性 (四個定義)
+                                        <ul>
+                                            <li>操作可行性
+                                                <ul>
+                                                    <li>人們是否支持該專案</li>
+                                                    <li>新系統可以對人力要求降低嗎</li>
+                                                    <li>新系統是否要重新訓練使用者</li>
+                                                    <li>使用者是否在新系統規劃時要加入他們的意見</li>
+                                                    <li>會對人們產生什麼樣的負擔</li>
+                                                    <li>公司商譽、形象會有甚麼風險</li>
+                                                    <li>法律問題、道德問題</li>
+                                                    <li>是否會與公司其他事情發生衝突</li>
+                                                </ul>
+                                            </li>
+                                            <li>經濟可行性
+                                                <ul>
+                                                    <li>專案效益是否會大於成本，包括人力、財力、物力</li>
+                                                    <li>有形成本(tangible costs) 通常可以用金錢衡量</li>
+                                                    <li>無形成本(intangible costs)肯定會影響公司績效</li>
+                                                    <li>有形利益 (tangible benefits)可以是來自花費的減少，或收益的增加</li>
+                                                    <li>無形利益 (intangible benefits)難以透過金錢衡量，卻對公司十分重要</li>
+                                                </ul>
+                                            </li>
+                                            <li>技術可行性
+                                                <ul>
+                                                    <li>開發、採購、安裝、操作用到的技術資源
+                                                        <ul>
+                                                            <li>硬體是否足夠</li>
+                                                            <li>新舊系統整合</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>公司需要新增什麼樣的資源嗎</li>
+                                                    <li>需要增加技術專家嗎</li>
+                                                    <li>是否要用到雛形(prototype)</li>
+
+                                                </ul>
+                                            </li>
+                                            <li>時程可行性
+                                                <ul>
+                                                    <li>是否可在允許時間內完成</li>
+                                                    <li>如果加速開發會有甚麼風險</li>
+                                                    <li>專案時程表</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
+                                    <li>初步調查之五個步驟的簡易說明
+                                        <ul>
+                                            <li>step1: 了解問題或機會
+                                                <ul>
+                                                    <li>描述問題或機會</li>
+                                                    <li>如果改進會有甚麼好處</li>
+                                                    <li>牽涉到那些部門</li>
+                                                    <li>有些潛在問題沒辦法被發現</li>
+                                                    <li>使用魚骨圖或石川圖表達</li>
+                                                </ul>
+                                            </li>
+                                            <li>step2: 定義專案範圍與限制
+                                                <ul>
+                                                    <li>專案範疇 (project scope)是指定義出具體的專案邊界或範圍</li>
+                                                    <li>建立清單並分成必須做、應該做、可以做、不要做</li>
+                                                    <li>避免形成專案蔓延(project creep)的情況，專案範疇應該盡可能定義清楚</li>
+                                                    <li>識別出限制 (constraint)</li>
+                                                    <img style="width:700px ;" src="img/9.PNG">
+                                                </ul>
+                                            </li>
+                                            <li>step3: 進行實情調查
+                                                <ul>
+                                                    <li>蒐集專案可用性、成本、利益以及時程的資料</li>
+                                                    <li>分析組織圖</li>
+                                                    <li>訪談題目券任</li>
+                                                    <li>紀錄並回顧文件、使用者問卷調查</li>
+                                                    <li>分析資料，帕列圖(Pareto chart)、散布圖(scatter diagram)</li>
+                                                </ul>
+                                            </li>
+                                            <li>step4: 分析專案可用性、成本、利益和時程資料
+                                                <ul>
+                                                    <li>取得那些資訊、如何蒐集、分析</li>
+                                                    <li>如何訪談，訪談對象為誰</li>
+                                                </ul>
+                                            </li>
+                                            <li>step5: 評估可行性
+                                                <ul>
+                                                    <li>操作可行性、經濟可行性、技術可行性、時程可行性</li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                                </p>
+                                <br>
+                                <p>
+                                <h2>第三章</h2>
+                                <ul>
+                                    <li>何謂專案管理與其三角關係
+                                        <ul>
+                                            <li>專案管理(project management)是指開發一套資訊系統時所進行的規劃、排程、監督與控制，以及回報等流程
+                                            </li>
+                                            <li>專案三角包刮成本、範疇與時程，關鍵在於如何從這三項因素之中找到最佳平衡點，會隨著哪邊比較重大而改變</li>
+                                        </ul>
+                                    </li>
+                                    <li>工作分解結構? 甘特圖 vs. PERT
+                                        <ul>
+                                            <li>工作分解結構(work breakdown structure, WBS)是將一個專案拆解成一系列較小的任務</li>
+                                            <LI>甘特圖
+                                                <uL>
+                                                    <li>一種水平的直條圖，可以用來表示一連串的任務 </li>
+                                                    <li>優點：表意明確，閱讀難度也相對較低，適合項目複雜度不高，子任務之間關係比較簡單的項目管理</li>
+                                                    <li>缺點
+                                                        <ul>
+                                                            <li>不能清晰地描繪任務之間的依賴關係</li>
+                                                            <li>甘特圖進度計劃的關鍵部分和潛力部分不明確，難於判定哪些部分應當是主攻任務/活動容易導致主次不明，潛力任務的不確定也容易造成潛力的浪費
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </uL>
+                                            </LI>
+                                            <li>PERT
+                                                <ul>
+                                                    <li>由下而上的技巧，將一個大而複雜的專案分析工作當成一系列的單獨任務</li>
+                                                    <li>優點：可以讓項目負責人更明確工作重點，聚焦於可能需要採取糾正措施的關鍵問題上，使控制工作更加有效</li>
+                                                    <li>缺點：需要事前對項目的工作（包括每個獨立的活動）進行較準確的描述和預估（所需時間、資源等）</li>
+                                                </ul>
+                                            </li>
+                                            <li>同時使用甘特圖、PERT 圖並不衝突</li>
+                                        </ul>
+                                    </li>
+                                    <li>估計任務需時公式
+                                        <ul>
+                                            <li>使用最佳情況估計(best-case estimate, B)、可能情況估計(probable-caseestimate,
+                                                P)、最差情況估計(worst-case estimate,
+                                                W)，通常會用此公式預估 (B+4P+W)/6</li>
+                                            <li>e.g.
+                                                B=1、P=4、W=1<br>最少可能需要20天，最多可能需要34天，最有可能需要24天<br>估計任務時間：(20+(4*24)+34)/(1+4+1)
+                                                = 25</li>
+                                        </ul>
+                                    </li>
+                                    <li>關鍵路徑
+                                        <Ul>
+                                            <li>關鍵路徑(critical path)是指一連串的任務，假如這些任務延誤了，將會影響整個專案的最終完成日期
+                                                必須先決定每項任務的開始與結束日期，才能決定專案的關鍵路徑</li>
+                                        </Ul>
+                                    </li>
+                                    <li>影響專案開發所需時間的因素 (四個因素)
+                                        <ul>
+                                            <li>專案大小：事情多不多、任務時間</li>
+                                            <li>人力資源：大家忙不忙、會不會有辭職問題</li>
+                                            <li>相似專案的經驗：PM會參考之前類似的專案所花費的時間來預估</li>
+                                            <li>限制：金錢、時間、人力</li>
+                                        </ul>
+                                    </li>
+                                    <li>專案監督與控制技術
+                                        <ul>
+                                            <li>結構化審查定義與其他等審查
+                                                <ul>
+                                                    <li>結構化逐步審查(structured walk-through)是一種將專案團隊成員的工作交由團隊中其他成員進行審查的方式
+                                                    </li>
+                                                    <li>結構化審查在 SDLC(系統發展生命週期) 中會不斷出現
+                                                    </li>
+                                                    <li>設計審查(designreviews)
+                                                    </li>
+                                                    <li>程式碼審查(code reviews)
+                                                    </li>
+                                                    <li>測試審查(testing reviews)
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>專案發生問題的三個狀況 (業務, 預算, 時程)
+                                        <ul>
+                                            <li>舉例2種造成專案發生問題的因素</li>
+                                            <ul>
+                                                <li>業務問題
+                                                    <ul>
+                                                        <li>容易產生歧見及爭執狀況</li>
+                                                        <li>無法有效來溝通及協調專案各種議題</li>
+                                                        <Li>專案蔓延(project creep)，專案不斷擴大、變化，到無法控制的地步
+                                                        </Li>
+                                                    </ul>
+                                                </li>
+                                                <li>預算問題
+                                                    <ul>
+                                                        <li>成本超支</li>
+                                                        <li>員工要求加薪或發放獎金</li>
+                                                    </ul>
+                                                </li>
+                                                <LI>時程問題
+                                                    <UL>
+                                                        <LI>未發覺任務依存性</LI>
+                                                        <li>員工離職</li>
+                                                    </UL>
+                                                </LI>
+
+
+                                            </ul>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                </p>
+                                <br>
+                                <p>
+                                <h2>第四章</h2>
+                                <ul>
+                                    <li>系統需求與需求類型
+                                        <ul>
+                                            <li>系統需求(system requirement)是指在一套資訊系統中必須包含的特性或功能，以滿足業務需求以及使用者的實際需要</li>
+                                            <li>需求類型：根據不同特性分類，區分為功能性(e.g. 系統需每週自動備份)、非功能性(e.g. 系統需永遠運行)</li>
+                                        </ul>
+                                    </li>
+                                    <li>傳統開發方式 vs. JAD
+                                        <ul>
+                                            <li>聯合應用開發(joint application development,
+                                                JAD)，頗受歡迎，他將使用者視為實際參與、開發者，需要有一個良好人際關係組長，還有負責記錄討論與決議的組員
+                                            </li>
+                                            <li>JAD
+                                                <ul>
+                                                    <li>缺點
+                                                        <ul>
+                                                            <li>與傳統方法相比，JAD 成本高</li>
+                                                            <li>規模大，則會比較繁瑣</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>優點
+                                                        <ul>
+                                                            <li>能夠有效參與</li>
+                                                            <li>使用者有參與感，更喜歡</li>
+                                                            <li>JAD 更容易產生正確系統，提高新系統的投入程度</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>RAD與JAD兩者之差別/關係
+                                        <ul>
+                                            <li>JAD的最終產品是一個需求模型</li>
+                                            <li>RAD則是一套新的資訊系統</li>
+                                            <li>JAD是一種用來發掘企業需求，並藉能利用短時間快速確定企業的資訊系統需求的方法。透過此法可以在
+                                                幾天內將企業與資訊系統相關之作業人員、主管、企業高層、技術人員...等聚集在一起，透過討論共同決
+                                                定企業的資訊系統需求。然而為了讓與會人員可以清楚的凝聚需求與確認需求，便常需要利用雛型方法，
+                                                快速建立雛型讓與會人能測試雛型以驗證需求。RAD是一種可以快速利用已存在的程式開發元件，減少程
+                                                式撰寫時間、快速建立雛型的開發工具，可以在JAD的過程中用來協助建立雛型，協助JAD快速凝聚企業資
+                                                訊系統需求。</li>
+                                        </ul>
+                                    </li>
+                                    <li>RAD優點與缺點
+                                        <ul>
+                                            <li>更快、成本更低</li>
+                                            <li>注重系統本身，可能會忽略公司要求</li>
+                                            <li>倉促行事，則會產生問題</li>
+                                        </ul>
+                                    </li>
+
+                                    <li>RAD之四階段
+                                        <ul>
+                                            <li>Step1.需求規劃：使用者、管理者及IT人員對商業需求、專案範疇、限制級系統需求等達成協議，並取得上層同意</li>
+                                            <li>Step2.使用者設計：使用者與系統分析師溝通，將使用者的需求轉化為工作模型，與使用者保持互動</li>
+                                            <li>Step3.建構：注重程式開發，讓使用者持續參與，並取提供意見</li>
+                                            <li>Step4.切換：資料轉換、測試、適應新系統與使用者訓練</li>
+                                        </ul>
+                                    </li>
+                                    <li>快捷法與其優劣
+                                    <li>優
+                                        <ul>
+                                            <li>彈性、效率快</li>
+                                            <li>反覆確認，降低最終錯誤風險</li>
+                                        </ul>
+                                    </li>
+                                    <li>劣
+                                        <ul>
+                                            <li>團隊人員需要良好溝通技巧</li>
+                                            <li>缺乏結構化與文件紀錄則容易導致風險</li>
+                                            <li>專案範疇也可能因為使用者需求的變化而變動</li>
+                                        </ul>
+                                    </li>
+                                    </li>
+                                    <li>訪談問題如何設計? 應避免哪類型問題?
+                                        <ul>
+                                            <li>對訪談的問題進行標準化可以讓訪談有所依循，也避免節外生枝</li>
+                                            <li>避免導引式問題(leading questions)，有意或無意暗示訪談者說出某個答案</li>
+                                            <li>適合方式
+                                                <ul>
+                                                    <li>開放式問題(open-ended questions)可以讓受訪者不拘形式的回答，沒有固定的標準答案</li>
+                                                    <li>封閉式問題(closed-ended questions)會限制受訪者的回答，在需要特定資訊或查證事實時使用</li>
+                                                    <li>範圍式問題(range-of-response
+                                                        questions)也是一種封閉式問題，它可讓受訪者從一組既定答案中或某個數值範圍選擇解答</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>其他蒐集需求的方法
+                                        <ul>
+                                            <li>抽樣、文件查閱、問卷等
+                                                <ul>
+                                                    <li>文件查閱(document review)，了解現有系統如何運作</li>
+                                                    <li>觀察(observation)
+                                                        <ul>
+                                                            <li>就是觀察你</li>
+                                                            <li>霍桑效應(Hawthorne Effect，別人看你，你會讓自己做的最好</li>
+                                                            <li>問卷(questionnaire)和調查(survey)</li>
+
+
+
+                                                        </ul>
+                                                    </li>
+                                                    <li>腦力激盪 (brainstorming)是指針對特定問題、機會與議題的小組討論
+                                                        <ul>
+                                                            <li>結構化腦力激盪 (structured brainstorming)，參加者輪流發言</li>
+                                                            <li>非結構化腦力激盪 (unstructured brainstorming)，<span
+                                                                    style="text-decoration: line-through;">立法院</span>，隨便你發言
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>抽樣
+                                                        <ul>
+                                                            <li>系統抽樣(systematic sample)：每10人抽取1人</li>
+                                                            <li>階層抽樣(stratified sample) ：在所有四個郵遞區號中，每個抽取5人</li>
+                                                            <li>隨機抽樣(random sample) ：任意抽取20人</li>
+                                                            <li>管你怎麼抽，只要樣本能代表母體就可以</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>研究
+                                                        <ul>
+                                                            <li>讀書、開會</li>
+                                                            <li>實地參訪</li>
+                                                            <li>研討會、論壇</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>訪談 vs. 問卷
+                                                <ul>
+                                                    <li>訪談是深度，問卷是廣度</li>
+                                                    <li>訪談針對個人做表達，但花時間</li>
+                                                    <li>問卷可以讓許多人表達意見，但不一定準確</li>
+                                                    <li>越抽象的需求，越適合訪談，越具體的需求，越適合問卷</li>
+                                                    <li>訪談適合開放式問題，問卷適合封閉式與範圍式問題</li>
+                                                </ul>
+
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                </p>
+
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container text-center ">
+                    <div class="row">
+
+
+                    </div>
+                </div>
+                <br>
+
+            </main>
         </div>
-        
-    
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
