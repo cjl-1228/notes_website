@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>文法｜CJL's Notes WebSite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="../../../img/book-half.svg" type="image/svg+xml">
+    <style>
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .round-image {
+            border-radius: 50%;
+            /* 確保圖片是正方形 */
+            width: 100px;
+            /* 或您想要的尺寸 */
+            height: 100px;
+            /* 與寬度相同以保持圖片的正方形 */
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <button type="button" class="btn btn-secondary d-md-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#sidebar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5">
+            </path>
+        </svg>
+    </button>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="custom-padding col-md-3 col-lg-2 d-md-block  sidebar collapse" id="sidebar">
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-white bg-body-tertiary vh-100 position-fixed"
+                    style="width: 220px;">
+                    <a href="../../../index.html"
+                        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none me-2" width="40" height="32"
+                            fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
+                            <path
+                                d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+                        </svg>
+
+                        <span class="fs-4">CJL's Notes</span>
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+
+                            <a href="../../../index.html" class="nav-link link-body-emphasis">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z">
+                                    </path>
+                                </svg>
+
+                                首頁
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../archives.html" class="nav-link link-body-emphasis">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z" />
+                                    <path
+                                        d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1" />
+                                </svg>
+
+
+                                時間戳記
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../categories.html" class="nav-link link-body-emphasis active">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v7a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5zM2.5 3a.5.5 0 0 0-.5.5V6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3zM14 7H2v5.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5z" />
+                                </svg>
+                                分類
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../others.html" class="nav-link link-body-emphasis">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path
+                                        d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z" />
+
+                                </svg>
+                                其他
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../about.html" class="nav-link link-body-emphasis  " aria-current="page">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi pe-none mb-1 me-2" width="16"
+                                    height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                    <path fill-rule="evenodd"
+                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                                </svg>
+                                關於我
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="dropdown">
+                        <a href="#"
+                            class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../../img/self.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+                            <strong>Jie-Long Chen</strong>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                <!-- Further main content here -->
+                <div class="container ">
+                    <div class="row">
+                        <div class="col">
+                            <div class="p-5 text-center bg-body-tertiary rounded-3 mt-4">
+                                <h1 class="text-body-emphasis">文法</h1>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <a class="btn btn-outline-info" href="../English.html" role="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5">
+                                    </path>
+                                    </svg>
+                                    返回
+                                </a>
+
+                            </div>
+
+                            <div class="mt-4 text-left">
+                                <div class="list-group">
+
+                                    <a target="_blank" href="file/grammar_1.pdf" class="list-group-item list-group-item-action">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-folder mb-1 me-2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z" />
+                                        </svg>
+                                        文法1
+                                    </a>
+
+                                    <a target="_blank" href="file/grammar_2.pdf" class="list-group-item list-group-item-action">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-folder mb-1 me-2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z" />
+                                        </svg>
+                                        文法2
+                                    </a>
+
+                                    <a target="_blank" href="file/grammar_3.pdf" class="list-group-item list-group-item-action">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-folder mb-1 me-2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z" />
+                                        </svg>
+                                        文法3
+                                    </a>
+
+                                    <a target="_blank" href="file/grammar_4.pdf" class="list-group-item list-group-item-action">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-folder mb-1 me-2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z" />
+                                        </svg>
+                                        文法題目補充
+                                    </a>
+
+
+                                </div>
+                            </div>
+
+                            
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container text-center ">
+                    <div class="row">
+
+
+                    </div>
+                </div>
+                <br>
+
+            </main>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
