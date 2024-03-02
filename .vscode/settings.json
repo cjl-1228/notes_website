@@ -1,6 +1,7 @@
 {
     "diffEditor.wordWrap": "on",
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
+    "liveServer.settings.port": 5501
 }
 
 
