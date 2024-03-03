@@ -1,0 +1,981 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>AJAX</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c92f5a43-0868-44e4-b97f-6c3cdcc3112e" class="page sans"><header><h1 class="page-title">AJAX</h1><p class="page-description"></p></header><div class="page-body"><nav id="4c9921c9-0768-4038-b226-5432c8b31caf" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#06ab3c9e-6cc1-409b-bb09-77c48cac7937">AJAX簡介</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fd9ca39d-6a2d-4b75-9f70-c7a966e5a0e1">XML介紹</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6f4215f4-3b90-4833-8b28-fb52841aecb5">Node.js 安裝</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#37a9dd98-496b-4eb2-ae1b-1a859e2daf88">Express 框架介紹與基本使用</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4ac4f89c-bb8c-476b-9350-442295075300">AJAX 事前準備</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b4e5cf9a-2709-476e-b2c7-aac01239fe95">AJAX 請求的基本操作</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#726a87db-dde9-46d6-9317-143152b850f4">AJAX 設置參數</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ac916dad-825a-4026-a621-f0d3eb7baf1b">AJAX 發送 POST 請求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1db6e781-16db-4c08-9d90-9733b7b139f0">AJAX 發送 POST 參數</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0bc401ac-b672-4d7e-8bb2-f993fb5e4d5e">AJAX RequestHeader 設定請求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#10058c1d-5f8b-4be1-911c-13be0523fd94">AJAX 伺服器返回JSON資料</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6d60f5a7-5d5c-4b2d-9ea1-372a65ff6400">AJAX nodemon 自動啟動伺服器工具安裝</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7c5e5339-cd36-4cd4-bb72-9dd0170c8326">AJAX 請求超時與網路異常處理</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#16beea68-4b81-4f0a-9878-372f6dae404b">AJAX 取消請求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b5653abf-fe39-4e0e-9620-da9f768f1b5e">AJAX 請求重複發送問題</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2da48de1-9340-41e2-b61b-d1fb2fb952ce">AJAX JQuery 發送AJAX請求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#de576384-fb19-4fd5-beb4-d07935b80847">AJAX JQuery 通用方法發送AJAX請求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#26d30068-6852-4b39-9a24-31e8c946eaeb">Axios 發送 AJAX 請求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9a75edf0-a2d4-4961-94a9-4aaa15e60d88">Axios 函數發送AJAX請求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#aabe6c9e-e2a8-4e4a-aa09-b24eff6c8816">使用 fetch 函數發送AJAX請求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#aa26592a-ff92-4061-b9e4-063097fbc9c0"><strong><strong>同源政策 (Same-origin policy)</strong></strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f4178034-de48-47db-82ce-87813d835812">jsonp的實現原理</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#039df589-2167-4f60-8bcb-950d9c556b14">原生jsonp實作</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1f337a52-70c3-49a7-84b0-fa7f07fcd497">JQuery發送jsonp請求</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#deca2805-ccdb-4dad-9998-ae6919b9bbb3">設定CORS回應實現跨域</a></div></nav><hr id="c704a562-530a-4dcb-885c-41d0855b7b58"/><h3 id="06ab3c9e-6cc1-409b-bb09-77c48cac7937" class="">AJAX簡介</h3><ul id="4421017b-a192-43ed-b277-134258beeb7f" class="bulleted-list"><li style="list-style-type:disc">全名為 <strong>Asynchronous JavaScript and XML，非同步JS與 XML ，透過 AJAX 可以在瀏覽器向伺服器發送請求，優勢在於，</strong><mark class="highlight-yellow_background"><strong>無須更新頁面得到資料</strong></mark><mark class="highlight-default"><strong>。</strong></mark></li></ul><ul id="b7c0761c-649b-453f-8eee-d1267bdb1f1b" class="bulleted-list"><li style="list-style-type:disc">AJAX 不是新的程式語言，是一種將現有標準組合再一起使用的新方式。</li></ul><h3 id="fd9ca39d-6a2d-4b75-9f70-c7a966e5a0e1" class="">XML介紹</h3><ul id="bd3f068d-a0a5-4f6b-b772-829ada88dab4" class="bulleted-list"><li style="list-style-type:disc">XML 可延伸標記式語言</li></ul><ul id="debf8264-db86-4eaf-9e3b-c5f529f05ca2" class="bulleted-list"><li style="list-style-type:disc">XML 被設計用來傳輸與儲存資料</li></ul><ul id="5a42c09a-208f-46d3-9852-202608b3fd49" class="bulleted-list"><li style="list-style-type:disc">XML 與 HTML 相似，不同的是 HTML 中都是預先定義好的標籤，而 XML 沒有預定標籤，全部都是自定義來顯示資料。</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2daa9b25-d1d3-40b7-baf5-6b0c8d6f3bbd" class="code"><code class="language-JavaScript">//一般資料
+name = &quot;Alan&quot; ; age = 18 ; gender = &quot;男&quot; ;
+
+//XML
+&lt;student&gt;
+		&lt;name&gt; Alan &lt;/name&gt;
+		&lt;age&gt; 18 &lt;/age&gt;
+		&lt;gender&gt; 男 &lt;gender&gt;
+&lt;/student&gt;</code></pre><ul id="27cd5376-9041-487f-bbfd-3bd1673e8354" class="bulleted-list"><li style="list-style-type:disc">現今大多被JSON取代。</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="796f05a0-bdd0-4c1c-b1d5-f6051d468855" class="code"><code class="language-JSON">{&quot;name&quot; : &quot;Alan&quot;, &quot;age&quot; : 18, &quot;gender&quot; : &quot;男&quot;}</code></pre><h3 id="6f4215f4-3b90-4833-8b28-fb52841aecb5" class="">Node.js 安裝</h3><ul id="47f1c94b-c638-4bfe-b6aa-76e9b88398cc" class="bulleted-list"><li style="list-style-type:disc"><a href="https://nodejs.org/en/download">https://nodejs.org/en/download</a></li></ul><ul id="3f395b1a-972a-4e64-a93c-23a4a42972b4" class="bulleted-list"><li style="list-style-type:disc">安裝好後，在 cmd 輸入 node -v，會出現版本</li></ul><h3 id="37a9dd98-496b-4eb2-ae1b-1a859e2daf88" class="">Express 框架介紹與基本使用</h3><ul id="cd9ae814-2b99-4505-b342-7f50b859a730" class="bulleted-list"><li style="list-style-type:disc">AJAX 需要向 Server 發送請求</li></ul><ol type="1" id="6f0007a2-f916-42d5-a006-555abf279d74" class="numbered-list" start="1"><li>建立資料夾</li></ol><ol type="1" id="165cdfdd-3620-43d4-8ab5-e9537b6fc467" class="numbered-list" start="2"><li>VScode 開啟進入 Terminal</li></ol><ol type="1" id="691bc84d-3ae6-4d32-9262-b8f49a62e135" class="numbered-list" start="3"><li>輸入 npm init - - yes  (npm的初始化)</li></ol><ol type="1" id="e5a7ce2f-00a0-470b-b76e-d5abaea2ef60" class="numbered-list" start="4"><li>安裝 express ⇒ 輸入 npm i express</li></ol><ol type="1" id="fcc65221-4702-4ae5-943e-3767ac38f418" class="numbered-list" start="5"><li>建立一個 basic_use.js 的檔案</li></ol><ol type="1" id="e6b1c9a8-7059-4ab3-9a23-df67e8895cc2" class="numbered-list" start="6"><li>basic_use.js 輸入以下</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6f6815a2-6b3a-448e-a807-9b3549abedef" class="code"><code class="language-JavaScript">//1.導入express
+const express = require(&#x27;express&#x27;);
+
+//2.建立實體
+const app = express();
+
+//3.建立url
+app.get(&#x27;/&#x27;, (request, response)=&gt;{
+    response.send(&#x27;Hello&#x27;);
+});
+
+//4.監聽Port
+app.listen(8000, ()=&gt;{
+    console.log(&quot;Server Start, 8000 port listen&quot;)
+});
+</code></pre><p id="4c696924-fc03-43a8-9f38-1e137e142735" class=""> 7.  進入 basic_use.js 的路徑並開始 Terminal</p><p id="f2277686-6a1c-456d-862a-bb6b97915a4b" class=""> 8.  輸入 node basic_use.js</p><p id="0c86b1c6-e132-447a-a9df-bb3d2b7e46d8" class=""> 9.  已啟動 Server ，網址輸入127.0.0.1:8000</p><h3 id="4ac4f89c-bb8c-476b-9350-442295075300" class="">AJAX 事前準備</h3><ul id="d28f54bc-24bc-4678-8333-b1d1b4c198f4" class="bulleted-list"><li style="list-style-type:disc">前端準備 1個 1-GET.html</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c7f1a5ed-3917-420c-b7b2-27901cc0852d" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;AJAX GET 請求&lt;/title&gt;
+    &lt;style&gt;
+        #result{
+            width: 200px;
+            height: 100px;
+            border: solid 1px #90b;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button&gt;submit&lt;/button&gt;
+    &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre><ul id="10a92992-a8e1-40a6-a227-dacc0a3a5530" class="bulleted-list"><li style="list-style-type:disc">後端準備 1個 server.js</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d92a2ec8-dc01-4d80-a8c6-d52d82e60539" class="code"><code class="language-JavaScript">
+const express = require(&#x27;express&#x27;);
+
+const app = express();
+
+app.get(&#x27;/server&#x27;, (request, response)=&gt;{
+
+    //允許跨域
+    response.setHeader(&#x27;Access-Control-Allow-Origin&#x27;,&#x27;*&#x27;);
+
+    response.send(&#x27;Hello&#x27;);
+});
+
+
+app.listen(8000, ()=&gt;{
+    console.log(&quot;Server Start, 8000 port listen&quot;)
+});
+</code></pre><ul id="a537461b-b02b-4f7f-8378-490570328c49" class="bulleted-list"><li style="list-style-type:disc">啟動 server.js</li></ul><ul id="e5bdc7f2-2cec-437a-bb1d-05372bec3664" class="bulleted-list"><li style="list-style-type:disc">輸入 <a href="http://localhost:8000/server">http://localhost:8000/server</a></li></ul><figure id="005a5a91-6be4-4d94-95d7-d2dbda66fb5f" class="image"><a href="AJAX%20c92f5a43086844e4b97f6c3cdcc3112e/Untitled.png"><img style="width:1362px" src="AJAX%20c92f5a43086844e4b97f6c3cdcc3112e/Untitled.png"/></a></figure><h3 id="b4e5cf9a-2709-476e-b2c7-aac01239fe95" class="">AJAX 請求的基本操作</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9005f97a-5a82-40e8-9768-6161c8cd5c0e" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;AJAX GET 請求&lt;/title&gt;
+    &lt;style&gt;
+        #result{
+            width: 200px;
+            height: 100px;
+            border: solid 1px #90b;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button&gt;submit&lt;/button&gt;
+    &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        const btn = document.getElementsByTagName(&#x27;button&#x27;)[0];
+        const result = document.getElementById(&quot;result&quot;);
+
+
+        btn.onclick = function(){
+
+            //1.創建實體
+            const xhr = new XMLHttpRequest();
+
+            //2.初始化
+            xhr.open(&#x27;GET&#x27;, &#x27;http:/127.0.0.1:8000/server&#x27;)
+
+            //3.發送
+            xhr.send();
+
+            //4.事件綁定 
+            //readystate 是 xhr 的對象中屬性， 表示狀態 0 1 2 3 4
+            xhr.onreadystatechange = function(){
+
+                if(xhr.readyState === 4){
+                    
+                    // 判斷回應碼 200 404 403 401 500
+                    // 2xx 成功
+                    if(xhr.status === 200 &amp;&amp; xhr.status &lt; 300){
+                        
+                        // console.log(xhr.status);
+                        // console.log(xhr.statusText);
+                        // console.log(xhr.getAllResponseHeaders);
+                        // console.log(xhr.response);
+                        result.innerHTML = xhr.response;
+                        
+                    }
+                    else{
+
+                    }
+
+                }
+            }
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre><h3 id="726a87db-dde9-46d6-9317-143152b850f4" class="">AJAX 設置參數</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d0e428b2-a9e2-47bc-bfda-5aa5e97d3774" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;AJAX GET 請求&lt;/title&gt;
+    &lt;style&gt;
+        #result{
+            width: 200px;
+            height: 100px;
+            border: solid 1px #90b;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button&gt;submit&lt;/button&gt;
+    &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        const btn = document.getElementsByTagName(&#x27;button&#x27;)[0];
+        const result = document.getElementById(&quot;result&quot;);
+
+
+        btn.onclick = function(){
+
+            //1.創建實體
+            const xhr = new XMLHttpRequest();
+
+            //2.初始化
+            xhr.open(&#x27;GET&#x27;, &#x27;http:/127.0.0.1:8000/server?a=100&amp;b=200&amp;c=300&#x27;)
+
+            //3.發送
+            xhr.send();
+
+            //4.事件綁定 
+            //readystate 是 xhr 的對象中屬性， 表示狀態 0 1 2 3 4
+            xhr.onreadystatechange = function(){
+
+                if(xhr.readyState === 4){
+                    
+                    // 判斷回應碼 200 404 403 401 500
+                    // 2xx 成功
+                    if(xhr.status === 200 &amp;&amp; xhr.status &lt; 300){
+                        
+                        // console.log(xhr.status);
+                        // console.log(xhr.statusText);
+                        // console.log(xhr.getAllResponseHeaders);
+                        // console.log(xhr.response);
+                        result.innerHTML = xhr.response;
+                        
+                    }
+                    else{
+
+                    }
+
+                }
+            }
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre><h3 id="ac916dad-825a-4026-a621-f0d3eb7baf1b" class="">AJAX 發送 POST 請求</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f5112d9a-c9ab-4396-8272-bf18d1114e4d" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;AJAX POST 請求&lt;/title&gt;
+    &lt;style&gt;
+        #result{
+            width: 200px;
+            height: 100px;
+            border: solid 1px #903;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        const result = document.getElementById(&quot;result&quot;);
+
+        result.addEventListener(&quot;mouseover&quot;, function(){
+
+            const xhr = new XMLHttpRequest();
+            xhr.open(&#x27;POST&#x27;, &#x27;http://127.0.0.1:8000/server&#x27;);
+            xhr.send();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    if(xhr.status&gt;=200 &amp;&amp; xhr.status&lt;300){
+                        result.innerHTML = xhr.response;
+                    }
+                }
+            };
+
+
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6ab1e5f5-26db-4a87-8f55-5776401c4f01" class="code"><code class="language-JavaScript">
+const express = require(&#x27;express&#x27;);
+
+const app = express();
+
+app.get(&#x27;/server&#x27;, (request, response)=&gt;{
+
+    //允許跨域
+    response.setHeader(&#x27;Access-Control-Allow-Origin&#x27;,&#x27;*&#x27;);
+
+    response.send(&#x27;Hello&#x27;);
+});
+
+
+app.post(&#x27;/server&#x27;, (request, response)=&gt;{
+
+    //允許跨域
+    response.setHeader(&#x27;Access-Control-Allow-Origin&#x27;,&#x27;*&#x27;);
+
+    response.send(&#x27;Hello 123&#x27;);
+});
+
+
+
+app.listen(8000, ()=&gt;{
+    console.log(&quot;Server Start, 8000 port listen&quot;)
+});
+</code></pre><div id="fb1879e3-62a1-4cc0-8f31-4d21b761ebaf" class="column-list"><div id="109895cb-1520-486c-8a99-c1a4ee5cf1a9" style="width:50%" class="column"><figure id="19dad9e2-dde1-443b-80f5-d785fa37b60b" class="image"><a href="AJAX%20c92f5a43086844e4b97f6c3cdcc3112e/Untitled%201.png"><img style="width:734px" src="AJAX%20c92f5a43086844e4b97f6c3cdcc3112e/Untitled%201.png"/></a></figure></div><div id="5c61ceda-db77-48b8-93c1-669cda0fbf63" style="width:50%" class="column"><figure id="1b0bb246-36d4-462b-8409-c614d42c8414" class="image"><a href="AJAX%20c92f5a43086844e4b97f6c3cdcc3112e/Untitled%202.png"><img style="width:739px" src="AJAX%20c92f5a43086844e4b97f6c3cdcc3112e/Untitled%202.png"/></a></figure></div></div><h3 id="1db6e781-16db-4c08-9d90-9733b7b139f0" class="">AJAX 發送 POST 參數</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e22d4119-1c65-4c7b-9e48-874d0d177622" class="code"><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;AJAX POST 請求&lt;/title&gt;
+    &lt;style&gt;
+        #result{
+            width: 200px;
+            height: 100px;
+            border: solid 1px #903;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        const result = document.getElementById(&quot;result&quot;);
+
+        result.addEventListener(&quot;mouseover&quot;, function(){
+
+            const xhr = new XMLHttpRequest();
+            xhr.open(&#x27;POST&#x27;, &#x27;http://127.0.0.1:8000/server&#x27;);
+            xhr.send(&#x27;a=100&amp;b=200&amp;c=300&#x27;);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    if(xhr.status&gt;=200 &amp;&amp; xhr.status&lt;300){
+                        result.innerHTML = xhr.response;
+                    }
+                }
+            };
+
+
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><div id="f7bce89d-f45b-4684-a90d-f965c8d407f7" class="column-list"><div id="78afa451-1c29-4da2-9e06-8438d00f003d" style="width:50%" class="column"><figure id="561f7294-4569-4f0f-a9d8-5b2558e2719a" class="image"><a href="AJAX%20c92f5a43086844e4b97f6c3cdcc3112e/Untitled%203.png"><img style="width:882px" src="AJAX%20c92f5a43086844e4b97f6c3cdcc3112e/Untitled%203.png"/></a></figure></div><div id="ca866227-478e-45e7-b2f2-ddfce3b7920a" style="width:50%" class="column"><figure id="74f0cd45-9c5e-448b-bf21-d43f7c906d81" class="image"><a href="AJAX%20c92f5a43086844e4b97f6c3cdcc3112e/Untitled%204.png"><img style="width:878px" src="AJAX%20c92f5a43086844e4b97f6c3cdcc3112e/Untitled%204.png"/></a></figure></div></div><h3 id="0bc401ac-b672-4d7e-8bb2-f993fb5e4d5e" class="">AJAX RequestHeader 設定請求</h3><ul id="903fe403-2492-4864-b564-da15a5d0d2de" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=14&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=14&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="24255887-0bc6-48f6-991d-45a0d407b3ca" class="">
+</p><h3 id="10058c1d-5f8b-4be1-911c-13be0523fd94" class="">AJAX 伺服器返回JSON資料</h3><ul id="62e27cf2-27ee-412f-8410-44b5c021e1d9" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=15&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=15&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="c6bb1679-948d-44f3-9c91-6d5a93ec456e" class="">
+</p><h3 id="6d60f5a7-5d5c-4b2d-9ea1-372a65ff6400" class="">AJAX nodemon 自動啟動伺服器工具安裝</h3><ul id="b2f010c1-6fef-4245-853a-8930003cf907" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=16&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=16&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="e86fc515-1d4a-4238-9602-b4096c79fbfc" class="">
+</p><h3 id="7c5e5339-cd36-4cd4-bb72-9dd0170c8326" class="">AJAX 請求超時與網路異常處理</h3><ul id="66c829e1-0e7f-4567-ba54-2e7255537a3f" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=18&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=18&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="13f3783b-0f02-422c-9845-194369a6806c" class="">
+</p><h3 id="16beea68-4b81-4f0a-9878-372f6dae404b" class="">AJAX 取消請求</h3><ul id="498991a9-288c-4c55-9256-f8b44068dafe" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=19&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=19&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="2543cd1a-fc47-46b6-a0ee-18979b36db50" class="">
+</p><h3 id="b5653abf-fe39-4e0e-9620-da9f768f1b5e" class="">AJAX 請求重複發送問題</h3><ul id="fbaf84a6-b848-47cb-a85b-2219d9b6713b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=20&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=20&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="cafa9b3f-7d96-4af7-962c-2df206238f3e" class="">
+</p><h3 id="2da48de1-9340-41e2-b61b-d1fb2fb952ce" class="">AJAX JQuery 發送AJAX請求</h3><ul id="9d8557d7-998b-4668-b9a5-20274de47701" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=21&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=21&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="dfece775-00b3-4ce2-add2-12797d999841" class="">
+</p><h3 id="de576384-fb19-4fd5-beb4-d07935b80847" class="">AJAX JQuery 通用方法發送AJAX請求</h3><ul id="6914a4f2-ba4f-40ed-90c9-d0ad911d5e05" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=22&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=22&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="e7fe23b7-4b5e-40ea-b052-97154189a605" class="">
+</p><h3 id="26d30068-6852-4b39-9a24-31e8c946eaeb" class="">Axios 發送 AJAX 請求</h3><ul id="5f196155-eeaa-445c-86f2-9ed25c0f3dce" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=23&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=23&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="bf73690d-1a72-42b6-a334-5b7fc1320b85" class="">
+</p><h3 id="9a75edf0-a2d4-4961-94a9-4aaa15e60d88" class="">Axios 函數發送AJAX請求</h3><ul id="c9be051d-6492-4781-900d-0b4c83649740" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=24&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=24&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="0c089ee4-2364-474a-8060-34d1957f72c3" class="">
+</p><h3 id="aabe6c9e-e2a8-4e4a-aa09-b24eff6c8816" class="">使用 fetch 函數發送AJAX請求</h3><ul id="8a63a03f-af06-44f9-aa99-31133615b652" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=25&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=25&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="963ca951-0d8d-44ed-a750-9480a0250e11" class="">
+</p><h3 id="aa26592a-ff92-4061-b9e4-063097fbc9c0" class=""><strong><strong>同源政策 (Same-origin policy)</strong></strong></h3><ul id="d0fe18cc-a19f-4bb8-bd5a-fe8e276b6ad0" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=26&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=26&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="a55b282c-a7a7-4ba5-9c6d-0c3f149aa27e" class="">
+</p><h3 id="f4178034-de48-47db-82ce-87813d835812" class="">jsonp的實現原理</h3><ul id="0bc7efcf-66c4-4b0d-ae55-c293fd3aec1d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=27">https://www.bilibili.com/video/BV1WC4y1b78y?p=26&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="89fc4c9e-b9e6-4b05-9911-ceab04663d0a" class="">
+</p><h3 id="039df589-2167-4f60-8bcb-950d9c556b14" class="">原生jsonp實作</h3><ul id="5c450c30-356d-43d2-b7d1-4f22f1289b77" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=28&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=26&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="153175e7-991e-4a88-bdbc-2e9961a5ad0b" class="">
+</p><h3 id="1f337a52-70c3-49a7-84b0-fa7f07fcd497" class="">JQuery發送jsonp請求</h3><ul id="196e775d-0c43-43a8-9dd1-9fd20a309bf3" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=29&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=29&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul><p id="00b9fa2d-4f47-4a66-b489-89d6fcfeb690" class="">
+</p><h3 id="deca2805-ccdb-4dad-9998-ae6919b9bbb3" class="">設定CORS回應實現跨域</h3><ul id="ac780224-6789-4171-bb73-7fb8343c835d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.bilibili.com/video/BV1WC4y1b78y?p=30&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e">https://www.bilibili.com/video/BV1WC4y1b78y?p=30&amp;vd_source=f2b24f08e2da705caa2aca92e24e7d9e</a></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
